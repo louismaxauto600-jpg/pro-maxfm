@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ht">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PRO-MAX Akademy | PRO-MAX FM</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #fff;
+}
+
+.header {
+    background: #000;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    width: 60px;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a.active {
+    color: orange;
+}
+
+.page-banner {
+    background: url("pro-max-fm-dmp.jpg") center/cover no-repeat;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.page-banner .overlay {
+    background: rgba(0,0,0,0.7);
+    padding: 40px;
+}
+
+.content {
+    padding: 40px 20px;
+}
+
+.show-card {
+    background: #222;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.show-image img {
+    width: 220px;
+    border-radius: 10px;
+}
+
+.show-info h2 {
+    color: orange;
+}
+
+.show-info h3 {
+    margin-top: 20px;
+    color: #ccc;
+}
+
+.show-info h4 {
+    margin-top: 5px;
+    color: #aaa;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: orange;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.schedule {
+    padding: 40px 20px;
+}
+
+.schedule table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #222;
+}
+
+.schedule th, .schedule td {
+    padding: 15px;
+    border: 1px solid #444;
+    text-align: left;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.contact-card {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contact-form {
+    display: grid;
+    gap: 20px;
+    max-width: 600px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: #fff;
+}
+
+.contact-form button {
+    padding: 12px;
+    background: orange;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+footer {
+    background: #000;
+    text-align: center;
+    padding: 30px;
+}
+
+footer img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+
+<a href="index.html">
+<img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM Logo">
+</a>
+
+<h1>PRO-MAX FM</h1>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">HOME</a></li>
+<li><a href="live.html">LIVE</a></li>
+<li><a href="news.html">NEWS</a></li>
+<li><a href="shows.html">SHOWS</a></li>
+<li><a href="podcasts.html">PODCASTS</a></li>
+<li><a href="gallery.html">GALLERY</a></li>
+<li><a href="video.html">VIDEO</a></li>
+<li><a href="academy.html" class="active">AKADEMY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="page-banner">
+
+<div class="overlay">
+
+<h1>PRO-MAX AKADEMY</h1>
+
+<p>
+Sant fòmasyon dijital PRO-MAX FM pou devlope talan,
+prepare nouvo vwa,
+fòme jèn nan medya,
+radyo,
+podcast,
+jounalis,
+pwodiksyon kontni ak teknoloji.
+</p>
+
+</div>
+
+</section>
+
+<section class="content">
+
+<div class="show-card">
+<div class="show-image">
+<img src="pro-max-fm-dmp.jpg" alt="PRO-MAX Akademy">
+</div>
+<div class="show-info">
+<h2>RADIO HOST TRAINING</h2>
+<p>Aprann kijan pou prezante yon emisyon, kontwole vwa ou, fè entwodiksyon pwofesyonèl, entèvyou, anons, transition, ak animasyon live.</p>
+<h3>Course Level</h3>
+<h4>Beginner • Intermediate • Advanced</h4>
+<a href="contact.html" class="button">REGISTER NOW</a>
+</div>
+</div>
+
+<div class="show-card">
+<div class="show-image">
+<img src="pro-max-fm-dmp.jpg" alt="Podcast Training">
+</div>
+<div class="show-info">
+<h2>PODCAST PRODUCTION</h2>
+<p>Fòmasyon sou kijan pou planifye, anrejistre, edite, pibliye, epi distribye podcast sou tout platfòm dijital yo.</p>
+<h3>Focus</h3>
+<h4>Audio • Branding • Publishing</h4>
+<a href="contact.html" class="button">REGISTER NOW</a>
+</div>
+</div>
+
+<div class="show-card">
+<div class="show-image">
+<img src="pro-max-fm-dmp.jpg" alt="DJ Training">
+</div>
+<div class="show-info">
+<h2>DJ & LIVE MIXING</h2>
+<p>Aprann baz DJ, playlist, transition mizik, live set, event sound, kontwòl ekipman, ak preparasyon pou pèfòmans.</p>
+<h3>Focus</h3>
+<h4>Music • Events • Live Performance</h4>
+<a href="contact.html" class="button">REGISTER NOW</a>
+</div>
+</div>
+
+<div class="show-card">
+<div class="show-image">
+<img src="pro-max-fm-dmp.jpg" alt="Journalism Training">
+</div>
+<div class="show-info">
+<h2>JOURNALISM & NEWS WRITING</h2>
+<p>Fòmasyon pou ekri nouvèl, verifye enfòmasyon, prepare entèvyou, fè rapò, ak kominike enfòmasyon avèk responsabilite.</p>
+<h3>Focus</h3>
+<h4>News • Ethics • Reporting</h4>
+<a href="contact.html" class="button">REGISTER NOW</a>
+</div>
+</div>
+
+<div class="show-card">
+<div class="show-image">
+<img src="pro-max-fm-dmp.jpg" alt="Voice Training">
+</div>
+<div class="show-info">
+<h2>VOICE & PRESENTATION</h2>
+<p>Amelyore diksyon, respirasyon, konfyans, ritm, intonasyon, ak prezans ou devan mikwofòn oswa kamera.</p>
+<h3>Focus</h3>
+<h4>Voice • Confidence • Delivery</h4>
+<a href="contact.html" class="button">REGISTER NOW</a>
+</div>
+</div>
+
+<div class="show-card">
+<div class="show-image">
+<img src="pro-max-fm-dmp.jpg" alt="Digital Media Skills">
+</div>
+<div class="show-info">
+<h2>DIGITAL MEDIA SKILLS</h2>
+<p>Aprann kreye kontni pou rezo sosyal, flyer, video short, caption, branding, marketing, ak pwomosyon dijital.</p>
+<h3>Focus</h3>
+<h4>Content • Branding • Promotion</h4>
+<a href="contact.html" class="button">REGISTER NOW</a>
+</div>
+</div>
+
+</section>
+
+<section class="schedule">
+
+<h2>AKADEMY PROGRAMS</h2>
+
+<table>
+
+<tr>
+<th>PROGRAM</th>
+<th>FOCUS</th>
+<th>STATUS</th>
+</tr>
+
+<tr>
+<td>Radio Host Training</td>
+<td>Live Presentation</td>
+<td>Open</td>
+</tr>
+
+<tr>
+<td>Podcast Production</td>
+<td>Audio & Publishing</td>
+<td>Open</td>
+</tr>
+
+<tr>
+<td>DJ & Live Mixing</td>
+<td>Music & Events</td>
+<td>Open</td>
+</tr>
+
+<tr>
+<td>Journalism</td>
+<td>News & Reporting</td>
+<td>Open</td>
+</tr>
+
+<tr>
+<td>Voice Training</td>
+<td>Presentation</td>
+<td>Open</td>
+</tr>
+
+<tr>
+<td>Digital Media</td>
+<td>Content Creation</td>
+<td>Open</td>
+</tr>
+
+</table>
+
+</section>
+
+<section class="content">
+
+<h2>WHO CAN JOIN?</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<h2>YOUTH</h2>
+<p>Jèn ki vle aprann medya, radyo, podcast, mizik, kontni dijital ak prezantasyon.</p>
+</div>
+
+<div class="contact-card">
+<h2>FUTURE HOSTS</h2>
+<p>Moun ki vle vin animatè, prezantatè, jounalis, DJ, oswa podcaster.</p>
+</div>
+
+<div class="contact-card">
+<h2>CREATORS</h2>
+<p>Kreyatè kontni, mizisyen, atis, biznis, ak moun ki vle devlope imaj yo sou platfòm dijital.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="content">
+
+<h2>APPLY FOR PRO-MAX AKADEMY</h2>
+
+<form class="contact-form">
+
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="tel" placeholder="Phone Number">
+<input type="text" placeholder="Program Interested In">
+<textarea rows="8" placeholder="Tell us why you want to join PRO-MAX Akademy"></textarea>
+
+<button type="submit" class="button">SUBMIT APPLICATION</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM">
+
+<h3>PRO-MAX FM</h3>
+
+<p>POWERING THE FUTURE OF DIGITAL RADIO</p>
+<p>PRO-MAX AKADEMY</p>
+<p>CONTACT: gmail.com</p>
+<p>WEBSITE: PRO-MAXFM.COM</p>
+<p>TEL: (407) 640-5166</p>
+<p>© 2026 PRO-MAX FM. ALL RIGHTS RESERVED.</p>
+
+</footer>
+
+</body>
+
+</html>
