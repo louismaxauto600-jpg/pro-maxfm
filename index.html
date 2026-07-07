@@ -1,194 +1,48 @@
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRO-MAX FM</title>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-body{background:#000;color:#ff6a00}
-a{text-decoration:none;color:#ff6a00}
-
-header{
-  background:#000;
-  border-bottom:3px solid #ff6a00;
-  padding:20px 6%;
-}
-
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:20px;
-}
-
-.logo-area{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-
-.logo-area img{
-  width:170px;
-  max-height:120px;
-  object-fit:contain;
-}
-
-.logo-text{
-  font-size:36px;
-  font-weight:900;
-  color:#ff6a00;
-}
-
-.menu a{
-  margin:8px 12px;
-  font-weight:900;
-}
-
-.hero{
-  min-height:85vh;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:40px;
-  padding:70px 6%;
-  background:linear-gradient(135deg,#000 40%,#ff6a00 120%);
-}
-
-.hero-text{
-  max-width:650px;
-}
-
-.hero h1{
-  font-size:80px;
-  line-height:1;
-  color:#ff6a00;
-}
-
-.hero p{
-  font-size:22px;
-  margin:20px 0;
-  color:#ff8a00;
-}
-
-.hero img{
-  width:420px;
-  max-width:100%;
-}
-
-.btn{
-  display:inline-block;
-  background:#ff6a00;
-  color:#000;
-  padding:15px 32px;
-  border-radius:40px;
-  font-weight:900;
-  margin-top:15px;
-}
-
-section{
-  padding:70px 6%;
-}
-
-h2{
-  font-size:42px;
-  margin-bottom:25px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-}
-
-.card{
-  border:2px solid #ff6a00;
-  border-radius:20px;
-  padding:25px;
-  background:#080300;
-}
-
-.card h3{
-  font-size:26px;
-  margin-bottom:10px;
-}
-
-.card p{
-  color:#ff8a00;
-  font-size:18px;
-}
-
-.radio{
-  border:2px solid #ff6a00;
-  border-radius:25px;
-  padding:35px;
-  text-align:center;
-  background:#0d0400;
-}
-
-audio{
-  width:100%;
-  max-width:650px;
-  margin-top:20px;
-}
-
-footer{
-  border-top:3px solid #ff6a00;
-  text-align:center;
-  padding:35px;
-}
-
-@media(max-width:850px){
-  .hero{
-    flex-direction:column;
-    text-align:center;
-  }
-  .hero h1{
-    font-size:52px;
-  }
-  nav{
-    justify-content:center;
-    text-align:center;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRO-MAX FM | Digital Radio Network</title>
+  <meta name="description" content="PRO-MAX FM Digital Radio Network - Music, News, Podcasts, Live Shows, Culture, and Community.">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-  <nav>
-    <div class="logo-area">
-      <img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM Logo">
-      <div class="logo-text">PRO-MAX FM</div>
-    </div>
+<header class="site-header">
+  <div class="brand">
+    <img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM Logo">
+    <h1>PRO-MAX FM</h1>
+  </div>
 
-    <div class="menu">
-      <a href="#live">LIVE</a>
-      <a href="#news">NEWS</a>
-      <a href="#shows">SHOWS</a>
-      <a href="#podcasts">PODCASTS</a>
-      <a href="#contact">CONTACT</a>
-    </div>
+  <nav class="main-nav">
+    <a href="#home">HOME</a>
+    <a href="#live">LIVE</a>
+    <a href="#news">NEWS</a>
+    <a href="#shows">SHOWS</a>
+    <a href="#podcasts">PODCASTS</a>
+    <a href="#contact">CONTACT</a>
   </nav>
 </header>
 
-<section class="hero">
-  <div class="hero-text">
-    <h1>PRO-MAX FM</h1>
-    <p><strong>Powering the Future of Digital Radio.</strong></p>
-    <p>Music • News • Podcasts • Live Shows • Culture • Community</p>
+<section id="home" class="hero">
+  <div class="hero-content">
+    <p class="tagline">OFFICIAL DIGITAL RADIO NETWORK</p>
+    <h2>PRO-MAX FM</h2>
+    <p class="slogan">Powering the Future of Digital Radio.</p>
+    <p class="intro">Music • News • Podcasts • Live Shows • Culture • Community</p>
     <a class="btn" href="#live">LISTEN LIVE</a>
   </div>
 
-  <img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM">
+  <div class="hero-logo">
+    <img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM Logo">
+  </div>
 </section>
 
-<section id="live">
-  <div class="radio">
-    <h2>LISTEN LIVE</h2>
+<section id="live" class="section">
+  <h2>LISTEN LIVE</h2>
+  <div class="live-box">
     <p>PRO-MAX FM Live Radio Player</p>
     <audio controls>
       <source src="" type="audio/mpeg">
@@ -196,9 +50,9 @@ footer{
   </div>
 </section>
 
-<section id="news">
+<section id="news" class="section">
   <h2>LATEST NEWS</h2>
-  <div class="grid">
+  <div class="cards">
     <div class="card">
       <h3>Breaking News</h3>
       <p>Nouvèl cho ak mizajou enpòtan.</p>
@@ -214,12 +68,12 @@ footer{
   </div>
 </section>
 
-<section id="shows">
+<section id="shows" class="section">
   <h2>FEATURED SHOWS</h2>
-  <div class="grid">
+  <div class="cards">
     <div class="card">
       <h3>Morning Power</h3>
-      <p>Emisyon maten ak mizik, nouvèl, ak motivasyon.</p>
+      <p>Emisyon maten ak nouvèl, mizik, ak motivasyon.</p>
     </div>
     <div class="card">
       <h3>Drive Time</h3>
@@ -232,9 +86,9 @@ footer{
   </div>
 </section>
 
-<section id="podcasts">
+<section id="podcasts" class="section">
   <h2>PODCASTS</h2>
-  <div class="grid">
+  <div class="cards">
     <div class="card">
       <h3>PRO-MAX Talks</h3>
       <p>Konvèsasyon sou medya, kominote, ak teknoloji.</p>
@@ -250,9 +104,9 @@ footer{
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="section">
   <h2>CONTACT US</h2>
-  <div class="card">
+  <div class="contact-box">
     <p><strong>CONTACT:</strong> gmail.com</p>
     <p><strong>WEBSITE:</strong> PRO-MAXFM.COM</p>
     <p><strong>TEL:</strong> (407) 640-5166</p>
