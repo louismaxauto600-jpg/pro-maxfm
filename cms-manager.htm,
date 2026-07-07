@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ht">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CMS Manager | PRO-MAX FM Admin</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+
+<a href="admin-dashboard.html">
+
+<img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM">
+
+</a>
+
+<h1>CMS MANAGER</h1>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="admin-dashboard.html">ADMIN</a></li>
+
+<li><a href="cms-manager.html" class="active">CMS</a></li>
+
+<li><a href="website-manager.html">WEBSITE</a></li>
+
+<li><a href="theme-manager.html">THEME</a></li>
+
+<li><a href="settings.html">SETTINGS</a></li>
+
+<li><a href="login.html">LOGOUT</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="page-banner">
+
+<div class="overlay">
+
+<h1>CONTENT MANAGEMENT CENTER</h1>
+
+<p>
+
+Jere tout kontni PRO-MAX FM:
+paj yo,
+atik,
+nouvèl,
+blog,
+banner,
+homepage,
+ak tout kontni piblik sit la.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="content">
+
+<div class="contact-card">
+
+<h2>CREATE NEW CONTENT</h2>
+
+<form class="contact-form">
+
+<input type="text" placeholder="Content Title">
+
+<select>
+
+<option>Select Content Type</option>
+
+<option>Homepage</option>
+
+<option>News</option>
+
+<option>Article</option>
+
+<option>Blog</option>
+
+<option>Event</option>
+
+<option>Podcast</option>
+
+<option>Video</option>
+
+<option>Gallery</option>
+
+<option>Announcement</option>
+
+</select>
+
+<input type="file">
+
+<textarea rows="10" placeholder="Write Content Here..."></textarea>
+
+<button class="button">
+
+PUBLISH CONTENT
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<section class="content">
+
+<h2>CMS MODULES</h2>
+
+<div class="gallery-grid">
+
+<div class="gallery-card">
+
+<img src="pro-max-fm-dmp.jpg">
+
+<h2>HOMEPAGE CONTENT</h2>
+
+<p>Edit Homepage Sections</p>
+
+<a href="homepage-manager.html" class="button">OPEN</a>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="pro-max-fm-dmp.jpg">
+
+<h2>NEWS ARTICLES</h2>
+
+<p>Manage News Content</p>
+
+<a href="news-manager.html" class="button">OPEN</a>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="pro-max-fm-dmp.jpg">
+
+<h2>PODCAST CONTENT</h2>
+
+<p>Manage Podcast Pages</p>
+
+<a href="podcast-manager.html" class="button">OPEN</a>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="pro-max-fm-dmp.jpg">
+
+<h2>VIDEO CONTENT</h2>
+
+<p>Manage Video Library</p>
+
+<a href="video-manager.html" class="button">OPEN</a>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="pro-max-fm-dmp.jpg">
+
+<h2>GALLERY CONTENT</h2>
+
+<p>Manage Photo Gallery</p>
+
+<a href="gallery-manager.html" class="button">OPEN</a>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="pro-max-fm-dmp.jpg">
+
+<h2>EVENT CONTENT</h2>
+
+<p>Manage Events</p>
+
+<a href="event-manager.html" class="button">OPEN</a>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="pro-max-fm-dmp.jpg">
+
+<h2>ADVERTISEMENTS</h2>
+
+<p>Manage Ads & Banners</p>
+
+<a href="advertising-manager.html" class="button">OPEN</a>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="pro-max-fm-dmp.jpg">
+
+<h2>ANNOUNCEMENTS</h2>
+
+<p>Public Notices</p>
+
+<a href="announcement-manager.html" class="button">OPEN</a>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="pro-max-fm-dmp.jpg">
+
+<h2>SEO CONTENT</h2>
+
+<p>Search Engine Content</p>
+
+<a href="#" class="button">OPEN</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="schedule">
+
+<h2>CONTENT STATUS</h2>
+
+<table>
+
+<tr>
+
+<th>CONTENT</th>
+
+<th>TYPE</th>
+
+<th>STATUS</th>
+
+<th>ACTION</th>
+
+</tr>
+
+<tr>
+
+<td>Homepage</td>
+
+<td>Page</td>
+
+<td>Published</td>
+
+<td>Edit</td>
+
+</tr>
+
+<tr>
+
+<td>Breaking News</td>
+
+<td>News</td>
+
+<td>Published</td>
+
+<td>Edit</td>
+
+</tr>
+
+<tr>
+
+<td>Podcast Episode</td>
+
+<td>Podcast</td>
+
+<td>Draft</td>
+
+<td>Edit</td>
+
+</tr>
+
+<tr>
+
+<td>Video Interview</td>
+
+<td>Video</td>
+
+<td>Published</td>
+
+<td>Edit</td>
+
+</tr>
+
+<tr>
+
+<td>Upcoming Event</td>
+
+<td>Event</td>
+
+<td>Scheduled</td>
+
+<td>Edit</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section class="content">
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<h2>TOTAL CONTENT</h2>
+
+<h3>0</h3>
+
+</div>
+
+<div class="contact-card">
+
+<h2>PUBLISHED</h2>
+
+<h3>0</h3>
+
+</div>
+
+<div class="contact-card">
+
+<h2>DRAFTS</h2>
+
+<h3>0</h3>
+
+</div>
+
+<div class="contact-card">
+
+<h2>SCHEDULED</h2>
+
+<h3>0</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM">
+
+<h3>PRO-MAX FM</h3>
+
+<p>POWERING THE FUTURE OF DIGITAL RADIO</p>
+
+<p>CMS MANAGEMENT CENTER</p>
+
+<p>EMAIL: promaxfmdmp@gmail.com</p>
+
+<p>WEBSITE: PRO-MAXFM.COM</p>
+
+<p>TEL: (407) 640-5166</p>
+
+<p>© 2026 PRO-MAX FM. ALL RIGHTS RESERVED.</p>
+
+</footer>
+
+</body>
+
+</html>
