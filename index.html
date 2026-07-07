@@ -3,54 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRO-MAX FM | Digital Radio Network</title>
-<meta name="description" content="PRO-MAX FM Digital Radio Network - Music, News, Culture, Podcasts, Live Shows, and Community.">
+<title>PRO-MAX FM</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-:root{--orange:#ff6a00;--orange2:#ff8a00;--black:#000;--dark:#120600}
-html{scroll-behavior:smooth}
-body{background:#000;color:var(--orange);overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
-header{position:sticky;top:0;z-index:999;background:rgba(0,0,0,.95);border-bottom:2px solid var(--orange);box-shadow:0 0 25px rgba(255,106,0,.35)}
-nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 6%}
-.brand{display:flex;align-items:center;gap:16px}
-.brand img{width:160px;filter:drop-shadow(0 0 20px var(--orange))}
-.brand-title{font-size:34px;font-weight:900;color:var(--orange);text-shadow:0 0 18px var(--orange)}
-.menu a{font-weight:900;font-size:14px;margin-left:16px;padding:8px 10px;border-radius:25px}
-.menu a:hover{background:var(--orange);color:#000}
-.lang button{background:#000;color:var(--orange);border:2px solid var(--orange);border-radius:25px;padding:8px 12px;font-weight:900}
-.ticker{background:var(--orange);color:#000;padding:13px 6%;font-weight:900;text-align:center}
-.hero{min-height:88vh;padding:75px 6%;display:grid;grid-template-columns:1.05fr .95fr;gap:35px;align-items:center;background:radial-gradient(circle at right,var(--orange) 0%,#1a0700 35%,#000 75%)}
-.tag{font-size:18px;font-weight:900;letter-spacing:3px}
-h1{font-size:88px;line-height:.95;color:var(--orange);text-shadow:0 0 32px var(--orange)}
-.hero p,p{font-size:21px;line-height:1.7;margin:16px 0;color:var(--orange2)}
-.hero-logo{width:520px;filter:drop-shadow(0 0 40px var(--orange))}
-.btn{display:inline-block;background:var(--orange);color:#000;padding:15px 32px;border-radius:40px;font-weight:900;margin:10px 10px 0 0;border:2px solid var(--orange)}
-.btn.alt{background:#000;color:var(--orange)}
-section{padding:70px 6%;background:#000}
-h2{font-size:44px;margin-bottom:25px;text-transform:uppercase;color:var(--orange);text-shadow:0 0 18px var(--orange)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
-.card{background:linear-gradient(145deg,#000,#170700);border:2px solid var(--orange);border-radius:22px;padding:26px;box-shadow:0 0 28px rgba(255,106,0,.25)}
-.card h3{font-size:25px;margin-bottom:12px;color:var(--orange)}
-.radio{border:2px solid var(--orange);border-radius:30px;padding:40px;text-align:center;background:radial-gradient(circle,#220900,#000);box-shadow:0 0 35px rgba(255,106,0,.35)}
-.onair{display:inline-block;background:var(--orange);color:#000;padding:10px 22px;border-radius:30px;font-weight:900;margin-bottom:15px}
-audio{width:100%;max-width:700px;margin-top:20px}
-.now{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:28px}
-.now div{border:1px solid var(--orange);border-radius:18px;padding:18px;background:#090300}
-.placeholder{height:160px;border-radius:18px;background:linear-gradient(135deg,var(--orange),#000);margin-bottom:15px;display:flex;align-items:center;justify-content:center;color:#000;font-weight:900}
-.search input,.newsletter input{width:100%;padding:16px;border-radius:35px;border:2px solid var(--orange);background:#000;color:var(--orange);font-size:17px;font-weight:900;margin:10px 0}
-.socials a{display:inline-block;border:2px solid var(--orange);border-radius:30px;padding:12px 16px;margin:7px;font-weight:900}
-footer{background:#000;border-top:2px solid var(--orange);text-align:center;padding:38px 6%;color:var(--orange)}
-#topBtn{position:fixed;right:20px;bottom:20px;background:var(--orange);color:#000;border:none;border-radius:50%;padding:16px 19px;font-weight:900;display:none;cursor:pointer}
-@media(max-width:900px){
-nav{flex-direction:column;text-align:center}
-.menu a{display:inline-block;margin:6px}
-.hero{grid-template-columns:1fr;text-align:center}
-h1{font-size:54px}
-.brand img{width:135px}
-.brand-title{font-size:28px}
+body{background:#000;color:#ff6a00}
+a{text-decoration:none;color:#ff6a00}
+
+header{
+  background:#000;
+  border-bottom:3px solid #ff6a00;
+  padding:20px 6%;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.logo-area img{
+  width:170px;
+  max-height:120px;
+  object-fit:contain;
+}
+
+.logo-text{
+  font-size:36px;
+  font-weight:900;
+  color:#ff6a00;
+}
+
+.menu a{
+  margin:8px 12px;
+  font-weight:900;
+}
+
+.hero{
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  padding:70px 6%;
+  background:linear-gradient(135deg,#000 40%,#ff6a00 120%);
+}
+
+.hero-text{
+  max-width:650px;
+}
+
+.hero h1{
+  font-size:80px;
+  line-height:1;
+  color:#ff6a00;
+}
+
+.hero p{
+  font-size:22px;
+  margin:20px 0;
+  color:#ff8a00;
+}
+
+.hero img{
+  width:420px;
+  max-width:100%;
+}
+
+.btn{
+  display:inline-block;
+  background:#ff6a00;
+  color:#000;
+  padding:15px 32px;
+  border-radius:40px;
+  font-weight:900;
+  margin-top:15px;
+}
+
+section{
+  padding:70px 6%;
+}
+
+h2{
+  font-size:42px;
+  margin-bottom:25px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  border:2px solid #ff6a00;
+  border-radius:20px;
+  padding:25px;
+  background:#080300;
+}
+
+.card h3{
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#ff8a00;
+  font-size:18px;
+}
+
+.radio{
+  border:2px solid #ff6a00;
+  border-radius:25px;
+  padding:35px;
+  text-align:center;
+  background:#0d0400;
+}
+
+audio{
+  width:100%;
+  max-width:650px;
+  margin-top:20px;
+}
+
+footer{
+  border-top:3px solid #ff6a00;
+  text-align:center;
+  padding:35px;
+}
+
+@media(max-width:850px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+  .hero h1{
+    font-size:52px;
+  }
+  nav{
+    justify-content:center;
+    text-align:center;
+  }
 }
 </style>
 </head>
@@ -58,180 +159,110 @@ h1{font-size:54px}
 <body>
 
 <header>
-<nav>
-<div class="brand">
-<img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM Logo">
-<div class="brand-title">PRO-MAX FM</div>
-</div>
+  <nav>
+    <div class="logo-area">
+      <img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM Logo">
+      <div class="logo-text">PRO-MAX FM</div>
+    </div>
 
-<div class="menu">
-<a href="#live">LIVE</a>
-<a href="#news">NEWS</a>
-<a href="#shows">SHOWS</a>
-<a href="#podcasts">PODCASTS</a>
-<a href="#schedule">SCHEDULE</a>
-<a href="#hosts">HOSTS</a>
-<a href="#contact">CONTACT</a>
-</div>
-
-<div class="lang">
-<button>KRE</button>
-<button>ENG</button>
-<button>FRA</button>
-</div>
-</nav>
+    <div class="menu">
+      <a href="#live">LIVE</a>
+      <a href="#news">NEWS</a>
+      <a href="#shows">SHOWS</a>
+      <a href="#podcasts">PODCASTS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </nav>
 </header>
 
-<div class="ticker">
-🔴 PRO-MAX FM DIGITAL RADIO NETWORK — POWERING THE FUTURE OF DIGITAL RADIO — MUSIC • NEWS • CULTURE • COMMUNITY
-</div>
-
 <section class="hero">
-<div>
-<div class="tag">OFFICIAL DIGITAL RADIO PLATFORM</div>
-<h1>PRO-MAX FM</h1>
-<p><strong>Powering the Future of Digital Radio.</strong></p>
-<p>Yon estasyon radyo dijital modèn pou mizik, nouvèl, podcast, emisyon live, kilti, kominote, ak piblisite.</p>
-<a class="btn" href="#live">LISTEN LIVE</a>
-<a class="btn alt" href="#contact">ADVERTISE WITH US</a>
-</div>
+  <div class="hero-text">
+    <h1>PRO-MAX FM</h1>
+    <p><strong>Powering the Future of Digital Radio.</strong></p>
+    <p>Music • News • Podcasts • Live Shows • Culture • Community</p>
+    <a class="btn" href="#live">LISTEN LIVE</a>
+  </div>
 
-<div>
-<img class="hero-logo" src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM">
-</div>
+  <img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM">
 </section>
 
 <section id="live">
-<div class="radio">
-<div class="onair">🔴 ON AIR NOW</div>
-<h2>LISTEN LIVE</h2>
-<p>PRO-MAX FM LIVE — The Best in Music, News, Culture & Community.</p>
-<audio controls>
-<source src="" type="audio/mpeg">
-</audio>
-
-<div class="now">
-<div><h3>NOW PLAYING</h3><p>PRO-MAX FM Live Stream</p></div>
-<div><h3>LIVE LISTENERS</h3><p id="listeners">1815</p></div>
-<div><h3>TODAY SHOW</h3><p>Morning Power • Drive Time • Night Vibes</p></div>
-</div>
-</div>
+  <div class="radio">
+    <h2>LISTEN LIVE</h2>
+    <p>PRO-MAX FM Live Radio Player</p>
+    <audio controls>
+      <source src="" type="audio/mpeg">
+    </audio>
+  </div>
 </section>
 
 <section id="news">
-<h2>LATEST NEWS</h2>
-<div class="search">
-<input type="text" placeholder="Search PRO-MAX FM news...">
-</div>
-
-<div class="grid">
-<div class="card"><div class="placeholder">NEWS</div><h3>Breaking News</h3><p>Nouvèl cho ak alèt enpòtan pou kominote a.</p></div>
-<div class="card"><div class="placeholder">COMMUNITY</div><h3>Community Updates</h3><p>Mizajou kominotè, aktivite, ak enfòmasyon lokal.</p></div>
-<div class="card"><div class="placeholder">CULTURE</div><h3>Culture & Lifestyle</h3><p>Kilti, mizik, rara, ak mouvman kominotè.</p></div>
-</div>
+  <h2>LATEST NEWS</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Breaking News</h3>
+      <p>Nouvèl cho ak mizajou enpòtan.</p>
+    </div>
+    <div class="card">
+      <h3>Community Updates</h3>
+      <p>Aktivite kominotè ak enfòmasyon lokal.</p>
+    </div>
+    <div class="card">
+      <h3>Culture & Music</h3>
+      <p>Mizik, kilti, rara, ak mouvman kominotè.</p>
+    </div>
+  </div>
 </section>
 
 <section id="shows">
-<h2>FEATURED SHOWS</h2>
-<div class="grid">
-<div class="card"><h3>Morning Power</h3><p>Emisyon maten ak nouvèl, mizik, motivasyon, ak kominote.</p></div>
-<div class="card"><h3>Drive Time</h3><p>Son cho, enfòmasyon, entèvyou, ak animasyon aprè midi.</p></div>
-<div class="card"><h3>Night Vibes</h3><p>Ambiance lannwit, talk show, seleksyon mizik, ak diskisyon.</p></div>
-</div>
+  <h2>FEATURED SHOWS</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Morning Power</h3>
+      <p>Emisyon maten ak mizik, nouvèl, ak motivasyon.</p>
+    </div>
+    <div class="card">
+      <h3>Drive Time</h3>
+      <p>Son cho ak animasyon aprè midi.</p>
+    </div>
+    <div class="card">
+      <h3>Night Vibes</h3>
+      <p>Talk show, mizik, ak vibe lannwit.</p>
+    </div>
+  </div>
 </section>
 
 <section id="podcasts">
-<h2>PODCASTS</h2>
-<div class="grid">
-<div class="card"><h3>PRO-MAX Talks</h3><p>Konvèsasyon sou teknoloji, kominote, biznis, ak medya.</p></div>
-<div class="card"><h3>Music Stories</h3><p>Istwa atis, mizisyen, rara, ak mouvman kiltirèl.</p></div>
-<div class="card"><h3>Community Voice</h3><p>Vwa kominote a, opinyon, entèvyou, ak temwayaj.</p></div>
-</div>
-</section>
-
-<section id="schedule">
-<h2>PROGRAM SCHEDULE</h2>
-<div class="grid">
-<div class="card"><h3>Monday - Friday</h3><p>Morning Power • Drive Time • Night Vibes</p></div>
-<div class="card"><h3>Saturday</h3><p>Culture Mix • Live Guest • Music Marathon</p></div>
-<div class="card"><h3>Sunday</h3><p>Community Hour • Inspirational Sounds • Weekly Recap</p></div>
-</div>
-</section>
-
-<section id="hosts">
-<h2>DJS & HOSTS</h2>
-<div class="grid">
-<div class="card"><div class="placeholder">HOST</div><h3>Host 1</h3><p>Official profile coming soon.</p></div>
-<div class="card"><div class="placeholder">HOST</div><h3>Host 2</h3><p>Official profile coming soon.</p></div>
-<div class="card"><div class="placeholder">DJ</div><h3>DJ 1</h3><p>Official profile coming soon.</p></div>
-</div>
-</section>
-
-<section>
-<h2>LIVE VIDEO</h2>
-<div class="card">
-<p>PRO-MAX FM Live Video section ready for future livestream integration.</p>
-<a class="btn" href="#">WATCH LIVE</a>
-</div>
-</section>
-
-<section>
-<h2>ADVERTISE WITH PRO-MAX FM</h2>
-<div class="card">
-<p>Promote biznis ou sou PRO-MAX FM ak audio ads, banner ads, sponsored shows, social media promotions, ak community campaigns.</p>
-<a class="btn" href="#contact">BOOK AD SPACE</a>
-</div>
-</section>
-
-<section>
-<h2>NEWSLETTER</h2>
-<div class="newsletter card">
-<p>Resevwa mizajou PRO-MAX FM dirèkteman.</p>
-<input type="email" placeholder="Enter your email">
-<a class="btn" href="#">SUBSCRIBE</a>
-</div>
+  <h2>PODCASTS</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>PRO-MAX Talks</h3>
+      <p>Konvèsasyon sou medya, kominote, ak teknoloji.</p>
+    </div>
+    <div class="card">
+      <h3>Music Stories</h3>
+      <p>Istwa atis, mizisyen, ak mouvman kiltirèl.</p>
+    </div>
+    <div class="card">
+      <h3>Community Voice</h3>
+      <p>Vwa kominote a, entèvyou, ak temwayaj.</p>
+    </div>
+  </div>
 </section>
 
 <section id="contact">
-<h2>CONTACT US</h2>
-<div class="card">
-<p><strong>CONTACT:</strong> gmail.com</p>
-<p><strong>WEBSITE:</strong> PRO-MAXFM.COM</p>
-<p><strong>TEL:</strong> (407) 640-5166</p>
-
-<div class="socials">
-<a href="#">Facebook</a>
-<a href="#">Instagram</a>
-<a href="#">YouTube</a>
-<a href="#">TikTok</a>
-<a href="#">WhatsApp</a>
-</div>
-</div>
+  <h2>CONTACT US</h2>
+  <div class="card">
+    <p><strong>CONTACT:</strong> gmail.com</p>
+    <p><strong>WEBSITE:</strong> PRO-MAXFM.COM</p>
+    <p><strong>TEL:</strong> (407) 640-5166</p>
+  </div>
 </section>
 
 <footer>
-<p>© <span id="year"></span> PRO-MAX FM. ALL RIGHTS RESERVED.</p>
-<p>POWERING THE FUTURE OF DIGITAL RADIO</p>
+  <p>© 2026 PRO-MAX FM. ALL RIGHTS RESERVED.</p>
+  <p>POWERING THE FUTURE OF DIGITAL RADIO</p>
 </footer>
-
-<button id="topBtn">↑</button>
-
-<script>
-document.getElementById("year").textContent=new Date().getFullYear();
-
-const topBtn=document.getElementById("topBtn");
-window.addEventListener("scroll",()=>{
-topBtn.style.display=window.scrollY>400?"block":"none";
-});
-topBtn.addEventListener("click",()=>{
-window.scrollTo({top:0,behavior:"smooth"});
-});
-
-setInterval(()=>{
-const listeners=document.getElementById("listeners");
-listeners.textContent=1815+Math.floor(Math.random()*90);
-},3000);
-</script>
 
 </body>
 </html>
