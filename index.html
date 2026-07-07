@@ -4,52 +4,57 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PRO-MAX FM | Digital Radio Network</title>
-<meta name="description" content="PRO-MAX FM Digital Radio Network - Music, News, Culture, Community, Podcasts and Live Shows.">
+<meta name="description" content="PRO-MAX FM Digital Radio Network - Music, News, Culture, Podcasts, Live Shows, and Community.">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-:root{--orange:#ff6a00;--dark:#000;--dark2:#120600}
+:root{--orange:#ff6a00;--orange2:#ff8a00;--black:#000;--dark:#120600}
 html{scroll-behavior:smooth}
 body{background:#000;color:var(--orange);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-header{position:sticky;top:0;z-index:999;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);border-bottom:2px solid var(--orange)}
-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 6%;gap:20px}
-.brand{display:flex;align-items:center;gap:18px}
-.brand img{width:155px;filter:drop-shadow(0 0 18px var(--orange))}
-.brand-title{font-size:34px;font-weight:900;text-shadow:0 0 18px var(--orange)}
-.menu a{margin-left:18px;font-weight:900;font-size:14px}
-.menu a:hover{color:#000;background:var(--orange);padding:8px 12px;border-radius:30px}
-.lang button,.admin-btn{background:#000;color:var(--orange);border:2px solid var(--orange);padding:9px 14px;border-radius:25px;font-weight:900}
+img{max-width:100%;display:block}
+header{position:sticky;top:0;z-index:999;background:rgba(0,0,0,.95);border-bottom:2px solid var(--orange);box-shadow:0 0 25px rgba(255,106,0,.35)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 6%}
+.brand{display:flex;align-items:center;gap:16px}
+.brand img{width:160px;filter:drop-shadow(0 0 20px var(--orange))}
+.brand-title{font-size:34px;font-weight:900;color:var(--orange);text-shadow:0 0 18px var(--orange)}
+.menu a{font-weight:900;font-size:14px;margin-left:16px;padding:8px 10px;border-radius:25px}
+.menu a:hover{background:var(--orange);color:#000}
+.lang button{background:#000;color:var(--orange);border:2px solid var(--orange);border-radius:25px;padding:8px 12px;font-weight:900}
 .ticker{background:var(--orange);color:#000;padding:13px 6%;font-weight:900;text-align:center}
-.hero{min-height:88vh;padding:75px 6%;display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center;background:radial-gradient(circle at right,var(--orange),#180700 38%,#000 75%)}
+.hero{min-height:88vh;padding:75px 6%;display:grid;grid-template-columns:1.05fr .95fr;gap:35px;align-items:center;background:radial-gradient(circle at right,var(--orange) 0%,#1a0700 35%,#000 75%)}
 .tag{font-size:18px;font-weight:900;letter-spacing:3px}
-h1{font-size:88px;line-height:.95;text-shadow:0 0 30px var(--orange)}
-p{font-size:21px;line-height:1.7;margin:16px 0;color:#ff8a00}
-.hero-logo{width:470px;max-width:100%;filter:drop-shadow(0 0 35px var(--orange))}
-.btn{display:inline-block;background:var(--orange);color:#000;padding:15px 32px;border-radius:40px;font-weight:900;margin:10px 10px 0 0}
-.btn.alt{background:#000;color:var(--orange);border:2px solid var(--orange)}
+h1{font-size:88px;line-height:.95;color:var(--orange);text-shadow:0 0 32px var(--orange)}
+.hero p,p{font-size:21px;line-height:1.7;margin:16px 0;color:var(--orange2)}
+.hero-logo{width:520px;filter:drop-shadow(0 0 40px var(--orange))}
+.btn{display:inline-block;background:var(--orange);color:#000;padding:15px 32px;border-radius:40px;font-weight:900;margin:10px 10px 0 0;border:2px solid var(--orange)}
+.btn.alt{background:#000;color:var(--orange)}
 section{padding:70px 6%;background:#000}
-h2{font-size:44px;margin-bottom:25px;text-transform:uppercase;text-shadow:0 0 15px var(--orange)}
+h2{font-size:44px;margin-bottom:25px;text-transform:uppercase;color:var(--orange);text-shadow:0 0 18px var(--orange)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
-.card{background:linear-gradient(145deg,#000,#160700);border:2px solid var(--orange);border-radius:22px;padding:26px;box-shadow:0 0 25px rgba(255,106,0,.28)}
-.card h3{font-size:25px;margin-bottom:12px}
-.radio{border:2px solid var(--orange);border-radius:28px;padding:40px;text-align:center;background:radial-gradient(circle,#1c0800,#000)}
-.onair{display:inline-block;background:var(--orange);color:#000;padding:10px 20px;border-radius:30px;font-weight:900;margin-bottom:15px}
-audio{width:100%;max-width:680px;margin-top:20px}
-.now{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-top:25px}
-.now div{flex:1;min-width:190px;border:1px solid var(--orange);border-radius:18px;padding:18px;background:#080300}
-.news-img,.host-img{height:150px;border-radius:18px;background:linear-gradient(135deg,#ff6a00,#000);margin-bottom:15px}
-.newsletter input,.search-box input{width:100%;padding:16px;border-radius:30px;border:2px solid var(--orange);background:#000;color:var(--orange);font-weight:900;margin:10px 0}
-.socials a{display:inline-block;border:2px solid var(--orange);padding:12px 16px;border-radius:30px;margin:8px;font-weight:900}
-footer{background:#000;border-top:2px solid var(--orange);text-align:center;padding:40px 6%}
-#topBtn{position:fixed;right:20px;bottom:20px;background:var(--orange);color:#000;border:none;padding:15px;border-radius:50%;font-weight:900;display:none}
+.card{background:linear-gradient(145deg,#000,#170700);border:2px solid var(--orange);border-radius:22px;padding:26px;box-shadow:0 0 28px rgba(255,106,0,.25)}
+.card h3{font-size:25px;margin-bottom:12px;color:var(--orange)}
+.radio{border:2px solid var(--orange);border-radius:30px;padding:40px;text-align:center;background:radial-gradient(circle,#220900,#000);box-shadow:0 0 35px rgba(255,106,0,.35)}
+.onair{display:inline-block;background:var(--orange);color:#000;padding:10px 22px;border-radius:30px;font-weight:900;margin-bottom:15px}
+audio{width:100%;max-width:700px;margin-top:20px}
+.now{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:28px}
+.now div{border:1px solid var(--orange);border-radius:18px;padding:18px;background:#090300}
+.placeholder{height:160px;border-radius:18px;background:linear-gradient(135deg,var(--orange),#000);margin-bottom:15px;display:flex;align-items:center;justify-content:center;color:#000;font-weight:900}
+.search input,.newsletter input{width:100%;padding:16px;border-radius:35px;border:2px solid var(--orange);background:#000;color:var(--orange);font-size:17px;font-weight:900;margin:10px 0}
+.socials a{display:inline-block;border:2px solid var(--orange);border-radius:30px;padding:12px 16px;margin:7px;font-weight:900}
+footer{background:#000;border-top:2px solid var(--orange);text-align:center;padding:38px 6%;color:var(--orange)}
+#topBtn{position:fixed;right:20px;bottom:20px;background:var(--orange);color:#000;border:none;border-radius:50%;padding:16px 19px;font-weight:900;display:none;cursor:pointer}
 @media(max-width:900px){
-nav{flex-direction:column}
-.menu{text-align:center}.menu a{display:inline-block;margin:7px}
+nav{flex-direction:column;text-align:center}
+.menu a{display:inline-block;margin:6px}
 .hero{grid-template-columns:1fr;text-align:center}
-h1{font-size:54px}.brand img{width:125px}
+h1{font-size:54px}
+.brand img{width:135px}
+.brand-title{font-size:28px}
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -58,24 +63,28 @@ h1{font-size:54px}.brand img{width:125px}
 <img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM Logo">
 <div class="brand-title">PRO-MAX FM</div>
 </div>
+
 <div class="menu">
 <a href="#live">LIVE</a>
 <a href="#news">NEWS</a>
 <a href="#shows">SHOWS</a>
 <a href="#podcasts">PODCASTS</a>
 <a href="#schedule">SCHEDULE</a>
+<a href="#hosts">HOSTS</a>
 <a href="#contact">CONTACT</a>
 </div>
+
 <div class="lang">
 <button>KRE</button>
 <button>ENG</button>
 <button>FRA</button>
 </div>
-<a class="admin-btn" href="#">ADMIN</a>
 </nav>
 </header>
 
-<div class="ticker">🔴 PRO-MAX FM DIGITAL RADIO NETWORK — POWERING THE FUTURE OF DIGITAL RADIO — MUSIC • NEWS • CULTURE • COMMUNITY</div>
+<div class="ticker">
+🔴 PRO-MAX FM DIGITAL RADIO NETWORK — POWERING THE FUTURE OF DIGITAL RADIO — MUSIC • NEWS • CULTURE • COMMUNITY
+</div>
 
 <section class="hero">
 <div>
@@ -86,7 +95,10 @@ h1{font-size:54px}.brand img{width:125px}
 <a class="btn" href="#live">LISTEN LIVE</a>
 <a class="btn alt" href="#contact">ADVERTISE WITH US</a>
 </div>
-<div><img class="hero-logo" src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM"></div>
+
+<div>
+<img class="hero-logo" src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM">
+</div>
 </section>
 
 <section id="live">
@@ -94,7 +106,10 @@ h1{font-size:54px}.brand img{width:125px}
 <div class="onair">🔴 ON AIR NOW</div>
 <h2>LISTEN LIVE</h2>
 <p>PRO-MAX FM LIVE — The Best in Music, News, Culture & Community.</p>
-<audio controls><source src="" type="audio/mpeg"></audio>
+<audio controls>
+<source src="" type="audio/mpeg">
+</audio>
+
 <div class="now">
 <div><h3>NOW PLAYING</h3><p>PRO-MAX FM Live Stream</p></div>
 <div><h3>LIVE LISTENERS</h3><p id="listeners">1815</p></div>
@@ -105,20 +120,23 @@ h1{font-size:54px}.brand img{width:125px}
 
 <section id="news">
 <h2>LATEST NEWS</h2>
-<div class="search-box"><input type="text" placeholder="Search PRO-MAX FM news..."></div>
+<div class="search">
+<input type="text" placeholder="Search PRO-MAX FM news...">
+</div>
+
 <div class="grid">
-<div class="card"><div class="news-img"></div><h3>Breaking News</h3><p>Nouvèl cho ak alèt enpòtan.</p></div>
-<div class="card"><div class="news-img"></div><h3>Community Updates</h3><p>Mizajou kominotè ak evènman lokal.</p></div>
-<div class="card"><div class="news-img"></div><h3>Culture & Lifestyle</h3><p>Kilti, mizik, rara, ak mouvman kominotè.</p></div>
+<div class="card"><div class="placeholder">NEWS</div><h3>Breaking News</h3><p>Nouvèl cho ak alèt enpòtan pou kominote a.</p></div>
+<div class="card"><div class="placeholder">COMMUNITY</div><h3>Community Updates</h3><p>Mizajou kominotè, aktivite, ak enfòmasyon lokal.</p></div>
+<div class="card"><div class="placeholder">CULTURE</div><h3>Culture & Lifestyle</h3><p>Kilti, mizik, rara, ak mouvman kominotè.</p></div>
 </div>
 </section>
 
 <section id="shows">
 <h2>FEATURED SHOWS</h2>
 <div class="grid">
-<div class="card"><h3>Morning Power</h3><p>Emisyon maten ak nouvèl, mizik, ak motivasyon.</p></div>
-<div class="card"><h3>Drive Time</h3><p>Son cho, enfòmasyon, ak animasyon aprè midi.</p></div>
-<div class="card"><h3>Night Vibes</h3><p>Ambiance lannwit, talk show, ak seleksyon mizik.</p></div>
+<div class="card"><h3>Morning Power</h3><p>Emisyon maten ak nouvèl, mizik, motivasyon, ak kominote.</p></div>
+<div class="card"><h3>Drive Time</h3><p>Son cho, enfòmasyon, entèvyou, ak animasyon aprè midi.</p></div>
+<div class="card"><h3>Night Vibes</h3><p>Ambiance lannwit, talk show, seleksyon mizik, ak diskisyon.</p></div>
 </div>
 </section>
 
@@ -140,26 +158,20 @@ h1{font-size:54px}.brand img{width:125px}
 </div>
 </section>
 
-<section>
+<section id="hosts">
 <h2>DJS & HOSTS</h2>
 <div class="grid">
-<div class="card"><div class="host-img"></div><h3>Host 1</h3><p>Official profile coming soon.</p></div>
-<div class="card"><div class="host-img"></div><h3>Host 2</h3><p>Official profile coming soon.</p></div>
-<div class="card"><div class="host-img"></div><h3>DJ 1</h3><p>Official profile coming soon.</p></div>
+<div class="card"><div class="placeholder">HOST</div><h3>Host 1</h3><p>Official profile coming soon.</p></div>
+<div class="card"><div class="placeholder">HOST</div><h3>Host 2</h3><p>Official profile coming soon.</p></div>
+<div class="card"><div class="placeholder">DJ</div><h3>DJ 1</h3><p>Official profile coming soon.</p></div>
 </div>
 </section>
 
 <section>
 <h2>LIVE VIDEO</h2>
-<div class="card"><p>PRO-MAX FM Live Video section ready for future livestream integration.</p></div>
-</section>
-
-<section>
-<h2>SPONSORS</h2>
-<div class="grid">
-<div class="card"><h3>Sponsor 1</h3><p>Partner spot available.</p></div>
-<div class="card"><h3>Sponsor 2</h3><p>Partner spot available.</p></div>
-<div class="card"><h3>Sponsor 3</h3><p>Partner spot available.</p></div>
+<div class="card">
+<p>PRO-MAX FM Live Video section ready for future livestream integration.</p>
+<a class="btn" href="#">WATCH LIVE</a>
 </div>
 </section>
 
@@ -186,6 +198,7 @@ h1{font-size:54px}.brand img{width:125px}
 <p><strong>CONTACT:</strong> gmail.com</p>
 <p><strong>WEBSITE:</strong> PRO-MAXFM.COM</p>
 <p><strong>TEL:</strong> (407) 640-5166</p>
+
 <div class="socials">
 <a href="#">Facebook</a>
 <a href="#">Instagram</a>
@@ -205,12 +218,18 @@ h1{font-size:54px}.brand img{width:125px}
 
 <script>
 document.getElementById("year").textContent=new Date().getFullYear();
+
 const topBtn=document.getElementById("topBtn");
-window.onscroll=function(){topBtn.style.display=window.scrollY>400?"block":"none"};
-topBtn.onclick=function(){window.scrollTo({top:0,behavior:"smooth"})};
+window.addEventListener("scroll",()=>{
+topBtn.style.display=window.scrollY>400?"block":"none";
+});
+topBtn.addEventListener("click",()=>{
+window.scrollTo({top:0,behavior:"smooth"});
+});
+
 setInterval(()=>{
-let n=document.getElementById("listeners");
-n.textContent=1815+Math.floor(Math.random()*90);
+const listeners=document.getElementById("listeners");
+listeners.textContent=1815+Math.floor(Math.random()*90);
 },3000);
 </script>
 
