@@ -37,6 +37,7 @@
 <li><a href="podcasts.html">PODCASTS</a></li>
 <li><a href="academy.html">AKADEMY</a></li>
 <li><a href="advertise.html">ADVERTISE</a></li>
+<li><a href="register.html">REGISTER</a></li>
 <li><a href="login.html" class="active">LOGIN</a></li>
 <li><a href="contact.html">CONTACT</a></li>
 
@@ -54,10 +55,9 @@
 
 <p>
 Antre sou kont PRO-MAX FM ou pou jwenn aksè ak dashboard,
-profile,
 admin tools,
 media center,
-ak sèvis espesyal yo.
+ak tout sèvis espesyal yo.
 </p>
 
 </div>
@@ -66,17 +66,15 @@ ak sèvis espesyal yo.
 
 <section class="content">
 
-<div class="contact-grid">
-
 <div class="contact-card">
 
-<h2>MEMBER LOGIN</h2>
+<h2>LOGIN</h2>
 
-<form class="contact-form">
+<form class="contact-form" id="loginForm">
 
-<input type="email" placeholder="Email Address" required>
+<input type="email" id="loginEmail" placeholder="Email Address" required>
 
-<input type="password" placeholder="Password" required>
+<input type="password" id="loginPassword" placeholder="Password" required>
 
 <button type="submit" class="button">LOGIN</button>
 
@@ -88,41 +86,7 @@ ak sèvis espesyal yo.
 
 <p><a href="register.html">Create New Account</a></p>
 
-</div>
-
-<div class="contact-card">
-
-<h2>ACCESS LEVELS</h2>
-
-<p>Super Admin</p>
-<p>Admin</p>
-<p>Radio Host</p>
-<p>DJ</p>
-<p>Journalist</p>
-<p>Artist</p>
-<p>Advertiser</p>
-<p>Member</p>
-
-</div>
-
-<div class="contact-card">
-
-<h2>SECURE PORTAL</h2>
-
-<p>
-PRO-MAX FM Login Center ap prepare pou konekte ak Firebase Authentication,
-admin dashboard,
-role management,
-ak media tools.
-</p>
-
-<br>
-
-<p>EMAIL: promaxfmdmp@gmail.com</p>
-
-<p>TEL: (407) 640-5166</p>
-
-</div>
+<p id="loginMessage"></p>
 
 </div>
 
@@ -130,50 +94,44 @@ ak media tools.
 
 <section class="content">
 
-<h2>LOGIN FEATURES</h2>
+<h2>ACCESS LEVELS</h2>
 
 <div class="gallery-grid">
 
 <div class="gallery-card">
-
-<img src="pro-max-fm-dmp.jpg" alt="Dashboard">
-
-<h2>DASHBOARD ACCESS</h2>
-
-<p>
-Aksè ak dashboard pèsonèl selon wòl itilizatè a.
-</p>
-
+<img src="pro-max-fm-dmp.jpg" alt="Super Admin">
+<h2>SUPER ADMIN</h2>
+<p>Full system access.</p>
 </div>
 
 <div class="gallery-card">
-
-<img src="pro-max-fm-dmp.jpg" alt="Media">
-
-<h2>MEDIA TOOLS</h2>
-
-<p>
-Jere foto,
-videyo,
-mizik,
-podcast,
-ak dokiman medya yo.
-</p>
-
-</div>
-
-<div class="gallery-card">
-
 <img src="pro-max-fm-dmp.jpg" alt="Admin">
+<h2>ADMIN</h2>
+<p>Management access.</p>
+</div>
 
-<h2>ADMIN CONTROL</h2>
+<div class="gallery-card">
+<img src="pro-max-fm-dmp.jpg" alt="Host">
+<h2>HOST</h2>
+<p>Show and broadcast access.</p>
+</div>
 
-<p>
-Kontwòl espesyal pou admin,
-super admin,
-ak ekip PRO-MAX FM.
-</p>
+<div class="gallery-card">
+<img src="pro-max-fm-dmp.jpg" alt="DJ">
+<h2>DJ</h2>
+<p>Music and live mix access.</p>
+</div>
 
+<div class="gallery-card">
+<img src="pro-max-fm-dmp.jpg" alt="Member">
+<h2>MEMBER</h2>
+<p>Member portal access.</p>
+</div>
+
+<div class="gallery-card">
+<img src="pro-max-fm-dmp.jpg" alt="Business">
+<h2>BUSINESS</h2>
+<p>Business and advertising access.</p>
 </div>
 
 </div>
@@ -199,6 +157,9 @@ ak ekip PRO-MAX FM.
 <p>© 2026 PRO-MAX FM. ALL RIGHTS RESERVED.</p>
 
 </footer>
+
+<script src="firebase-config.js"></script>
+<script src="auth.js"></script>
 
 </body>
 
