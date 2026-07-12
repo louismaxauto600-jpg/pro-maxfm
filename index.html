@@ -4,235 +4,159 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PRO-MAX FM DMP</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:Arial,sans-serif;background:#000!important;color:#ffd2a3!important;line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    button{font-family:inherit;cursor:pointer;border:none}
-    
-    .topbar{position:sticky;top:0;z-index:1000;background:rgba(0,0,0,.96);border-bottom:2px solid #ff7300}
-    .topbar-inner{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:16px;padding:12px 20px;max-width:1400px;margin:0 auto}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand-logo{width:56px;height:56px;border-radius:50%;border:2px solid #ff7300;background:#ff7300;display:grid;place-items:center;font-weight:900;color:#000;font-size:1.3rem}
-    .brand-text h1{font-size:18px;text-transform:uppercase;line-height:1;margin:0;color:#ff7300}
-    .brand-text p{font-size:11px;margin-top:4px;letter-spacing:.8px;color:#c88952}
-    .main-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
-    .nav-btn{padding:8px 12px;border:1px solid #ff7300;border-radius:999px;font-weight:700;font-size:.8rem;background:#000;color:#ff7300}
-    .nav-btn:hover{background:#ff7300;color:#000}
-    .lang-toggle{width:44px;height:44px;border-radius:50%;border:2px solid #ff7300;background:#000;color:#ff7300;display:grid;place-items:center;font-size:1.3rem}
-    .lang-toggle:hover{background:#ff7300;color:#000}
-    .admin-toggle{padding:10px 18px;border:1px solid #ff7300;border-radius:999px;font-weight:900;background:#ff7300;color:#000}
-    
-    .hero{min-height:85vh;display:grid;place-items:center;padding:100px 20px;text-align:center;background:radial-gradient(circle at center,rgba(255,115,0,.26),transparent 56%)}
-    .hero h1{font-size:clamp(2.5rem,7vw,5rem);line-height:1;text-transform:uppercase;margin-bottom:20px}
-    .hero h1 span{display:block;color:#ffd2a3}
-    .hero h1 strong{display:block;color:#ff7300;text-shadow:0 0 36px rgba(255,115,0,.38)}
-    .hero p{max-width:700px;margin:20px auto;color:#c88952;font-size:1.1rem}
-    .hero-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-top:30px}
-    .btn{min-width:180px;padding:14px 22px;border:1px solid #ff7300;border-radius:999px;text-align:center;font-weight:900}
-    .btn-primary{color:#000;background:linear-gradient(135deg,#ff9b22,#ff7300)}
-    .btn-secondary{color:#ff9b22;background:rgba(0,0,0,.5)}
-    
-    .modules-section{padding:60px 20px;max-width:1400px;margin:0 auto}
-    .section-title{text-align:center;margin-bottom:40px}
-    .section-title small{display:block;margin-bottom:10px;color:#ff7300;font-weight:900;letter-spacing:1.7px;text-transform:uppercase}
-    .section-title h2{font-size:clamp(2rem,5vw,3rem);color:#ff7300;margin:0 0 10px 0;text-transform:uppercase}
-    .section-title p{color:#c88952}
-    
-    .modules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-    .module-card{min-height:220px;display:flex;flex-direction:column;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;color:#ff7300;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;box-shadow:0 0 20px rgba(255,106,0,.14);cursor:pointer}
-    .module-card:hover{transform:translateY(-7px);border-color:#ff7300;box-shadow:0 0 28px rgba(255,106,0,.34)}
-    .module-icon{width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:1.55rem}
-    .module-card h3{margin:0;color:#ff7300;font-size:1.08rem;text-transform:uppercase}
-    .module-card p{margin:11px 0 0;color:#c88952;font-size:.92rem;line-height:1.6}
-    .module-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:18px}
-    .module-link{color:#ff7300;font-size:.87rem;font-weight:900}
-    .status{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid rgba(255,115,0,.45);border-radius:999px;color:#ff7300;background:#000;font-size:.68rem;font-weight:900;text-transform:uppercase}
-    .status::before{content:"";width:7px;height:7px;border-radius:50%;background:#ff7300;box-shadow:0 0 8px #ff7300}
-    
-    .social-section{border-top:1px solid rgba(255,115,0,.35);border-bottom:1px solid rgba(255,115,0,.35);background:#080808;padding:60px 20px}
-    .social-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;max-width:1200px;margin:0 auto}
-    .social-card{min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;border:1px solid rgba(255,115,0,.45);border-radius:20px;text-align:center;color:#ff7300;background:linear-gradient(145deg,rgba(255,106,0,.15),transparent 48%),#111;cursor:pointer}
-    .social-card:hover{transform:translateY(-7px);box-shadow:0 0 30px rgba(255,106,0,.35)}
-    .social-icon{margin-bottom:16px;font-size:2.5rem}
-    .social-card h3{margin:0;color:#ff7300;font-size:1.1rem;text-transform:uppercase}
-    .social-card p{margin-top:8px;color:#c88952;font-size:.85rem}
-    
-    .video-embed{margin-top:50px;max-width:900px;margin-left:auto;margin-right:auto}
-    .video-embed h3{color:#ff7300;text-align:center;margin-bottom:20px;font-size:1.5rem}
-    .video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:20px;border:2px solid rgba(255,115,0,.45);box-shadow:0 15px 40px rgba(255,115,0,.3)}
-    .video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%}
-    
-    footer{margin-top:60px;padding:30px 20px;text-align:center;border-top:1px solid rgba(255,115,0,.35);color:#c88952}
-    
-    @media (max-width:1050px){.modules-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media (max-width:650px){.modules-grid,.social-grid{grid-template-columns:1fr}.topbar-inner{grid-template-columns:1fr}}
-  </style>
 </head>
-<body>
+<body style="margin:0;padding:20px;background:#000;color:#ff7300;font-family:Arial,sans-serif">
 
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <div class="brand-logo">FM</div>
-        <div class="brand-text">
-          <h1>PRO-MAX FM DMP</h1>
-          <p>Digital Radio Platform</p>
-        </div>
-      </div>
-      <nav class="main-nav">
-        <button class="nav-btn" onclick="document.getElementById('radio').scrollIntoView({behavior:'smooth'})">📻 Radyo</button>
-        <button class="nav-btn" onclick="document.getElementById('social').scrollIntoView({behavior:'smooth'})">🌐 Social</button>
-      </nav>
-      <button class="lang-toggle" id="langToggle" title="Change Language">🌍</button>
-      <button class="admin-toggle">⚙️ ADMIN</button>
+  <div style="position:fixed;top:20px;right:20px;width:50px;height:50px;border-radius:50%;border:2px solid #ff7300;background:#000;color:#ff7300;display:grid;place-items:center;font-size:24px;cursor:pointer" onclick="alert('Language: Kreyòl / Français')">🌍</div>
+
+  <div style="border-bottom:2px solid #ff7300;padding:20px;text-align:center;margin-bottom:30px">
+    <div style="width:60px;height:60px;border-radius:50%;border:2px solid #ff7300;background:#ff7300;display:inline-grid;place-items:center;font-weight:900;color:#000;font-size:24px;margin-bottom:10px">FM</div>
+    <h1 style="margin:10px 0;font-size:28px">PRO-MAX FM DMP</h1>
+    <p style="margin:0;color:#c88952;font-size:14px">Digital Radio Platform</p>
+  </div>
+
+  <h2 style="text-align:center;font-size:32px;margin:40px 0 20px 0">38 MODIL PRO-MAX FM/DMP</h2>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;max-width:1200px;margin:0 auto;padding:0 20px">
+
+    <div onclick="alert('Live Radio')" style="padding:24px;border:1px solid #ff7300;border-radius:18px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:48px;margin-bottom:10px">📻</div>
+      <h3 style="margin:10px 0;font-size:18px">Live Radio</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">24/7 Streaming</p>
     </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <h1>
-          <span>POWERING THE FUTURE OF</span>
-          <strong>DIGITAL RADIO</strong>
-        </h1>
-        <p>Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl.</p>
-        <div class="hero-buttons">
-          <button class="btn btn-primary">🎧 LISTEN LIVE</button>
-          <button class="btn btn-secondary" onclick="document.getElementById('radio').scrollIntoView({behavior:'smooth'})">📋 VIEW SCHEDULE</button>
-        </div>
-      </div>
-    </section>
+    <div onclick="alert('Emisyon')" style="padding:24px;border:1px solid #ff7300;border-radius:18px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:48px;margin-bottom:10px">📺</div>
+      <h3 style="margin:10px 0;font-size:18px">Emisyon</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Shows & Programming</p>
+    </div>
 
-    <section class="modules-section" id="radio">
-      <div class="section-title">
-        <small>Tout sèvis yo nan yon sèl kote</small>
-        <h2>38 MODIL PRO-MAX FM/DMP</h2>
-        <p>Antre dirèkteman nan sèvis prensipal platfòm radyo ak jesyon dijital la.</p>
-      </div>
-      <div class="modules-grid" id="modules-grid"></div>
-    </section>
+    <div onclick="alert('Podcast')" style="padding:24px;border:1px solid #ff7300;border-radius:18px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:48px;margin-bottom:10px">🎙</div>
+      <h3 style="margin:10px 0;font-size:18px">Podcast</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Shows & Episodes</p>
+    </div>
 
-    <section class="social-section" id="social">
-      <div class="modules-section">
-        <div class="section-title">
-          <small>Social Streaming</small>
-          <h2>Konekte Sou Tout Platfòm</h2>
-          <p>Swiv PRO-MAX FM DMP sou Facebook, Instagram, WhatsApp, TikTok, X, Truth Social, YouTube ak Spotify.</p>
-        </div>
-        <div class="social-grid" id="social-grid"></div>
-        <div class="video-embed">
-          <h3>DÈNYE VIDEO NOU</h3>
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/_mqq1THvqkI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+    <div onclick="alert('Mizik')" style="padding:24px;border:1px solid #ff7300;border-radius:18px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:48px;margin-bottom:10px">🎵</div>
+      <h3 style="margin:10px 0;font-size:18px">Mizik</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Music Library</p>
+    </div>
 
-  <footer>
+    <div onclick="alert('Atis')" style="padding:24px;border:1px solid #ff7300;border-radius:18px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:48px;margin-bottom:10px">🎤</div>
+      <h3 style="margin:10px 0;font-size:18px">Atis</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Artists & Performers</p>
+    </div>
+
+    <div onclick="alert('Nouvèl')" style="padding:24px;border:1px solid #ff7300;border-radius:18px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:48px;margin-bottom:10px">📰</div>
+      <h3 style="margin:10px 0;font-size:18px">Nouvèl</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Breaking News</p>
+    </div>
+
+    <div onclick="alert('Espò')" style="padding:24px;border:1px solid #ff7300;border-radius:18px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:48px;margin-bottom:10px">⚽</div>
+      <h3 style="margin:10px 0;font-size:18px">Espò</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Sports Center</p>
+    </div>
+
+    <div onclick="alert('Evènman')" style="padding:24px;border:1px solid #ff7300;border-radius:18px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:48px;margin-bottom:10px">📅</div>
+      <h3 style="margin:10px 0;font-size:18px">Evènman</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Events & Calendar</p>
+    </div>
+
+    <div onclick="alert('Videyo')" style="padding:24px;border:1px solid #ff7300;border-radius:18px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:48px;margin-bottom:10px">🎥</div>
+      <h3 style="margin:10px 0;font-size:18px">Videyo</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Video Center</p>
+    </div>
+
+    <div onclick="alert('Academy')" style="padding:24px;border:1px solid #ff7300;border-radius:18px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:48px;margin-bottom:10px">🎓</div>
+      <h3 style="margin:10px 0;font-size:18px">PRO-MAX Academy</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Learning Center</p>
+    </div>
+
+    <div onclick="alert('Admin')" style="padding:24px;border:1px solid #ff7300;border-radius:18px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:48px;margin-bottom:10px">🛡</div>
+      <h3 style="margin:10px 0;font-size:18px">Admin Dashboard</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Kontwòl santral</p>
+    </div>
+
+    <div onclick="alert('Analytics')" style="padding:24px;border:1px solid #ff7300;border-radius:18px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:48px;margin-bottom:10px">📈</div>
+      <h3 style="margin:10px 0;font-size:18px">Analytics</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Rapò ak pèfòmans</p>
+    </div>
+
+  </div>
+
+  <h2 style="text-align:center;font-size:32px;margin:60px 0 20px 0">SOCIAL PLATFORMS</h2>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;max-width:1200px;margin:0 auto;padding:0 20px">
+
+    <div onclick="window.open('https://facebook.com','_blank')" style="padding:28px;border:1px solid #1877F2;border-radius:20px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:40px;margin-bottom:10px;color:#1877F2">📘</div>
+      <h3 style="margin:10px 0;font-size:18px;color:#1877F2">Facebook</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Page & Community</p>
+    </div>
+
+    <div onclick="window.open('https://instagram.com','_blank')" style="padding:28px;border:1px solid #E4405F;border-radius:20px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:40px;margin-bottom:10px;color:#E4405F">📷</div>
+      <h3 style="margin:10px 0;font-size:18px;color:#E4405F">Instagram</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Photos & Stories</p>
+    </div>
+
+    <div onclick="window.open('https://wa.me','_blank')" style="padding:28px;border:1px solid #25D366;border-radius:20px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:40px;margin-bottom:10px;color:#25D366">💬</div>
+      <h3 style="margin:10px 0;font-size:18px;color:#25D366">WhatsApp</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Chat & Updates</p>
+    </div>
+
+    <div onclick="window.open('https://tiktok.com','_blank')" style="padding:28px;border:1px solid #000;border-radius:20px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:40px;margin-bottom:10px">🎵</div>
+      <h3 style="margin:10px 0;font-size:18px;color:#ff7300">TikTok</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Short Videos</p>
+    </div>
+
+    <div onclick="window.open('https://x.com','_blank')" style="padding:28px;border:1px solid #000;border-radius:20px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:40px;margin-bottom:10px;color:#ff7300">𝕏</div>
+      <h3 style="margin:10px 0;font-size:18px;color:#ff7300">X / Twitter</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">News & Updates</p>
+    </div>
+
+    <div onclick="window.open('https://truthsocial.com','_blank')" style="padding:28px;border:1px solid #5448C8;border-radius:20px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:40px;margin-bottom:10px;color:#5448C8">🦅</div>
+      <h3 style="margin:10px 0;font-size:18px;color:#5448C8">Truth Social</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Community Posts</p>
+    </div>
+
+    <div onclick="window.open('https://www.youtube.com/watch?v=_mqq1THvqkI','_blank')" style="padding:28px;border:1px solid #FF0000;border-radius:20px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:40px;margin-bottom:10px;color:#FF0000">📺</div>
+      <h3 style="margin:10px 0;font-size:18px;color:#FF0000">YouTube</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Channel & Live</p>
+    </div>
+
+    <div onclick="window.open('https://open.spotify.com','_blank')" style="padding:28px;border:1px solid #1DB954;border-radius:20px;background:#111;text-align:center;cursor:pointer">
+      <div style="font-size:40px;margin-bottom:10px;color:#1DB954">🎵</div>
+      <h3 style="margin:10px 0;font-size:18px;color:#1DB954">Spotify</h3>
+      <p style="margin:0;color:#c88952;font-size:14px">Podcast & Mizik</p>
+    </div>
+
+  </div>
+
+  <div style="max-width:900px;margin:60px auto;padding:0 20px">
+    <h2 style="text-align:center;margin-bottom:20px;font-size:28px">DÈNYE VIDEO NOU</h2>
+    <div style="position:relative;padding-bottom:56.25%;height:0;border:2px solid #ff7300;border-radius:20px;overflow:hidden">
+      <iframe src="https://www.youtube.com/embed/_mqq1THvqkI" style="position:absolute;top:0;left:0;width:100%;height:100%" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <footer style="margin-top:60px;padding:30px 20px;text-align:center;border-top:1px solid #ff7300;color:#c88952">
     <p>© 2026 PRO-MAX FM DMP. Tout dwa rezève.</p>
   </footer>
-
-  <script>
-    // 38 MODIL KONPLÈ
-    const modules = [
-      {icon:"📻",name:"Live Radio",desc:"24/7 Streaming"},
-      {icon:"📺",name:"Emisyon",desc:"Shows & Programming"},
-      {icon:"🎙",name:"Podcast",desc:"Shows & Episodes"},
-      {icon:"🎵",name:"Mizik",desc:"Music Library"},
-      {icon:"🎤",name:"Atis",desc:"Artists & Performers"},
-      {icon:"📰",name:"Nouvèl",desc:"Breaking News"},
-      {icon:"⚽",name:"Espò",desc:"Sports Center"},
-      {icon:"📅",name:"Evènman",desc:"Events & Calendar"},
-      {icon:"🎥",name:"Videyo",desc:"Video Center"},
-      {icon:"🎓",name:"PRO-MAX Academy",desc:"Learning Center"},
-      {icon:"🛡",name:"Admin Dashboard",desc:"Kontwòl santral"},
-      {icon:"📈",name:"Analytics",desc:"Rapò ak pèfòmans"},
-      {icon:"🎧",name:"DJ Portal",desc:"Zòn travay pou DJ"},
-      {icon:"🎙️",name:"Host Portal",desc:"Dashboard animatè"},
-      {icon:"🎬",name:"Live Studio",desc:"Diffusion an dirèk"},
-      {icon:"🌤️",name:"Meteyo",desc:"Tan an dirèk"},
-      {icon:"🎤",name:"Entèvyou",desc:"Envite espesyal"},
-      {icon:"🖼️",name:"Galri",desc:"Foto ak albòm"},
-      {icon:"📢",name:"Piblisite",desc:"Anons ak sponsors"},
-      {icon:"💼",name:"Biznis",desc:"Patnè ak piblisite"},
-      {icon:"🕊️",name:"An Memwa",desc:"Omaj ak souvni"},
-      {icon:"👥",name:"Manm",desc:"Komunote"},
-      {icon:"💬",name:"Mesaj",desc:"Chat ak oditè"},
-      {icon:"📧",name:"Imèl",desc:"Newsletter"},
-      {icon:"📣",name:"Anons",desc:"Piblikasyon"},
-      {icon:"📞",name:"Kontak",desc:"Enfòmasyon"},
-      {icon:"💭",name:"Feedback",desc:"Kòmantè ak nòt"},
-      {icon:"📚",name:"Media Library",desc:"Achiv medya"},
-      {icon:"👤",name:"User Management",desc:"Jere itilizatè"},
-      {icon:"🔐",name:"Role & Permissions",desc:"Wòl ak aksè"},
-      {icon:"📊",name:"Reports",desc:"Rapò detaye"},
-      {icon:"📝",name:"Activity Logs",desc:"Istwa aktivite"},
-      {icon:"🛡️",name:"Security Center",desc:"Sekirite"},
-      {icon:"🔥",name:"Firebase",desc:"Backend"},
-      {icon:"💾",name:"Database",desc:"Baz done"},
-      {icon:"☁️",name:"Backup & Restore",desc:"Sovgad"},
-      {icon:"🔧",name:"System Monitor",desc:"Siveyans"},
-      {icon:"🌐",name:"API Manager",desc:"API ak entegrasyon"}
-    ];
-
-    // 8 SOCIAL AK X/TWITTER AK INSTAGRAM
-    const socialModules = [
-      {icon:"📘",name:"Facebook",desc:"Page & Community",url:"https://facebook.com",color:"#1877F2"},
-      {icon:"📷",name:"Instagram",desc:"Photos & Stories",url:"https://instagram.com",color:"#E4405F"},
-      {icon:"💬",name:"WhatsApp",desc:"Chat & Updates",url:"https://wa.me",color:"#25D366"},
-      {icon:"🎵",name:"TikTok",desc:"Short Videos",url:"https://tiktok.com",color:"#000000"},
-      {icon:"𝕏",name:"X / Twitter",desc:"News & Updates",url:"https://x.com",color:"#000000"},
-      {icon:"🦅",name:"Truth Social",desc:"Community Posts",url:"https://truthsocial.com",color:"#5448C8"},
-      {icon:"📺",name:"YouTube",desc:"Channel & Live Stream",url:"https://www.youtube.com/watch?v=_mqq1THvqkI",color:"#FF0000"},
-      {icon:"🎵",name:"Spotify",desc:"Podcast & Mizik",url:"https://open.spotify.com",color:"#1DB954"}
-    ];
-
-    function renderModules() {
-      const grid = document.getElementById("modules-grid");
-      modules.forEach(m => {
-        const card = document.createElement("article");
-        card.className = "module-card";
-        card.innerHTML = `
-          <div class="module-icon">${m.icon}</div>
-          <h3>${m.name}</h3>
-          <p>${m.desc}</p>
-          <div class="module-footer">
-            <span class="module-link">Louvri modil la →</span>
-            <span class="status">live</span>
-          </div>
-        `;
-        card.onclick = () => alert(`Modil ${m.name} ap louvri byento!`);
-        grid.appendChild(card);
-      });
-    }
-
-    function renderSocial() {
-      const grid = document.getElementById("social-grid");
-      socialModules.forEach(p => {
-        const card = document.createElement("article");
-        card.className = "social-card";
-        card.style.borderColor = p.color + "66";
-        card.innerHTML = `
-          <div class="social-icon" style="color:${p.color}">${p.icon}</div>
-          <h3 style="color:${p.color}">${p.name}</h3>
-          <p>${p.desc}</p>
-        `;
-        card.onclick = () => window.open(p.url, "_blank");
-        grid.appendChild(card);
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      renderModules();
-      renderSocial();
-      document.getElementById("langToggle").onclick = () => {
-        alert("Language toggle: Kreyòl ↔ Français\nOu ka ajoute tradiksyon konplè isit la.");
-      };
-    });
-  </script>
 
 </body>
 </html>
