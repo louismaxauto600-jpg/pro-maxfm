@@ -13,10 +13,9 @@
     }
 
     body {
-      min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
       color: #ff9d00;
-      background: linear-gradient(145deg, #000000 0%, #100500 48%, #000000 100%);
+      background: #000000;
     }
 
     a {
@@ -49,7 +48,7 @@
       justify-content: space-between;
       gap: 20px;
       padding: 14px 5%;
-      background: rgba(0, 0, 0, 0.95);
+      background: #000000;
       border-bottom: 1px solid rgba(255, 106, 0, 0.42);
     }
 
@@ -157,25 +156,15 @@
       background: #000000;
     }
 
-    .menu-button {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border: 1px solid #ff6a00;
-      border-radius: 9px;
-      color: #ff6a00;
-      background: #000000;
-      font-size: 1.4rem;
-      cursor: pointer;
-    }
-
     .hero {
+      position: relative;
       min-height: 84vh;
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
       align-items: center;
       gap: 50px;
       padding: 85px 7%;
+      background: #000000;
     }
 
     .hero-badge {
@@ -230,7 +219,7 @@
       justify-content: center;
     }
 
-    /* GLOBE BLE + VÈT - STATIK SAN BLINK */
+    /* GLOBE LATÈ KI MACHE 100% - PA GEN IMAJ EKSTÈN */
     .globe {
       position: absolute;
       width: 580px;
@@ -238,8 +227,8 @@
       border-radius: 50%;
       background: #1e40af;
       border: 3px solid rgba(255, 106, 0, 0.6);
-      overflow: hidden;
       z-index: 1;
+      overflow: hidden;
     }
 
     .globe::before {
@@ -247,10 +236,11 @@
       position: absolute;
       inset: 0;
       background: 
-        radial-gradient(ellipse 100px 140px at 30% 30%, #22c55e 0%, transparent 70%),
-        radial-gradient(ellipse 120px 90px at 70% 25%, #16a34a 0%, transparent 70%),
-        radial-gradient(ellipse 110px 170px at 25% 70%, #22c55e 0%, transparent 70%),
-        radial-gradient(ellipse 150px 100px at 75% 75%, #16a34a 0%, transparent 70%);
+        radial-gradient(ellipse 110px 150px at 30% 30%, #22c55e 0%, transparent 70%),
+        radial-gradient(ellipse 130px 100px at 70% 25%, #16a34a 0%, transparent 70%),
+        radial-gradient(ellipse 120px 180px at 25% 70%, #22c55e 0%, transparent 70%),
+        radial-gradient(ellipse 160px 110px at 75% 75%, #16a34a 0%, transparent 70%),
+        radial-gradient(ellipse 90px 70px at 50% 50%, #22c55e 0%, transparent 70%);
       border-radius: 50%;
     }
 
@@ -286,6 +276,9 @@
 
     .section {
       padding: 80px 6%;
+      background: #000000;
+      position: relative;
+      z-index: 10;
     }
 
     .section-heading {
@@ -323,6 +316,7 @@
     }
 
     .service-card {
+      position: relative;
       min-height: 225px;
       padding: 26px;
       border: 1px solid rgba(255, 106, 0, 0.42);
@@ -419,7 +413,7 @@
       border-left: 4px solid #ff6a00;
       border-radius: 9px;
       color: #ff9d00;
-      background: #0d0d0d;
+      background: #0d0d;
       font-weight: 800;
     }
 
@@ -683,4 +677,121 @@
         <small data-lang="services-small">Tout sèvis yo nan yon sèl kote</small>
         <h2 data-lang="services-title">Eksplore PRO-MAX FM/DMP</h2>
         <p data-lang="services-text">
-          Antre dirèktem
+          Antre dirèkteman nan chak seksyon prensipal platfòm dijital la.
+        </p>
+      </div>
+
+      <div class="service-grid">
+
+        <article class="service-card">
+          <div class="service-icon">▶</div>
+          <h3 data-lang="card-live-title">Live Radio</h3>
+          <p data-lang="card-live-text">
+            Koute pwogramasyon PRO-MAX FM an dirèk sou entènèt.
+          </p>
+          <a class="service-link" href="live.html" data-lang="card-live-link">Koute kounye a →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">TV</div>
+          <h3 data-lang="card-shows-title">Emisyon</h3>
+          <p data-lang="card-shows-text">
+            Dekouvri emisyon, animatè, orè ak pwogram espesyal yo.
+          </p>
+          <a class="service-link" href="shows.html" data-lang="card-shows-link">Gade emisyon yo →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🎙</div>
+          <h3 data-lang="card-podcast-title">Podcast</h3>
+          <p data-lang="card-podcast-text">
+            Tande entèvyou, deba, analiz ak seri odyo espesyal.
+          </p>
+          <a class="service-link" href="podcasts.html" data-lang="card-podcast-link">Ale nan podcast →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">♫</div>
+          <h3 data-lang="card-music-title">Mizik</h3>
+          <p data-lang="card-music-text">
+            Eksplore mizik, atis, DJ ak nouvo pwodiksyon yo.
+          </p>
+          <a class="service-link" href="musics.html" data-lang="card-music-link">Dekouvri mizik →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">N</div>
+          <h3 data-lang="card-news-title">Nouvèl</h3>
+          <p data-lang="card-news-text">
+            Rete enfòme sou nouvèl kominotè, lokal ak entènasyonal.
+          </p>
+          <a class="service-link" href="news.html" data-lang="card-news-link">Li nouvèl yo →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">S</div>
+          <h3 data-lang="card-sports-title">Espò</h3>
+          <p data-lang="card-sports-text">
+            Jwenn nouvèl espò, analiz, rezilta ak emisyon espesyal.
+          </p>
+          <a class="service-link" href="sports.html" data-lang="card-sports-link">Antre nan espò →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">E</div>
+          <h3 data-lang="card-events-title">Evènman</h3>
+          <p data-lang="card-events-text">
+            Swiv aktivite, entèvyou, prezantasyon ak evènman ofisyèl.
+          </p>
+          <a class="service-link" href="events.html" data-lang="card-events-link">Gade evènman yo →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">A</div>
+          <h3 data-lang="card-artists-title">Atis</h3>
+          <p data-lang="card-artists-text">
+            Dekouvri atis, mizisyen, DJ, animatè ak kreyatè yo.
+          </p>
+          <a class="service-link" href="artists.html" data-lang="card-artists-link">Dekouvri atis yo →</a>
+        </article>
+
+      </div>
+
+    </section>
+
+    <section class="section platform-section">
+
+      <div class="platform-layout">
+
+        <div class="platform-image">
+          <img
+            src="pro-max-fm-dmp-II.jpeg"
+            alt="PRO-MAX FM Digital Management Platform"
+          >
+        </div>
+
+        <div class="platform-content">
+
+          <span class="hero-badge" data-lang="platform-badge">Digital Management Platform</span>
+
+          <h2 data-lang="platform-title">Plis pase yon radyo</h2>
+
+          <p data-lang="platform-text">
+            PRO-MAX FM/DMP se yon sistèm dijital konplè pou jere radyo,
+            mizik, podcast, nouvèl, medya, itilizatè, evènman, piblisite,
+            sekirite, rapò ak operasyon administratif.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature-item">Admin Dashboard</div>
+            <div class="feature-item">Live Studio</div>
+            <div class="feature-item">DJ Portal</div>
+            <div class="feature-item">Media Library</div>
+            <div class="feature-item">Artist Management</div>
+            <div class="feature-item">Podcast Management</div>
+            <div class="feature-item">Event Management</div>
+            <div class="feature-item">Security Center</div>
+          </div>
+
+          <div class="hero-buttons">
+            <a class
