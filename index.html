@@ -3,173 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PRO-MAX FM DMP | Digital Radio Platform</title>
+  <title>PRO-MAX FM DMP</title>
   <style>
-    :root {
-      --orange: #ff7300;
-      --orange-light: #ff9b22;
-      --black: #000;
-      --dark: #111;
-      --text: #ffd2a3;
-      --muted: #c88952;
-    }
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:Arial,sans-serif;background:#000!important;color:#ffd2a3!important;line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    button{font-family:inherit;cursor:pointer;border:none}
-
-    /* HEADER + LOGO + GWO GLOBE ANIME */
-  .topbar{position:sticky;top:0;z-index:1000;background:rgba(0,0,0,.96);border-bottom:2px solid #ff7300;backdrop-filter:blur(18px)}
-  .topbar-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:12px 20px;max-width:1400px;margin:0 auto}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand-logo{width:56px;height:56px;border-radius:50%;border:2px solid #ff7300;background:#ff7300;display:grid;place-items:center;font-weight:900;color:#000;font-size:1.3rem}
-  .brand-text{display:flex;align-items:center;gap:15px}
-  .brand-text h1{font-size:20px;text-transform:uppercase;line-height:1;margin:0;color:#ff7300}
-  .brand-text p{font-size:11px;margin-top:4px;letter-spacing:.8px;color:#c88952}
+    body{font-family:Arial,sans-serif;background:#000;color:#ff7300;line-height:1.6}
     
-    /* GWO GLOBE ANIME */
-  .globe-container{
-      width:50px;
-      height:50px;
-      position:relative;
-      cursor:pointer;
-      animation: rotate 8s linear infinite;
-    }
-  .globe{
-      width:100%;
-      height:100%;
-      border-radius:50%;
-      background:radial-gradient(circle at 30% 30%, #ff9b22, #ff7300, #c44d00);
-      box-shadow:0 0 20px rgba(255,115,0,.6), inset 0 0 20px rgba(0,0,0,.4);
-      position:relative;
-      overflow:hidden;
-    }
-  .globe::before{
-      content:"";
-      position:absolute;
-      top:0;left:0;right:0;bottom:0;
-      background:repeating-linear-gradient(0deg, transparent 8px, rgba(0,0,0,.3) 8px, rgba(0,0,0,.3) 9px),
-                 repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(0,0,0,.3) 8px, rgba(0,0,0,.3) 9px);
-      border-radius:50%;
-    }
-  .globe::after{
-      content:"🌍";
-      position:absolute;
-      top:50%;left:50%;
-      transform:translate(-50%,-50%);
-      font-size:28px;
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-    @keyframes pulse{0%,100%{opacity:1;transform:translate(-50%,-50%) scale(1)}50%{opacity:0.8;transform:translate(-50%,-50%) scale(1.1)}}
+  .header{border-bottom:3px solid #ff7300;padding:15px 20px;background:#000}
+  .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     
-  .main-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
-  .nav-btn{padding:8px 12px;border:1px solid #ff7300;border-radius:999px;font-weight:700;font-size:.8rem;background:#000;color:#ff7300}
+    /* LOGO */
+  .logo{width:60px;height:60px;border-radius:50%;border:3px solid #ff7300;background:linear-gradient(135deg,#ff9b22,#ff7300);display:grid;place-items:center;font-weight:900;color:#000;font-size:24px;box-shadow:0 0 25px rgba(255,115,0,.5)}
+    
+  .brand{display:flex;align-items:center;gap:20px;flex:1}
+  .brand-info h1{margin:0;font-size:24px;color:#ff7300;text-transform:uppercase}
+  .brand-info p{margin:4px 0 0 0;font-size:12px;color:#c88952;letter-spacing:.8px}
+    
+    /* GWO GLOBE ANIME APRE PRO-MAX FM DMP */
+  .globe-big{width:70px;height:70px;position:relative;cursor:pointer;animation:spin 10s linear infinite}
+  .globe-sphere{width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff9b22 0%,#ff7300 40%,#c44d00 100%);box-shadow:0 0 30px rgba(255,115,0,.7),inset -10px -10px 30px rgba(0,0,0,.5);position:relative;overflow:hidden}
+  .globe-sphere::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0px,transparent 10px,rgba(0,0,0,.4) 10px,rgba(0,0,0,.4) 11px),repeating-linear-gradient(90deg,transparent 0px,transparent 10px,rgba(0,0,0,.4) 10px,rgba(0,0,0,.4) 11px);border-radius:50%}
+  .globe-sphere::after{content:"🌍";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:36px;animation:glow 3s ease-in-out infinite}
+    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    @keyframes glow{0%,100%{opacity:1;filter:drop-shadow(0 0 10px #ff7300)}50%{opacity:0.7;filter:drop-shadow(0 0 20px #ff7300)}}
+    
+  .nav{display:flex;gap:10px;flex-wrap:wrap}
+  .nav-btn{padding:8px 12px;border:1px solid #ff7300;border-radius:999px;background:#000;color:#ff7300;font-weight:700;cursor:pointer;font-size:13px}
   .nav-btn:hover{background:#ff7300;color:#000}
-  .admin-toggle{padding:10px 18px;border:1px solid #ff7300;border-radius:999px;font-weight:900;background:#ff7300;color:#000}
-
-  .hero{min-height:85vh;display:grid;place-items:center;padding:100px 20px;text-align:center;background:radial-gradient(circle at center,rgba(255,115,0,.26),transparent 56%)}
-  .hero h1{font-size:clamp(2.5rem,7vw,5rem);line-height:1;text-transform:uppercase;margin-bottom:20px}
+    
+  .hero{min-height:80vh;display:grid;place-items:center;padding:80px 20px;text-align:center;background:radial-gradient(circle at center,rgba(255,115,0,.26),transparent 60%)}
+  .hero h1{font-size:clamp(40px,7vw,80px);line-height:1;text-transform:uppercase;margin-bottom:20px}
   .hero h1 span{display:block;color:#ffd2a3}
   .hero h1 strong{display:block;color:#ff7300;text-shadow:0 0 36px rgba(255,115,0,.38)}
-  .hero p{max-width:700px;margin:20px auto;color:#c88952;font-size:1.1rem}
-  .hero-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-top:30px}
-  .btn{min-width:180px;padding:14px 22px;border:1px solid #ff7300;border-radius:999px;text-align:center;font-weight:900}
-  .btn-primary{color:#000;background:linear-gradient(135deg,#ff9b22,#ff7300)}
-  .btn-secondary{color:#ff9b22;background:rgba(0,0,0,.5)}
-
-    main{max-width:1400px;margin:0 auto;padding:60px 20px}
+  .hero p{max-width:700px;margin:20px auto;color:#c88952;font-size:18px}
+    
+  .container{max-width:1400px;margin:0 auto;padding:60px 20px}
   .section-title{text-align:center;margin-bottom:40px}
-  .section-title small{display:block;margin-bottom:10px;color:#ff7300;font-weight:900;letter-spacing:1.7px;text-transform:uppercase}
-  .section-title h2{font-size:clamp(2rem,5vw,3rem);color:#ff7300;margin:0 0 10px 0;text-transform:uppercase}
+  .section-title h2{font-size:clamp(32px,5vw,48px);color:#ff7300;margin:0 0 10px 0;text-transform:uppercase}
   .section-title p{color:#c88952}
-
-  .modules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:60px}
-  .module-card{min-height:220px;display:flex;flex-direction:column;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;color:#ff7300;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;box-shadow:0 0 20px rgba(255,106,0,.14);cursor:pointer}
-  .module-card:hover{transform:translateY(-7px);border-color:#ff7300;box-shadow:0 0 28px rgba(255,106,0,.34)}
-  .module-icon{width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:1.55rem}
-  .module-card h3{margin:0;color:#ff7300;font-size:1.08rem;text-transform:uppercase}
-  .module-card p{margin:11px 0 0;color:#c88952;font-size:.92rem;line-height:1.6}
-  .module-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:18px}
-  .module-link{color:#ff7300;font-size:.87rem;font-weight:900}
-  .status{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid rgba(255,115,0,.45);border-radius:999px;color:#ff7300;background:#000;font-size:.68rem;font-weight:900;text-transform:uppercase}
+    
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:60px}
+  .card{min-height:220px;display:flex;flex-direction:column;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;color:#ff7300;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;box-shadow:0 0 20px rgba(255,106,0,.14);cursor:pointer;transition:all 0.25s}
+  .card:hover{transform:translateY(-7px);border-color:#ff7300;box-shadow:0 0 28px rgba(255,106,0,.34)}
+  .card-icon{width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px}
+  .card h3{margin:0;color:#ff7300;font-size:17px;text-transform:uppercase}
+  .card p{margin:11px 0 0;color:#c88952;font-size:14px;line-height:1.6}
+  .card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:18px}
+  .card-link{color:#ff7300;font-size:14px;font-weight:900}
+  .status{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid rgba(255,115,0,.45);border-radius:999px;color:#ff7300;background:#000;font-size:11px;font-weight:900;text-transform:uppercase}
   .status::before{content:"";width:7px;height:7px;border-radius:50%;background:#ff7300;box-shadow:0 0 8px #ff7300}
-
+    
   .social-section{border-top:1px solid rgba(255,115,0,.35);border-bottom:1px solid rgba(255,115,0,.35);background:#080808;padding:60px 20px;margin:60px -20px}
   .social-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;max-width:1200px;margin:0 auto}
-  .social-card{min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;border:1px solid rgba(255,115,0,.45);border-radius:20px;text-align:center;color:#ff7300;background:linear-gradient(145deg,rgba(255,106,0,.15),transparent 48%),#111;cursor:pointer}
+  .social-card{min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;border:1px solid rgba(255,115,0,.45);border-radius:20px;text-align:center;background:linear-gradient(145deg,rgba(255,106,0,.15),transparent 48%),#111;cursor:pointer;transition:all 0.25s}
   .social-card:hover{transform:translateY(-7px);box-shadow:0 0 30px rgba(255,106,0,.35)}
-  .social-icon{margin-bottom:16px;font-size:2.5rem}
-  .social-card h3{margin:0;font-size:1.1rem;text-transform:uppercase}
-  .social-card p{margin-top:8px;color:#c88952;font-size:.85rem}
-
-  .video-embed{margin-top:50px;max-width:900px;margin-left:auto;margin-right:auto}
-  .video-embed h3{color:#ff7300;text-align:center;margin-bottom:20px;font-size:1.5rem}
-  .video-container{position:relative;padding-bottom:56.25%;height:0;border:2px solid rgba(255,115,0,.45);border-radius:20px;overflow:hidden;box-shadow:0 15px 40px rgba(255,115,0,.3)}
-  .video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%}
-
+  .social-icon{margin-bottom:16px;font-size:40px}
+  .social-card h3{margin:0;font-size:18px;text-transform:uppercase}
+  .social-card p{margin-top:8px;color:#c88952;font-size:14px}
+    
+  .video-box{max-width:900px;margin:50px auto 0 auto;padding:0 20px}
+  .video-box h3{color:#ff7300;text-align:center;margin-bottom:20px;font-size:24px}
+  .video-wrap{position:relative;padding-bottom:56.25%;height:0;border:2px solid rgba(255,115,0,.45);border-radius:20px;overflow:hidden;box-shadow:0 15px 40px rgba(255,115,0,.3)}
+  .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%}
+    
     footer{margin-top:60px;padding:30px 20px;text-align:center;border-top:1px solid rgba(255,115,0,.35);color:#c88952}
-
-    @media (max-width:1050px){.modules-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media (max-width:650px){.modules-grid,.social-grid{grid-template-columns:1fr}.topbar-inner{grid-template-columns:1fr}}
+    
+    @media (max-width:1050px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:650px){.grid,.social-grid{grid-template-columns:1fr}.header-inner{flex-direction:column}}
   </style>
 </head>
 <body>
 
-  <header class="topbar">
-    <div class="topbar-inner">
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">FM</div>
       <div class="brand">
-        <div class="brand-logo">FM</div>
-        <div class="brand-text">
+        <div class="brand-info">
           <h1>PRO-MAX FM DMP</h1>
           <p>Digital Radio Platform</p>
         </div>
-        <div class="globe-container" onclick="alert('🌍 Language: Kreyòl / Français / English')">
-          <div class="globe"></div>
+        <!-- GWO GLOBE ANIME APRE TIT LA -->
+        <div class="globe-big" onclick="alert('🌍 Lang: Kreyòl / Français / English')">
+          <div class="globe-sphere"></div>
         </div>
       </div>
-      <nav class="main-nav">
+      <div class="nav">
         <button class="nav-btn" onclick="document.getElementById('modules').scrollIntoView({behavior:'smooth'})">📻 Radyo</button>
         <button class="nav-btn" onclick="document.getElementById('social').scrollIntoView({behavior:'smooth'})">🌐 Social</button>
-      </nav>
-      <button class="admin-toggle">⚙️ ADMIN</button>
+        <button style="padding:10px 18px;border:1px solid #ff7300;border-radius:999px;background:#ff7300;color:#000;font-weight:900;cursor:pointer">⚙️ ADMIN</button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <h1>
-          <span>POWERING THE FUTURE OF</span>
-          <strong>DIGITAL RADIO</strong>
-        </h1>
-        <p>Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl.</p>
-        <div class="hero-buttons">
-          <button class="btn btn-primary">🎧 LISTEN LIVE</button>
-          <button class="btn btn-secondary" onclick="document.getElementById('modules').scrollIntoView({behavior:'smooth'})">📋 VIEW SCHEDULE</button>
-        </div>
-      </div>
-    </section>
+  <section class="hero">
+    <div>
+      <h1>
+        <span>POWERING THE FUTURE OF</span>
+        <strong>DIGITAL RADIO</strong>
+      </h1>
+      <p>Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl.</p>
+    </div>
+  </section>
 
+  <main class="container">
     <section id="modules">
       <div class="section-title">
-        <small>TOUT SÈVIS YO NAN YON SÈL KOTE</small>
+        <small style="display:block;margin-bottom:10px;color:#ff7300;font-weight:900;letter-spacing:1.7px;text-transform:uppercase">TOUT SÈVIS YO NAN YON SÈL KOTE</small>
         <h2>38 MODIL PRO-MAX FM/DMP</h2>
         <p>Antre dirèkteman nan sèvis prensipal platfòm radyo ak jesyon dijital la.</p>
       </div>
-      <div class="modules-grid" id="modulesGrid"></div>
+      <div class="grid" id="modulesGrid"></div>
     </section>
 
     <section class="social-section" id="social">
       <div class="section-title">
-        <small>SOCIAL STREAMING</small>
+        <small style="display:block;margin-bottom:10px;color:#ff7300;font-weight:900;letter-spacing:1.7px;text-transform:uppercase">SOCIAL STREAMING</small>
         <h2>KONEKTE SOU TOUT PLATFÒM</h2>
         <p>Swiv PRO-MAX FM DMP sou Facebook, Instagram, WhatsApp, TikTok, X, Truth Social, YouTube ak Spotify.</p>
       </div>
       <div class="social-grid" id="socialGrid"></div>
-      <div class="video-embed">
+      <div class="video-box">
         <h3>DÈNYE VIDEO NOU</h3>
-        <div class="video-container">
+        <div class="video-wrap">
           <iframe src="https://www.youtube.com/embed/_mqq1THvqkI" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
@@ -181,95 +135,79 @@
   </footer>
 
   <script>
-    "use strict";
-
-    // 38 MODIL KONPLÈ - 30 PRINSIPAL + 8 SOCIAL
     const modules = [
-      {icon:"📊",name:"Dashboard",desc:"Overview & Analytics"},
-      {icon:"📻",name:"Live Radio",desc:"24/7 Streaming"},
-      {icon:"📺",name:"Emisyon",desc:"Shows & Programming"},
-      {icon:"🎙",name:"Podcast",desc:"Shows & Episodes"},
-      {icon:"🎵",name:"Mizik",desc:"Music Library"},
-      {icon:"🎤",name:"Atis",desc:"Artists & Performers"},
-      {icon:"📰",name:"Nouvèl",desc:"Breaking News"},
-      {icon:"⚽",name:"Espò",desc:"Sports Center"},
-      {icon:"📅",name:"Evènman",desc:"Events & Calendar"},
-      {icon:"🎥",name:"Videyo",desc:"Video Center"},
-      {icon:"🎓",name:"PRO-MAX Academy",desc:"Learning Center"},
-      {icon:"🎧",name:"DJ Portal",desc:"Zòn travay pou DJ"},
-      {icon:"🎙️",name:"Host Portal",desc:"Dashboard animatè"},
-      {icon:"🎬",name:"Live Studio",desc:"Diffusion an dirèk"},
-      {icon:"🌤️",name:"Meteyo",desc:"Tan an dirèk"},
-      {icon:"🎤",name:"Entèvyou",desc:"Envite espesyal"},
-      {icon:"🖼️",name:"Galri",desc:"Foto ak albòm"},
-      {icon:"📢",name:"Piblisite",desc:"Anons ak sponsors"},
-      {icon:"💼",name:"Biznis",desc:"Patnè ak piblisite"},
-      {icon:"🕊️",name:"An Memwa",desc:"Omaj ak souvni"},
-      {icon:"👥",name:"Manm",desc:"Komunote"},
-      {icon:"💬",name:"Mesaj",desc:"Chat ak oditè"},
-      {icon:"📧",name:"Imèl",desc:"Newsletter"},
-      {icon:"📣",name:"Anons",desc:"Piblikasyon"},
-      {icon:"📞",name:"Kontak",desc:"Enfòmasyon"},
-      {icon:"💭",name:"Feedback",desc:"Kòmantè ak nòt"},
-      {icon:"📚",name:"Media Library",desc:"Achiv medya"},
-      {icon:"👤",name:"User Management",desc:"Jere itilizatè"},
-      {icon:"🔐",name:"Role & Permissions",desc:"Wòl ak aksè"},
-      {icon:"📊",name:"Reports",desc:"Rapò detaye"},
-      {icon:"📝",name:"Activity Logs",desc:"Istwa aktivite"},
-      {icon:"🛡️",name:"Security Center",desc:"Sekirite"},
-      {icon:"🔥",name:"Firebase",desc:"Backend"},
-      {icon:"💾",name:"Database",desc:"Baz done"},
-      {icon:"☁️",name:"Backup & Restore",desc:"Sovgad"},
-      {icon:"🔧",name:"System Monitor",desc:"Siveyans"},
-      {icon:"🌐",name:"API Manager",desc:"API ak entegrasyon"},
-      {icon:"🛡",name:"Admin Dashboard",desc:"Kontwòl santral"}
+      {i:"📊",n:"Dashboard",d:"Overview & Analytics"},
+      {i:"📻",n:"Live Radio",d:"24/7 Streaming"},
+      {i:"📺",n:"Emisyon",d:"Shows & Programming"},
+      {i:"🎙",n:"Podcast",d:"Shows & Episodes"},
+      {i:"🎵",n:"Mizik",d:"Music Library"},
+      {i:"🎤",n:"Atis",d:"Artists & Performers"},
+      {i:"📰",n:"Nouvèl",d:"Breaking News"},
+      {i:"⚽",n:"Espò",d:"Sports Center"},
+      {i:"📅",n:"Evènman",d:"Events & Calendar"},
+      {i:"🎥",n:"Videyo",d:"Video Center"},
+      {i:"🎓",n:"PRO-MAX Academy",d:"Learning Center"},
+      {i:"🎧",n:"DJ Portal",d:"Zòn travay pou DJ"},
+      {i:"🎙️",n:"Host Portal",d:"Dashboard animatè"},
+      {i:"🎬",n:"Live Studio",d:"Diffusion an dirèk"},
+      {i:"🌤️",n:"Meteyo",d:"Tan an dirèk"},
+      {i:"🎤",n:"Entèvyou",d:"Envite espesyal"},
+      {i:"🖼️",n:"Galri",d:"Foto ak albòm"},
+      {i:"📢",n:"Piblisite",d:"Anons ak sponsors"},
+      {i:"💼",n:"Biznis",d:"Patnè ak piblisite"},
+      {i:"🕊️",n:"An Memwa",d:"Omaj ak souvni"},
+      {i:"👥",n:"Manm",d:"Komunote"},
+      {i:"💬",n:"Mesaj",d:"Chat ak oditè"},
+      {i:"📧",n:"Imèl",d:"Newsletter"},
+      {i:"📣",n:"Anons",d:"Piblikasyon"},
+      {i:"📞",n:"Kontak",d:"Enfòmasyon"},
+      {i:"💭",n:"Feedback",d:"Kòmantè ak nòt"},
+      {i:"📚",n:"Media Library",d:"Achiv medya"},
+      {i:"👤",n:"User Management",d:"Jere itilizatè"},
+      {i:"🔐",n:"Role & Permissions",d:"Wòl ak aksè"},
+      {i:"📊",n:"Reports",d:"Rapò detaye"},
+      {i:"📝",n:"Activity Logs",d:"Istwa aktivite"},
+      {i:"🛡️",n:"Security Center",d:"Sekirite"},
+      {i:"🔥",n:"Firebase",d:"Backend"},
+      {i:"💾",n:"Database",d:"Baz done"},
+      {i:"☁️",n:"Backup & Restore",d:"Sovgad"},
+      {i:"🔧",n:"System Monitor",d:"Siveyans"},
+      {i:"🌐",n:"API Manager",d:"API ak entegrasyon"},
+      {i:"🛡",n:"Admin Dashboard",d:"Kontwòl santral"}
     ];
 
     const social = [
-      {icon:"📘",name:"Facebook",desc:"Page & Community",url:"https://facebook.com",color:"#1877F2"},
-      {icon:"📷",name:"Instagram",desc:"Photos & Stories",url:"https://instagram.com",color:"#E4405F"},
-      {icon:"💬",name:"WhatsApp",desc:"Chat & Updates",url:"https://wa.me",color:"#25D366"},
-      {icon:"🎵",name:"TikTok",desc:"Short Videos",url:"https://tiktok.com",color:"#000000"},
-      {icon:"𝕏",name:"X / Twitter",desc:"News & Updates",url:"https://x.com",color:"#000000"},
-      {icon:"🦅",name:"Truth Social",desc:"Community Posts",url:"https://truthsocial.com",color:"#5448C8"},
-      {icon:"📺",name:"YouTube",desc:"Channel & Live",url:"https://www.youtube.com/watch?v=_mqq1THvqkI",color:"#FF0000"},
-      {icon:"🎵",name:"Spotify",desc:"Podcast & Mizik",url:"https://open.spotify.com",color:"#1DB954"}
+      {i:"📘",n:"Facebook",d:"Page & Community",u:"https://facebook.com",c:"#1877F2"},
+      {i:"📷",n:"Instagram",d:"Photos & Stories",u:"https://instagram.com",c:"#E4405F"},
+      {i:"💬",n:"WhatsApp",d:"Chat & Updates",u:"https://wa.me",c:"#25D366"},
+      {i:"🎵",n:"TikTok",d:"Short Videos",u:"https://tiktok.com",c:"#000000"},
+      {i:"𝕏",n:"X / Twitter",d:"News & Updates",u:"https://x.com",c:"#000000"},
+      {i:"🦅",n:"Truth Social",d:"Community Posts",u:"https://truthsocial.com",c:"#5448C8"},
+      {i:"📺",n:"YouTube",d:"Channel & Live",u:"https://www.youtube.com/watch?v=_mqq1THvqkI",c:"#FF0000"},
+      {i:"🎵",n:"Spotify",d:"Podcast & Mizik",u:"https://open.spotify.com",c:"#1DB954"}
     ];
 
-    // RENDER 38 MODIL
-    const grid = document.getElementById('modulesGrid');
-    modules.forEach(m => {
-      const card = document.createElement('article');
-      card.className = 'module-card';
-      card.innerHTML = `
-        <div class="module-icon">${m.icon}</div>
-        <h3>${m.name}</h3>
-        <p>${m.desc}</p>
-        <div class="module-footer">
-          <span class="module-link">Louvri modil la →</span>
-          <span class="status">live</span>
+    document.getElementById('modulesGrid').innerHTML = modules.map(m => `
+      <div class="card" onclick="alert('Modil ${m.n} ap louvri byento!')">
+        <div class="card-icon">${m.i}</div>
+        <h3>${m.n}</h3>
+        <p>${m.d}</p>
+        <div class="card-footer">
+          <span class="card-link">Louvri →</span>
+          <span class="status">LIVE</span>
         </div>
-      `;
-      card.onclick = () => alert('Modil ' + m.name + ' ap louvri byento!');
-      grid.appendChild(card);
-    });
+      </div>
+    `).join('');
 
-    // RENDER 8 SOCIAL
-    const sgrid = document.getElementById('socialGrid');
-    social.forEach(s => {
-      const card = document.createElement('article');
-      card.className = 'social-card';
-      card.style.borderColor = s.color + '66';
-      card.innerHTML = `
-        <div class="social-icon" style="color:${s.color}">${s.icon}</div>
-        <h3 style="color:${s.color}">${s.name}</h3>
-        <p>${s.desc}</p>
-      `;
-      card.onclick = () => window.open(s.url, '_blank');
-      sgrid.appendChild(card);
-    });
+    document.getElementById('socialGrid').innerHTML = social.map(s => `
+      <div class="social-card" style="border-color:${s.c}66" onclick="window.open('${s.u}','_blank')">
+        <div class="social-icon" style="color:${s.c}">${s.i}</div>
+        <h3 style="color:${s.c}">${s.n}</h3>
+        <p>${s.d}</p>
+      </div>
+    `).join('');
 
-    console.log('✅ PRO-MAX FM DMP: 38 modil + 8 social = 46 total loaded');
+    console.log('✅ PRO-MAX FM DMP: 38 modil loaded');
   </script>
 
 </body>
