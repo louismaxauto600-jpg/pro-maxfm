@@ -1,8 +1,835 @@
-{
-  id: "youtube",
-  icon: "📺",
-  name: "YouTube",
-  desc: "PRO-MAX FM Official Channel",
-  status: "live",
-  url: "https://www.youtube.com/watch?v=_mqq1THvqkI"
+// ======================================================
+// PRO-MAX FM/DMP — JAVASCRIPT KONPLÈ + YOUTUBE/SPOTIFY
+// ======================================================
+
+"use strict";
+
+// ======================================================
+// MODIL PRENSIPAL YO - 14 MODIL
+// ======================================================
+
+const modules = [
+  {
+    id: "dashboard",
+    icon: "📊",
+    name: "Dashboard",
+    desc: "Overview & Analytics",
+    status: "live",
+    page: "dashboard.html"
+  },
+  {
+    id: "radio",
+    icon: "📻",
+    name: "Live Radio",
+    desc: "24/7 Streaming",
+    status: "live",
+    page: "live.html"
+  },
+  {
+    id: "shows",
+    icon: "🎬",
+    name: "Emisyon",
+    desc: "Shows & Programming",
+    status: "live",
+    page: "shows.html"
+  },
+  {
+    id: "podcast",
+    icon: "🎙",
+    name: "Podcast",
+    desc: "Shows & Episodes",
+    status: "live",
+    page: "podcasts.html"
+  },
+  {
+    id: "music",
+    icon: "🎵",
+    name: "Mizik",
+    desc: "Music Library",
+    status: "live",
+    page: "musics.html"
+  },
+  {
+    id: "artists",
+    icon: "🎤",
+    name: "Atis",
+    desc: "Artists & Performers",
+    status: "live",
+    page: "artists.html"
+  },
+  {
+    id: "news",
+    icon: "📰",
+    name: "Nouvèl",
+    desc: "Breaking News",
+    status: "live",
+    page: "news.html"
+  },
+  {
+    id: "sports",
+    icon: "⚽",
+    name: "Espò",
+    desc: "Sports Center",
+    status: "live",
+    page: "sports.html"
+  },
+  {
+    id: "events",
+    icon: "📅",
+    name: "Evènman",
+    desc: "Events & Calendar",
+    status: "live",
+    page: "events.html"
+  },
+  {
+    id: "video",
+    icon: "🎥",
+    name: "Videyo",
+    desc: "Video Center",
+    status: "live",
+    page: "video.html"
+  },
+  {
+    id: "academy",
+    icon: "🎓",
+    name: "PRO-MAX Academy",
+    desc: "Learning Center",
+    status: "live",
+    page: "pro-max-academy.html"
+  },
+  {
+    id: "youtube",
+    icon: "📺",
+    name: "YouTube",
+    desc: "Channel & Live Stream",
+    status: "live",
+    url: "https://www.youtube.com/@PROMAXFMDMP"
+  },
+  {
+    id: "spotify",
+    icon: "🎵",
+    name: "Spotify",
+    desc: "Podcast & Mizik",
+    status: "live",
+    url: "https://open.spotify.com"
+  },
+  {
+    id: "social",
+    icon: "🌐",
+    name: "Social Streaming",
+    desc: "YouTube & Spotify",
+    status: "live"
+  }
+];
+
+// ======================================================
+// SOCIAL STREAMING - YOUTUBE + SPOTIFY
+// ======================================================
+
+const socialStreaming = [
+  {
+    id: "youtube",
+    icon: "📺",
+    name: "YouTube",
+    desc: "Channel & Live Stream",
+    status: "live",
+    url: "https://www.youtube.com/@PROMAXFMDMP",
+    embed: "https://www.youtube.com/embed/_mqq1THvqkI"
+  },
+  {
+    id: "spotify",
+    icon: "🎵",
+    name: "Spotify",
+    desc: "Podcast & Mizik",
+    status: "live",
+    url: "https://open.spotify.com",
+    embed: "https://open.spotify.com/embed/show/YOUR_SPOTIFY_ID"
+  }
+];
+
+// ======================================================
+// ZOUTI ADMINISTRATIF YO
+// ======================================================
+
+const managementModules = [
+  {
+    id: "admin-dashboard",
+    icon: "🛡",
+    name: "Admin Dashboard",
+    desc: "Kontwòl santral platfòm nan",
+    status: "live",
+    page: "admin-dashboard.html"
+  },
+  {
+    id: "live-studio",
+    icon: "🎚",
+    name: "Live Studio",
+    desc: "Jesyon difizyon an dirèk",
+    status: "live",
+    page: "live-studio.html"
+  },
+  {
+    id: "dj-portal",
+    icon: "🎧",
+    name: "DJ Portal",
+    desc: "Zòn travay pou DJ",
+    status: "live",
+    page: "dj-portal.html"
+  },
+  {
+    id: "media-library",
+    icon: "🗂",
+    name: "Media Library",
+    desc: "Odyo, videyo ak dokiman",
+    status: "live",
+    page: "media-library.html"
+  },
+  {
+    id: "analytics",
+    icon: "📈",
+    name: "Analytics",
+    desc: "Rapò ak pèfòmans",
+    status: "live",
+    page: "analytics.html"
+  },
+  {
+    id: "security",
+    icon: "🔐",
+    name: "Security Center",
+    desc: "Sekirite ak kontwòl aksè",
+    status: "live",
+    page: "security-center.html"
+  }
+];
+
+// ======================================================
+// STYLE MODIL YO
+// ======================================================
+
+function injectModuleStyles() {
+  if (document.getElementById("pro-max-module-styles")) {
+    return;
+  }
+
+  const style = document.createElement("style");
+
+  style.id = "pro-max-module-styles";
+
+  style.textContent = `
+    .pro-max-module-section {
+      width: min(1240px, 92%);
+      margin: 0 auto;
+      padding: 70px 0;
+    }
+
+    .pro-max-section-heading {
+      max-width: 820px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .pro-max-section-heading small {
+      display: block;
+      margin-bottom: 10px;
+      color: #ff6a00;
+      font-weight: 900;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .pro-max-section-heading h2 {
+      margin: 0;
+      color: #ff9300;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      text-transform: uppercase;
+    }
+
+    .pro-max-section-heading p {
+      margin-top: 13px;
+      color: #c94900;
+      line-height: 1.7;
+    }
+
+    .pro-max-module-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .pro-max-module-card {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      border: 1px solid rgba(255, 106, 0, 0.4);
+      border-radius: 18px;
+      color: #ff9300;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 106, 0, 0.12),
+          transparent 45%
+        ),
+        #111111;
+      box-shadow: 0 0 20px rgba(255, 106, 0, 0.14);
+      cursor: pointer;
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .pro-max-module-card:hover,
+    .pro-max-module-card:focus-visible {
+      transform: translateY(-7px);
+      border-color: #ff6a00;
+      box-shadow: 0 0 28px rgba(255, 106, 0, 0.34);
+      outline: none;
+    }
+
+    .pro-max-module-icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 15px;
+      color: #000000;
+      background: #ff6a00;
+      font-size: 1.55rem;
+    }
+
+    .pro-max-module-card h3 {
+      margin: 0;
+      color: #ff6a00;
+      font-size: 1.08rem;
+      text-transform: uppercase;
+    }
+
+    .pro-max-module-card p {
+      margin: 11px 0 0;
+      color: #c94900;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .pro-max-module-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .pro-max-module-link {
+      color: #ff9300;
+      font-size: 0.87rem;
+      font-weight: 900;
+    }
+
+    .pro-max-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border: 1px solid rgba(255, 106, 0, 0.45);
+      border-radius: 999px;
+      color: #ff9300;
+      background: #000000;
+      font-size: 0.68rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .pro-max-status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #ff6a00;
+      box-shadow: 0 0 8px #ff6a00;
+    }
+
+    .pro-max-social-section {
+      scroll-margin-top: 110px;
+      border-top: 1px solid rgba(255, 106, 0, 0.35);
+      border-bottom: 1px solid rgba(255, 106, 0, 0.35);
+      background: #080808;
+    }
+
+    .pro-max-social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .pro-max-social-card {
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      border: 1px solid rgba(255, 106, 0, 0.44);
+      border-radius: 20px;
+      text-align: center;
+      color: #ff9300;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 106, 0, 0.15),
+          transparent 48%
+        ),
+        #111111;
+      cursor: pointer;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .pro-max-social-card:hover,
+    .pro-max-social-card:focus-visible {
+      transform: translateY(-7px);
+      box-shadow: 0 0 30px rgba(255, 106, 0, 0.35);
+      outline: none;
+    }
+
+    .pro-max-social-icon {
+      margin-bottom: 16px;
+      font-size: 3rem;
+    }
+
+    .pro-max-social-card h3 {
+      margin: 0;
+      color: #ff6a00;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .pro-max-social-card p {
+      margin-top: 10px;
+      color: #c94900;
+    }
+
+    .pro-max-social-button {
+      margin-top: 20px;
+      padding: 11px 20px;
+      border: 1px solid #ff6a00;
+      border-radius: 10px;
+      color: #000000;
+      background: linear-gradient(135deg, #ff9300, #ff6a00);
+      font-weight: 900;
+    }
+
+    @media (max-width: 1050px) {
+      .pro-max-module-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      .pro-max-module-grid,
+      .pro-max-social-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pro-max-module-section {
+        padding: 56px 0;
+      }
+    }
+  `;
+
+  document.head.appendChild(style);
+}
+
+// ======================================================
+// KREYE YON SEKSYON SI LI PA DEJA NAN HTML LA
+// ======================================================
+
+function getOrCreateSection(sectionId, className) {
+  let section = document.getElementById(sectionId);
+
+  if (section) {
+    return section;
+  }
+
+  section = document.createElement("section");
+  section.id = sectionId;
+  section.className = className;
+
+  const main = document.querySelector("main");
+
+  if (main) {
+    main.appendChild(section);
+  } else {
+    document.body.appendChild(section);
+  }
+
+  return section;
+}
+
+// ======================================================
+// KREYE YON KAT MODIL
+// ======================================================
+
+function createModuleCard(module) {
+  const card = document.createElement("article");
+
+  card.className = "pro-max-module-card";
+  card.tabIndex = 0;
+  card.dataset.moduleId = module.id;
+
+  card.innerHTML = `
+    <div class="pro-max-module-icon">
+      ${module.icon}
+    </div>
+
+    <h3>${module.name}</h3>
+
+    <p>${module.desc}</p>
+
+    <div class="pro-max-module-footer">
+      <span class="pro-max-module-link">
+        Louvri modil la →
+      </span>
+
+      <span class="pro-max-status">
+        ${module.status}
+      </span>
+    </div>
+  `;
+
+  card.addEventListener("click", function () {
+    openModule(module.id);
+  });
+
+  card.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openModule(module.id);
+    }
+  });
+
+  return card;
+}
+
+// ======================================================
+// AFICHE MODIL PRENSIPAL YO
+// ======================================================
+
+function renderModules() {
+  const section = getOrCreateSection(
+    "pro-max-modules",
+    "pro-max-module-section"
+  );
+
+  section.innerHTML = `
+    <div class="pro-max-section-heading">
+      <small>
+        Tout sèvis yo nan yon sèl kote
+      </small>
+
+      <h2>
+        Modil PRO-MAX FM/DMP
+      </h2>
+
+      <p>
+        Antre dirèkteman nan sèvis prensipal
+        platfòm radyo ak jesyon dijital la.
+      </p>
+    </div>
+
+    <div
+      class="pro-max-module-grid"
+      id="modules-grid"
+    ></div>
+  `;
+
+  const grid = section.querySelector("#modules-grid");
+
+  modules.forEach(function (module) {
+    grid.appendChild(createModuleCard(module));
+  });
+}
+
+// ======================================================
+// AFICHE SOCIAL STREAMING - YOUTUBE + SPOTIFY
+// ======================================================
+
+function renderSocialStreaming() {
+  const section = getOrCreateSection(
+    "social-streaming",
+    "pro-max-social-section"
+  );
+
+  section.innerHTML = `
+    <div class="pro-max-module-section">
+      <div class="pro-max-section-heading">
+        <small>
+          Social Streaming
+        </small>
+
+        <h2>
+          YouTube & Spotify
+        </h2>
+
+        <p>
+          Swiv PRO-MAX FM sou platfòm sosyal
+          ak sèvis streaming yo.
+        </p>
+      </div>
+
+      <div
+        class="pro-max-social-grid"
+        id="social-streaming-grid"
+      ></div>
+    </div>
+  `;
+
+  const grid = section.querySelector(
+    "#social-streaming-grid"
+  );
+
+  socialStreaming.forEach(function (platform) {
+    const card = document.createElement("article");
+
+    card.className = "pro-max-social-card";
+    card.tabIndex = 0;
+
+    card.innerHTML = `
+      <div class="pro-max-social-icon">
+        ${platform.icon}
+      </div>
+
+      <h3>
+        ${platform.name}
+      </h3>
+
+      <p>
+        ${platform.desc}
+      </p>
+
+      <span class="pro-max-social-button">
+        Louvri ${platform.name}
+      </span>
+    `;
+
+    card.addEventListener("click", function () {
+      openModule(platform.id);
+    });
+
+    card.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openModule(platform.id);
+      }
+    });
+
+    grid.appendChild(card);
+  });
+}
+
+// ======================================================
+// AFICHE ZOUTI ADMINISTRATIF YO
+// ======================================================
+
+function renderManagementModules() {
+  const section = getOrCreateSection(
+    "management-modules",
+    "pro-max-module-section"
+  );
+
+  section.innerHTML = `
+    <div class="pro-max-section-heading">
+      <small>
+        Digital Management Platform
+      </small>
+
+      <h2>
+        Zouti Administratif
+      </h2>
+
+      <p>
+        Kontwole medya, difizyon, itilizatè,
+        sekirite ak operasyon PRO-MAX DMP.
+      </p>
+    </div>
+
+    <div
+      class="pro-max-module-grid"
+      id="management-grid"
+    ></div>
+  `;
+
+  const grid = section.querySelector(
+    "#management-grid"
+  );
+
+  managementModules.forEach(function (module) {
+    grid.appendChild(createModuleCard(module));
+  });
+}
+
+// ======================================================
+// LOUVRI MODIL YO - AVÈK YOUTUBE + SPOTIFY
+// ======================================================
+
+function openModule(id) {
+  const mainModule = modules.find(function (module) {
+    return module.id === id;
+  });
+
+  const managementModule = managementModules.find(
+    function (module) {
+      return module.id === id;
+    }
+  );
+
+  const socialPlatform = socialStreaming.find(
+    function (platform) {
+      return platform.id === id;
+    }
+  );
+
+  // SOCIAL STREAMING - SCROLL NAN SEKSYON
+  if (id === "social") {
+    const socialSection =
+      document.getElementById("social-streaming");
+
+    if (socialSection) {
+      socialSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
+    return;
+  }
+
+  // YOUTUBE - OUVRI LINK DIRÈK
+  if (id === "youtube") {
+    const youtube = socialStreaming.find(p => p.id === "youtube");
+    if (youtube && youtube.url) {
+      window.open(youtube.url, "_blank", "noopener,noreferrer");
+    }
+    return;
+  }
+
+  // SPOTIFY - OUVRI LINK DIRÈK
+  if (id === "spotify") {
+    const spotify = socialStreaming.find(p => p.id === "spotify");
+    if (spotify && spotify.url) {
+      window.open(spotify.url, "_blank", "noopener,noreferrer");
+    }
+    return;
+  }
+
+  // LÒT MODIL YO
+  if (mainModule && mainModule.page) {
+    window.location.href = mainModule.page;
+    return;
+  }
+
+  if (managementModule && managementModule.page) {
+    window.location.href = managementModule.page;
+    return;
+  }
+
+  console.warn(
+    "Modil sa a pa jwenn:",
+    id
+  );
+}
+
+// ======================================================
+// MENI MOBIL
+// ======================================================
+
+function initializeMobileMenu() {
+  const menuButton =
+    document.getElementById("menuButton");
+
+  const navigation =
+    document.getElementById("mainNavigation") ||
+    document.getElementById("mainNav");
+
+  if (!menuButton || !navigation) {
+    return;
+  }
+
+  menuButton.addEventListener(
+    "click",
+    function () {
+      const isOpen =
+        navigation.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+    }
+  );
+
+  navigation
+    .querySelectorAll("a")
+    .forEach(function (link) {
+      link.addEventListener(
+        "click",
+        function () {
+          navigation.classList.remove("open");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+        }
+      );
+    });
+}
+
+// ======================================================
+// ANE OTOMATIK NAN FOOTER
+// ======================================================
+
+function updateCurrentYear() {
+  const yearElements = [
+    document.getElementById("currentYear"),
+    document.getElementById("year")
+  ];
+
+  yearElements.forEach(function (element) {
+    if (element) {
+      element.textContent =
+        new Date().getFullYear();
+    }
+  });
+}
+
+// ======================================================
+// DEMARE TOUT SISTÈM NAN
+// ======================================================
+
+function initializeProMaxPlatform() {
+  injectModuleStyles();
+  renderModules();
+  renderSocialStreaming();
+  renderManagementModules();
+  initializeMobileMenu();
+  updateCurrentYear();
+}
+
+// ======================================================
+// KÒMANSE APRÈ PAJ LA FIN CHAJE
+// ======================================================
+
+if (document.readyState === "loading") {
+  document.addEventListener(
+    "DOMContentLoaded",
+    initializeProMaxPlatform
+  );
+} else {
+  initializeProMaxPlatform();
 }
