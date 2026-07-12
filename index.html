@@ -192,6 +192,21 @@
       align-items: center;
       gap: 50px;
       padding: 85px 7%;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: rgba(255, 106, 0, 0.13);
+      filter: blur(25px);
+      z-index: -1;
     }
 
     .hero-badge {
@@ -247,46 +262,30 @@
       justify-content: center;
     }
 
-    /* GLOBE TERES REYEL - PA BLINK ANKO */
+    /* GLOBE TERES REYEL SAN BLINK */
     .globe {
       position: absolute;
       width: 580px;
       height: 580px;
       border-radius: 50%;
-      background: url('https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57723/globe_east_540.jpg') center/cover;
-      border: 2px solid rgba(255, 106, 0, 0.4);
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/600px-The_Earth_seen_from_Apollo_17.jpg');
+      background-size: cover;
+      background-position: center;
+      border: 3px solid rgba(255, 106, 0, 0.4);
       box-shadow: 
-        inset -40px -20px 60px rgba(0, 0, 0, 0.9),
-        inset 20px 10px 40px rgba(255, 106, 0, 0.2),
-        0 0 80px rgba(255, 106, 0, 0.4);
-      animation: spinGlobe 50s linear infinite;
+        inset -50px -25px 80px rgba(0, 0, 0, 0.9),
+        0 0 60px rgba(255, 106, 0, 0.3);
+      animation: spinGlobe 60s linear infinite;
       z-index: 1;
     }
 
     @keyframes spinGlobe {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .hero-logo-wrap::before,
-    .hero-logo-wrap::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 106, 0, 0.36);
-      z-index: 0;
-    }
-
-    .hero-logo-wrap::before {
-      width: 450px;
-      height: 450px;
-      animation: pulseRing 3s infinite;
-    }
-
-    .hero-logo-wrap::after {
-      width: 520px;
-      height: 520px;
-      animation: pulseRing 3s 1.2s infinite;
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     .hero-logo {
@@ -298,13 +297,13 @@
     }
 
     @keyframes logoFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
-    }
+      0%, 100% {
+        transform: translateY(0);
+      }
 
-    @keyframes pulseRing {
-      0% { transform: scale(0.87); opacity: 0.65; }
-      100% { transform: scale(1.17); opacity: 0; }
+      50% {
+        transform: translateY(-14px);
+      }
     }
 
     .live-strip {
@@ -325,11 +324,6 @@
       border-radius: 50%;
       background: var(--orange);
       box-shadow: 0 0 12px var(--orange);
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0.25; }
     }
 
     .live-strip strong {
@@ -577,4 +571,17 @@
 
     .footer-brand p {
       max-width: 350px;
-      margin-top:
+      margin-top: 11px;
+      color: #b95e24;
+      line-height: 1.6;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 16px;
+      color: var(--orange);
+      text-transform: uppercase;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-bottom: 10px;
