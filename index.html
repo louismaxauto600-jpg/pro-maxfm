@@ -16,7 +16,7 @@
       min-height: 100vh;
       font-family: Arial, Helvetica, sans-serif;
       color: #ff9d00;
-      background: #000000;
+      background: linear-gradient(145deg, #000000 0%, #100500 48%, #000000 100%);
     }
 
     a {
@@ -49,7 +49,7 @@
       justify-content: space-between;
       gap: 20px;
       padding: 14px 5%;
-      background: #000000;
+      background: rgba(0, 0, 0, 0.95);
       border-bottom: 1px solid rgba(255, 106, 0, 0.42);
     }
 
@@ -170,14 +170,12 @@
     }
 
     .hero {
-      position: relative;
       min-height: 84vh;
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
       align-items: center;
       gap: 50px;
       padding: 85px 7%;
-      background: #000000;
     }
 
     .hero-badge {
@@ -232,7 +230,7 @@
       justify-content: center;
     }
 
-    /* GLOBE STATIK - PA VIRE, PA BLINK */
+    /* GLOBE BLE + VÈT - STATIK SAN BLINK */
     .globe {
       position: absolute;
       width: 580px;
@@ -240,8 +238,8 @@
       border-radius: 50%;
       background: #1e40af;
       border: 3px solid rgba(255, 106, 0, 0.6);
-      z-index: 1;
       overflow: hidden;
+      z-index: 1;
     }
 
     .globe::before {
@@ -288,9 +286,6 @@
 
     .section {
       padding: 80px 6%;
-      background: #000000;
-      position: relative;
-      z-index: 10;
     }
 
     .section-heading {
@@ -325,12 +320,9 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
-      position: relative;
-      z-index: 20;
     }
 
     .service-card {
-      position: relative;
       min-height: 225px;
       padding: 26px;
       border: 1px solid rgba(255, 106, 0, 0.42);
@@ -550,4 +542,145 @@
     }
 
     @media (max-width: 760px) {
-      .site-header { padding: 12px 4%;
+      .site-header { padding: 12px 4%; }
+      .menu-button { display: block; }
+      .main-nav {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        padding: 15px;
+        border: 1px solid rgba(255, 106, 0, 0.42);
+        border-radius: 12px;
+        background: #050505;
+      }
+      .main-nav.open { display: flex; }
+      .main-nav a { text-align: center; }
+      .header-actions { display: none; }
+      .hero { min-height: auto; padding: 70px 5%; }
+      .globe { width: 320px; height: 320px; }
+      .service-grid, .stats, .feature-list, .footer-grid { grid-template-columns: 1fr; }
+      .section { padding: 65px 5%; }
+      .cta { margin-left: 5%; margin-right: 5%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    PRO-MAX FM/DMP — Powering the Future of Digital Radio
+  </div>
+
+  <header class="site-header">
+
+    <a class="brand" href="index.html">
+      <img
+        class="brand-logo"
+        src="pro-max-fm-dmp-II.jpeg"
+        alt="Logo PRO-MAX FM/DMP"
+      >
+
+      <div class="brand-text">
+        <strong>PRO-MAX FM/DMP</strong>
+        <span>Official Digital Radio Platform</span>
+      </div>
+    </a>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="Louvri meni an"
+      onclick="toggleMenu()"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      ☰
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" data-lang="nav-home">Akèy</a>
+      <a href="live.html" data-lang="nav-live">Live</a>
+      <a href="shows.html" data-lang="nav-shows">Emisyon</a>
+      <a href="podcasts.html" data-lang="nav-podcasts">Podcast</a>
+      <a href="musics.html" data-lang="nav-music">Mizik</a>
+      <a href="news.html" data-lang="nav-news">Nouvèl</a>
+      <a href="sports.html" data-lang="nav-sports">Espò</a>
+      <a href="events.html" data-lang="nav-events">Evènman</a>
+      <a href="artists.html" data-lang="nav-artists">Atis</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('ht')">HT</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      </div>
+      <a class="btn btn-secondary" href="login.html" data-lang="login">Konekte</a>
+      <a class="btn btn-primary" href="register.html" data-lang="register">Enskri</a>
+    </div>
+
+  </header>
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <span class="hero-badge" data-lang="hero-badge">
+          Radyo • Medya • Teknoloji • Jesyon Dijital
+        </span>
+
+        <h1>
+          PRO-MAX FM
+          <span data-lang="hero-subtitle">Digital Management Platform</span>
+        </h1>
+
+        <p data-lang="hero-text">
+          Yon platfòm dijital pwofesyonèl ki mete radyo an dirèk,
+          emisyon, podcast, mizik, nouvèl, espò, evènman, akademi,
+          pwomosyon ak jesyon medya ansanm nan yon sèl sistèm.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="live.html" data-lang="btn-live">
+            ▶ Koute Live
+          </a>
+
+          <a class="btn btn-secondary" href="shows.html" data-lang="btn-shows">
+            Gade Emisyon Yo
+          </a>
+
+          <a class="btn btn-secondary" href="login.html" data-lang="btn-platform">
+            Antre nan Platfòm nan
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-logo-wrap">
+        <div class="globe"></div>
+        <img
+          class="hero-logo"
+          src="pro-max-fm-dmp-II.jpeg"
+          alt="PRO-MAX FM/DMP"
+        >
+      </div>
+
+    </section>
+
+    <section class="live-strip">
+      <span class="live-dot"></span>
+      <strong>PRO-MAX FM LIVE</strong>
+      <span data-lang="live-text">Koute radyo a, dekouvri emisyon yo epi rete konekte.</span>
+      <a class="btn btn-primary" href="live.html" data-lang="btn-live-enter">Antre Live</a>
+    </section>
+
+    <section class="section">
+
+      <div class="section-heading">
+        <small data-lang="services-small">Tout sèvis yo nan yon sèl kote</small>
+        <h2 data-lang="services-title">Eksplore PRO-MAX FM/DMP</h2>
+        <p data-lang="services-text">
+          Antre dirèktem
