@@ -1,25 +1,131 @@
-document.addEventListener("DOMContentLoaded", () => {
+// ===============================
+// MODULES
+// ===============================
+const modules = [
+  {
+    id: "dashboard",
+    icon: "📊",
+    name: "Dashboard",
+    desc: "Overview & Analytics",
+    status: "live"
+  },
+  {
+    id: "radio",
+    icon: "📻",
+    name: "Live Radio",
+    desc: "24/7 Streaming",
+    status: "live"
+  },
+  {
+    id: "podcast",
+    icon: "🎙️",
+    name: "Podcast",
+    desc: "Shows & Episodes",
+    status: "live"
+  },
+  {
+    id: "news",
+    icon: "📰",
+    name: "News",
+    desc: "Breaking News",
+    status: "live"
+  },
+  {
+    id: "sports",
+    icon: "⚽",
+    name: "Sports",
+    desc: "Sports Center",
+    status: "live"
+  },
+  {
+    id: "academy",
+    icon: "🎓",
+    name: "PRO-MAX Academy",
+    desc: "Learning Center",
+    status: "live"
+  },
+  {
+    id: "social",
+    icon: "🌐",
+    name: "Social Streaming",
+    desc: "YouTube & Spotify",
+    status: "live"
+  }
+];
 
-    console.log("PRO-MAX FM Loaded Successfully");
+// ===============================
+// SOCIAL STREAMING
+// ===============================
+const socialStreaming = [
+  {
+    id: "youtube",
+    icon: "📺",
+    name: "YouTube",
+    desc: "Channel & Live Stream",
+    status: "live",
+    url: "https://youtube.com"
+  },
+  {
+    id: "spotify",
+    icon: "🎵",
+    name: "Spotify",
+    desc: "Podcast & Mizik",
+    status: "live",
+    url: "https://spotify.com"
+  }
+];
 
-    const title = document.querySelector("h1");
+// ===============================
+// OPEN MODULE
+// ===============================
+function openModule(id) {
 
-    if (title) {
-        title.style.opacity = "0";
+  switch (id) {
 
-        setTimeout(() => {
-            title.style.transition = "all 1s ease";
-            title.style.opacity = "1";
-            title.style.transform = "translateY(0)";
-        }, 300);
-    }
+    case "dashboard":
+      window.location.href = "dashboard.html";
+      break;
 
-    const button = document.querySelector(".btn");
+    case "radio":
+      window.location.href = "live.html";
+      break;
 
-    if (button) {
-        button.addEventListener("click", () => {
-            alert("🚀 PRO-MAX FM is coming soon!");
+    case "podcast":
+      window.location.href = "podcasts.html";
+      break;
+
+    case "news":
+      window.location.href = "news.html";
+      break;
+
+    case "sports":
+      window.location.href = "sports.html";
+      break;
+
+    case "academy":
+      window.location.href = "pro-max-academy.html";
+      break;
+
+    case "social":
+      document
+        .getElementById("social-streaming")
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
         });
-    }
+      break;
 
-});
+    case "youtube":
+      window.open("https://youtube.com", "_blank");
+      break;
+
+    case "spotify":
+      window.open("https://spotify.com", "_blank");
+      break;
+
+    default:
+      console.warn("Unknown module:", id);
+
+  }
+
+}
