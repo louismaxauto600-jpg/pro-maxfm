@@ -142,7 +142,7 @@
       align-items: center;
     }
 
-    /* LANGUAGE TOGGLE */
+    /* LANGUAGE TOGGLE - KORIGE */
     .lang-toggle {
       display: flex;
       gap: 4px;
@@ -167,6 +167,10 @@
     .lang-btn.active {
       background: var(--orange);
       color: #000;
+    }
+
+    .lang-btn:hover {
+      background: rgba(255, 106, 0, 0.2);
     }
 
     .btn {
@@ -220,6 +224,7 @@
       gap: 50px;
       padding: 85px 7%;
       overflow: hidden;
+      z-index: 1;
     }
 
     .hero-badge {
@@ -275,21 +280,45 @@
       justify-content: center;
     }
 
-    /* GLOBE TERES KI MACHE - SAN BLINK */
+    /* GLOBE TERES REYEL - KORIGE */
     .globe {
       position: absolute;
       width: 580px;
       height: 580px;
       border-radius: 50%;
       background: 
-        radial-gradient(circle at 30% 30%, #1e40af 0%, #1e3a8a 25%, #0f172a 50%, #000000 75%),
-        repeating-conic-gradient(from 0deg, #16a34a 0deg 10deg, #15803d 10deg 20deg);
+        radial-gradient(circle at 35% 35%, #3b82f6 0%, #1e40af 25%, #1e3a8a 50%, #0f172a 75%, #000 100%);
       border: 3px solid rgba(255, 106, 0, 0.5);
       box-shadow: 
-        inset -60px -30px 100px rgba(0, 0, 0, 0.9),
+        inset -60px -30px 100px rgba(0, 0, 0.9),
+        inset 30px 20px 60px rgba(59, 130, 246, 0.3),
         0 0 80px rgba(255, 106, 0, 0.4);
-      animation: spinGlobe 60s linear infinite;
+      overflow: hidden;
       z-index: 1;
+    }
+
+    .globe::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 90px 140px at 25% 30%, #22c55e 0%, transparent 60%),
+        radial-gradient(ellipse 120px 80px at 70% 25%, #16a34a 0%, transparent 60%),
+        radial-gradient(ellipse 100px 160px at 30% 70%, #22c55e 0%, transparent 60%),
+        radial-gradient(ellipse 140px 100px at 75% 75%, #16a34a 0%, transparent 60%),
+        radial-gradient(ellipse 70px 110px at 50% 50%, #22c55e 0%, transparent 60%),
+        radial-gradient(ellipse 80px 60px at 85% 40%, #16a34a 0%, transparent 60%);
+      animation: spinGlobe 80s linear infinite;
+    }
+
+    .globe::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: 
+        repeating-linear-gradient(0deg, transparent 19px, rgba(255, 106, 0, 0.1) 19px, rgba(255, 106, 0, 0.1) 20px),
+        repeating-linear-gradient(90deg, transparent 19px, rgba(255, 106, 0, 0.1) 19px, rgba(255, 106, 0, 0.1) 20px);
+      border-radius: 50%;
     }
 
     @keyframes spinGlobe {
@@ -362,6 +391,7 @@
       line-height: 1.7;
     }
 
+    /* MODIL YO - KORIGE */
     .service-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -375,7 +405,7 @@
       border: 1px solid var(--border);
       border-radius: 18px;
       background:
-        linear-gradient(150deg, rgba(255, 106, 0.11), transparent 47%),
+        linear-gradient(150deg, rgba(255, 106, 0, 0.11), transparent 47%),
         var(--black-card);
       box-shadow: var(--shadow);
       overflow: hidden;
@@ -489,7 +519,7 @@
       border-left: 4px solid var(--orange);
       border-radius: 9px;
       color: var(--orange-light);
-      background: #0d;
+      background: #0d0d;
       font-weight: 800;
     }
 
@@ -884,6 +914,8 @@
 
         </div>
 
+      </div>
+
       <div class="stats">
 
         <div class="stat-card">
@@ -983,33 +1015,9 @@
   </footer>
 
   <script>
-    // LANGUAGE TOGGLE
-    const translations = {
-      ht: {
-        'nav-home': 'Akèy',
-        'nav-live': 'Live',
-        'nav-shows': 'Emisyon',
-        'nav-podcasts': 'Podcast',
-        'nav-music': 'Mizik',
-        'nav-news': 'Nouvèl',
-        'nav-sports': 'Espò',
-        'nav-events': 'Evènman',
-        'nav-artists': 'Atis',
-        'login': 'Konekte',
-        'register': 'Enskri',
-        'hero-badge': 'Radyo • Medya • Teknoloji • Jesyon Dijital',
-        'hero-subtitle': 'Digital Management Platform',
-        'hero-text': 'Yon platfòm dijital pwofesyonèl ki mete radyo an dirèk, emisyon, podcast, mizik, nouvèl, espò, evènman, akademi, pwomosyon ak jesyon medya ansanm nan yon sèl sistèm.',
-        'btn-live': '▶ Koute Live',
-        'btn-shows': 'Gade Emisyon Yo',
-        'btn-platform': 'Antre nan Platfòm nan',
-        'live-text': 'Koute radyo a, dekouvri emisyon yo epi rete konekte.',
-        'btn-live-enter': 'Antre Live',
-        'services-small': 'Tout sèvis yo nan yon sèl kote',
-        'services-title': 'Eksplore PRO-MAX FM/DMP',
-        'services-text': 'Antre dirèkteman nan chak seksyon prensipal platfòm dijital la.',
-        'card-live-title': 'Live Radio',
-        'card-live-text': 'Koute pwogramasyon PRO-MAX FM an dirèk sou entènèt.',
-        'card-live-link': 'Koute kounye a →',
-        'card-shows-title': 'Emisyon',
-        'card-shows-text': 'Dekouvri emisyon, animatè, orè ak pwogram espesyal yo.',
+    // MENU TOGGLE
+    function toggleMenu() {
+      const navigation = document.getElementById("mainNav");
+      const button = document.querySelector(".menu-button");
+      const isOpen = navigation.classList.toggle("open");
+      button.setAttribute("aria
