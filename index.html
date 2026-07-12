@@ -10,34 +10,1143 @@
 
   <meta
     name="description"
-    content="PRO-MAX FM DMP — Powering the Future of Digital Radio"
+    content="PRO-MAX FM / DMP — Digital Radio and Digital Management Platform."
   >
 
-  <meta name="theme-color" content="#050505">
+  <title>PRO-MAX FM / DMP</title>
 
-  <title>PRO-MAX FM DMP</title>
+  <style>
+    :root {
+      --orange: #ff7900;
+      --orange-dark: #b84500;
+      --black: #000000;
+    }
 
-  <link
-    rel="stylesheet"
-    href="css/hero-section.css"
-  >
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--orange);
+      background:
+        radial-gradient(circle at top, var(--orange-dark) 0%, var(--black) 42%),
+        linear-gradient(135deg, var(--orange) 0%, var(--black) 55%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid var(--orange);
+      background: linear-gradient(
+        90deg,
+        var(--black),
+        var(--orange-dark),
+        var(--black)
+      );
+      box-shadow: 0 8px 24px var(--black);
+    }
+
+    .navbar {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 2px solid var(--orange);
+      background: var(--black);
+      box-shadow: 0 0 22px var(--orange);
+    }
+
+    .brand-name {
+      font-size: clamp(1.1rem, 2vw, 1.65rem);
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .brand-name span {
+      display: block;
+      font-size: 0.74rem;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+      font-weight: 800;
+    }
+
+    .nav-links a {
+      padding: 10px 6px;
+      border-bottom: 2px solid transparent;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      border-color: var(--orange);
+      text-shadow: 0 0 12px var(--orange);
+    }
+
+    .language-switcher {
+      display: flex;
+      gap: 6px;
+    }
+
+    .language-switcher button {
+      padding: 8px 10px;
+      border: 1px solid var(--orange);
+      border-radius: 7px;
+      color: var(--orange);
+      background: var(--black);
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .language-switcher button.active,
+    .language-switcher button:hover {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .menu-button {
+      display: none;
+      width: 46px;
+      height: 42px;
+      border: 2px solid var(--orange);
+      border-radius: 8px;
+      color: var(--orange);
+      background: var(--black);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: calc(100vh - 84px);
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: var(--orange);
+      filter: blur(90px);
+      opacity: 0.3;
+    }
+
+    .hero::before {
+      width: 320px;
+      height: 320px;
+      top: -100px;
+      right: -90px;
+    }
+
+    .hero::after {
+      width: 260px;
+      height: 260px;
+      bottom: -100px;
+      left: -70px;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border: 1px solid var(--orange);
+      border-radius: 999px;
+      color: var(--orange);
+      background: var(--black);
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      font-size: clamp(3rem, 8vw, 6.7rem);
+      line-height: 0.94;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 10px var(--orange),
+        0 0 32px var(--orange-dark);
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--black);
+      -webkit-text-stroke: 2px var(--orange);
+    }
+
+    .hero-description {
+      max-width: 700px;
+      margin: 26px 0 32px;
+      font-size: 1.12rem;
+      line-height: 1.8;
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 14px 24px;
+      border: 2px solid var(--orange);
+      border-radius: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      transition: 0.25s ease;
+    }
+
+    .button-primary {
+      color: var(--black);
+      background: var(--orange);
+    }
+
+    .button-secondary {
+      color: var(--orange);
+      background: var(--black);
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 24px var(--orange);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+    }
+
+    .hero-logo-shell {
+      width: min(430px, 92vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 4px solid var(--orange);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, var(--orange-dark), var(--black) 70%);
+      box-shadow:
+        0 0 20px var(--orange),
+        0 0 70px var(--orange-dark);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .hero-logo {
+      width: 82%;
+      height: 82%;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow:
+          0 0 20px var(--orange),
+          0 0 70px var(--orange-dark);
+      }
+
+      50% {
+        transform: scale(1.025);
+        box-shadow:
+          0 0 34px var(--orange),
+          0 0 100px var(--orange);
+      }
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-dark {
+      border-top: 2px solid var(--orange);
+      border-bottom: 2px solid var(--orange);
+      background: linear-gradient(
+        135deg,
+        var(--black),
+        var(--orange-dark),
+        var(--black)
+      );
+    }
+
+    .section-heading {
+      max-width: 800px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      text-transform: uppercase;
+    }
+
+    .section-heading p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .radio-panel {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 34px;
+      align-items: center;
+      padding: 34px;
+      border: 2px solid var(--orange);
+      border-radius: 22px;
+      background: var(--black);
+      box-shadow: 0 0 32px var(--orange-dark);
+    }
+
+    .radio-icon {
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(
+        145deg,
+        var(--orange),
+        var(--black)
+      );
+      font-size: 7rem;
+      box-shadow: inset 0 0 50px var(--black);
+    }
+
+    .radio-content h3 {
+      margin-bottom: 14px;
+      font-size: 2rem;
+      text-transform: uppercase;
+    }
+
+    .radio-content p {
+      margin-bottom: 24px;
+      line-height: 1.75;
+      font-weight: 700;
+    }
+
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .live-dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 18px var(--orange);
+      animation: blink 1.2s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0.25;
+      }
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .feature-card {
+      min-height: 270px;
+      padding: 28px 24px;
+      border: 2px solid var(--orange);
+      border-radius: 18px;
+      background:
+        linear-gradient(
+          150deg,
+          var(--black),
+          var(--orange-dark),
+          var(--black)
+        );
+      box-shadow: 0 0 18px var(--black);
+      transition: 0.25s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 28px var(--orange);
+    }
+
+    .feature-icon {
+      margin-bottom: 18px;
+      font-size: 2.8rem;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 14px;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    .feature-card p {
+      line-height: 1.6;
+      font-weight: 700;
+    }
+
+    .academy-banner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: 44px;
+      border: 3px solid var(--orange);
+      border-radius: 22px;
+      background:
+        linear-gradient(
+          90deg,
+          var(--black),
+          var(--orange-dark),
+          var(--black)
+        );
+      box-shadow: 0 0 38px var(--orange-dark);
+    }
+
+    .academy-banner h2 {
+      margin-bottom: 12px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      text-transform: uppercase;
+    }
+
+    .academy-banner p {
+      max-width: 700px;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .footer {
+      padding: 50px 0 24px;
+      border-top: 3px solid var(--orange);
+      background: var(--black);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 35px;
+    }
+
+    .footer h3 {
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .footer p,
+    .footer li {
+      line-height: 1.8;
+      font-weight: 700;
+    }
+
+    .footer ul {
+      list-style: none;
+    }
+
+    .footer a:hover {
+      text-shadow: 0 0 12px var(--orange);
+    }
+
+    .copyright {
+      margin-top: 40px;
+      padding-top: 22px;
+      border-top: 1px solid var(--orange);
+      text-align: center;
+      font-weight: 800;
+    }
+
+    [data-lang] {
+      display: none;
+    }
+
+    [data-lang].active-language {
+      display: block;
+    }
+
+    span[data-lang].active-language,
+    a[data-lang].active-language {
+      display: inline;
+    }
+
+    @media (max-width: 980px) {
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 84px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 24px 5%;
+        border-bottom: 2px solid var(--orange);
+        background: var(--black);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .language-switcher {
+        margin-left: auto;
+      }
+
+      .hero-grid,
+      .radio-panel,
+      .academy-banner,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .academy-banner {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .brand-name span {
+        display: none;
+      }
+
+      .brand-logo {
+        width: 54px;
+        height: 54px;
+      }
+
+      .navbar {
+        min-height: 72px;
+      }
+
+      .nav-links {
+        top: 72px;
+      }
+
+      .language-switcher button {
+        padding: 7px;
+        font-size: 0.72rem;
+      }
+
+      .hero {
+        padding: 55px 0;
+      }
+
+      .hero h1 {
+        font-size: 3.25rem;
+      }
+
+      .hero-logo-shell {
+        width: 310px;
+      }
+
+      .hero-visual {
+        min-height: 350px;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .radio-panel,
+      .academy-banner {
+        padding: 24px;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <main id="app">
+  <header class="site-header">
+    <div class="container navbar">
 
-    <div
-      id="heroSection"
-      data-section="sections/hero-section.html"
-    ></div>
+      <a class="brand" href="index.html">
+        <img
+          class="brand-logo"
+          src="assets/pro-max-fm-dmp-logo.png"
+          alt="PRO-MAX FM DMP Logo"
+        >
+
+        <div class="brand-name">
+          PRO-MAX FM / DMP
+          <span>POWERING THE FUTURE OF DIGITAL RADIO</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li>
+          <a href="#home">Home</a>
+        </li>
+
+        <li>
+          <a href="#radio">Radio</a>
+        </li>
+
+        <li>
+          <a href="#platform">DMP</a>
+        </li>
+
+        <li>
+          <a href="pro-max-akademi.html">Akademi</a>
+        </li>
+
+        <li>
+          <a href="login.html">Login</a>
+        </li>
+      </ul>
+
+      <div class="language-switcher">
+        <button class="active" type="button" data-language-button="ht">
+          KRE
+        </button>
+
+        <button type="button" data-language-button="en">
+          ENG
+        </button>
+
+        <button type="button" data-language-button="fr">
+          FRA
+        </button>
+      </div>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open navigation menu"
+      >
+        ☰
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+
+          <div data-lang="ht" class="active-language">
+            <p class="eyebrow">BYENVENI NAN LAVNI RADYO DIJITAL</p>
+
+            <h1>
+              PRO-MAX
+              <span>FM / DMP</span>
+            </h1>
+
+            <p class="hero-description">
+              Yon platfòm radyo dijital ak jesyon entèlijan ki mete
+              emisyon, kominote, administrasyon, teknoloji ak inovasyon
+              ansanm nan yon sèl sistèm.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#radio">
+                Koute Radyo
+              </a>
+
+              <a class="button button-secondary" href="#platform">
+                Dekouvri DMP
+              </a>
+            </div>
+          </div>
+
+          <div data-lang="en">
+            <p class="eyebrow">WELCOME TO THE FUTURE OF DIGITAL RADIO</p>
+
+            <h1>
+              PRO-MAX
+              <span>FM / DMP</span>
+            </h1>
+
+            <p class="hero-description">
+              A digital radio and intelligent management platform that
+              brings broadcasting, community, administration, technology
+              and innovation together in one powerful system.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#radio">
+                Listen Live
+              </a>
+
+              <a class="button button-secondary" href="#platform">
+                Explore DMP
+              </a>
+            </div>
+          </div>
+
+          <div data-lang="fr">
+            <p class="eyebrow">BIENVENUE DANS L’AVENIR DE LA RADIO NUMÉRIQUE</p>
+
+            <h1>
+              PRO-MAX
+              <span>FM / DMP</span>
+            </h1>
+
+            <p class="hero-description">
+              Une plateforme de radio numérique et de gestion intelligente
+              qui réunit diffusion, communauté, administration, technologie
+              et innovation dans un seul système.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#radio">
+                Écouter la Radio
+              </a>
+
+              <a class="button button-secondary" href="#platform">
+                Découvrir DMP
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-logo-shell">
+            <img
+              class="hero-logo"
+              src="assets/pro-max-fm-dmp-logo.png"
+              alt="Official PRO-MAX FM DMP Logo"
+            >
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section section-dark" id="radio">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div data-lang="ht" class="active-language">
+            <h2>PRO-MAX FM</h2>
+            <p>
+              Radyo dijital la disponib pou emisyon an dirèk,
+              pwogram espesyal, entèvyou, mizik, nouvèl ak replay.
+            </p>
+          </div>
+
+          <div data-lang="en">
+            <h2>PRO-MAX FM</h2>
+            <p>
+              Digital radio for live broadcasts, special programs,
+              interviews, music, news and replays.
+            </p>
+          </div>
+
+          <div data-lang="fr">
+            <h2>PRO-MAX FM</h2>
+            <p>
+              Une radio numérique pour les émissions en direct,
+              les programmes spéciaux, les interviews, la musique,
+              les nouvelles et les rediffusions.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="radio-panel">
+
+          <div class="radio-icon" aria-hidden="true">
+            📻
+          </div>
+
+          <div class="radio-content">
+
+            <div class="live-indicator">
+              <span class="live-dot"></span>
+              LIVE RADIO
+            </div>
+
+            <div data-lang="ht" class="active-language">
+              <h3>Koute PRO-MAX FM</h3>
+
+              <p>
+                Antre nan eksperyans radyo dijital PRO-MAX la.
+                Koute emisyon an dirèk, dekouvri pwogram yo epi rete
+                konekte ak tout aktivite rezo a.
+              </p>
+
+              <a class="button button-primary" href="radio.html">
+                Louvri Radyo a
+              </a>
+            </div>
+
+            <div data-lang="en">
+              <h3>Listen to PRO-MAX FM</h3>
+
+              <p>
+                Enter the PRO-MAX digital radio experience.
+                Listen live, discover programs and stay connected
+                with the entire network.
+              </p>
+
+              <a class="button button-primary" href="radio.html">
+                Open Radio
+              </a>
+            </div>
+
+            <div data-lang="fr">
+              <h3>Écouter PRO-MAX FM</h3>
+
+              <p>
+                Entrez dans l’expérience de la radio numérique PRO-MAX.
+                Écoutez en direct, découvrez les programmes et restez
+                connecté à tout le réseau.
+              </p>
+
+              <a class="button button-primary" href="radio.html">
+                Ouvrir la Radio
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="platform">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div data-lang="ht" class="active-language">
+            <h2>PRO-MAX DMP</h2>
+            <p>
+              Yon platfòm dijital konplè pou jere moun, dokiman,
+              kominikasyon, evènman, kontni ak operasyon administratif.
+            </p>
+          </div>
+
+          <div data-lang="en">
+            <h2>PRO-MAX DMP</h2>
+            <p>
+              A complete digital platform for managing people, documents,
+              communications, events, content and administrative operations.
+            </p>
+          </div>
+
+          <div data-lang="fr">
+            <h2>PRO-MAX DMP</h2>
+            <p>
+              Une plateforme numérique complète pour gérer les personnes,
+              les documents, les communications, les événements,
+              le contenu et les opérations administratives.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="cards-grid">
+
+          <a class="feature-card" href="ai-center.html">
+            <div class="feature-icon">🧠</div>
+            <h3>AI Center</h3>
+            <p>
+              Kreye kontni, ede administrasyon an epi prepare
+              entegrasyon entèlijans atifisyèl.
+            </p>
+          </a>
+
+          <a class="feature-card" href="crm.html">
+            <div class="feature-icon">👥</div>
+            <h3>CRM System</h3>
+            <p>
+              Jere kontak, manm, relasyon, dosye ak rechèch
+              nan yon sèl sant.
+            </p>
+          </a>
+
+          <a class="feature-card" href="communication-center.html">
+            <div class="feature-icon">📢</div>
+            <h3>Communication Center</h3>
+            <p>
+              Kreye anons, mesaj, avi, alèt, kondoleyans ak
+              kominikasyon ofisyèl.
+            </p>
+          </a>
+
+          <a class="feature-card" href="flyer-studio.html">
+            <div class="feature-icon">🎨</div>
+            <h3>Flyer Studio</h3>
+            <p>
+              Prepare, modifye, sove epi pibliye flyer dijital
+              nan stil PRO-MAX.
+            </p>
+          </a>
+
+          <a class="feature-card" href="digital-registry.html">
+            <div class="feature-icon">📋</div>
+            <h3>Digital Registry</h3>
+            <p>
+              Anrejistre manm, mizisyen, fanatik, ekip ak
+              lòt kategori kominotè.
+            </p>
+          </a>
+
+          <a class="feature-card" href="events.html">
+            <div class="feature-icon">📅</div>
+            <h3>Event Management</h3>
+            <p>
+              Kreye evènman, jere kalandriye, dat, aktivite
+              ak enfòmasyon piblik.
+            </p>
+          </a>
+
+          <a class="feature-card" href="documents.html">
+            <div class="feature-icon">📁</div>
+            <h3>Document Center</h3>
+            <p>
+              Sove, klase, jwenn epi jere dokiman ofisyèl
+              platfòm nan.
+            </p>
+          </a>
+
+          <a class="feature-card" href="dashboard.html">
+            <div class="feature-icon">⚙️</div>
+            <h3>Admin Dashboard</h3>
+            <p>
+              Kontwole itilizatè, wòl, pèmisyon ak operasyon
+              entèn sistèm nan.
+            </p>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+
+        <div class="academy-banner">
+
+          <div data-lang="ht" class="active-language">
+            <h2>PRO-MAX AKADEMI</h2>
+            <p>
+              Yon espas aprantisaj, fòmasyon ak devlopman dijital
+              ki prepare manm yo pou nouvo teknoloji ak nouvo opòtinite.
+            </p>
+          </div>
+
+          <div data-lang="en">
+            <h2>PRO-MAX ACADEMY</h2>
+            <p>
+              A learning, training and digital development space
+              preparing members for new technology and opportunities.
+            </p>
+          </div>
+
+          <div data-lang="fr">
+            <h2>PRO-MAX ACADÉMIE</h2>
+            <p>
+              Un espace d’apprentissage, de formation et de développement
+              numérique qui prépare les membres aux nouvelles technologies
+              et opportunités.
+            </p>
+          </div>
+
+          <a class="button button-primary" href="pro-max-akademi.html">
+            Antre nan Akademi an
+          </a>
+
+        </div>
+
+      </div>
+    </section>
 
   </main>
 
-  <script
-    type="module"
-    src="js/section-loader.js"
-  ></script>
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <h3>PRO-MAX FM / DMP</h3>
+          <p>
+            Powering the Future of Digital Radio.
+          </p>
+        </div>
+
+        <div>
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#radio">Radio</a></li>
+            <li><a href="#platform">DMP</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Platform</h3>
+          <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="crm.html">CRM</a></li>
+            <li><a href="ai-center.html">AI Center</a></li>
+            <li><a href="documents.html">Documents</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        © <span id="currentYear"></span>
+        PRO-MAX FM / DMP. All Rights Reserved.
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+    const languageButtons = document.querySelectorAll(
+      "[data-language-button]"
+    );
+    const languageElements = document.querySelectorAll("[data-lang]");
+
+    menuButton.addEventListener("click", function () {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+      });
+    });
+
+    languageButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        const selectedLanguage = button.dataset.languageButton;
+
+        languageButtons.forEach(function (item) {
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        languageElements.forEach(function (element) {
+          element.classList.remove("active-language");
+
+          if (element.dataset.lang === selectedLanguage) {
+            element.classList.add("active-language");
+          }
+        });
+
+        document.documentElement.lang = selectedLanguage;
+      });
+    });
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+  </script>
 
 </body>
 </html>
