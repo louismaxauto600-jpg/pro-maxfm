@@ -195,20 +195,6 @@
       overflow: hidden;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 430px;
-      height: 430px;
-      top: 50%;
-      right: 5%;
-      transform: translateY(-50%);
-      border-radius: 50%;
-      background: rgba(255, 106, 0, 0.13);
-      filter: blur(25px);
-      z-index: -1;
-    }
-
     .hero-badge {
       display: inline-block;
       margin-bottom: 20px;
@@ -262,30 +248,26 @@
       justify-content: center;
     }
 
-    /* GLOBE TERES REYEL SAN BLINK */
+    /* GLOBE TERES SAN BLINK */
     .globe {
       position: absolute;
       width: 580px;
       height: 580px;
       border-radius: 50%;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/600px-The_Earth_seen_from_Apollo_17.jpg');
+      background-image: url('https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57723/globe_east_540.jpg');
       background-size: cover;
       background-position: center;
-      border: 3px solid rgba(255, 106, 0, 0.4);
+      border: 2px solid rgba(255, 106, 0, 0.4);
       box-shadow: 
         inset -50px -25px 80px rgba(0, 0, 0, 0.9),
         0 0 60px rgba(255, 106, 0, 0.3);
-      animation: spinGlobe 60s linear infinite;
+      animation: spinGlobe 80s linear infinite;
       z-index: 1;
     }
 
     @keyframes spinGlobe {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     .hero-logo {
@@ -293,17 +275,6 @@
       z-index: 2;
       width: min(470px, 88vw);
       filter: drop-shadow(0 0 35px rgba(255, 106, 0, 0.65));
-      animation: logoFloat 4s ease-in-out infinite;
-    }
-
-    @keyframes logoFloat {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-14px);
-      }
     }
 
     .live-strip {
@@ -313,7 +284,7 @@
       gap: 18px;
       flex-wrap: wrap;
       padding: 18px 5%;
-      background: linear-gradient(90deg, #000000, #5d1c00, #000000);
+      background: linear-gradient(90deg, #000000, #5d1c00, #000);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -585,3 +556,427 @@
     .footer-column a {
       display: block;
       margin-bottom: 10px;
+      color: #ce7636;
+      font-size: 0.91rem;
+    }
+
+    .footer-column a:hover {
+      color: var(--orange-light);
+    }
+
+    .footer-bottom {
+      margin-top: 35px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 106, 0, 0.22);
+      color: #a44e1c;
+      text-align: center;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 1100px) {
+      .site-header { flex-wrap: wrap; }
+      .main-nav { order: 3; width: 100%; }
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .hero-buttons { justify-content: center; }
+      .globe { width: 450px; height: 450px; }
+      .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .platform-layout { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .site-header { padding: 12px 4%; }
+      .menu-button { display: block; }
+      .main-nav {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        padding: 15px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #050505;
+      }
+      .main-nav.open { display: flex; }
+      .main-nav a { text-align: center; }
+      .header-actions { display: none; }
+      .hero { min-height: auto; padding: 70px 5%; }
+      .globe { width: 320px; height: 320px; }
+      .service-grid, .stats, .feature-list, .footer-grid { grid-template-columns: 1fr; }
+      .section { padding: 65px 5%; }
+      .cta { margin-left: 5%; margin-right: 5%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    PRO-MAX FM/DMP — Powering the Future of Digital Radio
+  </div>
+
+  <header class="site-header">
+
+    <a class="brand" href="index.html">
+      <img
+        class="brand-logo"
+        src="pro-max-fm-dmp-II.jpeg"
+        alt="Logo PRO-MAX FM/DMP"
+      >
+
+      <div class="brand-text">
+        <strong>PRO-MAX FM/DMP</strong>
+        <span>Official Digital Radio Platform</span>
+      </div>
+    </a>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="Louvri meni an"
+      onclick="toggleMenu()"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      ☰
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Akèy</a>
+      <a href="live.html">Live</a>
+      <a href="shows.html">Emisyon</a>
+      <a href="podcasts.html">Podcast</a>
+      <a href="musics.html">Mizik</a>
+      <a href="news.html">Nouvèl</a>
+      <a href="sports.html">Espò</a>
+      <a href="events.html">Evènman</a>
+      <a href="artists.html">Atis</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-secondary" href="login.html">Konekte</a>
+      <a class="btn btn-primary" href="register.html">Enskri</a>
+    </div>
+
+  </header>
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <span class="hero-badge">
+          Radyo • Medya • Teknoloji • Jesyon Dijital
+        </span>
+
+        <h1>
+          PRO-MAX FM
+          <span>Digital Management Platform</span>
+        </h1>
+
+        <p>
+          Yon platfòm dijital pwofesyonèl ki mete radyo an dirèk,
+          emisyon, podcast, mizik, nouvèl, espò, evènman, akademi,
+          pwomosyon ak jesyon medya ansanm nan yon sèl sistèm.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="live.html">
+            ▶ Koute Live
+          </a>
+
+          <a class="btn btn-secondary" href="shows.html">
+            Gade Emisyon Yo
+          </a>
+
+          <a class="btn btn-secondary" href="login.html">
+            Antre nan Platfòm nan
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-logo-wrap">
+        <div class="globe"></div>
+        <img
+          class="hero-logo"
+          src="pro-max-fm-dmp-II.jpeg"
+          alt="PRO-MAX FM/DMP"
+        >
+      </div>
+
+    </section>
+
+    <section class="live-strip">
+      <span class="live-dot"></span>
+      <strong>PRO-MAX FM LIVE</strong>
+      <span>Koute radyo a, dekouvri emisyon yo epi rete konekte.</span>
+      <a class="btn btn-primary" href="live.html">Antre Live</a>
+    </section>
+
+    <section class="section">
+
+      <div class="section-heading">
+        <small>Tout sèvis yo nan yon sèl kote</small>
+        <h2>Eksplore PRO-MAX FM/DMP</h2>
+        <p>
+          Antre dirèkteman nan chak seksyon prensipal platfòm dijital la.
+        </p>
+      </div>
+
+      <div class="service-grid">
+
+        <article class="service-card">
+          <div class="service-icon">▶</div>
+          <h3>Live Radio</h3>
+          <p>
+            Koute pwogramasyon PRO-MAX FM an dirèk sou entènèt.
+          </p>
+          <a class="service-link" href="live.html">Koute kounye a →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">TV</div>
+          <h3>Emisyon</h3>
+          <p>
+            Dekouvri emisyon, animatè, orè ak pwogram espesyal yo.
+          </p>
+          <a class="service-link" href="shows.html">Gade emisyon yo →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">🎙</div>
+          <h3>Podcast</h3>
+          <p>
+            Tande entèvyou, deba, analiz ak seri odyo espesyal.
+          </p>
+          <a class="service-link" href="podcasts.html">Ale nan podcast →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">♫</div>
+          <h3>Mizik</h3>
+          <p>
+            Eksplore mizik, atis, DJ ak nouvo pwodiksyon yo.
+          </p>
+          <a class="service-link" href="musics.html">Dekouvri mizik →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">N</div>
+          <h3>Nouvèl</h3>
+          <p>
+            Rete enfòme sou nouvèl kominotè, lokal ak entènasyonal.
+          </p>
+          <a class="service-link" href="news.html">Li nouvèl yo →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">S</div>
+          <h3>Espò</h3>
+          <p>
+            Jwenn nouvèl espò, analiz, rezilta ak emisyon espesyal.
+          </p>
+          <a class="service-link" href="sports.html">Antre nan espò →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">E</div>
+          <h3>Evènman</h3>
+          <p>
+            Swiv aktivite, entèvyou, prezantasyon ak evènman ofisyèl.
+          </p>
+          <a class="service-link" href="events.html">Gade evènman yo →</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">A</div>
+          <h3>Atis</h3>
+          <p>
+            Dekouvri atis, mizisyen, DJ, animatè ak kreyatè yo.
+          </p>
+          <a class="service-link" href="artists.html">Dekouvri atis yo →</a>
+        </article>
+
+      </div>
+
+    </section>
+
+    <section class="section platform-section">
+
+      <div class="platform-layout">
+
+        <div class="platform-image">
+          <img
+            src="pro-max-fm-dmp-II.jpeg"
+            alt="PRO-MAX FM Digital Management Platform"
+          >
+        </div>
+
+        <div class="platform-content">
+
+          <span class="hero-badge">Digital Management Platform</span>
+
+          <h2>Plis pase yon radyo</h2>
+
+          <p>
+            PRO-MAX FM/DMP se yon sistèm dijital konplè pou jere radyo,
+            mizik, podcast, nouvèl, medya, itilizatè, evènman, piblisite,
+            sekirite, rapò ak operasyon administratif.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature-item">Admin Dashboard</div>
+            <div class="feature-item">Live Studio</div>
+            <div class="feature-item">DJ Portal</div>
+            <div class="feature-item">Media Library</div>
+            <div class="feature-item">Artist Management</div>
+            <div class="feature-item">Podcast Management</div>
+            <div class="feature-item">Event Management</div>
+            <div class="feature-item">Security Center</div>
+          </div>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="login.html">
+              Konekte nan Sistèm nan
+            </a>
+
+            <a class="btn btn-secondary" href="register.html">
+              Kreye yon Kont
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="stats">
+
+        <div class="stat-card">
+          <strong>24/7</strong>
+          <span>Radyo Dijital</span>
+        </div>
+
+        <div class="stat-card">
+          <strong>1</strong>
+          <span>Platfòm Santral</span>
+        </div>
+
+        <div class="stat-card">
+          <strong>100%</strong>
+          <span>Jesyon Dijital</span>
+        </div>
+
+        <div class="stat-card">
+          <strong>PRO</strong>
+          <span>Sistèm Medya</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="cta">
+
+      <h2>Antre nan nouvo jenerasyon radyo dijital la</h2>
+
+      <p>
+        Koute PRO-MAX FM, suiv emisyon yo, dekouvri podcast yo,
+        konekte ak atis yo epi itilize zouti jesyon dijital platfòm nan.
+      </p>
+
+      <div class="hero-buttons" style="justify-content:center;">
+        <a class="btn btn-primary" href="live.html">
+          Koute PRO-MAX FM
+        </a>
+
+        <a class="btn btn-secondary" href="register.html">
+          Enskri Kounye a
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <img
+          src="pro-max-fm-dmp-II.jpeg"
+          alt="Logo PRO-MAX FM/DMP"
+        >
+
+        <h3>PRO-MAX FM/DMP</h3>
+
+        <p>
+          Official Digital Radio Platform. Powering the Future of Digital Radio.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Radyo</h4>
+        <a href="live.html">Live Radio</a>
+        <a href="shows.html">Emisyon</a>
+        <a href="podcasts.html">Podcast</a>
+        <a href="musics.html">Mizik</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Medya</h4>
+        <a href="news.html">Nouvèl</a>
+        <a href="sports.html">Espò</a>
+        <a href="events.html">Evènman</a>
+        <a href="video.html">Videyo</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Kont</h4>
+        <a href="login.html">Konekte</a>
+        <a href="register.html">Enskri</a>
+        <a href="profile.html">Pwofil</a>
+        <a href="privacy.html">Konfidansyalite</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="currentYear"></span> PRO-MAX FM/DMP. Tout dwa rezève.
+    </div>
+
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navigation = document.getElementById("mainNav");
+      const button = document.querySelector(".menu-button");
+      const isOpen = navigation.classList.toggle("open");
+      button.setAttribute("aria-expanded", isOpen);
+    }
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    document.querySelectorAll("#mainNav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        document.getElementById("mainNav").classList.remove("open");
+        document.querySelector(".menu-button").setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("click", function(e) {
+      const nav = document.getElementById("mainNav");
+      const btn = document.querySelector(".menu-button");
+      if (!nav.contains(e.target) && !btn.contains(e.target)) {
+        nav.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+
+</body>
+</html>
