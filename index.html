@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PRO-MAX FM DMP — Powering the Future of Digital Radio">
+  <meta name="theme-color" content="#ff7300">
   <title>PRO-MAX FM DMP | Digital Radio Platform</title>
   <style>
     :root {
@@ -14,127 +16,72 @@
       --muted: #c88952;
       --border: rgba(255, 115, 0, 0.45);
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-    html, body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--black)!important;
-      color: var(--text)!important;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
+    body { font-family: Arial, Helvetica, sans-serif; background: var(--black)!important; color: var(--text)!important; line-height: 1.6; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; cursor: pointer; border: none; }
 
-   .topbar {
-      position: sticky; top: 0; z-index: 1000;
-      background: rgba(0, 0, 0, 0.96);
-      border-bottom: 2px solid var(--orange);
-      backdrop-filter: blur(18px);
-    }
+  .topbar { position: sticky; top: 0; z-index: 1000; background: rgba(0, 0, 0, 0.96); border-bottom: 2px solid var(--orange); backdrop-filter: blur(18px); }
+  .topbar-inner { display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 16px; padding: 12px 20px; max-width: 1400px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-logo { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--orange); background: var(--orange); display: grid; place-items: center; font-weight: 900; color: #000; font-size: 1.3rem; }
+  .brand-text h1 { font-size: 18px; text-transform: uppercase; line-height: 1; margin: 0; color: var(--orange); }
+  .brand-text p { font-size: 11px; margin-top: 4px; letter-spacing:.8px; color: var(--muted); }
+  .main-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .nav-btn { padding: 8px 12px; border: 1px solid var(--orange); border-radius: 999px; font-weight: 700; font-size: 0.8rem; background: #000; color: var(--orange); transition:.25s; }
+  .nav-btn:hover { background: var(--orange); color: #000; }
+  .lang-toggle { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--orange); background: #000; color: var(--orange); display: grid; place-items: center; font-size: 1.3rem; transition:.25s; cursor: pointer; }
+  .lang-toggle:hover { background: var(--orange); color: #000; transform: rotate(15deg); }
+  .admin-toggle { padding: 10px 18px; border: 1px solid var(--orange); border-radius: 999px; font-weight: 900; background: var(--orange); color: #000; }
 
-   .topbar-inner {
-      display: grid; grid-template-columns: auto 1fr auto auto;
-      align-items: center; gap: 16px; padding: 12px 20px;
-      max-width: 1400px; margin: 0 auto;
-    }
+  .hero { min-height: 85vh; display: grid; place-items: center; padding: 100px 20px; text-align: center; background: radial-gradient(circle at center, rgba(255, 115, 0, 0.26), transparent 56%); }
+  .hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1; text-transform: uppercase; margin-bottom: 20px; }
+  .hero h1 span { display: block; color: var(--text); }
+  .hero h1 strong { display: block; color: var(--orange); text-shadow: 0 0 36px rgba(255, 115, 0, 0.38); }
+  .hero p { max-width: 700px; margin: 20px auto; color: var(--muted); font-size: 1.1rem; }
+  .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
+  .btn { min-width: 180px; padding: 14px 22px; border: 1px solid var(--orange); border-radius: 999px; text-align: center; font-weight: 900; transition:.25s; }
+  .btn:hover { transform: translateY(-4px); }
+  .btn-primary { color: #000; background: linear-gradient(135deg, var(--orange-light), var(--orange)); }
+  .btn-secondary { color: var(--orange-light); background: rgba(0, 0, 0, 0.5); }
 
-   .brand { display: flex; align-items: center; gap: 12px; }
-   .brand-logo {
-      width: 56px; height: 56px; border-radius: 50%;
-      border: 2px solid var(--orange); background: var(--orange);
-      display: grid; place-items: center; font-weight: 900; color: #000; font-size: 1.3rem;
-    }
-   .brand-text h1 { font-size: 18px; text-transform: uppercase; line-height: 1; margin: 0; color: var(--orange); }
-   .brand-text p { font-size: 11px; margin-top: 4px; letter-spacing:.8px; color: var(--muted); }
+  .modules-section { padding: 60px 20px; max-width: 1400px; margin: 0 auto; }
+  .section-title { text-align: center; margin-bottom: 40px; }
+  .section-title small { display: block; margin-bottom: 10px; color: var(--orange); font-weight: 900; letter-spacing: 1.7px; text-transform: uppercase; }
+  .section-title h2 { font-size: clamp(2rem, 5vw, 3rem); color: var(--orange); margin: 0 0 10px 0; text-transform: uppercase; }
+  .section-title p { color: var(--muted); }
 
-   .main-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; }
-   .nav-btn {
-      padding: 8px 12px; border: 1px solid var(--orange);
-      border-radius: 999px; font-weight: 700; font-size: 0.8rem;
-      background: #000; color: var(--orange); transition:.25s;
-    }
-   .nav-btn:hover { background: var(--orange); color: #000; }
+  .modules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+  .module-card { min-height: 220px; display: flex; flex-direction: column; padding: 24px; border: 1px solid var(--border); border-radius: 18px; color: var(--orange); background: linear-gradient(145deg, rgba(255, 115, 0, 0.12), transparent 45%), var(--dark); box-shadow: 0 0 20px rgba(255, 106, 0, 0.14); cursor: pointer; transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
+  .module-card:hover { transform: translateY(-7px); border-color: var(--orange); box-shadow: 0 0 28px rgba(255, 106, 0, 0.34); }
+  .module-icon { width: 56px; height: 56px; display: grid; place-items: center; margin-bottom: 18px; border-radius: 15px; color: #000; background: var(--orange); font-size: 1.55rem; }
+  .module-card h3 { margin: 0; color: var(--orange); font-size: 1.08rem; text-transform: uppercase; }
+  .module-card p { margin: 11px 0 0; color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+  .module-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 18px; }
+  .module-link { color: var(--orange); font-size: 0.87rem; font-weight: 900; }
+  .status { display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border: 1px solid var(--border); border-radius: 999px; color: var(--orange); background: #000; font-size: 0.68rem; font-weight: 900; text-transform: uppercase; }
+  .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 8px var(--orange); }
 
-   .lang-toggle {
-      width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--orange);
-      background: #000; color: var(--orange); display: grid; place-items: center;
-      font-size: 1.3rem; transition:.25s; cursor: pointer;
-    }
-   .lang-toggle:hover { background: var(--orange); color: #000; transform: rotate(15deg); }
+  .social-section { scroll-margin-top: 110px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: #080808; padding: 60px 20px; }
+  .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 18px; max-width: 1200px; margin: 0 auto; }
+  .social-card { min-height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 28px; border: 1px solid var(--border); border-radius: 20px; text-align: center; color: var(--orange); background: linear-gradient(145deg, rgba(255, 106, 0, 0.15), transparent 48%), var(--dark); cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .social-card:hover { transform: translateY(-7px); box-shadow: 0 0 30px rgba(255, 106, 0, 0.35); }
+  .social-icon { margin-bottom: 16px; font-size: 2.5rem; }
+  .social-card h3 { margin: 0; color: var(--orange); font-size: 1.1rem; text-transform: uppercase; }
+  .social-card p { margin-top: 8px; color: var(--muted); font-size: 0.85rem; }
 
-   .admin-toggle {
-      padding: 10px 18px; border: 1px solid var(--orange);
-      border-radius: 999px; font-weight: 900; background: var(--orange);
-      color: #000; transition:.25s;
-    }
+  .video-embed { margin-top: 50px; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .video-embed h3 { color: var(--orange); text-align: center; margin-bottom: 20px; font-size: 1.5rem; }
+  .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; border: 2px solid var(--border); box-shadow: 0 15px 40px rgba(255, 115, 0, 0.3); }
+  .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-   .hero {
-      min-height: 85vh; display: grid; place-items: center;
-      padding: 100px 20px; text-align: center;
-      background: radial-gradient(circle at center, rgba(255, 115, 0, 0.26), transparent 56%);
-    }
-   .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1;
-      text-transform: uppercase; margin-bottom: 20px;
-    }
-   .hero h1 span { display: block; color: var(--text); }
-   .hero h1 strong { display: block; color: var(--orange); text-shadow: 0 0 36px rgba(255, 115, 0, 0.38); }
-   .hero p { max-width: 700px; margin: 20px auto; color: var(--muted); font-size: 1.1rem; }
-   .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
-   .btn {
-      min-width: 180px; padding: 14px 22px; border: 1px solid var(--orange);
-      border-radius: 999px; text-align: center; font-weight: 900; transition:.25s;
-    }
-   .btn:hover { transform: translateY(-4px); }
-   .btn-primary { color: #000; background: linear-gradient(135deg, var(--orange-light), var(--orange)); }
-   .btn-secondary { color: var(--orange-light); background: rgba(0, 0, 0, 0.5); }
-
-   .modules-section { padding: 60px 20px; max-width: 1400px; margin: 0 auto; }
-   .section-title { text-align: center; margin-bottom: 40px; }
-   .section-title small { display: block; margin-bottom: 10px; color: var(--orange); font-weight: 900; letter-spacing: 1.7px; text-transform: uppercase; }
-   .section-title h2 { font-size: clamp(2rem, 5vw, 3rem); color: var(--orange); margin: 0 0 10px 0; text-transform: uppercase; }
-   .section-title p { color: var(--muted); }
-
-   .modules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
-   .module-card {
-      min-height: 220px; display: flex; flex-direction: column; padding: 24px;
-      border: 1px solid var(--border); border-radius: 18px; color: var(--orange);
-      background: linear-gradient(145deg, rgba(255, 115, 0, 0.12), transparent 45%), var(--dark);
-      box-shadow: 0 0 20px rgba(255, 106, 0, 0.14); cursor: pointer;
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-   .module-card:hover { transform: translateY(-7px); border-color: var(--orange); box-shadow: 0 0 28px rgba(255, 106, 0, 0.34); }
-   .module-icon { width: 56px; height: 56px; display: grid; place-items: center; margin-bottom: 18px; border-radius: 15px; color: #000; background: var(--orange); font-size: 1.55rem; }
-   .module-card h3 { margin: 0; color: var(--orange); font-size: 1.08rem; text-transform: uppercase; }
-   .module-card p { margin: 11px 0 0; color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
-   .module-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 18px; }
-   .module-link { color: var(--orange); font-size: 0.87rem; font-weight: 900; }
-   .status { display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border: 1px solid var(--border); border-radius: 999px; color: var(--orange); background: #000; font-size: 0.68rem; font-weight: 900; text-transform: uppercase; }
-   .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 8px var(--orange); }
-
-   .social-section { scroll-margin-top: 110px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: #080808; padding: 60px 20px; }
-   .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 18px; max-width: 1200px; margin: 0 auto; }
-   .social-card { min-height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 28px; border: 1px solid var(--border); border-radius: 20px; text-align: center; color: var(--orange); background: linear-gradient(145deg, rgba(255, 106, 0, 0.15), transparent 48%), var(--dark); cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease; }
-   .social-card:hover { transform: translateY(-7px); box-shadow: 0 0 30px rgba(255, 106, 0, 0.35); }
-   .social-icon { margin-bottom: 16px; font-size: 2.5rem; }
-   .social-card h3 { margin: 0; color: var(--orange); font-size: 1.1rem; text-transform: uppercase; }
-   .social-card p { margin-top: 8px; color: var(--muted); font-size: 0.85rem; }
-
-   .video-embed { margin-top: 50px; max-width: 900px; margin-left: auto; margin-right: auto; }
-   .video-embed h3 { color: var(--orange); text-align: center; margin-bottom: 20px; font-size: 1.5rem; }
-   .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; border: 2px solid var(--border); box-shadow: 0 15px 40px rgba(255, 115, 0, 0.3); }
-   .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-   .live-player { position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px; background: rgba(0, 0, 0, 0.95); border: 2px solid var(--orange); border-radius: 20px; padding: 18px; z-index: 999; backdrop-filter: blur(20px); box-shadow: 0 10px 40px rgba(255, 115, 0, 0.4); }
-   .player-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-   .live-indicator { display: flex; align-items: center; gap: 8px; color: #ff0000; font-weight: 900; font-size: 0.9rem; }
-   .live-dot { width: 10px; height: 10px; background: #ff0000; border-radius: 50%; animation: pulse 1.5s infinite; }
+  .live-player { position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px; background: rgba(0, 0, 0, 0.95); border: 2px solid var(--orange); border-radius: 20px; padding: 18px; z-index: 999; backdrop-filter: blur(20px); box-shadow: 0 10px 40px rgba(255, 115, 0, 0.4); }
+  .player-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .live-indicator { display: flex; align-items: center; gap: 8px; color: #ff0000; font-weight: 900; font-size: 0.9rem; }
+  .live-dot { width: 10px; height: 10px; background: #ff0000; border-radius: 50%; animation: pulse 1.5s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-   .player-controls { display: flex; gap: 10px; align-items: center; }
-   .play-btn { width: 50px; height: 50px; border-radius: 50%; background: var(--orange); color: #000; font-size: 1.5rem; display: grid; place-items: center; }
+  .player-controls { display: flex; gap: 10px; align-items: center; }
+  .play-btn { width: 50px; height: 50px; border-radius: 50%; background: var(--orange); color: #000; font-size: 1.5rem; display: grid; place-items: center; }
 
     footer { margin-top: 60px; padding: 30px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--muted); }
 
@@ -172,7 +119,7 @@
           <span data-translate="hero-line1">POWERING THE FUTURE OF</span>
           <strong data-translate="hero-line2">DIGITAL RADIO</strong>
         </h1>
-        <p data-translate="hero-desc">Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 19 modil pwofesyonèl tout an kreyòl.</p>
+        <p data-translate="hero-desc">Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl tout an kreyòl.</p>
         <div class="hero-buttons">
           <button class="btn btn-primary" onclick="playLive()" data-translate="btn-listen">🎧 LISTEN LIVE</button>
           <button class="btn btn-secondary" onclick="scrollToSection('radio')" data-translate="btn-schedule">📋 VIEW SCHEDULE</button>
@@ -210,32 +157,33 @@
         "brandSub": "Digital Radio Platform",
         "nav-radio": "📻 Radyo", "nav-shows": "📺 Emisyon", "nav-podcast": "🎙️ Podcast", "nav-social": "🌐 Social",
         "hero-line1": "POWERING THE FUTURE OF", "hero-line2": "DIGITAL RADIO",
-        "hero-desc": "Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 19 modil pwofesyonèl tout an kreyòl.",
+        "hero-desc": "Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl tout an kreyòl.",
         "btn-listen": "🎧 LISTEN LIVE", "btn-schedule": "📋 VIEW SCHEDULE",
         "live-now": "LIVE NOW", "now-playing": "Kounye a:", "rights": "Tout dwa rezève.",
         "modules-title": "Modil PRO-MAX FM/DMP", "modules-subtitle": "Tout sèvis yo nan yon sèl kote",
         "modules-desc": "Antre dirèkteman nan sèvis prensipal platfòm radyo ak jesyon dijital la.",
         "social-title": "Konekte Sou Tout Platfòm", "social-subtitle": "Social Streaming",
-        "social-desc": "Swiv PRO-MAX FM DMP sou Facebook, WhatsApp, TikTok, X, Truth Social, YouTube ak Spotify.",
+        "social-desc": "Swiv PRO-MAX FM DMP sou Facebook, Instagram, WhatsApp, TikTok, X, Truth Social, YouTube ak Spotify.",
         "video-title": "DÈNYE VIDEO NOU", "open-module": "Louvri modil la →"
       },
       fr: {
         "brandSub": "Plateforme Radio Numérique",
         "nav-radio": "📻 Radio", "nav-shows": "📺 Émissions", "nav-podcast": "🎙️ Podcast", "nav-social": "🌐 Social",
         "hero-line1": "PROPULSANT L'AVENIR DE LA", "hero-line2": "RADIO NUMÉRIQUE",
-        "hero-desc": "Plateforme numérique complète pour radio, podcast, musique, actualités et communication en direct. 19 modules professionnels.",
+        "hero-desc": "Plateforme numérique complète pour radio, podcast, musique, actualités et communication en direct. 38 modules professionnels.",
         "btn-listen": "🎧 ÉCOUTER EN DIRECT", "btn-schedule": "📋 VOIR PROGRAMME",
         "live-now": "EN DIRECT", "now-playing": "En cours:", "rights": "Tous droits réservés.",
         "modules-title": "Modules PRO-MAX FM/DMP", "modules-subtitle": "Tous les services en un seul endroit",
         "modules-desc": "Accédez directement aux services principaux de la plateforme radio et gestion numérique.",
         "social-title": "Connectez-vous Sur Toutes Les Plateformes", "social-subtitle": "Streaming Social",
-        "social-desc": "Suivez PRO-MAX FM DMP sur Facebook, WhatsApp, TikTok, X, Truth Social, YouTube et Spotify.",
+        "social-desc": "Suivez PRO-MAX FM DMP sur Facebook, Instagram, WhatsApp, TikTok, X, Truth Social, YouTube et Spotify.",
         "video-title": "NOTRE DERNIÈRE VIDÉO", "open-module": "Ouvrir le module →"
       }
     };
 
     let currentLang = 'kr';
 
+    // 38 MODIL PRENSIPAL YO
     const modules = [
       { id: "radio", icon: "📻", name: "Live Radio", desc: "24/7 Streaming", status: "live" },
       { id: "emisyon", icon: "📺", name: "Emisyon", desc: "Shows & Programming", status: "live" },
@@ -248,15 +196,42 @@
       { id: "video", icon: "🎥", name: "Videyo", desc: "Video Center", status: "live" },
       { id: "academy", icon: "🎓", name: "PRO-MAX Academy", desc: "Learning Center", status: "live" },
       { id: "admin", icon: "🛡", name: "Admin Dashboard", desc: "Kontwòl santral", status: "live" },
-      { id: "analytics", icon: "📈", name: "Analytics", desc: "Rapò ak pèfòmans", status: "live" }
+      { id: "analytics", icon: "📈", name: "Analytics", desc: "Rapò ak pèfòmans", status: "live" },
+      { id: "dj", icon: "🎧", name: "DJ Portal", desc: "Zòn travay pou DJ", status: "live" },
+      { id: "host", icon: "🎙️", name: "Host Portal", desc: "Dashboard animatè", status: "live" },
+      { id: "studio", icon: "🎬", name: "Live Studio", desc: "Diffusion an dirèk", status: "live" },
+      { id: "weather", icon: "🌤️", name: "Meteyo", desc: "Tan an dirèk", status: "live" },
+      { id: "interview", icon: "🎤", name: "Entèvyou", desc: "Envite espesyal", status: "live" },
+      { id: "gallery", icon: "🖼️", name: "Galri", desc: "Foto ak albòm", status: "live" },
+      { id: "ads", icon: "📢", name: "Piblisite", desc: "Anons ak sponsors", status: "live" },
+      { id: "business", icon: "💼", name: "Biznis", desc: "Patnè ak piblisite", status: "live" },
+      { id: "memory", icon: "🕊️", name: "An Memwa", desc: "Omaj ak souvni", status: "live" },
+      { id: "members", icon: "👥", name: "Manm", desc: "Komunote", status: "live" },
+      { id: "messages", icon: "💬", name: "Mesaj", desc: "Chat ak oditè", status: "live" },
+      { id: "email", icon: "📧", name: "Imèl", desc: "Newsletter", status: "live" },
+      { id: "announce", icon: "📣", name: "Anons", desc: "Piblikasyon", status: "live" },
+      { id: "contact", icon: "📞", name: "Kontak", desc: "Enfòmasyon", status: "live" },
+      { id: "feedback", icon: "💭", name: "Feedback", desc: "Kòmantè ak nòt", status: "live" },
+      { id: "media", icon: "📚", name: "Media Library", desc: "Achiv medya", status: "live" },
+      { id: "users", icon: "👤", name: "User Management", desc: "Jere itilizatè", status: "live" },
+      { id: "roles", icon: "🔐", name: "Role & Permissions", desc: "Wòl ak aksè", status: "live" },
+      { id: "reports", icon: "📊", name: "Reports", desc: "Rapò detaye", status: "live" },
+      { id: "logs", icon: "📝", name: "Activity Logs", desc: "Istwa aktivite", status: "live" },
+      { id: "security", icon: "🛡️", name: "Security Center", desc: "Sekirite", status: "live" },
+      { id: "firebase", icon: "🔥", name: "Firebase", desc: "Backend", status: "live" },
+      { id: "database", icon: "💾", name: "Database", desc: "Baz done", status: "live" },
+      { id: "backup", icon: "☁️", name: "Backup & Restore", desc: "Sovgad", status: "live" },
+      { id: "monitor", icon: "🔧", name: "System Monitor", desc: "Siveyans", status: "live" },
+      { id: "api", icon: "🌐", name: "API Manager", desc: "API ak entegrasyon", status: "live" }
     ];
 
+    // 8 MODIL SOCIAL - FACEBOOK, INSTAGRAM, WHATSAPP, TIKTOK, X, TRUTH, YOUTUBE, SPOTIFY
     const socialModules = [
       { id: "facebook", icon: "📘", name: "Facebook", desc: "Page & Community", url: "https://facebook.com/YOUR_PAGE", color: "#1877F2" },
       { id: "instagram", icon: "📷", name: "Instagram", desc: "Photos & Stories", url: "https://instagram.com/YOUR_USERNAME", color: "#E4405F" },
       { id: "whatsapp", icon: "💬", name: "WhatsApp", desc: "Chat & Updates", url: "https://wa.me/YOUR_NUMBER", color: "#25D366" },
       { id: "tiktok", icon: "🎵", name: "TikTok", desc: "Short Videos", url: "https://tiktok.com/@YOUR_USERNAME", color: "#000000" },
-      { id: "twitter", icon: "𝕏", name: "X / Twitter", desc: "News & Updates", url: "https://x.com/YOUR_HANDLE", color: "#000000" },
+      { id: "twitter", icon: "𝕏", name: "X / Twitter", desc: "News & Updates", url: "https://x.com/YOUR_HANDLE", color: "#000" },
       { id: "truth", icon: "🦅", name: "Truth Social", desc: "Community Posts", url: "https://truthsocial.com/@YOUR_USERNAME", color: "#5448C8" },
       { id: "youtube", icon: "📺", name: "YouTube", desc: "Channel & Live Stream", url: "https://www.youtube.com/watch?v=_mqq1THvqkI", color: "#FF0000" },
       { id: "spotify", icon: "🎵", name: "Spotify", desc: "Podcast & Mizik", url: "https://open.spotify.com", color: "#1DB954" }
@@ -318,7 +293,7 @@
           <div class="section-title">
             <small data-translate="social-subtitle">Social Streaming</small>
             <h2 data-translate="social-title">Konekte Sou Tout Platfòm</h2>
-            <p data-translate="social-desc">Swiv PRO-MAX FM DMP sou Facebook, WhatsApp, TikTok, X, Truth Social, YouTube ak Spotify.</p>
+            <p data-translate="social-desc">Swiv PRO-MAX FM DMP sou Facebook, Instagram, WhatsApp, TikTok, X, Truth Social, YouTube ak Spotify.</p>
           </div>
           <div class="social-grid" id="social-grid"></div>
           <div class="video-embed">
