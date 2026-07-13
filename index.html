@@ -1,13 +1,3 @@
-M resevwa l Max 🙏 M wè kòd la. Ou gen bon baz, men m ap ranje 3 bagay yo kounye a:
-
-1. **GWO GLOBE ANIME** — M mete l pi gwo 70px, ak animasyon, dwa apre "PRO-MAX FM DMP"
-2. **LANGUAGE TOGGLE** — M ajoute bouton ki mache Kreyòl ↔ Français ↔ English
-3. **38 MODIL** — Yo tout la deja nan JS ou a, m sèlman asire yo parèt
-4. **X/TWITTER + INSTAGRAM** — M ajoute yo nan seksyon social la
-
-### **MEN `index.html` OU A RANJE — KOPIE TOUT SA A RETOUNEN SOU GITHUB:**
-
-```html
 <!DOCTYPE html>
 <html lang="ht">
 <head>
@@ -16,76 +6,65 @@ M resevwa l Max 🙏 M wè kòd la. Ou gen bon baz, men m ap ranje 3 bagay yo ko
   <meta name="description" content="PRO-MAX FM DMP — Powering the Future of Digital Radio">
   <meta name="theme-color" content="#050505">
   <title>PRO-MAX FM DMP | Digital Radio Platform</title>
-
   <style>
     :root {
       --orange: #ff7300;
       --orange-light: #ff9b22;
-      --orange-dark: #8f2f00;
-      --black: #030303;
-      --black-soft: #0b0b0b;
+      --black: #000;
       --text: #ffd2a3;
       --muted: #c88952;
       --border: rgba(255, 115, 0, 0.45);
-      --shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
-      --header-height: 84px;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      min-height: 100vh;
-      overflow-x: hidden;
-      color: var(--text);
+      min-height: 100vh; overflow-x: hidden; color: var(--text);
       background: radial-gradient(circle at top center, rgba(255, 115, 0, 0.16), transparent 32%),
                   linear-gradient(135deg, #000000 0%, #0a0705 52%, #361100 100%);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif; line-height: 1.6;
     }
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; cursor: pointer; border: none; }
 
-    /* TOPBAR */
-   .topbar {
+    /* HEADER + LOGO + GWO GLOBE ANIME */
+  .topbar {
       position: sticky; top: 0; z-index: 1000;
-      width: 100%; min-height: var(--header-height);
-      background: rgba(0, 0, 0, 0.96);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(18px);
+      width: 100%; background: rgba(0, 0, 0, 0.96);
+      border-bottom: 1px solid var(--border); backdrop-filter: blur(18px);
     }
-   .topbar-inner {
+  .topbar-inner {
       display: grid; grid-template-columns: auto 1fr auto;
       align-items: center; gap: 16px; padding: 12px 20px;
       max-width: 1400px; margin: 0 auto;
     }
-   .brand { display: flex; align-items: center; gap: 12px; }
-   .brand-logo {
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-logo {
       width: 56px; height: 56px; border-radius: 50%;
       border: 2px solid var(--orange); background: var(--orange);
       display: grid; place-items: center; font-weight: 900; color: #000;
       font-size: 1.3rem; box-shadow: 0 0 25px rgba(255,115,0,.5);
     }
-   .brand-text h1 { font-size: 18px; text-transform: uppercase; line-height: 1; }
-   .brand-text p { font-size: 11px; margin-top: 4px; text-transform: uppercase; letter-spacing:.8px; color: var(--muted); }
+  .brand-text h1 { font-size: 18px; text-transform: uppercase; line-height: 1; }
+  .brand-text p { font-size: 11px; margin-top: 4px; text-transform: uppercase; letter-spacing:.8px; color: var(--muted); }
 
-    /* GWO GLOBE ANIME - APRE TIT LA */
-   .globe-container {
+    /* GWO GLOBE ANIME APRE PRO-MAX FM DMP */
+  .globe-container {
       width: 70px; height: 70px; position: relative; cursor: pointer;
       animation: spin 10s linear infinite; margin-left: 15px;
     }
-   .globe-sphere {
+  .globe-sphere {
       width: 100%; height: 100%; border-radius: 50%;
       background: radial-gradient(circle at 35% 35%, #ff9b22 0%, #ff7300 40%, #c44d00 100%);
       box-shadow: 0 0 30px rgba(255,115,0,.7), inset -10px -10px 30px rgba(0,0,0,.5);
       position: relative; overflow: hidden;
     }
-   .globe-sphere::before {
+  .globe-sphere::before {
       content: ""; position: absolute; inset: 0;
       background: repeating-linear-gradient(0deg, transparent 0px, transparent 10px, rgba(0,0,0,.4) 10px, rgba(0,0,0,.4) 11px),
                   repeating-linear-gradient(90deg, transparent 0px, transparent 10px, rgba(0,0,0,.4) 10px, rgba(0,0,0,.4) 11px);
       border-radius: 50%;
     }
-   .globe-sphere::after {
+  .globe-sphere::after {
       content: "🌍"; position: absolute; top: 50%; left: 50%;
       transform: translate(-50%, -50%); font-size: 36px;
       animation: glow 3s ease-in-out infinite;
@@ -96,441 +75,20 @@ M resevwa l Max 🙏 M wè kòd la. Ou gen bon baz, men m ap ranje 3 bagay yo ko
       50% { opacity: 0.7; filter: drop-shadow(0 0 20px #ff7300); }
     }
 
-   .main-nav { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
-   .nav-btn {
+  .main-nav { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .nav-btn {
       padding: 8px 14px; border: 1px solid var(--orange);
       border-radius: 999px; font-weight: 700; font-size: 0.85rem;
       background: #000; color: var(--orange); transition:.25s;
     }
-   .nav-btn:hover,.nav-btn.active { background: var(--orange); color: #000; }
+  .nav-btn:hover,.nav-btn.active { background: var(--orange); color: #000; }
 
     /* LANGUAGE TOGGLE */
-   .lang-toggle {
+  .lang-toggle {
       padding: 10px 18px; border: 2px solid var(--orange);
       border-radius: 999px; font-weight: 900; background: #000;
       color: var(--orange); transition:.25s; font-size: 0.9rem;
     }
-   .lang-toggle:hover { background: var(--orange); color: #000; transform: scale(1.05); }
+  .lang-toggle:hover { background: var(--orange); color: #000; transform: scale(1.05); }
 
-   .admin-toggle {
-      padding: 10px 18px; border: 1px solid var(--orange);
-      border-radius: 999px; font-weight: 900; background: var(--orange);
-      color: #000; transition:.25s;
-    }
-   .admin-toggle:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--orange); }
-
-    /* HERO */
-   .hero {
-      min-height: 80vh; display: grid; place-items: center;
-      padding: 100px 20px; text-align: center;
-      background: radial-gradient(circle at center, rgba(255, 115, 0, 0.26), transparent 56%);
-    }
-   .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1;
-      text-transform: uppercase; margin-bottom: 20px;
-    }
-   .hero h1 span { display: block; color: var(--text); }
-   .hero h1 strong { display: block; color: var(--orange); text-shadow: 0 0 36px rgba(255, 115, 0, 0.38); }
-   .hero p { max-width: 700px; margin: 20px auto; color: var(--muted); font-size: 1.1rem; }
-   .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
-   .btn {
-      min-width: 180px; padding: 14px 22px; border: 1px solid var(--orange);
-      border-radius: 999px; text-align: center; font-weight: 900; transition:.25s;
-    }
-   .btn:hover { transform: translateY(-4px); }
-   .btn-primary { color: #000; background: linear-gradient(135deg, var(--orange-light), var(--orange)); }
-   .btn-secondary { color: var(--orange-light); background: rgba(0, 0, 0, 0.5); }
-
-    /* MODULES GRID */
-   .modules-section { padding: 60px 20px; max-width: 1400px; margin: 0 auto; }
-   .section-title { text-align: center; margin-bottom: 40px; }
-   .section-title h2 { font-size: clamp(2rem, 5vw, 3rem); color: var(--orange); margin-bottom: 10px; }
-   .section-title p { color: var(--muted); }
-
-   .modules-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-    }
-   .module-card {
-      padding: 24px; border: 1px solid var(--border); border-radius: 18px;
-      background: linear-gradient(145deg, rgba(255, 115, 0, 0.09), transparent 46%), rgba(7, 7, 7, 0.84);
-      backdrop-filter: blur(12px); transition:.3s; cursor: pointer;
-    }
-   .module-card:hover {
-      transform: translateY(-6px); border-color: var(--orange);
-      box-shadow: 0 15px 40px rgba(255, 115, 0, 0.2);
-    }
-   .module-icon { font-size: 2.5rem; margin-bottom: 12px; }
-   .module-card h3 { color: var(--orange-light); font-size: 1.1rem; margin-bottom: 8px; }
-   .module-card p { color: var(--muted); font-size: 0.85rem; }
-   .module-status {
-      display: inline-block; margin-top: 10px; padding: 4px 10px;
-      border-radius: 999px; font-size: 0.75rem; font-weight: 700;
-    }
-   .status-live { background: rgba(0, 255, 0, 0.2); color: #0f0; border: 1px solid #0f0; }
-   .status-dev { background: rgba(255, 165, 0, 0.2); color: #ffa500; border: 1px solid #ffa500; }
-
-    /* ADMIN DASHBOARD */
-   .admin-dashboard {
-      display: none; position: fixed; inset: 0; z-index: 2000;
-      background: rgba(0, 0, 0, 0.98); overflow-y: auto; padding: 20px;
-    }
-   .admin-dashboard.active { display: block; }
-   .admin-header {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid var(--border);
-    }
-   .admin-header h2 { color: var(--orange); font-size: 2rem; }
-   .close-admin {
-      padding: 10px 20px; background: var(--orange); color: #000;
-      border-radius: 999px; font-weight: 900;
-    }
-   .admin-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px; max-width: 1400px; margin: 0 auto;
-    }
-   .admin-panel {
-      padding: 24px; border: 1px solid var(--border); border-radius: 20px;
-      background: rgba(7, 7, 0.9);
-    }
-   .admin-panel h3 { color: var(--orange); margin-bottom: 15px; font-size: 1.3rem; }
-   .admin-panel pre {
-      background: #000; padding: 15px; border-radius: 10px;
-      overflow-x: auto; font-size: 0.85rem; line-height: 1.6;
-      color: #0f0; border: 1px solid #0f0;
-    }
-
-    /* LIVE PLAYER */
-   .live-player {
-      position: fixed; bottom: 20px; left: 20px; right: 20px;
-      max-width: 500px; background: rgba(0, 0, 0, 0.95);
-      border: 2px solid var(--orange); border-radius: 20px;
-      padding: 18px; z-index: 999; backdrop-filter: blur(20px);
-      box-shadow: 0 10px 40px rgba(255, 115, 0, 0.4);
-    }
-   .player-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-   .live-indicator {
-      display: flex; align-items: center; gap: 8px;
-      color: #ff0000; font-weight: 900; font-size: 0.9rem;
-    }
-   .live-dot {
-      width: 10px; height: 10px; background: #ff0000;
-      border-radius: 50%; animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-   .player-controls { display: flex; gap: 10px; align-items: center; }
-   .play-btn {
-      width: 50px; height: 50px; border-radius: 50%;
-      background: var(--orange); color: #000; font-size: 1.5rem;
-      display: grid; place-items: center;
-    }
-
-    /* SOCIAL SECTION */
-   .social-section {
-      padding: 60px 20px; background: rgba(7, 7, 0.5);
-      margin-top: 60px; border-top: 1px solid var(--border);
-    }
-   .social-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px; max-width: 1200px; margin: 0 auto;
-    }
-   .social-card {
-      padding: 30px; border: 1px solid var(--border); border-radius: 18px;
-      background: rgba(7, 7, 7, 0.84); text-align: center; transition:.3s;
-      cursor: pointer;
-    }
-   .social-card:hover { transform: translateY(-6px); border-color: var(--orange); }
-   .social-icon { font-size: 3rem; margin-bottom: 15px; }
-   .social-card h3 { color: var(--orange); margin-bottom: 10px; }
-
-    footer {
-      margin-top: 60px; padding: 30px 20px; text-align: center;
-      border-top: 1px solid var(--border); color: var(--muted);
-    }
-
-    @media(max-width: 900px) {
-     .topbar-inner { grid-template-columns: 1fr; }
-     .modules-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <div class="brand-logo">FM</div>
-        <div class="brand-text">
-          <h1>PRO-MAX FM DMP</h1>
-          <p id="brandSubtitle">Digital Radio Platform</p>
-        </div>
-        <!-- GWO GLOBE ANIME APRE TIT LA -->
-        <div class="globe-container" onclick="toggleLanguage()" title="Change Language">
-          <div class="globe-sphere"></div>
-        </div>
-      </div>
-
-      <nav class="main-nav">
-        <button class="nav-btn" data-module="radio">📻 Radyo an dirèk</button>
-        <button class="nav-btn" data-module="emisyon">📺 Emisyon</button>
-        <button class="nav-btn" data-module="podcast">🎙 Podcast</button>
-        <button class="nav-btn" data-module="mizik">🎵 Mizik</button>
-        <button class="nav-btn" data-module="nouvèl">📰 Nouvèl</button>
-        <button class="nav-btn" data-module="videyo">📹 Videyo</button>
-        <button class="nav-btn" data-module="evènman">📅 Evènman</button>
-        <button class="nav-btn" data-module="galri">🖼 Galri</button>
-      </nav>
-
-      <div style="display:flex;gap:10px;">
-        <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">🌍 KR</button>
-        <button class="admin-toggle" id="adminBtn">⚙ ADMIN</button>
-      </div>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h1>
-        <span id="heroSpan">POWERING THE FUTURE OF</span>
-        <strong id="heroStrong">DIGITAL RADIO</strong>
-      </h1>
-      <p id="heroDesc">Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl tout an kreyòl.</p>
-      <div class="hero-buttons">
-        <button class="btn btn-primary" id="listenLiveBtn">🎧 LISTEN LIVE</button>
-        <button class="btn btn-secondary" id="viewScheduleBtn">📋 VIEW SCHEDULE</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="modules-section">
-    <div class="section-title">
-      <h2 id="modulesTitle">TOUT MODIL YO</h2>
-      <p id="modulesDesc">Klike sou nenpòt modil pou ouvri l. Tout bouton yo ap mache kounye a.</p>
-    </div>
-    <div class="modules-grid" id="modulesGrid"></div>
-  </section>
-
-  <!-- SOCIAL SECTION AK X/TWITTER + INSTAGRAM -->
-  <section class="social-section" id="social">
-    <div class="section-title">
-      <h2 id="socialTitle">KONEKTE SOU TOUT PLATFÒM</h2>
-      <p id="socialDesc">Swiv PRO-MAX FM DMP sou tout rezo sosyal yo</p>
-    </div>
-    <div class="social-grid" id="socialGrid"></div>
-  </section>
-
-  <!-- ADMIN DASHBOARD -->
-  <div class="admin-dashboard" id="adminDashboard">
-    <div class="admin-header">
-      <h2 id="adminTitle">⚙ ADMIN DASHBOARD</h2>
-      <button class="close-admin" id="closeAdmin">Fèmen X</button>
-    </div>
-    <div class="admin-grid">
-      <div class="admin-panel"><h3>📊 Analytics</h3><pre id="analyticsData">Loading...</pre></div>
-      <div class="admin-panel"><h3>👥 User Management</h3><pre id="userData">Loading...</pre></div>
-      <div class="admin-panel"><h3>🔐 Role & Permissions</h3><pre id="rolesData">Loading...</pre></div>
-      <div class="admin-panel"><h3>📈 Reports</h3><pre id="reportsData">Loading...</pre></div>
-      <div class="admin-panel"><h3>📝 Activity Logs</h3><pre id="logsData">Loading...</pre></div>
-      <div class="admin-panel"><h3>🛡 Security Center</h3><pre id="securityData">Loading...</pre></div>
-      <div class="admin-panel"><h3>🔥 Firebase</h3><pre id="firebaseData">Loading...</pre></div>
-      <div class="admin-panel"><h3>💾 Database</h3><pre id="databaseData">Loading...</pre></div>
-      <div class="admin-panel"><h3>🔧 System Monitor</h3><pre id="monitorData">Loading...</pre></div>
-      <div class="admin-panel"><h3>🌐 API Manager</h3><pre id="apiData">Loading...</pre></div>
-      <div class="admin-panel"><h3>📁 File Manager</h3><pre id="fileData">Loading...</pre></div>
-      <div class="admin-panel"><h3>⚙ Settings</h3><pre id="settingsData">Loading...</pre></div>
-    </div>
-  </div>
-
-  <!-- LIVE PLAYER -->
-  <div class="live-player" id="livePlayer">
-    <div class="player-header">
-      <div class="live-indicator">
-        <span class="live-dot"></span>
-        LIVE NOW
-      </div>
-      <span id="currentShow">PRO-MAX Morning Show</span>
-    </div>
-    <div class="player-controls">
-      <button class="play-btn" id="playBtn">▶</button>
-      <div style="flex:1;">
-        <div style="font-size:0.9rem;color:var(--muted);">Kounye a:</div>
-        <div style="font-weight:700;" id="nowPlaying">Mizik Kreyòl Mix</div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p id="footerText">© 2026 PRO-MAX FM DMP. Tout dwa rezève. | Powering Digital Radio</p>
-  </footer>
-
-  <script>
-    // LANGUAGE SYSTEM
-    let currentLang = 'ht';
-    const translations = {
-      ht: {
-        brandSubtitle: 'Digital Radio Platform',
-        heroSpan: 'POWERING THE FUTURE OF',
-        heroStrong: 'DIGITAL RADIO',
-        heroDesc: 'Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl tout an kreyòl.',
-        modulesTitle: 'TOUT MODIL YO',
-        modulesDesc: 'Klike sou nenpòt modil pou ouvri l. Tout bouton yo ap mache kounye a.',
-        socialTitle: 'KONEKTE SOU TOUT PLATFÒM',
-        socialDesc: 'Swiv PRO-MAX FM DMP sou tout rezo sosyal yo',
-        adminTitle: '⚙ ADMIN DASHBOARD',
-        footerText: '© 2026 PRO-MAX FM DMP. Tout dwa rezève. | Powering Digital Radio',
-        langBtn: '🌍 KR'
-      },
-      fr: {
-        brandSubtitle: 'Plateforme Radio Numérique',
-        heroSpan: 'PROPULSANT L\'AVENIR DE LA',
-        heroStrong: 'RADIO NUMÉRIQUE',
-        heroDesc: 'Plateforme numérique complète pour radio, podcast, musique, actualités et communication en direct. 38 modules professionnels.',
-        modulesTitle: 'TOUS LES MODULES',
-        modulesDesc: 'Cliquez sur n\'importe quel module pour l\'ouvrir. Tous les boutons fonctionnent maintenant.',
-        socialTitle: 'CONNECTEZ-VOUS SUR TOUTES LES PLATEFORMES',
-        socialDesc: 'Suivez PRO-MAX FM DMP sur tous les réseaux sociaux',
-        adminTitle: '⚙ TABLEAU DE BORD ADMIN',
-        footerText: '© 2026 PRO-MAX FM DMP. Tous droits réservés. | Propulsant la Radio Numérique',
-        langBtn: '🌍 FR'
-      },
-      en: {
-        brandSubtitle: 'Digital Radio Platform',
-        heroSpan: 'POWERING THE FUTURE OF',
-        heroStrong: 'DIGITAL RADIO',
-        heroDesc: 'Complete digital platform for radio, podcast, music, news and live communication. 38 professional modules.',
-        modulesTitle: 'ALL MODULES',
-        modulesDesc: 'Click on any module to open it. All buttons work now.',
-        socialTitle: 'CONNECT ON ALL PLATFORMS',
-        socialDesc: 'Follow PRO-MAX FM DMP on all social networks',
-        adminTitle: '⚙ ADMIN DASHBOARD',
-        footerText: '© 2026 PRO-MAX FM DMP. All rights reserved. | Powering Digital Radio',
-        langBtn: '🌍 EN'
-      }
-    };
-
-    function toggleLanguage() {
-      const langs = ['ht', 'fr', 'en'];
-      const currentIndex = langs.indexOf(currentLang);
-      currentLang = langs[(currentIndex + 1) % langs.length];
-      updateLanguage();
-    }
-
-    function updateLanguage() {
-      const t = translations[currentLang];
-      document.getElementById('brandSubtitle').textContent = t.brandSubtitle;
-      document.getElementById('heroSpan').textContent = t.heroSpan;
-      document.getElementById('heroStrong').textContent = t.heroStrong;
-      document.getElementById('heroDesc').textContent = t.heroDesc;
-      document.getElementById('modulesTitle').textContent = t.modulesTitle;
-      document.getElementById('modulesDesc').textContent = t.modulesDesc;
-      document.getElementById('socialTitle').textContent = t.socialTitle;
-      document.getElementById('socialDesc').textContent = t.socialDesc;
-      document.getElementById('adminTitle').textContent = t.adminTitle;
-      document.getElementById('footerText').textContent = t.footerText;
-      document.getElementById('langToggle').textContent = t.langBtn;
-    }
-
-    // 38 MODIL KONPLÈ
-    const modules = [
-      { id: 'radio', icon: '📻', name: 'Radyo an dirèk', desc: 'Streaming 24/7 HD', status: 'live' },
-      { id: 'emisyon', icon: '📺', name: 'Emisyon', desc: 'Pwogram ak orè', status: 'live' },
-      { id: 'podcast', icon: '🎙', name: 'Podcast', desc: 'Achiv ak seri', status: 'live' },
-      { id: 'mizik', icon: '🎵', name: 'Mizik', desc: 'Playlist ak charts', status: 'live' },
-      { id: 'atis', icon: '🎤', name: 'Atis', desc: 'Pwofil ak mizik', status: 'live' },
-      { id: 'dj', icon: '🎧', name: 'DJ Portal', desc: 'Zouti pou DJ', status: 'live' },
-      { id: 'host', icon: '🎙', name: 'Host Portal', desc: 'Dashboard animatè', status: 'live' },
-      { id: 'studio', icon: '🎬', name: 'Live Studio', desc: 'Diffusion an dirèk', status: 'dev' },
-      { id: 'nouvèl', icon: '📰', name: 'Nouvèl', desc: 'Bilten ak alèt', status: 'live' },
-      { id: 'espò', icon: '⚽', name: 'Espò', desc: 'Rezilta ak analiz', status: 'live' },
-      { id: 'meteyo', icon: '🌤', name: 'Meteyo', desc: 'Tan an dirèk', status: 'live' },
-      { id: 'videyo', icon: '📹', name: 'Videyo', desc: 'Clips ak replay', status: 'live' },
-      { id: 'entèvyou', icon: '🎤', name: 'Entèvyou', desc: 'Envite espesyal', status: 'live' },
-      { id: 'galri', icon: '🖼', name: 'Galri', desc: 'Foto ak albòm', status: 'live' },
-      { id: 'evènman', icon: '📅', name: 'Evènman', desc: 'Kalendriye', status: 'live' },
-      { id: 'piblisite', icon: '📢', name: 'Piblisite', desc: 'Anons ak sponsors', status: 'live' },
-      { id: 'biznis', icon: '💼', name: 'Biznis', desc: 'Patnè ak piblisite', status: 'live' },
-      { id: 'memwa', icon: '🕊', name: 'An Memwa', desc: 'Omaj ak souvni', status: 'live' },
-      { id: 'akademi', icon: '🎓', name: 'PRO-MAX Akademi', desc: 'Fòmasyon', status: 'dev' },
-      { id: 'manm', icon: '👥', name: 'Manm', desc: 'Komunote', status: 'live' },
-      { id: 'mesaj', icon: '💬', name: 'Mesaj', desc: 'Chat ak oditè', status: 'live' },
-      { id: 'imèl', icon: '📧', name: 'Imèl', desc: 'Newsletter', status: 'live' },
-      { id: 'anons', icon: '📣', name: 'Anons', desc: 'Piblikasyon', status: 'live' },
-      { id: 'kontak', icon: '📞', name: 'Kontak', desc: 'Enfòmasyon', status: 'live' },
-      { id: 'feedback', icon: '💭', name: 'Feedback', desc: 'Kòmantè ak nòt', status: 'live' },
-      { id: 'media', icon: '📚', name: 'Media Library', desc: 'Achiv medya', status: 'live' },
-      { id: 'admin', icon: '⚙', name: 'Admin Dashboard', desc: 'Kontwòl sistèm', status: 'live' },
-      { id: 'users', icon: '👤', name: 'User Management', desc: 'Jere itilizatè', status: 'live' },
-      { id: 'roles', icon: '🔐', name: 'Role & Permissions', desc: 'Wòl ak aksè', status: 'live' },
-      { id: 'analytics', icon: '📊', name: 'Analytics', desc: 'Estatistik', status: 'live' },
-      { id: 'reports', icon: '📈', name: 'Reports', desc: 'Rapò detaye', status: 'live' },
-      { id: 'logs', icon: '📝', name: 'Activity Logs', desc: 'Istwa aktivite', status: 'live' },
-      { id: 'security', icon: '🛡', name: 'Security Center', desc: 'Sekirite', status: 'live' },
-      { id: 'firebase', icon: '🔥', name: 'Firebase', desc: 'Backend', status: 'live' },
-      { id: 'database', icon: '💾', name: 'Database', desc: 'Baz done', status: 'live' },
-      { id: 'backup', icon: '☁', name: 'Backup & Restore', desc: 'Sovgad', status: 'live' },
-      { id: 'monitor', icon: '🔧', name: 'System Monitor', desc: 'Siveyans', status: 'live' },
-      { id: 'api', icon: '🌐', name: 'API Manager', desc: 'API ak entegrasyon', status: 'live' }
-    ];
-
-    // 8 SOCIAL MEDIA AK X/TWITTER + INSTAGRAM
-    const socialPlatforms = [
-      { icon: '📘', name: 'Facebook', desc: 'Paj ak komunote', url: 'https://facebook.com', color: '#1877F2' },
-      { icon: '📷', name: 'Instagram', desc: 'Foto ak stories', url: 'https://instagram.com', color: '#E4405F' },
-      { icon: '💬', name: 'WhatsApp', desc: 'Chat ak notifikasyon', url: 'https://wa.me', color: '#25D366' },
-      { icon: '🎵', name: 'TikTok', desc: 'Videyo kout', url: 'https://tiktok.com', color: '#000000' },
-      { icon: '𝕏', name: 'X / Twitter', desc: 'Nouvèl ak mizajou', url: 'https://x.com', color: '#000000' },
-      { icon: '🦅', name: 'Truth Social', desc: 'Pòs komunote', url: 'https://truthsocial.com', color: '#5448C8' },
-      { icon: '📺', name: 'YouTube', desc: 'Chèn ak Live', url: 'https://www.youtube.com/watch?v=_mqq1THvqkI', color: '#FF0000' },
-      { icon: '🎵', name: 'Spotify', desc: 'Podcast ak Mizik', url: 'https://open.spotify.com', color: '#1DB954' }
-    ];
-
-    // JENERATE MODIL CARDS
-    const modulesGrid = document.getElementById('modulesGrid');
-    modules.forEach(mod => {
-      const card = document.createElement('div');
-      card.className = 'module-card';
-      card.onclick = () => openModule(mod.id, mod.name);
-      card.innerHTML = `
-        <div class="module-icon">${mod.icon}</div>
-        <h3>${mod.name}</h3>
-        <p>${mod.desc}</p>
-        <span class="module-status status-${mod.status}">${mod.status === 'live'? '● LIVE' : '● DEV'}</span>
-      `;
-      modulesGrid.appendChild(card);
-    });
-
-    // JENERATE SOCIAL CARDS
-    const socialGrid = document.getElementById('socialGrid');
-    socialPlatforms.forEach(social => {
-      const card = document.createElement('div');
-      card.className = 'social-card';
-      card.onclick = () => window.open(social.url, '_blank');
-      card.innerHTML = `
-        <div class="social-icon" style="color: ${social.color}">${social.icon}</div>
-        <h3 style="color: ${social.color}">${social.name}</h3>
-        <p>${social.desc}</p>
-      `;
-      socialGrid.appendChild(card);
-    });
-
-    // FONKSYON OUVRI MODIL
-    function openModule(id, name) {
-      alert(`🚀 Ouvèti modil: ${name}\n\nModil sa a ap louvri nan yon nouvo paj/fenèt.\n\nID: ${id}`);
-      // Isit la ou ka ajoute: window.location.href = `/modules/${id}.html`;
-      // Oubyen: openModal(id);
-    }
-
-    // BOUTON NAVIGASYON
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-      btn.onclick = () => {
-        const module = btn.dataset.module;
-        const mod = modules.find(m => m.id === module);
-        if (mod) openModule(mod.id, mod.name);
-      };
-    });
-
-    // BOUTON HERO
-    document.getElementById('listenLiveBtn').onclick = () => {
-      document.getElementById('livePlayer').scrollIntoView({ behavior: 'smooth' });
-      document.getElementById('playBtn
+  .admin-toggle
