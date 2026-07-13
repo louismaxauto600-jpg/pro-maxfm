@@ -3,92 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PRO-MAX FM DMP — Powering the Future of Digital Radio">
-  <meta name="theme-color" content="#050505">
-  <title>PRO-MAX FM DMP | Digital Radio Platform</title>
+  <title>PRO-MAX FM DMP</title>
   <style>
-    :root {
-      --orange: #ff7300;
-      --orange-light: #ff9b22;
-      --black: #000;
-      --text: #ffd2a3;
-      --muted: #c88952;
-      --border: rgba(255, 115, 0, 0.45);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      min-height: 100vh; overflow-x: hidden; color: var(--text);
-      background: radial-gradient(circle at top center, rgba(255, 115, 0, 0.16), transparent 32%),
-                  linear-gradient(135deg, #000000 0%, #0a0705 52%, #361100 100%);
-      font-family: Arial, Helvetica, sans-serif; line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-    button { font-family: inherit; cursor: pointer; border: none; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Arial,sans-serif;background:#000;color:#ff7300;line-height:1.6}
 
-    /* HEADER + LOGO + GWO GLOBE ANIME */
-  .topbar {
-      position: sticky; top: 0; z-index: 1000;
-      width: 100%; background: rgba(0, 0, 0, 0.96);
-      border-bottom: 1px solid var(--border); backdrop-filter: blur(18px);
-    }
-  .topbar-inner {
-      display: grid; grid-template-columns: auto 1fr auto;
-      align-items: center; gap: 16px; padding: 12px 20px;
-      max-width: 1400px; margin: 0 auto;
-    }
-  .brand { display: flex; align-items: center; gap: 12px; }
-  .brand-logo {
-      width: 56px; height: 56px; border-radius: 50%;
-      border: 2px solid var(--orange); background: var(--orange);
-      display: grid; place-items: center; font-weight: 900; color: #000;
-      font-size: 1.3rem; box-shadow: 0 0 25px rgba(255,115,0,.5);
-    }
-  .brand-text h1 { font-size: 18px; text-transform: uppercase; line-height: 1; }
-  .brand-text p { font-size: 11px; margin-top: 4px; text-transform: uppercase; letter-spacing:.8px; color: var(--muted); }
+    /* HEADER */
+  .header{border-bottom:3px solid #ff7300;padding:15px 20px;background:#000;position:sticky;top:0;z-index:1000}
+  .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+
+    /* LOGO FM */
+  .logo{width:60px;height:60px;border-radius:50%;border:3px solid #ff7300;background:linear-gradient(135deg,#ff9b22,#ff7300);display:grid;place-items:center;font-weight:900;color:#000;font-size:24px;box-shadow:0 0 25px rgba(255,115,0,.5)}
+
+  .brand{display:flex;align-items:center;gap:20px;flex:1}
+  .brand-info h1{margin:0;font-size:24px;color:#ff7300;text-transform:uppercase}
+  .brand-info p{margin:4px 0 0 0;font-size:12px;color:#c88952;letter-spacing:.8px}
 
     /* GWO GLOBE ANIME APRE PRO-MAX FM DMP */
-  .globe-container {
-      width: 70px; height: 70px; position: relative; cursor: pointer;
-      animation: spin 10s linear infinite; margin-left: 15px;
-    }
-  .globe-sphere {
-      width: 100%; height: 100%; border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #ff9b22 0%, #ff7300 40%, #c44d00 100%);
-      box-shadow: 0 0 30px rgba(255,115,0,.7), inset -10px -10px 30px rgba(0,0,0,.5);
-      position: relative; overflow: hidden;
-    }
-  .globe-sphere::before {
-      content: ""; position: absolute; inset: 0;
-      background: repeating-linear-gradient(0deg, transparent 0px, transparent 10px, rgba(0,0,0,.4) 10px, rgba(0,0,0,.4) 11px),
-                  repeating-linear-gradient(90deg, transparent 0px, transparent 10px, rgba(0,0,0,.4) 10px, rgba(0,0,0,.4) 11px);
-      border-radius: 50%;
-    }
-  .globe-sphere::after {
-      content: "🌍"; position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%); font-size: 36px;
-      animation: glow 3s ease-in-out infinite;
-    }
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes glow {
-      0%, 100% { opacity: 1; filter: drop-shadow(0 0 10px #ff7300); }
-      50% { opacity: 0.7; filter: drop-shadow(0 0 20px #ff7300); }
-    }
+  .globe-container{width:70px;height:70px;position:relative;cursor:pointer;animation:spin 10s linear infinite}
+  .globe-sphere{width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff9b22 0%,#ff7300 40%,#c44d00 100%);box-shadow:0 0 30px rgba(255,115,0,.7),inset -10px -10px 30px rgba(0,0,0,.5);position:relative;overflow:hidden}
+  .globe-sphere::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0px,transparent 10px,rgba(0,0,0,.4) 10px,rgba(0,0,0,.4) 11px),repeating-linear-gradient(90deg,transparent 0px,transparent 10px,rgba(0,0,0,.4) 10px,rgba(0,0,0,.4) 11px);border-radius:50%}
+  .globe-sphere::after{content:"🌍";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:36px;animation:glow 3s ease-in-out infinite}
+    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    @keyframes glow{0%,100%{opacity:1;filter:drop-shadow(0 0 10px #ff7300)}50%{opacity:0.7;filter:drop-shadow(0 0 20px #ff7300)}}
 
-  .main-nav { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
-  .nav-btn {
-      padding: 8px 14px; border: 1px solid var(--orange);
-      border-radius: 999px; font-weight: 700; font-size: 0.85rem;
-      background: #000; color: var(--orange); transition:.25s;
-    }
-  .nav-btn:hover,.nav-btn.active { background: var(--orange); color: #000; }
+  .nav{display:flex;gap:10px;flex-wrap:wrap}
+  .nav-btn{padding:8px 14px;border:1px solid #ff7300;border-radius:999px;background:#000;color:#ff7300;font-weight:700;cursor:pointer;font-size:13px}
+  .nav-btn:hover{background:#ff7300;color:#000}
 
     /* LANGUAGE TOGGLE */
-  .lang-toggle {
-      padding: 10px 18px; border: 2px solid var(--orange);
-      border-radius: 999px; font-weight: 900; background: #000;
-      color: var(--orange); transition:.25s; font-size: 0.9rem;
-    }
-  .lang-toggle:hover { background: var(--orange); color: #000; transform: scale(1.05); }
+  .lang-toggle{margin-left:auto;padding:12px 20px;border:2px solid #ff7300;border-radius:999px;background:#000;color:#ff7300;font-weight:900;cursor:pointer;font-size:14px}
+  .lang-toggle:hover{background:#ff7300;color:#000}
 
-  .admin-toggle
+    /* HERO */
+  .hero{min-height:80vh;display:grid;place-items:center;padding:80px 20px;text-align:center;background:radial-gradient(circle at center,rgba(255,115,0,.26),transparent 60%)}
+  .hero h1{font-size:clamp(40px,7vw,80px);line-height:1;text-transform:uppercase;margin-bottom:20px}
+  .hero h1 span{display:block;color:#ffd2a3}
+  .hero h1 strong{display:block;color:#ff7300;text-shadow:0 0 36px rgba(255,115,0,.38)}
+  .hero p{max-width:700px;margin:20px auto;color:#c88952;font-size:18px}
+
+    /* 38 MODIL */
+  .container{max-width:1400px;margin:0 auto;padding:60px 20px}
+  .section-title{text-align:center;margin-bottom:40px}
+  .section-title h2{font-size:clamp(32px,5vw,48px);color:#ff7300;margin:0 0 10px 0;text-transform:uppercase}
+  .section-title p{color:#c88952}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:60px}
+  .card{min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;box-shadow:0 0 20px rgba(255,106,0,.14);cursor:pointer;transition:all 0.25s}
+  .card:hover{transform:translateY(-7px);border-color:#ff7300;box-shadow:0 0 28px rgba(255,106,0,.34)}
+  .card-icon{width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px}
+  .card h3{margin:0;color:#ff7300;font-size:17px;text-transform:uppercase}
+  .card p{margin:11px 0 0;color:#c88952;font-size:14px;line-height:1.6}
+  .card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:18px}
+  .card-link{color:#ff7300;font-size:14px;font-weight:900}
+  .status{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid rgba(255,115,0,.45);border-radius:999px;color:#ff7300;background:#000;font-size:11px;font-weight:900;text-transform:uppercase}
+  .status::before{content:"";width:7px;height:7px;border-radius:50%;background:#ff7300;box-shadow:0 0 8px #ff7300}
+
+    footer{margin-top:60px;padding:30px 20px;text-align:center;border-top:1px solid rgba(255,115,0,.35);color:#c88952}
+
+    @media(max-width:1050px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:650px){.grid{grid-template-columns:1fr}.header-inner{flex-direction:column}}
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo">FM</div>
+        <div class="brand-info">
+          <h1>PRO-MAX FM DMP</h1>
+          <p id="subtitle">Digital Radio Platform</p>
+        </div>
+        <!-- GWO GLOBE ANIME APRE PRO-MAX FM DMP -->
+        <div class="globe-container" onclick="toggleLang()" title="Change Language">
+          <div class="globe-sphere"></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;margin-left:auto">
+        <button class="lang-toggle" id="langBtn" onclick="toggleLang()">🌍 KR</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>
+        <span id="hero1">POWERING THE FUTURE OF</span>
+        <strong id="hero2">DIGITAL RADIO</strong>
+      </h1>
+      <p id="heroDesc">Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="section-title">
+      <h2 id="modTitle">38 MODIL PRO-MAX FM/DMP</h2>
+      <p id="modDesc">Tout 38 modil yo + rezo sosyal. Klike pou ouvri.</p>
+    </div>
+    <div class="grid" id="modulesGrid"></div>
+  </main>
+
+  <footer>
+    <p id="footerText">© 2026 PRO-MAX FM DMP. Tout dwa rezève.</p>
+  </footer>
+
+  <script>
+    "use strict";
+
+    // LANGUAGE SYSTEM
+    let lang = 'ht';
+    const t = {
+      ht: {subtitle:'Digital Radio Platform',hero1:'POWERING THE FUTURE OF',hero2:'DIGITAL RADIO',heroDesc:'Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl.',modTitle:'38 MODIL PRO-MAX FM/DMP',modDesc:'Tout 38 modil yo + rezo sosyal. Klike pou ouvri.',footerText:'© 2026 PRO-MAX FM DMP. Tout dwa rezève.',langBtn:'🌍 KR'},
+      fr: {subtitle:'Plateforme Radio Numérique',hero1:'PROPULSANT L\'AVENIR DE LA',hero2:'RADIO NUMÉRIQUE',heroDesc:'Plateforme numérique complète pour radio, podcast, musique, actualités et communication en direct. 38 modules professionnels.',modTitle:'38 MODULES PRO-MAX FM/DMP',modDesc:'Tous les 38 modules + réseaux sociaux. Cliquez pour ouvrir.',footerText:'© 2026 PRO-MAX FM DMP. Tous droits réservés.',langBtn:'🌍 FR'},
+      en: {subtitle:'Digital Radio Platform',hero1:'POWERING THE FUTURE OF',hero2:'DIGITAL RADIO',heroDesc:'Complete digital platform for radio, podcast, music, news and live communication. 38 professional modules.',modTitle:'38 PRO-MAX FM/DMP MODULES',modDesc:'All 38 modules + social networks. Click to open.',footerText:'© 2026 PRO-MAX FM DMP. All rights reserved.',langBtn:'🌍 EN'}
+    };
+
+    function toggleLang(){
+      const langs = ['ht','fr','en'];
+      lang = langs[(langs.indexOf(lang)+1)%3];
+      const tr = t[lang];
+      document
