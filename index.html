@@ -4,123 +4,105 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PRO-MAX FM DMP</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:Arial,sans-serif;background:#000;color:#ff7300;line-height:1.6}
-
-    /* HEADER */
-  .header{border-bottom:3px solid #ff7300;padding:15px 20px;background:#000;position:sticky;top:0;z-index:1000}
-  .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-
-    /* LOGO FM */
-  .logo{width:60px;height:60px;border-radius:50%;border:3px solid #ff7300;background:linear-gradient(135deg,#ff9b22,#ff7300);display:grid;place-items:center;font-weight:900;color:#000;font-size:24px;box-shadow:0 0 25px rgba(255,115,0,.5)}
-
-  .brand{display:flex;align-items:center;gap:20px;flex:1}
-  .brand-info h1{margin:0;font-size:24px;color:#ff7300;text-transform:uppercase}
-  .brand-info p{margin:4px 0 0 0;font-size:12px;color:#c88952;letter-spacing:.8px}
-
-    /* GWO GLOBE ANIME APRE PRO-MAX FM DMP */
-  .globe-container{width:70px;height:70px;position:relative;cursor:pointer;animation:spin 10s linear infinite}
-  .globe-sphere{width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff9b22 0%,#ff7300 40%,#c44d00 100%);box-shadow:0 0 30px rgba(255,115,0,.7),inset -10px -10px 30px rgba(0,0,0,.5);position:relative;overflow:hidden}
-  .globe-sphere::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0px,transparent 10px,rgba(0,0,0,.4) 10px,rgba(0,0,0,.4) 11px),repeating-linear-gradient(90deg,transparent 0px,transparent 10px,rgba(0,0,0,.4) 10px,rgba(0,0,0,.4) 11px);border-radius:50%}
-  .globe-sphere::after{content:"🌍";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:36px;animation:glow 3s ease-in-out infinite}
-    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-    @keyframes glow{0%,100%{opacity:1;filter:drop-shadow(0 0 10px #ff7300)}50%{opacity:0.7;filter:drop-shadow(0 0 20px #ff7300)}}
-
-  .nav{display:flex;gap:10px;flex-wrap:wrap}
-  .nav-btn{padding:8px 14px;border:1px solid #ff7300;border-radius:999px;background:#000;color:#ff7300;font-weight:700;cursor:pointer;font-size:13px}
-  .nav-btn:hover{background:#ff7300;color:#000}
-
-    /* LANGUAGE TOGGLE */
-  .lang-toggle{margin-left:auto;padding:12px 20px;border:2px solid #ff7300;border-radius:999px;background:#000;color:#ff7300;font-weight:900;cursor:pointer;font-size:14px}
-  .lang-toggle:hover{background:#ff7300;color:#000}
-
-    /* HERO */
-  .hero{min-height:80vh;display:grid;place-items:center;padding:80px 20px;text-align:center;background:radial-gradient(circle at center,rgba(255,115,0,.26),transparent 60%)}
-  .hero h1{font-size:clamp(40px,7vw,80px);line-height:1;text-transform:uppercase;margin-bottom:20px}
-  .hero h1 span{display:block;color:#ffd2a3}
-  .hero h1 strong{display:block;color:#ff7300;text-shadow:0 0 36px rgba(255,115,0,.38)}
-  .hero p{max-width:700px;margin:20px auto;color:#c88952;font-size:18px}
-
-    /* 38 MODIL */
-  .container{max-width:1400px;margin:0 auto;padding:60px 20px}
-  .section-title{text-align:center;margin-bottom:40px}
-  .section-title h2{font-size:clamp(32px,5vw,48px);color:#ff7300;margin:0 0 10px 0;text-transform:uppercase}
-  .section-title p{color:#c88952}
-
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:60px}
-  .card{min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;box-shadow:0 0 20px rgba(255,106,0,.14);cursor:pointer;transition:all 0.25s}
-  .card:hover{transform:translateY(-7px);border-color:#ff7300;box-shadow:0 0 28px rgba(255,106,0,.34)}
-  .card-icon{width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px}
-  .card h3{margin:0;color:#ff7300;font-size:17px;text-transform:uppercase}
-  .card p{margin:11px 0 0;color:#c88952;font-size:14px;line-height:1.6}
-  .card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:18px}
-  .card-link{color:#ff7300;font-size:14px;font-weight:900}
-  .status{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid rgba(255,115,0,.45);border-radius:999px;color:#ff7300;background:#000;font-size:11px;font-weight:900;text-transform:uppercase}
-  .status::before{content:"";width:7px;height:7px;border-radius:50%;background:#ff7300;box-shadow:0 0 8px #ff7300}
-
-    footer{margin-top:60px;padding:30px 20px;text-align:center;border-top:1px solid rgba(255,115,0,.35);color:#c88952}
-
-    @media(max-width:1050px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:650px){.grid{grid-template-columns:1fr}.header-inner{flex-direction:column}}
-  </style>
 </head>
-<body>
+<body style="margin:0;background:#000;color:#ff7300;font-family:Arial,sans-serif">
 
-  <header class="header">
-    <div class="header-inner">
-      <div class="brand">
-        <div class="logo">FM</div>
-        <div class="brand-info">
-          <h1>PRO-MAX FM DMP</h1>
-          <p id="subtitle">Digital Radio Platform</p>
+  <!-- HEADER: LOGO + TIT + GWO GLOBE ANIME + LANGUAGE TOGGLE -->
+  <div style="border-bottom:3px solid #ff7300;padding:15px 20px;background:#000;position:sticky;top:0;z-index:1000">
+    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      
+      <!-- LOGO FM -->
+      <div style="width:60px;height:60px;border-radius:50%;border:3px solid #ff7300;background:linear-gradient(135deg,#ff9b22,#ff7300);display:grid;place-items:center;font-weight:900;color:#000;font-size:24px;box-shadow:0 0 25px rgba(255,115,0,.5)">FM</div>
+      
+      <!-- TIT + GWO GLOBE ANIME -->
+      <div style="display:flex;align-items:center;gap:20px;flex:1">
+        <div>
+          <h1 style="margin:0;font-size:24px;color:#ff7300;text-transform:uppercase">PRO-MAX FM DMP</h1>
+          <p style="margin:4px 0 0 0;font-size:12px;color:#c88952;letter-spacing:.8px">Digital Radio Platform</p>
         </div>
-        <!-- GWO GLOBE ANIME APRE PRO-MAX FM DMP -->
-        <div class="globe-container" onclick="toggleLang()" title="Change Language">
-          <div class="globe-sphere"></div>
+        <div onclick="alert('🌍 Lang: Kreyòl / Français / English')" style="width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff9b22 0%,#ff7300 40%,#c44d00 100%);box-shadow:0 0 30px rgba(255,115,0,.7),inset -10px -10px 30px rgba(0,0,0,.5);position:relative;cursor:pointer;animation:spin 10s linear infinite">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:36px;animation:glow 3s ease-in-out infinite">🌍</div>
         </div>
       </div>
-      <div style="display:flex;gap:10px;align-items:center;margin-left:auto">
-        <button class="lang-toggle" id="langBtn" onclick="toggleLang()">🌍 KR</button>
-      </div>
+      
+      <!-- LANGUAGE TOGGLE -->
+      <button onclick="alert('Language toggle ap mache byento!')" style="padding:12px 20px;border:2px solid #ff7300;border-radius:999px;background:#000;color:#ff7300;font-weight:900;cursor:pointer;font-size:14px">🌍 KR</button>
     </div>
-  </header>
+  </div>
 
-  <section class="hero">
+  <!-- HERO -->
+  <div style="min-height:80vh;display:grid;place-items:center;padding:80px 20px;text-align:center;background:radial-gradient(circle at center,rgba(255,115,0,.26),transparent 60%)">
     <div>
-      <h1>
-        <span id="hero1">POWERING THE FUTURE OF</span>
-        <strong id="hero2">DIGITAL RADIO</strong>
+      <h1 style="font-size:clamp(40px,7vw,80px);line-height:1;text-transform:uppercase;margin-bottom:20px">
+        <span style="display:block;color:#ffd2a3">POWERING THE FUTURE OF</span>
+        <strong style="display:block;color:#ff7300;text-shadow:0 0 36px rgba(255,115,0,.38)">DIGITAL RADIO</strong>
       </h1>
-      <p id="heroDesc">Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl.</p>
+      <p style="max-width:700px;margin:20px auto;color:#c88952;font-size:18px">Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl.</p>
     </div>
-  </section>
+  </div>
 
-  <main class="container">
-    <div class="section-title">
-      <h2 id="modTitle">38 MODIL PRO-MAX FM/DMP</h2>
-      <p id="modDesc">Tout 38 modil yo + rezo sosyal. Klike pou ouvri.</p>
+  <!-- 38 MODIL YO - TOUT EKRITI DIRÈK NAN HTML -->
+  <div style="max-width:1400px;margin:0 auto;padding:60px 20px">
+    <div style="text-align:center;margin-bottom:40px">
+      <h2 style="font-size:clamp(32px,5vw,48px);color:#ff7300;margin:0 0 10px 0;text-transform:uppercase">38 MODIL PRO-MAX FM/DMP</h2>
+      <p style="color:#c88952">Tout 38 modil yo + rezo sosyal. Klike pou ouvri.</p>
     </div>
-    <div class="grid" id="modulesGrid"></div>
-  </main>
-
-  <footer>
-    <p id="footerText">© 2026 PRO-MAX FM DMP. Tout dwa rezève.</p>
-  </footer>
-
-  <script>
-    "use strict";
-
-    // LANGUAGE SYSTEM
-    let lang = 'ht';
-    const t = {
-      ht: {subtitle:'Digital Radio Platform',hero1:'POWERING THE FUTURE OF',hero2:'DIGITAL RADIO',heroDesc:'Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl.',modTitle:'38 MODIL PRO-MAX FM/DMP',modDesc:'Tout 38 modil yo + rezo sosyal. Klike pou ouvri.',footerText:'© 2026 PRO-MAX FM DMP. Tout dwa rezève.',langBtn:'🌍 KR'},
-      fr: {subtitle:'Plateforme Radio Numérique',hero1:'PROPULSANT L\'AVENIR DE LA',hero2:'RADIO NUMÉRIQUE',heroDesc:'Plateforme numérique complète pour radio, podcast, musique, actualités et communication en direct. 38 modules professionnels.',modTitle:'38 MODULES PRO-MAX FM/DMP',modDesc:'Tous les 38 modules + réseaux sociaux. Cliquez pour ouvrir.',footerText:'© 2026 PRO-MAX FM DMP. Tous droits réservés.',langBtn:'🌍 FR'},
-      en: {subtitle:'Digital Radio Platform',hero1:'POWERING THE FUTURE OF',hero2:'DIGITAL RADIO',heroDesc:'Complete digital platform for radio, podcast, music, news and live communication. 38 professional modules.',modTitle:'38 PRO-MAX FM/DMP MODULES',modDesc:'All 38 modules + social networks. Click to open.',footerText:'© 2026 PRO-MAX FM DMP. All rights reserved.',langBtn:'🌍 EN'}
-    };
-
-    function toggleLang(){
-      const langs = ['ht','fr','en'];
-      lang = langs[(langs.indexOf(lang)+1)%3];
-      const tr = t[lang];
-      document
+    
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px">
+      
+      <!-- 1-30: MODIL RADYO/ADMIN -->
+      <div onclick="alert('Dashboard')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📊</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Dashboard</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Overview & Analytics</p></div>
+      
+      <div onclick="alert('Live Radio')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📻</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Live Radio</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">24/7 Streaming</p></div>
+      
+      <div onclick="alert('Emisyon')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📺</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Emisyon</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Shows & Programming</p></div>
+      
+      <div onclick="alert('Podcast')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎙</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Podcast</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Shows & Episodes</p></div>
+      
+      <div onclick="alert('Mizik')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎵</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Mizik</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Music Library</p></div>
+      
+      <div onclick="alert('Atis')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎤</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Atis</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Artists & Performers</p></div>
+      
+      <div onclick="alert('Nouvèl')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📰</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Nouvèl</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Breaking News</p></div>
+      
+      <div onclick="alert('Espò')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">⚽</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Espò</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Sports Center</p></div>
+      
+      <div onclick="alert('Evènman')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📅</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Evènman</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Events & Calendar</p></div>
+      
+      <div onclick="alert('Videyo')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎥</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Videyo</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Video Center</p></div>
+      
+      <div onclick="alert('PRO-MAX Academy')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎓</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">PRO-MAX Academy</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Learning Center</p></div>
+      
+      <div onclick="alert('DJ Portal')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎧</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">DJ Portal</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Zòn travay pou DJ</p></div>
+      
+      <div onclick="alert('Host Portal')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎙️</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Host Portal</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Dashboard animatè</p></div>
+      
+      <div onclick="alert('Live Studio')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎬</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Live Studio</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Diffusion an dirèk</p></div>
+      
+      <div onclick="alert('Meteyo')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🌤️</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Meteyo</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Tan an dirèk</p></div>
+      
+      <div onclick="alert('Entèvyou')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎤</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Entèvyou</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Envite espesyal</p></div>
+      
+      <div onclick="alert('Galri')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🖼️</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Galri</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Foto ak albòm</p></div>
+      
+      <div onclick="alert('Piblisite')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📢</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Piblisite</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Anons ak sponsors</p></div>
+      
+      <div onclick="alert('Biznis')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">💼</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Biznis</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Patnè ak piblisite</p></div>
+      
+      <div onclick="alert('An Memwa')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🕊️</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">An Memwa</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Omaj ak souvni</p></div>
+      
+      <div onclick="alert('Manm')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">👥</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Manm</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Komunote</p></div>
+      
+      <div onclick="alert('Mesaj')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">💬</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Mesaj</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Chat ak oditè</p></div>
+      
+      <div onclick="alert('Imèl')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📧</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Imèl</h3><p style="margin:11px 0;color:#c88952;font-size:14px">Newsletter</p></div>
+      
+      <div onclick="alert('Anons')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📣</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Anons</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Piblikasyon</p></div>
+      
+      <div onclick="alert('Kontak')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📞</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Kontak</h3><p style="margin:11px 0;color:#c88952;font-size:14px">Enfòmasyon</p></div>
+      
+      <div onclick="alert('Feedback')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">💭</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Feedback</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Kòmantè ak nòt</p></div>
+      
+      <div onclick="alert('Media Library')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),transparent 45%),#111;cursor:pointer"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📚</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Media Library</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Achiv medya</p></div>
+      
+      <div onclick="alert('Admin Dashboard')" style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:linear-gradient(145deg,rgba(255,115,0,.12),
