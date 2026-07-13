@@ -1,54 +1,222 @@
 <!DOCTYPE html>
-<html>
+<html lang="ht">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PRO-MAX FM DMP</title>
-</head>
-<body style="margin:0;background:#000;color:#ff7300;font-family:Arial,sans-serif">
 
-<div style="border-bottom:3px solid #ff7300;padding:15px 20px;background:#000">
-<div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
-<div style="width:60px;height:60px;border-radius:50%;border:3px solid #ff7300;background:linear-gradient(135deg,#ff9b22,#ff7300);display:grid;place-items:center;font-weight:900;color:#000;font-size:24px">FM</div>
-<div style="display:flex;align-items:center;gap:20px;flex:1">
-<div>
-<h1 style="margin:0;font-size:24px;color:#ff7300;text-transform:uppercase">PRO-MAX FM DMP</h1>
-<p style="margin:4px 0 0 0;font-size:12px;color:#c88952;letter-spacing:.8px">Digital Radio Platform</p>
-</div>
-<div style="width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff9b22 0%,#ff7300 40%,#c44d00 100%);box-shadow:0 0 30px rgba(255,115,0,.7);position:relative">
-<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:36px">🌍</div>
-</div>
-</div>
-</div>
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#000;
+color:#ff7300;
+}
+
+header{
+display:flex;
+justifyMen yon **vèsyon final konplè** ou ka kole dirèkteman nan fichye `index.html` ou:
+
+```html
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO-MAX FM DMP</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+b*x-sizing:border*box;
+}
+
+body{
+background:#000;
+fon*-family:Arial,sans-serif;
+color:#f*7300;
+}
+
+.header*
+display:flex;
+justify-content:spa*e-between;
+align-items:flex-start;*padding:20px;
+border-bottom:3px so*id #ff7300;
+}
+
+.logo{
+width*100px;
+height:100px;
+border-radius*50%;
+*ackground:#ff7300;
+color:#000;
+fon*-size:40px;
+font-weight:900;
+displ*y:flex;
+justify-content:center;
+al*gn-items:center;
+box-shadow:0 0 25*x #ff7300;
+}
+
+.globe-area{
+positio*:relative;
+width:350px;
+height:350*x;
+}
+
+.globe{
+width:350px;
+height:*50px;
+border-radius:50%;
+backgroun*-image:url('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg');
+bac*ground-size:cover;
+background-posi*ion:center;
+box-shadow:0 0 35px #f*7300;
+animation:rotateGlobe 20s li*ear infinite;
+}
+
+.logo-front{
+posi*ion:absolute;
+top:50%;
+left:50%;
+t*ansform:translate(-50%,-50%);
+widt*:130px;
+height:130px;
+border-radiu*:50%;
+background:#ff7300;
+color:#0*0;
+font-size:50px;
+font-weight:900*
+display:flex;
+justify-content:cen*er;
+align-items:center;
+box-shadow*0 0 20px #000;
+z-index:10;
+}
+
+@key*rames rotateGlobe{
+from{
+transform*rotate(0deg);
+}
+to{
+transform:rota*e(360deg);
+}
+}
+
+.title{
+text-align*center;
+font-size:60px;
+font-weigh*:900;
+padding-top:20px;
+}
+
+.subtit*e{
+text-align:center;
+font-size*40px;
+padding:10px 0 40px 0;
+*
+
+.modules{
+display:grid;
+grid-tem*late-columns*repeat(auto-fit,minmax(220px,1fr))*
+gap:18px;
+padding:20px;
+max-width*1300px*
+margin:auto;
+}
+
+.card{
+background*#111;
+border:2px solid #ff7300;
+bo*der-radius:20px;
+padding:*5px;
+text-align:center;
+font-size:*2px;
+font-weight:bold;
+transition:*.3s;
+*
+
+.card:hover{
+transform:scale(1.0*);
+box-shadow:0 0 20px #ff7300*
+}
+
+.footer{
+text-align:center;
+pa*ding:30*x;
+font-size:18*x;
+color:#ff7300;
+}
+
+</style>
+</*ead*
+
+<body>
+
+<div class="header">
+
+<d*v class="logo">
+FM
+*/div>
+
+<div class="globe-area">
+
+<*iv class="globe"></div>
+
+<div clas*="logo-front">
+FM
 </div>
 
-<div style="min-height:60vh;display:grid;place-items:center;padding:80px 20px;text-align:center">
-<div>
-<h1 style="font-size:60px;line-height:1;margin-bottom:20px;text-transform:uppercase">
-<span style="display:block;color:#ffd2a3">POWERING THE FUTURE OF</span>
-<strong style="display:block;color:#ff7300">DIGITAL RADIO</strong>
-</h1>
-<p style="max-width:700px;margin:20px auto;color:#c88952;font-size:18px">Platfòm dijital konplè pou radyo, podcast, mizik, nouvèl ak kominikasyon an dirèk. 38 modil pwofesyonèl.</p>
-</div>
 </div>
 
-<div style="max-width:1400px;margin:0 auto;padding:60px 20px">
-<h2 style="font-size:48px;color:#ff7300;text-align:center;margin:0 0 40px 0;text-transform:uppercase">38 MODIL PRO-MAX FM/DMP</h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px">
+*/div>
 
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📊</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Dashboard</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Overview & Analytics</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📻</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Live Radio</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">24/7 Streaming</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📺</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Emisyon</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Shows & Programming</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎙</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Podcast</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Shows & Episodes</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎵</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Mizik</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Music Library</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎤</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Atis</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Artists & Performers</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📰</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Nouvèl</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Breaking News</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">⚽</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Espò</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Sports Center</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">📅</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Evènman</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Events & Calendar</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎥</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Videyo</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Video Center</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎓</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">PRO-MAX Academy</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Learning Center</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎧</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">DJ Portal</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Zòn travay pou DJ</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎙️</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Host Portal</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Dashboard animatè</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🎬</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Live Studio</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Diffusion an dirèk</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px;background:#111"><div style="width:56px;height:56px;display:grid;place-items:center;margin-bottom:18px;border-radius:15px;color:#000;background:#ff7300;font-size:25px">🌤️</div><h3 style="margin:0;color:#ff7300;font-size:17px;text-transform:uppercase">Meteyo</h3><p style="margin:11px 0 0;color:#c88952;font-size:14px">Tan an dirèk</p></div>
-<div style="min-height:220px;padding:24px;border:1px solid rgba(255,115,0,.45);border-radius:18px
+<div class="title">
+PRO-MAX*FM DMP
+</div>
+
+<div class="subtitl*">
+38 MODIL AI*</div>
+
+<div class="modules">
+
+<di* class="card">📊 Dashboard</div>
+
+*div class="card">📻 Live Radio</*iv>
+
+<div class="card">🤖 AI Assis*ant</div>
+
+<div class="card">📘 Fa*ebook</div>
+
+<div class="card">🟢 *hatsApp</div>
+
+<div class="card">�* Instagram</div>
+
+<div class*"card">🎵 TikTok</div>
+
+<div class*"card">❌ X /*Twitter</div>
+
+<div class="card">�* Truth Social</div*
+
+<div class="card">▶️ YouTube</di*>
+
+<div class="card">🎧 Spotify</d*v>
+
+<div class="card">*� Global News</div>
+
+</div>
+
+<div *lass="*ooter">
+© PRO-MAX FM DMP • *8 MODIL AI
+</div>
+
+</body>
+</html>*```*
