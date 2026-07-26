@@ -1,21 +1,19 @@
 // =====================================================
-// PRO-MAX DMP
-// BRIYANT SOLEY SIGNO 1815
-// FIREBASE CONFIGURATION
+// PRO-MAX DMP - BRIYANT SOLEY SIGNO 1815
+// FIREBASE CONFIGURATION - FINAL PRO-MAX
 // =====================================================
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+import { getAnalytics, isSupported as isAnalyticsSupported } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js";
 import { getFunctions } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-functions.js";
-import { getMessaging } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-messaging.js";
+import { getMessaging, isSupported as isMessagingSupported } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-messaging.js";
 
 // =====================================================
-// FIREBASE CONFIG
+// FIREBASE CONFIG - pro-maxfm
 // =====================================================
-
 const firebaseConfig = {
   apiKey: "AIzaSyDCto1oqxOZ6nNtGRd_xu3x6GGwkmDgmjY",
   authDomain: "pro-maxfm.firebaseapp.com",
@@ -27,25 +25,29 @@ const firebaseConfig = {
 };
 
 // =====================================================
-// INITIALIZE FIREBASE
+// INITIALIZE
 // =====================================================
-
 const app = initializeApp(firebaseConfig);
-
-// =====================================================
-// SERVICES
-// =====================================================
-
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 const functions = getFunctions(app);
-const messaging = getMessaging(app);
 
-// =====================================================
-// EXPORTS
-// =====================================================
+// Services ki ka kraze yo, nou jere yo ak sekirite
+let analytics = null;
+let messaging = null;
+
+isAnalyticsSupported().then(supported => {
+  if (supported) {
+    try { analytics = getAnalytics(app); } catch(e) { console.warn("Analytics pa aktive:", e.message) }
+  }
+});
+
+isMessagingSupported().then(supported => {
+  if (supported) {
+    try { messaging = getMessaging(app); } catch(e) { console.warn("Messaging pa aktive:", e.message) }
+  }
+});
 
 export {
   app,
