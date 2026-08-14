@@ -1,33 +1,1374 @@
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRO-MAX FM DMP - Live Radio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PRO-MAX FM | La Force du Son</title>
+
+<meta name="description"
+content="PRO-MAX FM - Radio numérique, actualités, podcasts, musique, vidéos et médias. La Force du Son.">
+
+<style>
+:root{
+    --orange:#ff6a00;
+    --orange2:#ff8c32;
+    --orange3:#ffb066;
+    --black:#000000;
+    --black2:#080300;
+    --black3:#120600;
+    --border:rgba(255,106,0,.35);
+    --glow:rgba(255,106,0,.35);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 50% 0%,rgba(255,106,0,.15),transparent 35%),
+        linear-gradient(180deg,#000 0%,#0b0400 50%,#000 100%);
+    color:var(--orange2);
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:rgba(0,0,0,.96);
+    border-bottom:1px solid var(--orange);
+    backdrop-filter:blur(12px);
+}
+
+.nav{
+    max-width:1400px;
+    margin:auto;
+    min-height:76px;
+    padding:10px 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-mark{
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    border:2px solid var(--orange);
+    border-radius:50%;
+    font-size:23px;
+    font-weight:900;
+    background:#000;
+    box-shadow:0 0 16px var(--glow);
+}
+
+.brand-text strong{
+    display:block;
+    color:var(--orange);
+    font-size:20px;
+    letter-spacing:1px;
+}
+
+.brand-text span{
+    display:block;
+    color:var(--orange2);
+    font-size:11px;
+    margin-top:3px;
+    letter-spacing:1.4px;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.menu a{
+    padding:10px 11px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:bold;
+    color:var(--orange2);
+    transition:.25s;
+}
+
+.menu a:hover{
+    color:var(--orange);
+    background:rgba(255,106,0,.10);
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.lang{
+    display:flex;
+    background:#000;
+    border:1px solid var(--border);
+    border-radius:25px;
+    overflow:hidden;
+}
+
+.lang button{
+    border:0;
+    background:#000;
+    color:var(--orange2);
+    padding:8px 10px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:11px;
+}
+
+.lang button.active{
+    background:var(--orange);
+    color:#000;
+}
+
+.hamburger{
+    display:none;
+    background:#000;
+    border:1px solid var(--orange);
+    color:var(--orange);
+    border-radius:8px;
+    padding:9px 11px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+    min-height:720px;
+    overflow:hidden;
+    border-bottom:1px solid var(--orange);
+    background:#000;
+}
+
+.hero-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.62;
+}
+
+.hero-shade{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(90deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.60) 50%,rgba(0,0,0,.88) 100%),
+        linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.85));
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:1250px;
+    min-height:720px;
+    margin:auto;
+    padding:80px 25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+.live-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid var(--orange);
+    padding:8px 15px;
+    border-radius:30px;
+    color:var(--orange);
+    background:rgba(0,0,0,.72);
+    margin-bottom:24px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.live-dot{
+    width:9px;
+    height:9px;
+    background:var(--orange);
+    border-radius:50%;
+    box-shadow:0 0 12px var(--orange);
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:.35;transform:scale(.7)}
+}
+
+.hero h1{
+    font-size:clamp(48px,8vw,100px);
+    color:var(--orange);
+    line-height:.95;
+    letter-spacing:-2px;
+    text-shadow:0 0 35px rgba(255,106,0,.35);
+}
+
+.hero h2{
+    margin-top:12px;
+    font-size:clamp(22px,4vw,42px);
+    color:var(--orange2);
+    letter-spacing:4px;
+}
+
+.hero p{
+    max-width:720px;
+    margin-top:22px;
+    font-size:clamp(16px,2vw,21px);
+    line-height:1.7;
+    color:var(--orange3);
+}
+
+.hero-buttons{
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+    margin-top:35px;
+}
+
+.btn{
+    padding:15px 25px;
+    border-radius:10px;
+    font-weight:900;
+    letter-spacing:.5px;
+    transition:.25s;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:var(--orange);
+    color:#000;
+    border:2px solid var(--orange);
+}
+
+.btn-secondary{
+    background:#000;
+    color:var(--orange);
+    border:2px solid var(--orange);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 22px rgba(255,106,0,.35);
+}
+
+.sound-control{
+    margin-top:18px;
+    background:#000;
+    border:1px solid var(--orange);
+    color:var(--orange);
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+    padding:75px 22px;
+}
+
+.container{
+    max-width:1250px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:12px;
+    font-size:clamp(30px,5vw,48px);
+    color:var(--orange);
+}
+
+.section-subtitle{
+    max-width:800px;
+    margin:0 auto 42px;
+    text-align:center;
+    color:var(--orange2);
+    line-height:1.6;
+}
+
+/* =========================
+   MODULE GRID
+========================= */
+
+.modules{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:18px;
+}
+
+.module{
+    position:relative;
+    min-height:165px;
+    padding:25px 18px;
+    border:1px solid var(--border);
+    border-radius:15px;
+    background:
+        linear-gradient(145deg,rgba(255,106,0,.08),rgba(0,0,0,.95));
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:.3s;
+    overflow:hidden;
+}
+
+.module::before{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    right:-40px;
+    top:-40px;
+    border:1px solid rgba(255,106,0,.15);
+    border-radius:50%;
+}
+
+.module:hover{
+    transform:translateY(-6px);
+    border-color:var(--orange);
+    box-shadow:0 0 25px rgba(255,106,0,.16);
+}
+
+.module-icon{
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.module h3{
+    color:var(--orange);
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.module p{
+    color:var(--orange2);
+    font-size:13px;
+    line-height:1.45;
+}
+
+/* =========================
+   LIVE STATUS
+========================= */
+
+.live-section{
+    background:
+        radial-gradient(circle at center,rgba(255,106,0,.13),transparent 45%),
+        #000;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+}
+
+.live-box{
+    max-width:900px;
+    margin:auto;
+    border:1px solid var(--orange);
+    border-radius:18px;
+    padding:45px 25px;
+    text-align:center;
+    background:rgba(0,0,0,.80);
+}
+
+.live-box h2{
+    color:var(--orange);
+    font-size:36px;
+}
+
+.live-box p{
+    margin:16px auto 25px;
+    max-width:650px;
+    line-height:1.6;
+}
+
+.status{
+    display:inline-block;
+    border:1px solid var(--orange);
+    padding:9px 18px;
+    border-radius:30px;
+    color:var(--orange);
+    font-weight:bold;
+}
+
+/* =========================
+   FEATURE STRIP
+========================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+}
+
+.feature{
+    border:1px solid var(--border);
+    padding:22px 15px;
+    text-align:center;
+    border-radius:12px;
+    background:#050200;
+}
+
+.feature-icon{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.feature strong{
+    color:var(--orange);
+    display:block;
+    margin-bottom:5px;
+}
+
+/* =========================
+   SOCIAL
+========================= */
+
+.socials{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.social{
+    min-width:105px;
+    border:1px solid var(--border);
+    padding:16px 12px;
+    text-align:center;
+    border-radius:10px;
+    background:#000;
+    transition:.25s;
+}
+
+.social:hover{
+    border-color:var(--orange);
+    transform:translateY(-3px);
+}
+
+.social span{
+    display:block;
+    font-size:27px;
+    margin-bottom:6px;
+}
+
+.social small{
+    color:var(--orange2);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#000;
+    border-top:1px solid var(--orange);
+    padding:45px 22px 25px;
+}
+
+.footer-grid{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:30px;
+}
+
+footer h3{
+    color:var(--orange);
+    margin-bottom:12px;
+}
+
+footer p,
+footer a{
+    color:var(--orange2);
+    font-size:14px;
+    line-height:1.8;
+}
+
+.footer-bottom{
+    max-width:1250px;
+    margin:30px auto 0;
+    padding-top:20px;
+    border-top:1px solid var(--border);
+    text-align:center;
+    color:var(--orange2);
+    font-size:13px;
+}
+
+.slogan{
+    margin-top:12px;
+    color:var(--orange);
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1050px){
+    .menu{
+        position:absolute;
+        top:76px;
+        left:0;
+        right:0;
+        background:#000;
+        border-bottom:1px solid var(--orange);
+        display:none;
+        flex-direction:column;
+        padding:20px;
+    }
+
+    .menu.open{
+        display:flex;
+    }
+
+    .menu a{
+        width:100%;
+        text-align:center;
+        border-bottom:1px solid rgba(255,106,0,.12);
+    }
+
+    .hamburger{
+        display:block;
+    }
+}
+
+@media(max-width:600px){
+    .brand-text span{
+        display:none;
+    }
+
+    .nav{
+        padding:9px 12px;
+    }
+
+    .hero{
+        min-height:650px;
+    }
+
+    .hero-content{
+        min-height:650px;
+        padding:60px 18px;
+        align-items:center;
+        text-align:center;
+    }
+
+    .hero h1{
+        letter-spacing:-1px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .modules{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:430px){
+    .modules{
+        grid-template-columns:1fr;
+    }
+
+    .lang button{
+        padding:7px 8px;
+    }
+}
+</style>
 </head>
-<body style="margin:0; background:#000; color:#fff; font-family:Arial, sans-serif; text-align:center;">
-    
-    <div style="background:linear-gradient(180deg, #FF4500, #000000); padding:80px 20px 60px 20px;">
-        <img src="assets/pro-max-fm-dmp.png" alt="PRO-MAX FM DMP Logo" style="width:180px; margin-bottom:20px;">
-        <h1 style="color:#FF4500; font-size:48px; margin:10px 0; text-shadow: 0 0 10px #FF4500;">PRO-MAX FM DMP</h1>
-        <p style="font-size:18px; margin-bottom:40px; color:#ccc;">Nouvo Sistèm nan Aktive. Dokiman #001.</p>
-        
-        <a href="live.html" style="background:#FF4500; color:#000; padding:18px 40px; text-decoration:none; font-weight:bold; border-radius:8px; margin:10px; display:inline-block; font-size:18px;">▶️ KOUTE LIVE KOUNYE A</a>
-        
-        <a href="login.html" style="background:transparent; color:#FF4500; border:2px solid #FF4500; padding:16px 40px; text-decoration:none; font-weight:bold; border-radius:8px; margin:10px; display:inline-block; font-size:18px;">Konekte / Enskri</a>
-    </div>
 
-    <div style="padding:50px 20px; background:#0a0a0a;">
-        <h2 style="color:#FF4500; font-size:32px;">Platfòm Konplè</h2>
-        <p style="font-size:18px; color:#ccc;">Mizik | News | Podcast | Video | Document Registry</p>
-    </div>
+<body>
 
-    <footer style="background:#111; padding:25px; font-size:14px; color:#888;">
-        <p>© 2026 PRO-MAX FM DMP. Tout dwa rezève. | 
-           <a href="privacy.html" style="color:#FF4500; text-decoration:none;">Privacy Policy</a> | 
-           <a href="dashboard.html" style="color:#FF4500; text-decoration:none;">Dashboard</a>
+<!-- ========================= HEADER ========================= -->
+
+<header class="topbar">
+    <nav class="nav">
+
+        <a href="index.html" class="brand">
+            <div class="brand-mark">FM</div>
+
+            <div class="brand-text">
+                <strong>PRO-MAX FM</strong>
+                <span>LA FORCE DU SON</span>
+            </div>
+        </a>
+
+        <div class="menu" id="mainMenu">
+            <a href="index.html" data-i18n="home">HOME</a>
+            <a href="live.html" data-i18n="live">LIVE</a>
+            <a href="news.html" data-i18n="news">NEWS</a>
+            <a href="shows.html" data-i18n="shows">SHOWS</a>
+            <a href="podcasts.html" data-i18n="podcasts">PODCASTS</a>
+            <a href="gallery.html" data-i18n="gallery">GALLERY</a>
+            <a href="video.html" data-i18n="video">VIDEO</a>
+            <a href="radios-haiti.html">RADIOS D’HAÏTI 🇭🇹</a>
+        </div>
+
+        <div class="nav-actions">
+
+            <div class="lang">
+                <button data-lang="fr" class="active">FRA</button>
+                <button data-lang="en">ENG</button>
+                <button data-lang="ht">KRE</button>
+            </div>
+
+            <button class="hamburger" id="hamburger">☰</button>
+
+        </div>
+
+    </nav>
+</header>
+
+
+<!-- ========================= HERO ========================= -->
+
+<section class="hero">
+
+    <video
+        id="heroVideo"
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata">
+
+        <source src="pro-max-fm.mp4" type="video/mp4">
+
+    </video>
+
+    <div class="hero-shade"></div>
+
+    <div class="hero-content">
+
+        <div class="live-badge">
+            <span class="live-dot"></span>
+            PRO-MAX FM DIGITAL RADIO
+        </div>
+
+        <h1>PRO-MAX FM</h1>
+
+        <h2 data-i18n="force">
+            LA FORCE DU SON
+        </h2>
+
+        <p data-i18n="heroText">
+            Une plateforme média numérique conçue pour informer,
+            divertir, connecter et donner une voix à notre communauté.
         </p>
-    </footer>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#live-radio"
+                class="btn btn-primary"
+                data-i18n="listenLive">
+
+                ▶ ÉCOUTER EN DIRECT
+            </a>
+
+            <a
+                href="#modules"
+                class="btn btn-secondary"
+                data-i18n="explore">
+
+                EXPLORER PRO-MAX FM
+            </a>
+
+        </div>
+
+        <button
+            class="sound-control"
+            id="soundBtn">
+
+            🔇 ACTIVER LE SON
+        </button>
+
+    </div>
+</section>
+
+
+<!-- ========================= MODULES ========================= -->
+
+<section class="section" id="modules">
+
+<div class="container">
+
+<h2
+    class="section-title"
+    data-i18n="platform">
+
+    PLATEFORME PRO-MAX FM
+</h2>
+
+<p
+    class="section-subtitle"
+    data-i18n="platformText">
+
+    Radio, information, culture, musique et médias numériques
+    réunis dans un seul espace.
+</p>
+
+
+<div class="modules">
+
+<a href="live.html" class="module">
+    <div class="module-icon">📻</div>
+    <div>
+        <h3>LIVE RADIO</h3>
+        <p>Écoutez PRO-MAX FM en direct.</p>
+    </div>
+</a>
+
+
+<a href="radios-haiti.html" class="module">
+    <div class="module-icon">🇭🇹</div>
+    <div>
+        <h3>RADIOS D’HAÏTI</h3>
+        <p>Découvrez les radios haïtiennes.</p>
+    </div>
+</a>
+
+
+<a href="news.html" class="module">
+    <div class="module-icon">📰</div>
+    <div>
+        <h3>NEWS</h3>
+        <p>Actualités locales et internationales.</p>
+    </div>
+</a>
+
+
+<a href="shows.html" class="module">
+    <div class="module-icon">🎙️</div>
+    <div>
+        <h3>SHOWS</h3>
+        <p>Émissions et programmation.</p>
+    </div>
+</a>
+
+
+<a href="podcasts.html" class="module">
+    <div class="module-icon">🎧</div>
+    <div>
+        <h3>PODCASTS</h3>
+        <p>Épisodes et contenus audio.</p>
+    </div>
+</a>
+
+
+<a href="gallery.html" class="module">
+    <div class="module-icon">📸</div>
+    <div>
+        <h3>GALLERY</h3>
+        <p>Photos, événements et souvenirs.</p>
+    </div>
+</a>
+
+
+<a href="video.html" class="module">
+    <div class="module-icon">🎥</div>
+    <div>
+        <h3>VIDEO</h3>
+        <p>Vidéos et productions PRO-MAX.</p>
+    </div>
+</a>
+
+
+<a href="academy.html" class="module">
+    <div class="module-icon">🎓</div>
+    <div>
+        <h3>ACADEMY</h3>
+        <p>Formation et développement.</p>
+    </div>
+</a>
+
+
+<a href="advertise.html" class="module">
+    <div class="module-icon">📢</div>
+    <div>
+        <h3>ADVERTISE</h3>
+        <p>Publicité et partenariats.</p>
+    </div>
+</a>
+
+
+<a href="events.html" class="module">
+    <div class="module-icon">📅</div>
+    <div>
+        <h3>EVENTS</h3>
+        <p>Événements et activités.</p>
+    </div>
+</a>
+
+
+<a href="artists.html" class="module">
+    <div class="module-icon">🎤</div>
+    <div>
+        <h3>ARTISTS</h3>
+        <p>Artistes et talents.</p>
+    </div>
+</a>
+
+
+<a href="musics.html" class="module">
+    <div class="module-icon">🎵</div>
+    <div>
+        <h3>MUSIC</h3>
+        <p>Musique et découvertes.</p>
+    </div>
+</a>
+
+
+<a href="interviews.html" class="module">
+    <div class="module-icon">🎬</div>
+    <div>
+        <h3>INTERVIEWS</h3>
+        <p>Conversations et rencontres.</p>
+    </div>
+</a>
+
+
+<a href="an-memwa.html" class="module">
+    <div class="module-icon">🕯️</div>
+    <div>
+        <h3>AN MEMWA</h3>
+        <p>Hommages et mémoire.</p>
+    </div>
+</a>
+
+
+<a href="weather.html" class="module">
+    <div class="module-icon">🌤️</div>
+    <div>
+        <h3>WEATHER</h3>
+        <p>Météo et prévisions.</p>
+    </div>
+</a>
+
+
+<a href="sports.html" class="module">
+    <div class="module-icon">🏆</div>
+    <div>
+        <h3>SPORTS</h3>
+        <p>Sports, résultats et analyses.</p>
+    </div>
+</a>
+
+
+<a href="business.html" class="module">
+    <div class="module-icon">💼</div>
+    <div>
+        <h3>BUSINESS</h3>
+        <p>Business et entrepreneuriat.</p>
+    </div>
+</a>
+
+
+<a href="faq.html" class="module">
+    <div class="module-icon">❓</div>
+    <div>
+        <h3>FAQ</h3>
+        <p>Questions fréquentes.</p>
+    </div>
+</a>
+
+
+<a href="privacy.html" class="module">
+    <div class="module-icon">🔐</div>
+    <div>
+        <h3>PRIVACY</h3>
+        <p>Confidentialité et sécurité.</p>
+    </div>
+</a>
+
+
+<a href="contact.html" class="module">
+    <div class="module-icon">📞</div>
+    <div>
+        <h3>CONTACT</h3>
+        <p>Contactez PRO-MAX FM.</p>
+    </div>
+</a>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ========================= LIVE ========================= -->
+
+<section
+    class="section live-section"
+    id="live-radio">
+
+<div class="live-box">
+
+<div class="live-badge">
+    <span class="live-dot"></span>
+    LIVE RADIO
+</div>
+
+<h2>PRO-MAX FM</h2>
+
+<p data-i18n="livePending">
+    Le lecteur officiel sera activé dès que la connexion
+    de diffusion PRO-MAX FM sera disponible.
+</p>
+
+<div class="status">
+    STREAM CONNECTION — COMING SOON
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ========================= FEATURES ========================= -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+PRO-MAX DIGITAL MEDIA
+</h2>
+
+<div class="features">
+
+<div class="feature">
+    <div class="feature-icon">📡</div>
+    <strong>LIVE</strong>
+    Radio numérique
+</div>
+
+<div class="feature">
+    <div class="feature-icon">🎧</div>
+    <strong>PODCAST</strong>
+    Contenu à la demande
+</div>
+
+<div class="feature">
+    <div class="feature-icon">📰</div>
+    <strong>NEWS</strong>
+    Information
+</div>
+
+<div class="feature">
+    <div class="feature-icon">🎵</div>
+    <strong>MUSIC</strong>
+    Culture et divertissement
+</div>
+
+<div class="feature">
+    <div class="feature-icon">🌍</div>
+    <strong>COMMUNITY</strong>
+    Connexion mondiale
+</div>
+
+<div class="feature">
+    <div class="feature-icon">🤖</div>
+    <strong>AI</strong>
+    Technologie moderne
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ========================= SOCIAL ========================= -->
+
+<section class="section">
+
+<div class="container">
+
+<h2
+    class="section-title"
+    data-i18n="follow">
+
+    SUIVEZ PRO-MAX FM
+</h2>
+
+<p class="section-subtitle">
+Restez connecté avec PRO-MAX FM sur toutes nos plateformes.
+</p>
+
+<div class="socials">
+
+<a href="#" class="social">
+<span>f</span>
+<small>FACEBOOK</small>
+</a>
+
+<a href="#" class="social">
+<span>♪</span>
+<small>TIKTOK</small>
+</a>
+
+<a href="#" class="social">
+<span>◎</span>
+<small>INSTAGRAM</small>
+</a>
+
+<a href="#" class="social">
+<span>◉</span>
+<small>WHATSAPP</small>
+</a>
+
+<a href="#" class="social">
+<span>𝕏</span>
+<small>X / TWITTER</small>
+</a>
+
+<a href="#" class="social">
+<span>➤</span>
+<small>TELEGRAM</small>
+</a>
+
+<a href="#" class="social">
+<span>T</span>
+<small>TRUTH SOCIAL</small>
+</a>
+
+<a href="#" class="social">
+<span>▶</span>
+<small>YOUTUBE</small>
+</a>
+
+<a href="#" class="social">
+<span>in</span>
+<small>LINKEDIN</small>
+</a>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ========================= FOOTER ========================= -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h3>PRO-MAX FM</h3>
+
+<p>
+LA FORCE DU SON
+</p>
+
+<p>
+Radio • Médias • Information • Culture
+</p>
+
+</div>
+
+
+<div>
+<h3>CONTACT</h3>
+
+<p>
+📧 promaxfmdmp@gmail.com
+</p>
+
+<p>
+🌐 pro-maxfm.com
+</p>
+
+<p>
+📞 (407) 640-5166
+</p>
+
+</div>
+
+
+<div>
+<h3>LIENS</h3>
+
+<p>
+<a href="news.html">News</a><br>
+<a href="podcasts.html">Podcasts</a><br>
+<a href="radios-haiti.html">Radios d’Haïti</a><br>
+<a href="privacy.html">Privacy</a><br>
+<a href="contact.html">Contact</a>
+</p>
+
+</div>
+
+
+<div>
+<h3>BSS1815 PRO-MAX DMP</h3>
+
+<p>
+Une plateforme.<br>
+Quatre projets.<br>
+Une seule vision.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 PRO-MAX FM DMP — Tous droits réservés.
+
+<div class="slogan">
+DEVAN DEVAN NÈT. BATI POU JODI A. PARE POU DEMEN.
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const hamburger =
+document.getElementById("hamburger");
+
+const mainMenu =
+document.getElementById("mainMenu");
+
+hamburger.addEventListener("click",()=>{
+    mainMenu.classList.toggle("open");
+});
+
+
+/* =========================
+   VIDEO SOUND
+========================= */
+
+const heroVideo =
+document.getElementById("heroVideo");
+
+const soundBtn =
+document.getElementById("soundBtn");
+
+soundBtn.addEventListener("click",()=>{
+
+    heroVideo.muted = !heroVideo.muted;
+
+    soundBtn.textContent =
+        heroVideo.muted
+        ? "🔇 ACTIVER LE SON"
+        : "🔊 COUPER LE SON";
+
+});
+
+
+/* =========================
+   LANGUAGE SYSTEM
+========================= */
+
+const translations = {
+
+fr:{
+    home:"ACCUEIL",
+    live:"DIRECT",
+    news:"ACTUALITÉS",
+    shows:"ÉMISSIONS",
+    podcasts:"PODCASTS",
+    gallery:"GALERIE",
+    video:"VIDÉOS",
+    force:"LA FORCE DU SON",
+    heroText:
+    "Une plateforme média numérique conçue pour informer, divertir, connecter et donner une voix à notre communauté.",
+    listenLive:"▶ ÉCOUTER EN DIRECT",
+    explore:"EXPLORER PRO-MAX FM",
+    platform:"PLATEFORME PRO-MAX FM",
+    platformText:
+    "Radio, information, culture, musique et médias numériques réunis dans un seul espace.",
+    livePending:
+    "Le lecteur officiel sera activé dès que la connexion de diffusion PRO-MAX FM sera disponible.",
+    follow:"SUIVEZ PRO-MAX FM"
+},
+
+en:{
+    home:"HOME",
+    live:"LIVE",
+    news:"NEWS",
+    shows:"SHOWS",
+    podcasts:"PODCASTS",
+    gallery:"GALLERY",
+    video:"VIDEO",
+    force:"THE POWER OF SOUND",
+    heroText:
+    "A digital media platform created to inform, entertain, connect and give a voice to our community.",
+    listenLive:"▶ LISTEN LIVE",
+    explore:"EXPLORE PRO-MAX FM",
+    platform:"PRO-MAX FM PLATFORM",
+    platformText:
+    "Radio, news, culture, music and digital media united in one place.",
+    livePending:
+    "The official player will be activated as soon as the PRO-MAX FM broadcast connection becomes available.",
+    follow:"FOLLOW PRO-MAX FM"
+},
+
+ht:{
+    home:"AKÈY",
+    live:"LIVE",
+    news:"NOUVÈL",
+    shows:"EMISYON",
+    podcasts:"PODCAST",
+    gallery:"GALRI",
+    video:"VIDEYO",
+    force:"FÒS SON AN",
+    heroText:
+    "Yon platfòm medya dijital ki fèt pou enfòme, divèti, konekte epi bay kominote nou an yon vwa.",
+    listenLive:"▶ KOUTE LIVE",
+    explore:"DEKOUVRI PRO-MAX FM",
+    platform:"PLATFÒM PRO-MAX FM",
+    platformText:
+    "Radyo, nouvèl, kilti, mizik ak medya dijital reyini nan yon sèl espas.",
+    livePending:
+    "Player ofisyèl la ap aktive lè koneksyon difizyon PRO-MAX FM lan disponib.",
+    follow:"SWIV PRO-MAX FM"
+}
+
+};
+
+
+function setLanguage(lang){
+
+    const dictionary =
+        translations[lang] || translations.fr;
+
+    document.documentElement.lang = lang;
+
+    document
+    .querySelectorAll("[data-i18n]")
+    .forEach(element=>{
+
+        const key =
+            element.dataset.i18n;
+
+        if(dictionary[key]){
+            element.textContent =
+                dictionary[key];
+        }
+
+    });
+
+    document
+    .querySelectorAll("[data-lang]")
+    .forEach(button=>{
+
+        button.classList.toggle(
+            "active",
+            button.dataset.lang === lang
+        );
+
+    });
+
+}
+
+
+/* =========================
+   AUTO DETECT LANGUAGE
+========================= */
+
+function detectLanguage(){
+
+    const browserLang =
+        navigator.language
+        .toLowerCase()
+        .split("-")[0];
+
+    if(browserLang === "fr") return "fr";
+
+    if(browserLang === "ht") return "ht";
+
+    if(browserLang === "en") return "en";
+
+    return "fr";
+
+}
+
+
+document
+.querySelectorAll("[data-lang]")
+.forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        setLanguage(
+            button.dataset.lang
+        );
+
+    });
+
+});
+
+
+setLanguage(
+    detectLanguage()
+);
+
+</script>
 
 </body>
 </html>
