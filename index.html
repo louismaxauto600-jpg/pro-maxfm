@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO-MAX FM | La Force du Son</title>
+<meta name="description" content="PRO-MAX FM - La Force du Son">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:#ff8c32;font-family:Arial,Helvetica,sans-serif}
+a{color:#ff8c32!important;text-decoration:none!important}
+a:hover{color:#ff6a00!important}
+.topbar{position:sticky;top:0;z-index:999;background:#000;border-bottom:2px solid #ff6a00}
+.nav{max-width:1400px;margin:auto;min-height:76px;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:52px;height:52px;border:2px solid #ff6a00;border-radius:50%;overflow:hidden;background:#000;box-shadow:0 0 15px rgba(255,106,0,.4);flex:0 0 52px}
+.brand-mark video{width:100%;height:100%;object-fit:cover}
+.brand-text strong{display:block;color:#ff6a00;font-size:20px}
+.brand-text span{display:block;color:#ff8c32;font-size:11px;margin-top:2px;letter-spacing:1px}
+.menu{display:flex;gap:4px;flex-wrap:wrap}
+.menu a{padding:9px 11px;font-size:13px;font-weight:900;color:#ff8c32!important;border-radius:8px}
+.menu a:hover{background:rgba(255,106,0,.12);color:#ff6a00!important}
+.nav-right{display:flex;align-items:center;gap:8px}
+.lang{display:flex;border:1px solid rgba(255,106,0,.35);border-radius:25px;overflow:hidden;background:#000}
+.lang button{border:0;background:#000;color:#ff8c32;padding:8px 11px;font-weight:900;font-size:11px;cursor:pointer}
+.lang button.active{background:#ff6a00;color:#000}
+.hamburger{display:none;border:1px solid #ff6a00;background:#000;color:#ff6a00;border-radius:8px;padding:8px 11px;font-size:20px;cursor:pointer}
+.hero{position:relative;min-height:700px;background:#000;border-bottom:2px solid #ff6a00;overflow:hidden}
+.hero video.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.85) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1250px;margin:auto;min-height:700px;padding:80px 22px;display:flex;flex-direction:column;justify-content:center}
+.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid #ff6a00;padding:8px 14px;border-radius:30px;color:#ff6a00;background:rgba(0,0,0,.7);font-size:12px;font-weight:900;margin-bottom:20px}
+.dot{width:8px;height:8px;background:#ff6a00;border-radius:50%;box-shadow:0 0 10px #ff6a00}
+.hero h1{font-size:clamp(48px,8vw,92px);color:#ff6a00;line-height:.9}
+.hero h2{margin-top:10px;font-size:clamp(20px,3.5vw,36px);color:#ff8c32;letter-spacing:3px}
+.hero p{max-width:700px;margin-top:18px;font-size:18px;line-height:1.6;color:#ffb066}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{padding:14px 24px;border-radius:10px;font-weight:900;cursor:pointer;border:2px solid #ff6a00;transition:.2s}
+.btn-primary{background:#ff6a00;color:#000!important}
+.btn-secondary{background:#000;color:#ff6a00!important}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 20px rgba(255,106,0,.3)}
+.sound-btn{margin-top:16px;background:#000;border:1px solid #ff6a00;color:#ff6a00;padding:9px 14px;border-radius:8px;font-weight:900;cursor:pointer;width:fit-content}
+.section{padding:70px 20px}
+.container{max-width:1250px;margin:auto}
+.title{text-align:center;font-size:clamp(28px,5vw,44px);color:#ff6a00;margin-bottom:10px}
+.sub{max-width:780px;margin:0 auto 40px;text-align:center;color:#ff8c32;line-height:1.5}
+.modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.module{border:1px solid rgba(255,106,0,.35);border-radius:14px;padding:22px 16px;background:linear-gradient(145deg,rgba(255,106,0,.08),#000);transition:.25s}
+.module:hover{transform:translateY(-5px);border-color:#ff6a00}
+.module h3{color:#ff6a00;font-size:17px;margin-bottom:6px}
+.module p{color:#ff8c32;font-size:13px}
+.live-section{background:radial-gradient(circle at center,rgba(255,106,0,.12),transparent 50%),#000;border-top:1px solid rgba(255,106,0,.3);border-bottom:1px solid rgba(255,106,0,.3)}
+.live-box{max-width:860px;margin:auto;border:1px solid #ff6a00;border-radius:18px;padding:40px 22px;text-align:center;background:rgba(0,0,0,.8)}
+.status{display:inline-block;margin-top:18px;border:1px solid #ff6a00;padding:8px 16px;border-radius:30px;color:#ff6a00;font-weight:900;font-size:13px}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+.feat{border:1px solid rgba(255,106,0,.3);padding:20px 12px;text-align:center;border-radius:12px;background:#050200}
+.feat strong{color:#ff6a00;display:block;margin-bottom:4px}
+.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+.social{min-width:105px;border:1px solid rgba(255,106,0,.3);padding:14px 10px;text-align:center;border-radius:10px;background:#000;color:#ff8c32!important}
+.social:hover{border-color:#ff6a00;color:#ff6a00!important;transform:translateY(-2px)}
+footer{background:#000;border-top:2px solid #ff6a00;padding:45px 20px 20px}
+.footer-grid{max-width:1250px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px}
+footer h3{color:#ff6a00;margin-bottom:12px;font-size:18px}
+footer p,footer a{color:#ff8c32!important;font-size:14px;line-height:1.8}
+.footer-bottom{max-width:1250px;margin:28px auto 0;padding-top:18px;border-top:1px solid rgba(255,106,0,.3);text-align:center;color:#ff8c32;font-size:12px}
+@media(max-width:1000px){.menu{display:none;position:absolute;top:76px;left:0;right:0;background:#000;border-bottom:2px solid #ff6a00;flex-direction:column;padding:18px}.menu.open{display:flex}.menu a{width:100%;text-align:center}.hamburger{display:block}}
+@media(max-width:600px){.modules{grid-template-columns:1fr 1fr}.hero-content{padding:60px 16px;text-align:center;align-items:center}.hero-btns{justify-content:center}.btn{width:100%}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<nav class="nav">
+<a href="index.html" class="brand">
+<div class="brand-mark"><video autoplay muted loop playsinline><source src="pro-max-fm.mp4" type="video/mp4"><source src="./pro-max-fm.mp4" type="video/mp4"></video></div>
+<div class="brand-text"><strong>PRO-MAX FM</strong><span>LA FORCE DU SON</span></div>
+</a>
+<div class="menu" id="mainMenu">
+<a href="index.html" data-i18n="home">HOME</a>
+<a href="live.html" data-i18n="live">LIVE</a>
+<a href="news.html" data-i18n="news">NEWS</a>
+<a href="shows.html" data-i18n="shows">SHOWS</a>
+<a href="podcasts.html" data-i18n="podcasts">PODCASTS</a>
+<a href="gallery.html" data-i18n="gallery">GALLERY</a>
+<a href="video.html" data-i18n="video">VIDEO</a>
+<a href="radios-haiti.html">RADIOS D’HAÏTI 🇭🇹</a>
+</div>
+<div class="nav-right">
+<div class="lang"><button data-lang="fr" class="active">FRA</button><button data-lang="en">ENG</button><button data-lang="ht">KRE</button></div>
+<button class="hamburger" id="hamburger">☰</button>
+</div>
+</nav>
+</header>
+<section class="hero">
+<video id="heroVideo" class="hero-bg" autoplay muted loop playsinline><source src="pro-max-fm.mp4" type="video/mp4"><source src="./pro-max-fm.mp4" type="video/mp4"></video>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<div class="badge"><span class="dot"></span>PRO-MAX FM DIGITAL RADIO</div>
+<h1>PRO-MAX FM</h1>
+<h2 data-i18n="force">LA FORCE DU SON</h2>
+<p data-i18n="heroText">Une plateforme média numérique conçue pour informer, divertir, connecter et donner une voix à notre communauté.</p>
+<div class="hero-btns">
+<a href="#live-radio" class="btn btn-primary" data-i18n="listenLive">▶ ÉCOUTER EN DIRECT</a>
+<a href="#modules" class="btn btn-secondary" data-i18n="explore">EXPLORER PRO-MAX FM</a>
+</div>
+<button class="sound-btn" id="soundBtn">🔇 ACTIVER LE SON</button>
+</div>
+</section>
+<section class="section" id="modules">
+<div class="container">
+<h2 class="title" data-i18n="platform">PLATEFORME PRO-MAX FM</h2>
+<p class="sub" data-i18n="platformText">Radio, information, culture, musique et médias numériques réunis dans un seul espace.</p>
+<div class="modules">
+<a href="live.html" class="module"><div style="font-size:32px;margin-bottom:16px">📻</div><div><h3>LIVE RADIO</h3><p>Écoutez PRO-MAX FM en direct.</p></div></a>
+<a href="radios-haiti.html" class="module"><div style="font-size:32px;margin-bottom:16px">🇭🇹</div><div><h3>RADIOS D’HAÏTI</h3><p>Découvrez les radios haïtiennes.</p></div></a>
+<a href="news.html" class="module"><div style="font-size:32px;margin-bottom:16px">📰</div><div><h3>NEWS</h3><p>Actualités locales et internationales.</p></div></a>
+<a href="shows.html" class="module"><div style="font-size:32px;margin-bottom:16px">🎙️</div><div><h3>SHOWS</h3><p>Émissions et programmation.</p></div></a>
+<a href="podcasts.html" class="module"><div style="font-size:32px;margin-bottom:16px">🎧</div><div><h3>PODCASTS</h3><p>Épisodes et contenus audio.</p></div></a>
+<a href="gallery.html" class="module"><div style="font-size:32px;margin-bottom:16px">📸</div><div><h3>GALLERY</h3><p>Photos, événements et souvenirs.</p></div></a>
+<a href="video.html" class="module"><div style="font-size:32px;margin-bottom:16px">🎥</div><div><h3>VIDEO</h3><p>Vidéos et productions PRO-MAX.</p></div></a>
+<a href="academy.html" class="module"><div style="font-size:32px;margin-bottom:16px">🎓</div><div><h3>ACADEMY</h3><p>Formation et développement.</p></div></a>
+</div>
+</div>
+</section>
+<section class="section live-section" id="live-radio">
+<div class="live-box">
+<div class="badge"><span class="dot"></span>LIVE RADIO</div>
+<h2>PRO-MAX FM</h2>
+<p data-i18n="livePending" style="margin-top:14px">Le lecteur officiel sera activé dès que la connexion de diffusion PRO-MAX FM sera disponible.</p>
+<div class="status">STREAM CONNECTION — COMING SOON</div>
+</div>
+</section>
+<footer>
+<div class="footer-grid">
+<div>
+<h3>PRO-MAX FM</h3>
+<p>LA FORCE DU SON<br>Radio • Médias • Information • Culture<br><br>🌐 www.promaxdmp.com<br>📧 PROMAXFM@GMAIL.COM<br>📞 (407) 640-5166<br>📞 (516) 216-8494</p>
+</div>
+<div>
+<h3>CONTACT OFFICIEL</h3>
+<p>
+📧 <a href="mailto:PROMAXFM@GMAIL.COM" style="color:#ff6a00!important;font-weight:900">PROMAXFM@GMAIL.COM</a><br>
+🌐 <a href="https://www.promaxdmp.com" target="_blank" style="color:#ff6a00!important;font-weight:900">www.promaxdmp.com</a><br>
+📞 <a href="tel:+14076405166">(407) 640-5166</a><br>
+📞 <a href="tel:+15162168494">(516) 216-8494</a><br><br>
+BSS1815 PRO-MAX DMP<br>
+Une plateforme.<br>Quatre projets.<br>Une seule vision.
+</p>
+</div>
+<div>
+<h3>REZO SOSYAL</h3>
+<p>
+<a href="#">📘 FACEBOOK</a><br>
+<a href="#">💬 WHATSAPP</a><br>
+<a href="#">📸 INSTAGRAM</a><br>
+<a href="#">🎵 TIK TOK</a><br>
+<a href="#">🐦 X / TWITTER</a><br>
+<a href="#">✈️ TELEGRAM</a><br>
+<a href="#">✓ TRUE SOCIAL</a><br>
+<a href="#">💼 LINKEDIN</a><br>
+<a href="#">▶️ YOUTUBE</a><br>
+<a href="#">🎧 SPOTIFY</a>
+</p>
+</div>
+<div>
+<h3>LIENS RAPIDES</h3>
+<p>
+<a href="news.html">News</a><br>
+<a href="podcasts.html">Podcasts</a><br>
+<a href="radios-haiti.html">Radios d’Haïti</a><br>
+<a href="video.html">Videos</a><br>
+<a href="gallery.html">Gallery</a><br>
+<a href="privacy.html">Privacy</a><br>
+<a href="contact.html">Contact</a><br>
+<a href="live.html">Live Radio</a>
+</p>
+</div>
+</div>
+<div class="footer-bottom">
+© 2026 PRO-MAX FM DMP — Tous droits réservés.<br>
+<span style="color:#ff6a00;font-weight:900;margin-top:8px;display:inline-block">DEVAN DEVAN NÈT. BATI POU JODI A. PARE POU DEMEN.</span><br><br>
+🌐 www.promaxdmp.com | 📧 PROMAXFM@GMAIL.COM | 📞 (407) 640-5166 | (516) 216-8494
+</div>
+</footer>
+<script>
+document.getElementById("hamburger").onclick=()=>{document.getElementById("mainMenu").classList.toggle("open")};
+const hv=document.getElementById("heroVideo");
+const sb=document.getElementById("soundBtn");
+sb.onclick=()=>{hv.muted=!hv.muted;sb.textContent=hv.muted?"🔇 ACTIVER LE SON":"🔊 COUPER LE SON"};
+const t={
+fr:{home:"ACCUEIL",live:"DIRECT",news:"ACTUALITÉS",shows:"ÉMISSIONS",podcasts:"PODCASTS",gallery:"GALERIE",video:"VIDÉOS",force:"LA FORCE DU SON",heroText:"Une plateforme média numérique conçue pour informer, divertir, connecter et donner une voix à notre communauté.",listenLive:"▶ ÉCOUTER EN DIRECT",explore:"EXPLORER PRO-MAX FM",platform:"PLATEFORME PRO-MAX FM",platformText:"Radio, information, culture, musique et médias numériques réunis dans un seul espace.",livePending:"Le lecteur officiel sera activé dès que la connexion de diffusion PRO-MAX FM sera disponible."},
+en:{home:"HOME",live:"LIVE",news:"NEWS",shows:"SHOWS",podcasts:"PODCASTS",gallery:"GALLERY",video:"VIDEO",force:"THE POWER OF SOUND",heroText:"A digital media platform created to inform, entertain, connect and give a voice to our community.",listenLive:"▶ LISTEN LIVE",explore:"EXPLORE PRO-MAX FM",platform:"PRO-MAX FM PLATFORM",platformText:"Radio, news, culture, music and digital media united in one place.",livePending:"The official player will be activated as soon as the PRO-MAX FM broadcast connection becomes available."},
+ht:{home:"AKÈY",live:"LIVE",news:"NOUVÈL",shows:"EMISYON",podcasts:"PODCAST",gallery:"GALRI",video:"VIDEYO",force:"FÒS SON AN",heroText:"Yon platfòm medya dijital ki fèt pou enfòme, divèti, konekte epi bay kominote nou an yon vwa.",listenLive:"▶ KOUTE LIVE",explore:"DEKOUVRI PRO-MAX FM",platform:"PLATFÒM PRO-MAX FM",platformText:"Radyo, nouvèl, kilti, mizik ak medya dijital reyini nan yon sèl espas.",livePending:"Player ofisyèl la ap aktive lè koneksyon difizyon PRO-MAX FM lan disponib."}
+};
+function setLang(l){
+const d=t[l]||t.fr;
+document.documentElement.lang=l;
+document.querySelectorAll("[data-i18n]").forEach(e=>{const k=e.dataset.i18n;if(d[k]) e.textContent=d[k]});
+document.querySelectorAll("[data-lang]").forEach(b=>{b.classList.toggle("active",b.dataset.lang===l)});
+localStorage.setItem('fm-lang',l);
+}
+document.querySelectorAll("[data-lang]").forEach(b=>{b.addEventListener("click",()=>{setLang(b.dataset.lang)})});
+setLang(localStorage.getItem('fm-lang')||'fr');
+</script>
+</body>
+</html>
