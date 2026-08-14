@@ -1,345 +1,145 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Radios d’Haïti | PRO-MAX FM DMP</title>
+<section class="section" id="radios-haiti">
+<div class="container">
+<h2 class="title">RADIOS D'HAÏTI 🇭🇹</h2>
+<p class="sub">Koute radyo ayisyen an dirèk - Live Haitian Radios</p>
 
 <style>
-:root{
-  --orange:#ff6a00;
-  --orange2:#ff8c32;
-  --black:#000;
-  --black2:#0a0502;
-  --border:rgba(255,106,0,.35);
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  background:
-    radial-gradient(circle at 50% 0%,rgba(255,106,0,.16),transparent 38%),
-    linear-gradient(180deg,#000,#0b0502,#000);
-  color:var(--orange2);
-  font-family:Arial,sans-serif;
-  min-height:100vh;
-}
-
-header{
-  text-align:center;
-  padding:45px 20px 30px;
-  border-bottom:1px solid var(--border);
-}
-
-.logo{
-  width:120px;
-  max-width:35vw;
-  margin-bottom:15px;
-}
-
-h1{
-  color:var(--orange);
-  font-size:clamp(30px,6vw,55px);
-  text-shadow:0 0 18px rgba(255,106,0,.45);
-}
-
-.subtitle{
-  max-width:750px;
-  margin:12px auto 0;
-  line-height:1.6;
-}
-
-.language{
-  margin-top:22px;
-}
-
-.language button{
-  background:#000;
-  border:1px solid var(--orange);
-  color:var(--orange);
-  padding:8px 15px;
-  margin:4px;
-  border-radius:20px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.search-wrap{
-  max-width:700px;
-  margin:35px auto 15px;
-  padding:0 20px;
-}
-
-#radioSearch{
-  width:100%;
-  background:#090909;
-  color:var(--orange2);
-  border:1px solid var(--border);
-  padding:15px 18px;
-  border-radius:12px;
-  outline:none;
-  font-size:16px;
-}
-
 .radio-grid{
-  width:min(1150px,92%);
-  margin:30px auto 60px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+  margin-top:30px;
 }
-
 .radio-card{
-  background:linear-gradient(145deg,#110701,#020202);
-  border:1px solid var(--border);
+  border:1px solid rgba(255,106,0,.35);
   border-radius:16px;
-  padding:25px 20px;
+  padding:26px 18px;
+  background:linear-gradient(145deg,rgba(255,106,0,.10),#000);
   text-align:center;
-  box-shadow:0 0 20px rgba(255,106,0,.08);
-  transition:.3s ease;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
 }
-
 .radio-card:hover{
-  transform:translateY(-5px);
-  border-color:var(--orange);
-  box-shadow:0 0 28px rgba(255,106,0,.22);
+  transform:translateY(-6px);
+  border-color:#ff6a00;
+  box-shadow:0 0 25px rgba(255,106,0,.20);
 }
-
 .station-icon{
-  width:75px;
-  height:75px;
-  border:2px solid var(--orange);
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  margin:0 auto 18px;
-  font-size:34px;
-  background:#000;
+  font-size:42px;
+  margin-bottom:14px;
+  filter:drop-shadow(0 0 8px rgba(255,106,0,.4));
 }
-
 .radio-card h2{
-  color:var(--orange);
-  font-size:21px;
-  margin-bottom:8px;
+  color:#ff6a00;
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:.5px;
+  margin-bottom:6px;
+  text-transform:uppercase;
 }
-
-.location{
-  font-size:14px;
-  margin-bottom:20px;
-}
-
-.listen{
-  display:inline-block;
-  background:var(--orange);
-  color:#000;
-  text-decoration:none;
-  padding:12px 20px;
-  border-radius:8px;
-  font-weight:bold;
-}
-
-.listen:hover{
-  background:var(--orange2);
-}
-
-.notice{
-  width:min(900px,90%);
-  margin:0 auto 45px;
-  padding:20px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  text-align:center;
-  line-height:1.6;
-  background:#080402;
-}
-
-.back{
-  text-align:center;
-  margin-bottom:45px;
-}
-
-.back a{
-  color:var(--orange);
-  text-decoration:none;
-  font-weight:bold;
-}
-
-footer{
-  border-top:1px solid var(--border);
-  padding:25px;
-  text-align:center;
+.radio-card .location{
+  color:#ff8c32;
   font-size:13px;
+  font-weight:700;
+  margin-bottom:18px;
+  opacity:.9;
+}
+.radio-card .listen{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:11px 20px;
+  border:2px solid #ff6a00;
+  border-radius:30px;
+  background:#ff6a00;
+  color:#000!important;
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.6px;
+  transition:.25s;
+  text-decoration:none!important;
+}
+.radio-card .listen:hover{
+  background:#000;
+  color:#ff6a00!important;
+  box-shadow:0 0 18px rgba(255,106,0,.35);
 }
 </style>
-</head>
 
-<body>
+<div class="radio-grid">
 
-<header>
-
-<img
-  src="assets/pro-max-fm-dmp.png"
-  alt="PRO-MAX FM DMP"
-  class="logo"
->
-
-<h1>🇭🇹 RADIOS D’HAÏTI</h1>
-
-<p class="subtitle">
-Découvrez les stations de radio haïtiennes réunies dans un espace dédié
-de PRO-MAX FM DMP.
-</p>
-
-<div class="language">
-<button>FRA</button>
-<button>ENG</button>
-<button>KRE</button>
-</div>
-
-</header>
-
-
-<div class="search-wrap">
-<input
-  id="radioSearch"
-  type="text"
-  placeholder="Rechercher une station..."
-  onkeyup="searchStations()"
->
-</div>
-
-
-<main class="radio-grid">
-
+<!-- RADIO TÉLÉ ÉCLAIR -->
 <div class="radio-card">
-<div class="station-icon">📻</div>
-<h2>Radio Caraïbes</h2>
-<p class="location">Port-au-Prince, Haïti 🇭🇹</p>
-<a class="listen" href="#" target="_blank">
-▶ ÉCOUTER EN DIRECT
-</a>
+    <div class="station-icon">📻</div>
+    <h2>Radio Télé Éclair</h2>
+    <p class="location">Haïti 🇭🇹</p>
+    <a class="listen" href="https://www.radiotele-eclair.com" target="_blank" rel="noopener noreferrer">
+        ▶ ÉCOUTER EN DIRECT
+    </a>
 </div>
 
-
+<!-- RADIO CONCORDE -->
 <div class="radio-card">
-<div class="station-icon">📡</div>
-<h2>Radio Kiskeya</h2>
-<p class="location">Port-au-Prince, Haïti 🇭🇹</p>
-<a class="listen" href="#" target="_blank">
-▶ ÉCOUTER EN DIRECT
-</a>
+    <div class="station-icon">📡</div>
+    <h2>Radio Concorde</h2>
+    <p class="location">Haïti 🇭🇹</p>
+    <a class="listen" href="https://radioconcordehaiti.com" target="_blank" rel="noopener noreferrer">
+        ▶ ÉCOUTER EN DIRECT
+    </a>
 </div>
 
-
+<!-- RADIO EXCELLENCE -->
 <div class="radio-card">
-<div class="station-icon">🎙️</div>
-<h2>Radio Métropole</h2>
-<p class="location">Port-au-Prince, Haïti 🇭🇹</p>
-<a class="listen" href="#" target="_blank">
-▶ ÉCOUTER EN DIRECT
-</a>
+    <div class="station-icon">🎙️</div>
+    <h2>Radio Excellence</h2>
+    <p class="location">Haïti 🇭🇹</p>
+    <a class="listen" href="#" target="_blank" rel="noopener noreferrer">
+        ▶ ÉCOUTER EN DIRECT
+    </a>
 </div>
 
-
+<!-- RADIO TÉLÉ BOSTON -->
 <div class="radio-card">
-<div class="station-icon">📶</div>
-<h2>Signal FM</h2>
-<p class="location">Pétion-Ville, Haïti 🇭🇹</p>
-<a class="listen" href="#" target="_blank">
-▶ ÉCOUTER EN DIRECT
-</a>
+    <div class="station-icon">📻</div>
+    <h2>Radio Télé Boston</h2>
+    <p class="location">Haïti 🇭🇹</p>
+    <a class="listen" href="https://www.radioteleboston.com" target="_blank" rel="noopener noreferrer">
+        ▶ ÉCOUTER EN DIRECT
+    </a>
 </div>
 
-
+<!-- SCOOP FM -->
 <div class="radio-card">
-<div class="station-icon">🎧</div>
-<h2>Radio Vision 2000</h2>
-<p class="location">Port-au-Prince, Haïti 🇭🇹</p>
-<a class="listen" href="#" target="_blank">
-▶ ÉCOUTER EN DIRECT
-</a>
+    <div class="station-icon">🎧</div>
+    <h2>Scoop FM</h2>
+    <p class="location">Haïti 🇭🇹</p>
+    <a class="listen" href="https://scoopfmhaiti.com" target="_blank" rel="noopener noreferrer">
+        ▶ ÉCOUTER EN DIRECT
+    </a>
 </div>
 
-
+<!-- RADIO SOLÈY -->
 <div class="radio-card">
-<div class="station-icon">🎤</div>
-<h2>Radio Télé Ginen</h2>
-<p class="location">Port-au-Prince, Haïti 🇭🇹</p>
-<a class="listen" href="#" target="_blank">
-▶ ÉCOUTER EN DIRECT
-</a>
+    <div class="station-icon">☀️</div>
+    <h2>Radio Solèy</h2>
+    <p class="location">Haïti 🇭🇹</p>
+    <a class="listen" href="https://radiosoleil.com" target="_blank" rel="noopener noreferrer">
+        ▶ ÉCOUTER EN DIRECT
+    </a>
 </div>
 
-
-<div class="radio-card">
-<div class="station-icon">🔊</div>
-<h2>Radio Mega</h2>
-<p class="location">Haïti 🇭🇹</p>
-<a class="listen" href="#" target="_blank">
-▶ ÉCOUTER EN DIRECT
-</a>
+<!-- PRO-MAX FM -->
+<div class="radio-card" style="border-color:#ff6a00;background:radial-gradient(circle at center,rgba(255,106,0,.18),#000);">
+    <div class="station-icon">🔥</div>
+    <h2>PRO-MAX FM</h2>
+    <p class="location">LA FORCE DU SON 🇭🇹</p>
+    <a class="listen" href="live.html" target="_blank" rel="noopener noreferrer">
+        ▶ ÉCOUTER EN DIRECT
+    </a>
 </div>
 
-
-<div class="radio-card">
-<div class="station-icon">🎵</div>
-<h2>Radio Ibo</h2>
-<p class="location">Port-au-Prince, Haïti 🇭🇹</p>
-<a class="listen" href="#" target="_blank">
-▶ ÉCOUTER EN DIRECT
-</a>
 </div>
-
-</main>
-
-
-<div class="notice">
-<strong>PRO-MAX FM DMP</strong><br><br>
-
-Les stations présentées dans cet espace demeurent la propriété de leurs
-opérateurs respectifs. PRO-MAX FM DMP agit comme portail d’accès et ne
-revendique aucune propriété sur les stations externes.
 </div>
-
-
-<div class="back">
-<a href="index.html">← RETOUR À PRO-MAX FM</a>
-</div>
-
-
-<footer>
-© 2026 PRO-MAX FM DMP — Tous droits réservés.
-</footer>
-
-
-<script>
-function searchStations(){
-
-  const input =
-    document.getElementById("radioSearch")
-    .value
-    .toLowerCase();
-
-  const stations =
-    document.querySelectorAll(".radio-card");
-
-  stations.forEach(station => {
-
-    const name =
-      station.innerText.toLowerCase();
-
-    station.style.display =
-      name.includes(input) ? "block" : "none";
-
-  });
-
-}
-</script>
-
-</body>
-</html>
+</section>
