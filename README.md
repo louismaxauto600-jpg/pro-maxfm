@@ -1,7 +1,7 @@
-# PRO-MAX FM 
+# PRO-MAX FM DMP
 ### OFFICIAL PRO-MAX DIGITAL RADIO PLATFORM
 
-![PRO-MAX FM DMP Logo](assets/pro-max-fm-dmp.png)
+![PRO-MAX FM  Logo](assets/pro-max-fm-dmp.png)
 
 ## Kisa PRO-MAX FM DMP ye?
 Platfòm radio dijital + sistèm "Document Registry" pou transparans ak prèv. 
