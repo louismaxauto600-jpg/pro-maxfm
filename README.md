@@ -1,4 +1,4 @@
-# PRO-MAX FM DMP
+# PRO-MAX FM 
 ### OFFICIAL PRO-MAX DIGITAL RADIO PLATFORM
 
 ![PRO-MAX FM DMP Logo](assets/pro-max-fm-dmp.png)
