@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO-MAX FM | Gallery</title>
+<style>
+:root{--orange:#ff6500;--orange2:#ff8a3d;--orange3:#ffb066;--black:#000;--border:rgba(255,101,0,.38);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:radial-gradient(circle at 50% 0,rgba(255,101,0,.13),transparent 35%),linear-gradient(180deg,#000,#0b0300,#000);color:var(--orange2);font-family:Arial,Helvetica,sans-serif;min-height:100vh;}
+a{color:inherit;text-decoration:none;}
+header{background:#000;border-bottom:2px solid var(--orange);position:sticky;top:0;z-index:1000;}
+.nav{max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:20px;}
+.brand{display:flex;align-items:center;gap:12px;}
+.logo{width:56px;height:56px;border:2px solid var(--orange);border-radius:50%;overflow:hidden;background:#000;display:grid;place-items:center;flex-shrink:0;}
+.logo video{width:100%;height:100%;object-fit:cover;display:block;}
+.brand h2{color:var(--orange);font-size:22px;}
+.brand small{display:block;margin-top:4px;color:var(--orange2);}
+.languages{display:flex;border:1px solid var(--border);border-radius:30px;overflow:hidden;}
+.languages button{background:#000;color:var(--orange);border:0;padding:9px 12px;cursor:pointer;font-weight:bold;}
+.languages button.active{background:var(--orange);color:#000;}
+.hero{padding:80px 20px 55px;text-align:center;border-bottom:1px solid var(--border);}
+.hero h1{color:var(--orange);font-size:clamp(40px,7vw,76px);}
+.hero p{max-width:800px;margin:18px auto 0;line-height:1.7;font-size:18px;color:var(--orange3);}
+.filters{max-width:1200px;margin:45px auto 15px;padding:0 20px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.filter-btn{background:#000;color:var(--orange);border:1px solid var(--orange);padding:9px 15px;border-radius:30px;cursor:pointer;font-weight:bold;transition:.2s;}
+.filter-btn.active,.filter-btn:hover{background:var(--orange);color:#000;transform:scale(1.05);}
+.section{max-width:1200px;margin:auto;padding:35px 20px 70px;}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.gallery-card{position:relative;min-height:280px;border:1px solid var(--border);border-radius:18px;overflow:hidden;background:radial-gradient(circle at center,rgba(255,101,0,.18),transparent 65%),#080200;transition:.3s;cursor:pointer;}
+.gallery-card:hover{transform:translateY(-5px) scale(1.02);border-color:var(--orange);box-shadow:0 0 24px rgba(255,101,0,.25);}
+.gallery-image{height:210px;display:grid;place-items:center;font-size:78px;background:radial-gradient(circle,rgba(255,101,0,.22),transparent 65%),#050100;position:relative;overflow:hidden;}
+.gallery-image::after{content:"🔍";position:absolute;inset:0;background:rgba(0,0,0,.6);display:grid;place-items:center;font-size:30px;opacity:0;transition:.3s;}
+.gallery-card:hover.gallery-image::after{opacity:1;}
+.gallery-info{padding:18px;}
+.gallery-info h3{color:var(--orange);margin-bottom:7px;font-size:20px;}
+.gallery-info p{font-size:14px;line-height:1.5;}
+.category-tag{display:inline-block;margin-top:12px;padding:6px 10px;border:1px solid var(--orange);border-radius:20px;font-size:11px;font-weight:bold;}
+.featured{margin-top:60px;border:2px solid var(--orange);border-radius:22px;padding:35px 25px;text-align:center;background:radial-gradient(circle at 50% 20%,rgba(255,101,0,.18),transparent 50%),#050100;}
+.featured h2{color:var(--orange);font-size:34px;margin-bottom:12px;}
+.featured p{max-width:800px;margin:auto;line-height:1.7;}
+.featured-status{display:inline-block;margin-top:20px;padding:10px 16px;border:1px solid var(--orange);border-radius:25px;font-weight:bold;color:var(--orange);}
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;place-items:center;z-index:10000;padding:20px;cursor:pointer;}
+.lightbox.active{display:grid;}
+.lightbox-box{background:linear-gradient(145deg,#1a0800,#000);border:2px solid var(--orange);border-radius:20px;max-width:700px;width:100%;overflow:hidden;cursor:default;animation:pop.3s;}
+@keyframes pop{from{transform:scale(0.8);opacity:0;}to{transform:scale(1);opacity:1;}}
+.lightbox-img{height:400px;display:grid;place-items:center;font-size:120px;background:#050100;position:relative;}
+.lightbox-info{padding:20px;text-align:center;}
+.lightbox-info h3{color:var(--orange);font-size:26px;margin-bottom:8px;}
+.lightbox-info p{color:var(--orange3);}
+.lightbox-close{position:absolute;top:15px;right:15px;background:var(--orange);border:0;width:40px;height:40px;border-radius:50%;cursor:pointer;font-weight:bold;font-size:18px;z-index:2;}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,101,0,.8);border:0;width:45px;height:45px;border-radius:50%;cursor:pointer;font-size:20px;font-weight:bold;}
+.lightbox-nav.prev{left:15px;}
+.lightbox-nav.next{right:15px;}
+footer{background:#000;border-top:2px solid var(--orange);padding:38px 20px;text-align:center;line-height:1.8;}
+footer strong{color:var(--orange);}
+@media(max-width:520px){.nav{gap:10px;padding:12px;}.logo{width:48px;height:48px;}.brand h2{font-size:17px;}.brand small{font-size:10px;}.languages button{padding:8px;font-size:11px;}.lightbox-img{height:280px;font-size:80px;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <div class="logo"><video autoplay loop muted playsinline><source src="pro-max-fm.mp4" type="video/mp4"></video></div>
+      <div><h2>PRO-MAX FM</h2><small data-i18n="slogan">LA FORCE DU SON</small></div>
+    </a>
+    <div class="languages">
+      <button data-lang="fr" class="active">FRA</button>
+      <button data-lang="en">ENG</button>
+      <button data-lang="ht">KRE</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 data-i18n="title">📸 GALERIE</h1>
+  <p data-i18n="hero">Découvrez les images, les événements, les coulisses, les invités et les moments marquants de PRO-MAX FM.</p>
+</section>
+
+<div class="filters">
+  <button class="filter-btn active" data-filter="all" data-i18n="all">TOUT</button>
+  <button class="filter-btn" data-filter="events" data-i18n="events">ÉVÉNEMENTS</button>
+  <button class="filter-btn" data-filter="studio" data-i18n="studio">STUDIO</button>
+  <button class="filter-btn" data-filter="guests" data-i18n="guests">INVITÉS</button>
+  <button class="filter-btn" data-filter="community" data-i18n="community">COMMUNAUTÉ</button>
+  <button class="filter-btn" data-filter="culture" data-i18n="culture">CULTURE</button>
+</div>
+
+<section class="section">
+  <div class="gallery-grid">
+    <div class="gallery-card" data-category="studio" onclick="openLightbox(0)"><div class="gallery-image">🎙️</div><div class="gallery-info"><h3 data-i18n="studioMoments">MOMENTS EN STUDIO</h3><p data-i18n="studioDesc">Images des émissions, enregistrements et coulisses de PRO-MAX FM.</p><span class="category-tag" data-i18n="studio">STUDIO</span></div></div>
+    <div class="gallery-card" data-category="events" onclick="openLightbox(1)"><div class="gallery-image">🎉</div><div class="gallery-info"><h3 data-i18n="eventsTitle">ÉVÉNEMENTS</h3><p data-i18n="eventsDesc">Concerts, rencontres, activités et événements spéciaux.</p><span class="category-tag" data-i18n="events">ÉVÉNEMENTS</span></div></div>
+    <div class="gallery-card" data-category="guests" onclick="openLightbox(2)"><div class="gallery-image">🎤</div><div class="gallery-info"><h3 data-i18n="guestsTitle">INVITÉS & INTERVIEWS</h3><p data-i18n="guestsDesc">Artistes, leaders, entrepreneurs et invités spéciaux.</p><span class="category-tag" data-i18n="guests">INVITÉS</span></div></div>
+    <div class="gallery-card" data-category="community" onclick="openLightbox(3)"><div class="gallery-image">🤝</div><div class="gallery-info"><h3 data-i18n="communityTitle">COMMUNAUTÉ</h3><p data-i18n="communityDesc">Moments partagés avec la communauté et la diaspora.</p><span class="category-tag" data-i18n="community">COMMUNAUTÉ</span></div></div>
+    <div class="gallery-card" data-category="culture" onclick="openLightbox(4)"><div class="gallery-image">🥁</div><div class="gallery-info"><h3 data-i18n="cultureTitle">CULTURE HAÏTIENNE</h3><p data-i18n="cultureDesc">Musique, patrimoine, traditions et expressions culturelles.</p><span class="category-tag" data-i18n="culture">CULTURE</span></div></div>
+    <div class="gallery-card" data-category="studio" onclick="openLightbox(5)"><div class="gallery-image">📻</div><div class="gallery-info"><h3 data-i18n="radioLife">LA VIE DE PRO-MAX FM</h3><p data-i18n="radioLifeDesc">Découvrez les personnes et les moments qui font vivre la station.</p><span class="category-tag">PRO-MAX FM</span></div></div>
+  </div>
+
+  <div class="featured">
+    <h2 data-i18n="libraryTitle">📸 MÉDIATHÈQUE PRO-MAX FM</h2>
+    <p data-i18n="libraryText">Les photos officielles seront ajoutées progressivement à mesure que les événements, émissions et productions de PRO-MAX FM seront publiés.</p>
+    <div class="featured-status" data-i18n="coming">NOUVELLES PHOTOS À VENIR</div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-box" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox-nav prev" onclick="prevImage()">‹</button>
+    <button class="lightbox-nav next" onclick="nextImage()">›</button>
+    <div class="lightbox-img" id="lightboxImg">🎙️</div>
+    <div class="lightbox-info"><h3 id="lightboxTitle">MOMENTS EN STUDIO</h3><p id="lightboxDesc">Images des émissions</p></div>
+  </div>
+</div>
+
+<footer>
+  <p><strong>PRO-MAX FM</strong><br><span data-i18n="slogan">LA FORCE DU SON</span></p>
+  <p data-i18n="footerLine">Radio • Médias • Culture • Communauté</p>
+  <p>© 2026 PRO-MAX FM DMP — Tous droits réservés.</p>
+  <p><strong>DEVAN DEVAN NÈT. BATI POU JODI A. PARE POU DEMEN.</strong></p>
+</footer>
+
+<script>
+const galleryData=[
+  {icon:"🎙️",title_fr:"MOMENTS EN STUDIO",desc_fr:"Images des émissions, enregistrements et coulisses de PRO-MAX FM.",cat:"studio"},
+  {icon:"🎉",title_fr:"ÉVÉNEMENTS",desc_fr:"Concerts, rencontres, activités et événements spéciaux.",cat:"events"},
+  {icon:"🎤",title_fr:"INVITÉS & INTERVIEWS",desc_fr:"Artistes, leaders, entrepreneurs et invités spéciaux.",cat:"guests"},
+  {icon:"🤝",title_fr:"COMMUNAUTÉ",desc_fr:"Moments partagés avec la communauté et la diaspora.",cat:"community"},
+  {icon:"🥁",title_fr:"CULTURE HAÏTIENNE",desc_fr:"Musique, patrimoine, traditions et expressions culturelles.",cat:"culture"},
+  {icon:"📻",title_fr:"LA VIE DE PRO-MAX FM",desc_fr:"Découvrez les personnes et les moments qui font vivre la station.",cat:"studio"}
+];
+let currentIndex=0;
+function openLightbox(index){
+  currentIndex=index;
+  const item=galleryData[index];
+  document.getElementById('lightboxImg').innerText=item.icon;
+  document.getElementById('lightboxTitle').innerText=item.title_fr;
+  document.getElementById('lightboxDesc').innerText=item.desc_fr;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active');}
+function nextImage(){currentIndex=(currentIndex+1)%galleryData.length;openLightbox(currentIndex);}
+function prevImage(){currentIndex=(currentIndex-1+galleryData.length)%galleryData.length;openLightbox(currentIndex);}
+
+// FILTERS
+const filterButtons=document.querySelectorAll(".filter-btn");
+const galleryCards=document.querySelectorAll(".gallery-card");
+filterButtons.forEach(button=>{
+  button.addEventListener("click",()=>{
+    filterButtons.forEach(btn=>btn.classList.remove("active"));
+    button.classList.add("active");
+    const filter=button.dataset.filter;
+    galleryCards.forEach((card,i)=>{
+      if(filter==="all"||card.dataset.category===filter){
+        card.style.display="block";
+        card.style.animation=`pop 0.4s ${i*0.05}s both`;
+      }else{card.style.display="none";}
+    });
+  });
+});
+
+// LANGUAGE
+const translations={
+fr:{slogan:"LA FORCE DU SON",title:"📸 GALERIE",hero:"Découvrez les images, les événements, les coulisses, les invités et les moments marquants de PRO-MAX FM.",all:"TOUT",events:"ÉVÉNEMENTS",studio:"STUDIO",guests:"INVITÉS",community:"COMMUNAUTÉ",culture:"CULTURE",studioMoments:"MOMENTS EN STUDIO",studioDesc:"Images des émissions, enregistrements et coulisses de PRO-MAX FM.",eventsTitle:"ÉVÉNEMENTS",eventsDesc:"Concerts, rencontres, activités et événements spéciaux.",guestsTitle:"INVITÉS & INTERVIEWS",guestsDesc:"Artistes, leaders, entrepreneurs et invités spéciaux.",communityTitle:"COMMUNAUTÉ",communityDesc:"Moments partagés avec la communauté et la diaspora.",cultureTitle:"CULTURE HAÏTIENNE",cultureDesc:"Musique, patrimoine, traditions et expressions culturelles.",radioLife:"LA VIE DE PRO-MAX FM",radioLifeDesc:"Découvrez les personnes et les moments qui font vivre la station.",libraryTitle:"📸 MÉDIATHÈQUE PRO-MAX FM",libraryText:"Les photos officielles seront ajoutées progressivement à mesure que les événements, émissions et productions de PRO-MAX FM seront publiés.",coming:"NOUVELLES PHOTOS À VENIR",footerLine:"Radio • Médias • Culture • Communauté"},
+en:{slogan:"THE POWER OF SOUND",title:"📸 GALLERY",hero:"Discover the images, events, behind-the-scenes moments, guests and highlights of PRO-MAX FM.",all:"ALL",events:"EVENTS",studio:"STUDIO",guests:"GUESTS",community:"COMMUNITY",culture:"CULTURE",studioMoments:"STUDIO MOMENTS",studioDesc:"Photos from shows, recordings and behind-the-scenes moments at PRO-MAX FM.",eventsTitle:"EVENTS",eventsDesc:"Concerts, meetings, activities and special events.",guestsTitle:"GUESTS & INTERVIEWS",guestsDesc:"Artists, leaders, entrepreneurs and special guests.",communityTitle:"COMMUNITY",communityDesc:"Moments shared with the community and diaspora.",cultureTitle:"HAITIAN CULTURE",cultureDesc:"Music, heritage, traditions and cultural expression.",radioLife:"THE LIFE OF PRO-MAX FM",radioLifeDesc:"Discover the people and moments that bring the station to life.",libraryTitle:"📸 PRO-MAX FM MEDIA LIBRARY",libraryText:"Official photos will be added progressively as PRO-MAX FM events, shows and productions are published.",coming:"NEW PHOTOS COMING SOON",footerLine:"Radio • Media • Culture • Community"},
+ht:{slogan:"FÒS SON AN",title:"📸 GALRI",hero:"Dekouvri foto, evènman, dèyè sèn, envite ak gwo moman PRO-MAX FM yo.",all:"TOUT",events:"EVÈNMAN",studio:"ESTIDYO",guests:"ENVITE",community:"KOMINOTE",culture:"KILTI",studioMoments:"MOMAN NAN ESTIDYO",studioDesc:"Foto emisyon, anrejistreman ak dèyè sèn PRO-MAX FM.",eventsTitle:"EVÈNMAN",eventsDesc:"Konsè, rankont, aktivite ak evènman espesyal.",guestsTitle:"ENVITE & ENTÈVYOU",guestsDesc:"Atis, lidè, antreprenè ak envite espesyal.",communityTitle:"KOMINOTE",communityDesc:"Moman nou pataje ak kominote ak dyaspora a.",cultureTitle:"KILTI AYISYEN",cultureDesc:"Mizik, eritaj, tradisyon ak ekspresyon kiltirèl.",radioLife:"LAVI PRO-MAX FM",radioLifeDesc:"Dekouvri moun ak moman ki fè estasyon an viv.",libraryTitle:"📸 MEDYATÈK PRO-MAX FM",libraryText:"Foto ofisyèl yo ap ajoute piti piti pandan evènman, emisyon ak pwodiksyon PRO-MAX FM yo ap pibliye.",coming:"NOUVO FOTO AP VINI",footerLine:"Radyo • Medya • Kilti • Kominote"}
+};
+function applyLanguage(lang){
+  const dict=translations[lang]||translations.fr;
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(dict[key])el.textContent=dict[key];});
+  document.querySelectorAll("[data-lang]").forEach(btn=>{btn.classList.toggle("active",btn.dataset.lang===lang);});
+  localStorage.setItem("promax-language",lang);
+}
+document.querySelectorAll("[data-lang]").forEach(button=>{button.addEventListener("click",()=>{applyLanguage(button.dataset.lang);});});
+const savedLanguage=localStorage.getItem("promax-language");
+const browserLanguage=navigator.language.toLowerCase().split("-")[0];
+const startLanguage=savedLanguage||(["fr","en","ht"].includes(browserLanguage)?browserLanguage:"fr");
+applyLanguage(startLanguage);
+</script>
+</body>
+</html>
