@@ -1,68 +1,73 @@
-
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRO-MAX FM</title>
+<title>PRO-MAX FM | Shows</title>
 <style>
-body{margin:0;background:#000;color:#ff7a00;font-family:Arial,sans-serif;}
-.header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;border-bottom:2px solid #ff7a00;flex-wrap:wrap;}
-.logo{display:flex;align-items:center;gap:12px;}
-.logo-icon{font-size:42px;}
-.logo h1{margin:0;color:#ff7a00;font-size:38px;font-weight:900;}
-.menu{list-style:none;margin:0;padding:0;text-align:right;}
-.menu li{margin:4px 0;}
-.menu a{color:#ff7a00;text-decoration:none;font-weight:700;}
-.menu a:hover{color:#fff;}
-.featured{padding:40px;}
-.featured h2{font-size:42px;margin:0 0 5px 0;}
-.featured p{margin:0 0 40px 0;font-size:14px;max-width:700px;}
-.show{margin-bottom:35px;}
-.show h3{font-size:36px;margin:0 0 10px 0;color:#ff7a00;}
-.meta{font-weight:700;line-height:1.4;}
+:root{ --orange:#ff6500; --orange2:#ff8a3d; --border:rgba(255,101,0,.38); }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:radial-gradient(circle at 50% 0,rgba(255,101,0,.13),transparent 32%),#000;color:var(--orange2);font-family:Arial,sans-serif;}
+a{color:inherit;text-decoration:none;}
+header{background:#000;border-bottom:2px solid var(--orange);position:sticky;top:0;z-index:1000;}
+.nav{max-width:1200px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;}
+.brand{display:flex;align-items:center;gap:13px;}
+.logo{width:58px;height:58px;border:2px solid var(--orange);border-radius:50%;overflow:hidden;background:#000;flex-shrink:0;}
+.logo video{width:100%;height:100%;object-fit:cover;display:block;}
+.brand h2{color:var(--orange);} .brand small{display:block;margin-top:4px;}
+.languages{display:flex;border:1px solid var(--border);border-radius:30px;overflow:hidden;}
+.languages button{border:0;background:#000;color:var(--orange);padding:10px 14px;font-weight:bold;cursor:pointer;}
+.languages button.active{background:var(--orange);color:#000;}
+.hero{padding:85px 20px 65px;text-align:center;border-bottom:1px solid var(--border);}
+.hero h1{color:var(--orange);font-size:clamp(42px,7vw,76px);}
+.hero p{max-width:750px;margin:18px auto 0;font-size:19px;line-height:1.7;}
+.section{max-width:1200px;margin:auto;padding:65px 20px;}
+.section-title{text-align:center;color:var(--orange);font-size:36px;margin-bottom:40px;}
+.shows-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+.show{background:linear-gradient(145deg,#160700,#020202);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:.3s;}
+.show:hover{transform:translateY(-5px);border-color:var(--orange);box-shadow:0 0 25px rgba(255,101,0,.17);}
+.cover{height:210px;display:grid;place-items:center;font-size:75px;background:radial-gradient(circle,rgba(255,101,0,.25),transparent 65%);}
+.show-content{padding:23px;} .show h2{color:var(--orange);margin-bottom:10px;} .show p{line-height:1.6;}
+.tag{display:inline-block;margin-top:18px;border:1px solid var(--orange);padding:7px 12px;border-radius:25px;font-size:12px;font-weight:bold;}
+.vodou{margin-top:50px;border:2px solid var(--orange);border-radius:24px;overflow:hidden;background:radial-gradient(circle at 50% 30%,rgba(255,101,0,.25),transparent 45%),#050100;}
+.vodou-top{min-height:330px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:40px 20px;}
+.vodou-symbol{font-size:85px;margin-bottom:15px;} .vodou h2{color:var(--orange);font-size:clamp(30px,5vw,52px);} .vodou h3{margin-top:10px;letter-spacing:3px;}
+.vodou-content{max-width:850px;margin:auto;padding:0 30px 45px;text-align:center;} .vodou-content p{line-height:1.8;font-size:17px;}
+.vodou-topics{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:25px;} .vodou-topics span{padding:8px 13px;border:1px solid var(--border);border-radius:25px;}
+.schedule{margin-top:65px;} .days{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;}
+.day{padding:20px;border:1px solid var(--border);border-radius:12px;text-align:center;background:#080200;} .day strong{display:block;color:var(--orange);margin-bottom:8px;}
+footer{border-top:2px solid var(--orange);padding:40px 20px;text-align:center;background:#000;line-height:1.8;} footer strong{color:var(--orange);}
+@media(max-width:600px){.brand small{display:none;}}
 </style>
 </head>
 <body>
-
-<header class="header">
-  <div class="logo">
-    <div class="logo-icon">📡</div>
-    <h1>PRO-MAX FM</h1>
-  </div>
-  <ul class="menu">
-    <li><a href="/">HOME</a></li>
-    <li><a href="/live">LIVE</a></li>
-    <li><a href="/news">NEWS</a></li>
-    <li><a href="/shows">SHOWS</a></li>
-    <li><a href="/podcasts">PODCASTS</a></li>
-    <li><a href="/gallery">GALLERY</a></li>
-    <li><a href="/video">VIDEO</a></li>
-    <li><a href="/contact">CONTACT</a></li>
-  </ul>
+<header>
+<div class="nav">
+<a href="index.html" class="brand">
+<div class="logo">
+  <video autoplay loop muted playsinline>
+    <source src="pro-max-fm.mp4" type="video/mp4">
+  </video>
+</div>
+<div><h2>PRO-MAX FM</h2><small>LA FORCE DU SON</small></div>
+</a>
+<div class="languages"><button class="active">FRA</button><button>ENG</button><button>KRE</button></div>
+</div>
 </header>
-
-<section class="featured">
-  <h2>FEATURED SHOWS</h2>
-  <p>Dekouvri tout emisyon ofisyèl PRO-MAX FM yo. Mizik, nouvèl, kilti, entèvyou, podcast, kominote ak pwogram espesyal 24 sou 24.</p>
-
-  <div class="show">
-    <h3>Morning Power</h3>
-    <div>Kòmanse jounen an ak mizik, nouvèl, motivasyon ak enfòmasyon.</div>
-    <div class="meta">Monday - Friday<br>6:00 AM - 10:00 AM<br>LISTEN LIVE</div>
-  </div>
-
-  <div class="show">
-    <h3>Drive Time</h3>
-    <div>Mizik cho, trafik, kominote ak enfòmasyon aprè midi.</div>
-    <div class="meta">Monday - Friday<br>3:00 PM - 6:00 PM<br>LISTEN LIVE</div>
-  </div>
-
-  <div class="show">
-    <h3>Night Vibes</h3>
-    <div>Talk Show. Entertainment. Interviews. Community & Music.</div>
-  </div>
+<section class="hero"><h1>🎙️ SHOWS</h1><p>Découvrez les émissions, les voix, la culture, l'information et les conversations qui font vivre PRO-MAX FM.</p></section>
+<section class="section">
+<h2 class="section-title">PROGRAMMES PRO-MAX FM</h2>
+<div class="shows-grid">
+<div class="show"><div class="cover">🌅</div><div class="show-content"><h2>PRO-MAX MORNING</h2><p>Actualité, communauté, conversations et énergie pour commencer la journée.</p><span class="tag">MATIN</span></div></div>
+<div class="show"><div class="cover">📰</div><div class="show-content"><h2>PRO-MAX NEWS</h2><p>Haïti, États-Unis, immigration, actualité internationale et communauté.</p><span class="tag">INFORMATION</span></div></div>
+<div class="show"><div class="cover">🎵</div><div class="show-content"><h2>LA FORCE DU SON</h2><p>Compas, rara, musique haïtienne, nouveautés et classiques.</p><span class="tag">MUSIQUE</span></div></div>
+<div class="show"><div class="cover">🎤</div><div class="show-content"><h2>PRO-MAX INTERVIEWS</h2><p>Artistes, entrepreneurs, leaders communautaires et invités spéciaux.</p><span class="tag">INTERVIEWS</span></div></div>
+<div class="show"><div class="cover">🌎</div><div class="show-content"><h2>COMMUNITY TALK</h2><p>Immigration, services, communauté et sujets qui touchent notre quotidien.</p><span class="tag">COMMUNAUTÉ</span></div></div>
+<div class="show"><div class="cover">🌙</div><div class="show-content"><h2>PRO-MAX NIGHT</h2><p>Musique, discussions et divertissement pour terminer la journée.</p><span class="tag">SOIR</span></div></div>
+</div>
+<div class="vodou"><div class="vodou-top"><div class="vodou-symbol">🥁</div><h2>RACINES MYSTIQUES</h2><h3>VODOU • CULTURE • HÉRITAGE</h3></div><div class="vodou-content"><p><strong>RACINES MYSTIQUES</strong> est une émission culturelle consacrée au Vodou haïtien, à son histoire, ses traditions, ses rythmes, ses symboles et son héritage dans la société haïtienne.</p><br><p>Un espace de découverte, de dialogue et de transmission culturelle qui explore les racines profondes d'Haïti avec respect et authenticité.</p><div class="vodou-topics"><span>🥁 Rythmes</span><span>🇭🇹 Histoire</span><span>🔥 Traditions</span><span>🌍 Héritage africain</span><span>📚 Culture</span><span>🎙️ Témoignages</span><span>⚜️ Symboles</span></div></div></div>
+<div class="schedule"><h2 class="section-title">📅 PROGRAMMATION HEBDOMADAIRE</h2><div class="days"><div class="day"><strong>LUNDI</strong>Programme à venir</div><div class="day"><strong>MARDI</strong>Programme à venir</div><div class="day"><strong>MERCREDI</strong>Programme à venir</div><div class="day"><strong>JEUDI</strong>Programme à venir</div><div class="day"><strong>VENDREDI</strong>Programme à venir</div><div class="day"><strong>SAMEDI</strong>Programme à venir</div><div class="day"><strong>DIMANCHE</strong>Programme à venir</div></div></div>
 </section>
-
+<footer><p><strong>PRO-MAX FM</strong><br>LA FORCE DU SON</p><p>Radio • Médias • Information • Culture</p><p>© 2026 PRO-MAX FM DMP — Tous droits réservés.</p><p><strong>DEVAN DEVAN NÈT. BATI POU JODI A. PARE POU DEMEN.</strong></p></footer>
 </body>
 </html>
