@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +7,7 @@
 <style>
 :root{--orange:#ff6500;--orange2:#ff8a3d;--orange3:#ffb066;--border:rgba(255,101,0,.38);}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:radial-gradient(circle at 50% 0,rgba(255,101,0,.13),transparent 35%),linear-gradient(180deg,#000,#0b0300,#000);color:var(--orange2);font-family:Arial,Helvetica,sans-serif;min-height:100vh;padding-bottom:90px;}
+body{background:radial-gradient(circle at 50% 0,rgba(255,101,0,.13),transparent 35%),linear-gradient(180deg,#000,#0b0300,#000);color:var(--orange2);font-family:Arial,Helvetica,sans-serif;min-height:100vh;padding-bottom:110px;}
 a{color:inherit;text-decoration:none;}
 header{background:#000;border-bottom:2px solid var(--orange);position:sticky;top:0;z-index:1000;}
 .nav{max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:20px;}
@@ -16,7 +15,6 @@ header{background:#000;border-bottom:2px solid var(--orange);position:sticky;top
 .logo{width:56px;height:56px;border:2px solid var(--orange);border-radius:50%;overflow:hidden;background:#000;display:grid;place-items:center;flex-shrink:0;}
 .logo video{width:100%;height:100%;object-fit:cover;display:block;}
 .brand h2{color:var(--orange);}
-.brand small{display:block;margin-top:4px;}
 .languages{display:flex;border:1px solid var(--border);border-radius:30px;overflow:hidden;}
 .languages button{background:#000;color:var(--orange);border:0;padding:9px 12px;cursor:pointer;font-weight:bold;}
 .languages button.active{background:var(--orange);color:#000;}
@@ -36,94 +34,91 @@ header{background:#000;border-bottom:2px solid var(--orange);position:sticky;top
 .podcast-card{border:1px solid var(--border);border-radius:18px;background:linear-gradient(145deg,#150700,#020202);overflow:hidden;}
 .podcast-cover{height:180px;display:grid;place-items:center;font-size:70px;background:radial-gradient(circle,rgba(255,101,0,.22),transparent 65%);}
 .podcast-content{padding:22px;}
-.podcast-content h3{color:var(--orange);font-size:22px;margin-bottom:10px;}
+.podcast-content h3{color:var(--orange);font-size:20px;margin-bottom:10px;}
 .podcast-content p{line-height:1.6;font-size:14px;}
 .meta{margin-top:14px;font-size:12px;color:var(--orange3);}
 .podcast-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
 .small-btn{padding:9px 12px;border:1px solid var(--orange);border-radius:7px;font-weight:bold;font-size:12px;cursor:pointer;background:transparent;color:var(--orange);}
 .small-btn.primary{background:var(--orange);color:#000;}
-.player{position:fixed;bottom:-200px;left:0;right:0;background:#0f0600;border-top:2px solid var(--orange);padding:15px 20px;transition:.4s;z-index:9999;display:flex;align-items:center;gap:15px;}
+/* PLAYER GWO AK VIZYÈL */
+.player{position:fixed;bottom:-300px;left:0;right:0;background:linear-gradient(180deg,#1a0800,#000);border-top:3px solid var(--orange);padding:15px 20px;transition:.4s;z-index:9999;display:flex;align-items:center;gap:18px;box-shadow:0 -10px 30px rgba(255,101,0,.3);}
 .player.active{bottom:0;}
-.player-info{flex:1;min-width:150px;}
-.player-info strong{color:var(--orange);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.player-cover{width:60px;height:60px;background:#000;border:2px solid var(--orange);border-radius:12px;display:grid;place-items:center;font-size:30px;flex-shrink:0;animation:rotate 3s linear infinite paused;}
+.player.active.player-cover{animation-play-state:running;}
+@keyframes rotate{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.player-info{flex:1;min-width:120px;}
+.player-info strong{color:var(--orange);display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.player-info small{color:var(--orange3);font-size:11px;}
+.visualizer{display:flex;gap:3px;align-items:end;height:20px;margin-top:6px;}
+.bar{width:4px;background:var(--orange);border-radius:2px;animation:wave 0.6s ease-in-out infinite;}
+.bar:nth-child(2){animation-delay:0.1s;height:60%;}
+.bar:nth-child(3){animation-delay:0.2s;height:80%;}
+.bar:nth-child(4){animation-delay:0.3s;height:40%;}
+.bar:nth-child(5){animation-delay:0.15s;height:70%;}
+@keyframes wave{0%,100%{height:10%;}50%{height:100%;}}
 .player audio{flex:1;max-width:500px;height:40px;}
 .player-close{background:transparent;border:1px solid var(--orange);color:var(--orange);width:35px;height:35px;border-radius:50%;cursor:pointer;flex-shrink:0;}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;place-items:center;z-index:10000;padding:20px;}
 .modal.active{display:grid;}
 .modal-box{background:linear-gradient(145deg,#1a0800,#000);border:2px solid var(--orange);border-radius:20px;max-width:600px;width:100%;max-height:80vh;overflow:auto;padding:25px;}
 .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-.modal-header h2{color:var(--orange);font-size:18px;}
-.modal-close{background:var(--orange);border:0;width:35px;height:35px;border-radius:50%;cursor:pointer;font-weight:bold;flex-shrink:0;}
-.episode{border:1px solid var(--border);border-radius:12px;padding:15px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;}
+.modal-header h2{color:var(--orange);font-size:16px;}
+.modal-close{background:var(--orange);border:0;width:35px;height:35px;border-radius:50%;cursor:pointer;font-weight:bold;}
+.episode{border:1px solid var(--border);border-radius:12px;padding:15px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:.2s;}
+.episode.playing{border-color:var(--orange);background:rgba(255,101,0,.15);box-shadow:0 0 15px rgba(255,101,0,.2);}
 .episode-info b{color:var(--orange);display:block;font-size:14px;}
 .episode-info small{color:var(--orange3);font-size:11px;}
-.episode button{background:var(--orange);border:0;padding:8px 12px;border-radius:6px;font-weight:bold;cursor:pointer;flex-shrink:0;}
+.episode button{background:var(--orange);border:0;padding:8px 12px;border-radius:6px;font-weight:bold;cursor:pointer;}
 footer{background:#000;border-top:2px solid var(--orange);padding:38px 20px;text-align:center;line-height:1.8;}
 footer strong{color:var(--orange);}
-@media(max-width:520px){.nav{padding:12px;}.logo{width:48px;height:48px;}}
 </style>
 </head>
 <body>
-<header><div class="nav"><a href="index.html" class="brand"><div class="logo"><video autoplay loop muted playsinline><source src="pro-max-fm.mp4" type="video/mp4"></video></div><div><h2>PRO-MAX FM</h2><small>THE POWER OF SOUND</small></div></a><div class="languages"><button id="btn-fra" class="active" onclick="setLang('fra')">FRA</button><button id="btn-eng" onclick="setLang('eng')">ENG</button><button id="btn-kre" onclick="setLang('kre')">KRE</button></div></div></header>
-<section class="hero"><h1>🎧 PODCASTS</h1><p id="heroText">Listen to the voices, stories, discussions and original content of PRO-MAX FM.</p></section>
-<section class="featured"><div class="featured-box"><div class="featured-art">🎙️</div><div class="featured-content"><h2>PRO-MAX PODCAST</h2><p>The official PRO-MAX FM podcast dedicated to community, culture and news.</p><span class="tag">COMMUNITY</span><span class="tag">CULTURE</span><span class="tag">INFORMATION</span><span class="tag">INTERVIEWS</span><br><button class="listen-btn" onclick="openEpisodes('PRO-MAX PODCAST')">▶ LISTEN TO THE LATEST EPISODE</button></div></div></section>
+<header><div class="nav"><a href="index.html" class="brand"><div class="logo"><video autoplay loop muted playsinline><source src="pro-max-fm.mp4" type="video/mp4"></video></div><div><h2>PRO-MAX FM</h2><small>LA FORCE DU SON</small></div></a><div class="languages"><button class="active">FRA</button><button>ENG</button><button>KRE</button></div></div></header>
+<section class="hero"><h1>🎧 PODCASTS</h1><p>Écoutez les voix, les histoires et les contenus originaux de PRO-MAX FM.</p></section>
+<section class="featured"><div class="featured-box"><div class="featured-art">🎙️</div><div class="featured-content"><h2>PRO-MAX PODCAST</h2><p>Le podcast officiel de PRO-MAX FM consacré à la communauté, à la culture et à l'information.</p><span class="tag">COMMUNITY</span><span class="tag">CULTURE</span><br><button class="listen-btn" onclick="openEpisodes('PRO-MAX PODCAST')">▶ LISTEN TO THE LATEST EPISODE</button></div></div></section>
 <section class="section"><h2 class="section-title">PODCAST SHOWS</h2><div class="podcast-grid">
-<div class="podcast-card"><div class="podcast-cover">📰</div><div class="podcast-content"><h3>PRO-MAX NEWS PODCAST</h3><p>News from Haiti, US and the world.</p><div class="meta">Actualité • Information</div><div class="podcast-actions"><button class="small-btn primary" onclick="playFirst('NEWS')">▶ ÉCOUTER</button><button class="small-btn" onclick="openEpisodes('NEWS')">VOIR LES ÉPISODES</button></div></div></div>
-<div class="podcast-card"><div class="podcast-cover">🇭🇹</div><div class="podcast-content"><h3>VOIX DE LA COMMUNAUTÉ</h3><p>Histoires de la diaspora haïtienne.</p><div class="meta">Communauté • Diaspora</div><div class="podcast-actions"><button class="small-btn primary" onclick="playFirst('COMMUNAUTÉ')">▶ ÉCOUTER</button><button class="small-btn" onclick="openEpisodes('COMMUNAUTÉ')">VOIR LES ÉPISODES</button></div></div></div>
-<div class="podcast-card"><div class="podcast-cover">🎤</div><div class="podcast-content"><h3>PRO-MAX INTERVIEWS</h3><p>Rencontres avec artistes et leaders.</p><div class="meta">Interviews • Invités</div><div class="podcast-actions"><button class="small-btn primary" onclick="playFirst('INTERVIEWS')">▶ ÉCOUTER</button><button class="small-btn" onclick="openEpisodes('INTERVIEWS')">VOIR LES ÉPISODES</button></div></div></div>
-<div class="podcast-card"><div class="podcast-cover">🥁</div><div class="podcast-content"><h3>RACINES MYSTIQUES</h3><p>Vodou, histoire, traditions haïtiennes.</p><div class="meta">Culture • Vodou • Héritage</div><div class="podcast-actions"><button class="small-btn primary" onclick="playFirst('RACINES')">▶ ÉCOUTER</button><button class="small-btn" onclick="openEpisodes('RACINES')">VOIR LES ÉPISODES</button></div></div></div>
-<div class="podcast-card"><div class="podcast-cover">💼</div><div class="podcast-content"><h3>BUSINESS & LEADERSHIP</h3><p>Entrepreneuriat et leadership.</p><div class="meta">Business • Leadership</div><div class="podcast-actions"><button class="small-btn primary" onclick="playFirst('BUSINESS')">▶ ÉCOUTER</button><button class="small-btn" onclick="openEpisodes('BUSINESS')">VOIR LES ÉPISODES</button></div></div></div>
-<div class="podcast-card"><div class="podcast-cover">🌎</div><div class="podcast-content"><h3>IMMIGRATION & COMMUNAUTÉ</h3><p>Immigration, intégration et ressources.</p><div class="meta">Immigration • Services</div><div class="podcast-actions"><button class="small-btn primary" onclick="playFirst('IMMIGRATION')">▶ ÉCOUTER</button><button class="small-btn" onclick="openEpisodes('IMMIGRATION')">VOIR LES ÉPISODES</button></div></div></div>
+<div class="podcast-card"><div class="podcast-cover">📰</div><div class="podcast-content"><h3>PRO-MAX NEWS</h3><p>News from Haiti and the world.</p><div class="podcast-actions"><button class="small-btn primary" onclick="playFirst('NEWS')">▶ ÉCOUTER</button><button class="small-btn" onclick="openEpisodes('NEWS')">VOIR LES ÉPISODES</button></div></div></div>
+<div class="podcast-card"><div class="podcast-cover">🇭🇹</div><div class="podcast-content"><h3>VOIX DE LA COMMUNAUTÉ</h3><p>Histoires de la diaspora.</p><div class="podcast-actions"><button class="small-btn primary" onclick="playFirst('COMMUNAUTÉ')">▶ ÉCOUTER</button><button class="small-btn" onclick="openEpisodes('COMMUNAUTÉ')">VOIR LES ÉPISODES</button></div></div></div>
+<div class="podcast-card"><div class="podcast-cover">🎤</div><div class="podcast-content"><h3>PRO-MAX INTERVIEWS</h3><p>Artistes et leaders.</p><div class="podcast-actions"><button class="small-btn primary" onclick="playFirst('INTERVIEWS')">▶ ÉCOUTER</button><button class="small-btn" onclick="openEpisodes('INTERVIEWS')">VOIR LES ÉPISODES</button></div></div></div>
+<div class="podcast-card"><div class="podcast-cover">🥁</div><div class="podcast-content"><h3>RACINES MYSTIQUES</h3><p>Vodou et traditions.</p><div class="podcast-actions"><button class="small-btn primary" onclick="playFirst('RACINES')">▶ ÉCOUTER</button><button class="small-btn" onclick="openEpisodes('RACINES')">VOIR LES ÉPISODES</button></div></div></div>
+<div class="podcast-card"><div class="podcast-cover">💼</div><div class="podcast-content"><h3>BUSINESS</h3><p>Entrepreneuriat.</p><div class="podcast-actions"><button class="small-btn primary" onclick="playFirst('BUSINESS')">▶ ÉCOUTER</button><button class="small-btn" onclick="openEpisodes('BUSINESS')">VOIR LES ÉPISODES</button></div></div></div>
+<div class="podcast-card"><div class="podcast-cover">🌎</div><div class="podcast-content"><h3>IMMIGRATION</h3><p>Immigration et ressources.</p><div class="podcast-actions"><button class="small-btn primary" onclick="playFirst('IMMIGRATION')">▶ ÉCOUTER</button><button class="small-btn" onclick="openEpisodes('IMMIGRATION')">VOIR LES ÉPISODES</button></div></div></div>
 </div></section>
 
+<!-- PLAYER AK VIZYÈL -->
 <div class="player" id="player">
-  <div class="player-info"><strong id="playerTitle">PRO-MAX FM</strong><small>En cours de lecture...</small></div>
+  <div class="player-cover" id="playerCover">🎧</div>
+  <div class="player-info">
+    <strong id="playerTitle">PRO-MAX FM</strong>
+    <small>En cours de lecture...</small>
+    <div class="visualizer"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+  </div>
   <audio id="audioPlayer" controls></audio>
   <button class="player-close" onclick="closePlayer()">✕</button>
 </div>
 
 <div class="modal" id="modal"><div class="modal-box"><div class="modal-header"><h2 id="modalTitle">EPISODES</h2><button class="modal-close" onclick="closeModal()">✕</button></div><div id="episodeList"></div></div></div>
-
-<footer><p><strong>PRO-MAX FM</strong><br>LA FORCE DU SON</p><p>© 2026 PRO-MAX FM — Tous droits réservés.</p></footer>
+<footer><p><strong>PRO-MAX FM</strong><br>LA FORCE DU SON</p><p>© 2026 PRO-MAX FM</p></footer>
 
 <script>
-// METE MP3 OU YO ISIT LA - REMPLASE AK FICHYE OU YO
-// Pou kounya mwen mete yon demo audio ki ap jwe tout bon
-const demoAudio = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-
+const demoAudio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
 const episodesData={
- "NEWS":[
-  {t:"Haiti News - 14 Août 2026",d:"15 min",src:demoAudio},
-  {t:"US Immigration Update",d:"22 min",src:demoAudio},
-  {t:"Actualité Internationale",d:"18 min",src:demoAudio}
- ],
- "COMMUNAUTÉ":[
-  {t:"Diaspora Story #1",d:"25 min",src:demoAudio},
-  {t:"Kominote a Pale",d:"30 min",src:demoAudio}
- ],
- "INTERVIEWS":[
-  {t:"Interview avec un artiste",d:"40 min",src:demoAudio},
-  {t:"Leader communautaire",d:"35 min",src:demoAudio},
-  {t:"Entrepreneur Haitien",d:"28 min",src:demoAudio}
- ],
- "RACINES":[
-  {t:"Vodou - Origine et Vérité",d:"45 min",src:demoAudio},
-  {t:"Rara ak Mizik Rasin",d:"32 min",src:demoAudio}
- ],
- "BUSINESS":[{t:"Komanse Biznis Ozetazini",d:"20 min",src:demoAudio}],
- "IMMIGRATION":[{t:"TPS Update 2026",d:"18 min",src:demoAudio}],
- "PRO-MAX PODCAST":[
-  {t:"Episode 1 - Introduction",d:"12 min",src:demoAudio},
-  {t:"Episode 2 - Community",d:"25 min",src:demoAudio}
- ]
+ "NEWS":[{t:"Haiti News - 14 Août",d:"15 min",icon:"📰",src:demoAudio},{t:"US Immigration Update",d:"22 min",icon:"📰",src:demoAudio}],
+ "COMMUNAUTÉ":[{t:"Diaspora Story #1",d:"25 min",icon:"🇭🇹",src:demoAudio},{t:"Kominote a Pale",d:"30 min",icon:"🇭🇹",src:demoAudio}],
+ "INTERVIEWS":[{t:"Interview artiste",d:"40 min",icon:"🎤",src:demoAudio},{t:"Leader communautaire",d:"35 min",icon:"🎤",src:demoAudio},{t:"Entrepreneur",d:"28 min",icon:"🎤",src:demoAudio}],
+ "RACINES":[{t:"Vodou - Vérité",d:"45 min",icon:"🥁",src:demoAudio},{t:"Rara ak Mizik",d:"32 min",icon:"🥁",src:demoAudio}],
+ "BUSINESS":[{t:"Komanse Biznis",d:"20 min",icon:"💼",src:demoAudio}],
+ "IMMIGRATION":[{t:"TPS Update 2026",d:"18 min",icon:"🌎",src:demoAudio}],
+ "PRO-MAX PODCAST":[{t:"Episode 1 - Introduction",d:"12 min",icon:"🎙️",src:demoAudio},{t:"Episode 2 - Community",d:"25 min",icon:"🎙️",src:demoAudio}]
 };
 
 function openEpisodes(cat){
   const list=episodesData[cat]||[];
   document.getElementById('modalTitle').innerText=cat+" - EPISODES";
   document.getElementById('episodeList').innerHTML=list.map((e,i)=>`
-    <div class="episode">
-      <div class="episode-info"><b>${e.t}</b><small>${e.d} • PRO-MAX FM</small></div>
+    <div class="episode" id="ep-${cat}-${i}">
+      <div class="episode-info"><b>${e.icon} ${e.t}</b><small>${e.d} • PRO-MAX FM</small></div>
       <button onclick="playAudio('${cat}',${i})">▶ PLAY</button>
     </div>`).join('');
   document.getElementById('modal').classList.add('active');
@@ -133,18 +128,18 @@ function playFirst(cat){playAudio(cat,0);}
 function playAudio(cat,index){
   const ep=episodesData[cat][index];
   if(!ep)return;
+  document.querySelectorAll('.episode').forEach(e=>e.classList.remove('playing'));
+  const currentEl=document.getElementById(`ep-${cat}-${index}`);
+  if(currentEl)currentEl.classList.add('playing');
   closeModal();
   document.getElementById('playerTitle').innerText=ep.t;
+  document.getElementById('playerCover').innerText=ep.icon;
   document.getElementById('player').classList.add('active');
   const audio=document.getElementById('audioPlayer');
   audio.src=ep.src;
   audio.play();
 }
-function closePlayer(){document.getElementById('player').classList.remove('active');document.getElementById('audioPlayer').pause();}
-function setLang(l){
-  document.querySelectorAll('.languages button').forEach(b=>b.classList.remove('active'));
-  document.getElementById('btn-'+l).classList.add('active');
-}
+function closePlayer(){document.getElementById('player').classList.remove('active');document.getElementById('audioPlayer').pause();document.querySelectorAll('.episode').forEach(e=>e.classList.remove('playing'));}
 </script>
 </body>
 </html>
