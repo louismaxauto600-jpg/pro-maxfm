@@ -6,1184 +6,1344 @@
 
 <title>PRO-MAX DMP FM - LA FORCE DU SON</title>
 
+<!-- SOCIAL MEDIA ICONS -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-  background:linear-gradient(
-    135deg,
-    #FF8C00 0%,
-    #FFA94D 12%,
-    #FF7A00 28%,
-    #7A3B00 48%,
-    #1a0a00 68%,
-    #000 100%
-  );
-  background-attachment:fixed;
-  color:#FFD6A0;
-  font-family:Segoe UI,Arial,sans-serif;
+background:linear-gradient(
+135deg,
+#FF8C00 0%,
+#FFA94D 12%,
+#FF7A00 28%,
+#7A3B00 48%,
+#1a0a00 68%,
+#000 100%
+);
+background-attachment:fixed;
+color:#FFD6A0;
+font-family:Segoe UI,Arial,sans-serif;
 }
 
 a{
-  color:#FFD6A0;
-  text-decoration:none;
+color:#FFD6A0;
+text-decoration:none;
 }
 
+/* ================= HEADER ================= */
+
 header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 28px;
-  background:rgba(0,0,0,0.85);
-  backdrop-filter:blur(14px);
-  border-bottom:2px solid rgba(255,140,0,0.4);
+position:sticky;
+top:0;
+z-index:100;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 28px;
+background:rgba(0,0,0,.88);
+backdrop-filter:blur(14px);
+border-bottom:2px solid rgba(255,140,0,.4);
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
+display:flex;
+align-items:center;
+gap:12px;
 }
 
 .brand video{
-  width:46px;
-  height:46px;
-  border-radius:50%;
-  border:2px solid #FF8C00;
-  object-fit:cover;
+width:46px;
+height:46px;
+border-radius:50%;
+border:2px solid #FF8C00;
+object-fit:cover;
 }
 
 .brand b{
-  color:#FF8C00;
+color:#FF8C00;
+white-space:nowrap;
 }
 
 .nav{
-  display:flex;
-  gap:18px;
-  align-items:center;
+display:flex;
+gap:18px;
+align-items:center;
 }
 
 .nav a{
-  color:#FFD6A0;
-  font-weight:700;
-  font-size:13px;
+color:#FFD6A0;
+font-weight:700;
+font-size:13px;
 }
 
 .nav a:hover{
-  color:#FF8C00;
+color:#FF8C00;
+}
+
+.lang{
+display:flex;
+gap:5px;
 }
 
 .lang button{
-  background:transparent;
-  border:1px solid #FF8C00;
-  color:#FF8C00;
-  padding:5px 10px;
-  border-radius:20px;
-  font-weight:800;
-  cursor:pointer;
+background:transparent;
+border:1px solid #FF8C00;
+color:#FF8C00;
+padding:5px 10px;
+border-radius:20px;
+font-weight:800;
+cursor:pointer;
 }
 
 .lang button.active{
-  background:#FF8C00;
-  color:#000;
+background:#FF8C00;
+color:#000;
 }
+
+/* ================= GENERAL ================= */
 
 section{
-  padding:44px 28px;
-  max-width:1280px;
-  margin:0 auto;
-}
-
-.hero{
-  min-height:auto;
-  padding:56px 28px 50px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-
-.video-wrap{
-  width:300px;
-  height:300px;
-  position:relative;
-}
-
-.video-wrap:before{
-  content:'';
-  position:absolute;
-  inset:-30px;
-  background:radial-gradient(
-    circle,
-    rgba(255,140,0,0.45),
-    transparent 70%
-  );
-  filter:blur(18px);
-}
-
-.logo-video{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-  border:5px solid #FF8C00;
-  box-shadow:0 0 60px rgba(255,140,0,0.9);
-}
-
-h1{
-  margin-top:22px;
-  font-size:52px;
-  color:#FF8C00;
-}
-
-.sub{
-  letter-spacing:8px;
-  color:#FFD6A0;
-  font-weight:700;
-  margin-top:6px;
-}
-
-.live-btn{
-  margin-top:20px;
-  background:linear-gradient(90deg,#FF8C00,#FF3C00);
-  color:#000;
-  padding:14px 32px;
-  border-radius:100px;
-  font-weight:900;
-  display:inline-block;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
-  margin-top:20px;
-}
-
-.card{
-  background:rgba(0,0,0,0.68);
-  border:1px solid rgba(255,140,0,0.35);
-  border-radius:18px;
-  padding:22px;
-  transition:.2s ease;
-}
-
-.card:hover{
-  transform:translateY(-3px);
-  border-color:#FF8C00;
-}
-
-.card h3{
-  color:#FF8C00;
-  margin-bottom:8px;
-}
-
-.divider{
-  height:1px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    #FF8C00,
-    transparent
-  );
-  margin:8px 0 18px;
+padding:44px 28px;
+max-width:1280px;
+margin:0 auto;
 }
 
 .title{
-  font-size:30px;
-  color:#FF8C00;
+font-size:30px;
+color:#FF8C00;
 }
+
+.divider{
+height:1px;
+background:linear-gradient(
+90deg,
+transparent,
+#FF8C00,
+transparent
+);
+margin:8px 0 18px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+margin-top:20px;
+}
+
+.card{
+background:rgba(0,0,0,.68);
+border:1px solid rgba(255,140,0,.35);
+border-radius:18px;
+padding:22px;
+}
+
+.card h3{
+color:#FF8C00;
+margin-bottom:8px;
+}
+
+.card-link{
+display:block;
+color:inherit;
+}
+
+.card-link:hover .card{
+border-color:#FF8C00;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+min-height:auto;
+padding:56px 28px 50px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.video-wrap{
+width:300px;
+height:300px;
+position:relative;
+}
+
+.video-wrap:before{
+content:'';
+position:absolute;
+inset:-30px;
+background:radial-gradient(
+circle,
+rgba(255,140,0,.45),
+transparent 70%
+);
+filter:blur(18px);
+pointer-events:none;
+}
+
+.logo-video{
+position:relative;
+z-index:2;
+width:100%;
+height:100%;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #FF8C00;
+box-shadow:0 0 60px rgba(255,140,0,.9);
+}
+
+/* SOUND BUTTON */
+
+.sound-btn{
+position:absolute;
+z-index:5;
+bottom:8px;
+right:8px;
+width:48px;
+height:48px;
+border-radius:50%;
+border:2px solid #FF8C00;
+background:#000;
+color:#FF8C00;
+font-size:20px;
+cursor:pointer;
+}
+
+h1{
+margin-top:22px;
+font-size:52px;
+color:#FF8C00;
+}
+
+.sub{
+letter-spacing:8px;
+color:#FFD6A0;
+font-weight:700;
+margin-top:6px;
+}
+
+.live-btn{
+margin-top:20px;
+background:linear-gradient(90deg,#FF8C00,#FF3C00);
+color:#000;
+padding:14px 32px;
+border-radius:100px;
+font-weight:900;
+display:inline-block;
+}
+
+/* ================= PLAYER ================= */
 
 .player{
-  background:rgba(0,0,0,0.75);
-  border:2px solid #FF8C00;
-  border-radius:22px;
-  padding:22px;
-  display:flex;
-  align-items:center;
-  gap:18px;
+background:rgba(0,0,0,.75);
+border:2px solid #FF8C00;
+border-radius:22px;
+padding:22px;
+display:flex;
+align-items:center;
+gap:18px;
 }
 
-.module-link{
-  display:block;
-  color:inherit;
+.play-link{
+margin-left:auto;
+background:#FF8C00;
+color:#000;
+border:0;
+padding:10px 20px;
+border-radius:10px;
+font-weight:900;
 }
 
-.module-link:hover{
-  color:inherit;
+/* ================= CONTACT ================= */
+
+.input-field,
+.message-field{
+width:100%;
+margin-top:8px;
+padding:10px;
+border-radius:10px;
+background:#000;
+border:1px solid #FF8C00;
+color:#fff;
 }
+
+.message-field{
+min-height:80px;
+resize:vertical;
+}
+
+.send-btn{
+display:inline-block;
+margin-top:8px;
+background:#FF8C00;
+color:#000;
+padding:10px 18px;
+border-radius:10px;
+font-weight:900;
+}
+
+/* ================= SOCIAL NETWORK ================= */
 
 .socials{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+display:flex;
+flex-wrap:wrap;
+gap:14px;
+justify-content:center;
+margin:20px 0;
 }
 
 .social{
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  background:rgba(255,140,0,0.15);
-  border:1px solid #FF8C00;
-  display:grid;
-  place-items:center;
-  color:#FF8C00;
-  font-weight:900;
+width:50px;
+height:50px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+transition:.2s;
+border:2px solid rgba(255,255,255,.15);
 }
 
-footer{
-  padding:32px 28px;
-  background:rgba(0,0,0,0.9);
-  border-top:2px solid rgba(255,140,0,0.3);
-  text-align:center;
+.social:hover{
+transform:scale(1.12);
 }
+
+.facebook{
+background:#1877F2;
+color:#fff;
+}
+
+.whatsapp{
+background:#25D366;
+color:#fff;
+}
+
+.tiktok{
+background:#000;
+color:#fff;
+}
+
+.youtube{
+background:#FF0000;
+color:#fff;
+}
+
+.instagram{
+background:radial-gradient(
+circle at 30% 110%,
+#FFD600 0%,
+#FF7A00 25%,
+#FF0169 50%,
+#D300C5 75%,
+#7638FA 100%
+);
+color:#fff;
+}
+
+.truth{
+background:#5448EE;
+color:#fff;
+font-size:18px;
+font-weight:900;
+}
+
+.twitter{
+background:#000;
+color:#fff;
+border-color:#444;
+}
+
+.linkedin{
+background:#0A66C2;
+color:#fff;
+}
+
+.spotify{
+background:#1DB954;
+color:#000;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+padding:32px 28px;
+background:rgba(0,0,0,.94);
+border-top:2px solid rgba(255,140,0,.3);
+text-align:center;
+}
+
+.footer-title{
+color:#FF8C00;
+font-weight:900;
+letter-spacing:2px;
+}
+
+.footer-slogan{
+margin-top:18px;
+color:#FF8C00;
+font-weight:800;
+line-height:1.7;
+}
+
+.footer-contact{
+margin-top:15px;
+color:#FFD6A0;
+line-height:1.7;
+}
+
+.copyright{
+margin-top:15px;
+color:#FFD6A0;
+}
+
+/* ================= MOBILE ================= */
 
 @media(max-width:700px){
 
-  header{
-    padding:12px 14px;
-    gap:10px;
-    overflow-x:auto;
-  }
+header{
+padding:12px 14px;
+gap:10px;
+overflow-x:auto;
+}
 
-  .brand b{
-    white-space:nowrap;
-  }
+.nav{
+gap:10px;
+white-space:nowrap;
+}
 
-  .nav{
-    gap:10px;
-    white-space:nowrap;
-  }
+.video-wrap{
+width:230px;
+height:230px;
+}
 
-  .video-wrap{
-    width:230px;
-    height:230px;
-  }
+h1{
+font-size:36px;
+}
 
-  h1{
-    font-size:36px;
-  }
+.player{
+flex-wrap:wrap;
+}
+
+.play-link{
+margin-left:0;
+}
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===================================================== -->
+<!-- ================================================= -->
 <!-- HEADER -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
 
 <header>
 
-  <div class="brand">
+<div class="brand">
 
-    <video autoplay muted loop playsinline>
-      <source src="pro-max-dmp-fm.mp4" type="video/mp4">
-    </video>
+<video autoplay muted loop playsinline>
+<source src="pro-max-dmp-fm.mp4" type="video/mp4">
+</video>
 
-    <b>PRO-MAX DMP FM</b>
+<b>PRO-MAX DMP FM</b>
 
-  </div>
+</div>
 
-  <div class="nav">
+<div class="nav">
 
-    <a href="#home">ACCUEIL</a>
+<a href="#home">ACCUEIL</a>
 
-    <a href="pages/live.html">
-      LIVE
-    </a>
+<a href="pages/live.html">
+LIVE
+</a>
 
-    <a href="pages/podcasts.html">
-      PODCASTS
-    </a>
+<a href="pages/podcasts.html">
+PODCASTS
+</a>
 
-    <a href="pages/contact.html">
-      CONTACT
-    </a>
+<a href="pages/contact.html">
+CONTACT
+</a>
 
-    <div class="lang">
+<div class="lang">
 
-      <button
-        class="active"
-        onclick="setLang('fr',this)">
-        FR
-      </button>
+<button class="active"
+onclick="setLang('fr',this)">
+FR
+</button>
 
-      <button
-        onclick="setLang('en',this)">
-        EN
-      </button>
+<button onclick="setLang('en',this)">
+EN
+</button>
 
-      <button
-        onclick="setLang('ht',this)">
-        HT
-      </button>
+<button onclick="setLang('ht',this)">
+HT
+</button>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </header>
 
 
-<!-- ===================================================== -->
-<!-- MODIL 1 HERO -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
+<!-- HERO -->
+<!-- ================================================= -->
 
 <section class="hero" id="home">
 
-  <div class="video-wrap">
+<div class="video-wrap">
 
-    <video
-      class="logo-video"
-      autoplay
-      muted
-      loop
-      playsinline>
+<video
+id="mainLogoVideo"
+class="logo-video"
+autoplay
+muted
+loop
+playsinline>
 
-      <source
-        src="pro-max-dmp-fm.mp4"
-        type="video/mp4">
+<source
+src="pro-max-dmp-fm.mp4"
+type="video/mp4">
 
-      <source
-        src="https://raw.githubusercontent.com/louismaxauto600-jpg/pro-maxfm/main/pro-max-fm.mp4"
-        type="video/mp4">
+<source
+src="https://raw.githubusercontent.com/louismaxauto600-jpg/pro-maxfm/main/pro-max-fm.mp4"
+type="video/mp4">
 
-    </video>
+</video>
 
-  </div>
+<button
+class="sound-btn"
+id="soundBtn"
+onclick="toggleLogoSound()"
+title="Activer le son">
+🔇
+</button>
 
-  <h1>PRO-MAX DMP FM</h1>
+</div>
 
-  <div
-    class="sub"
-    id="heroSub">
-    LA FORCE DU SON
-  </div>
+<h1>
+PRO-MAX DMP FM
+</h1>
 
-  <a
-    class="live-btn"
-    href="pages/live.html">
-    ● EN DIRECT
-  </a>
+<div
+class="sub"
+id="heroSub">
+LA FORCE DU SON
+</div>
+
+<a
+href="pages/live.html"
+class="live-btn">
+● EN DIRECT
+</a>
 
 </section>
 
 
-<!-- ===================================================== -->
-<!-- MODIL 2 LIVE -->
-<!-- LINK 1 -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
+<!-- 1 - LIVE RADIO -->
+<!-- ================================================= -->
 
 <section>
 
-  <div
-    class="title"
-    id="tLive">
-    EN DIRECT MAINTENANT
-  </div>
+<a href="pages/live.html">
 
-  <div class="divider"></div>
+<div
+class="title"
+id="tLive">
+EN DIRECT MAINTENANT
+</div>
 
-  <div class="player">
+</a>
 
-    <div>
-      🔊
-    </div>
+<div class="divider"></div>
 
-    <div>
+<div class="player">
 
-      <b style="color:#FF8C00">
-        PRO-MAX DMP FM - LIVE 24/7
-      </b>
+<div>
+🔊
+</div>
 
-      <br>
+<div>
 
-      <small style="color:#FFD6A0">
-        bss1815pro-max-dmp.com
-      </small>
+<b style="color:#FF8C00">
+PRO-MAX DMP FM - LIVE 24/7
+</b>
 
-    </div>
+<br>
 
-    <a
-      href="pages/live.html"
-      style="
-      margin-left:auto;
-      background:#FF8C00;
-      color:#000;
-      border:0;
-      padding:10px 20px;
-      border-radius:10px;
-      font-weight:900;
-      ">
-      PLAY ▶
-    </a>
+<small>
+PRO-MAX FM
+</small>
 
-  </div>
+</div>
+
+<a
+href="pages/live.html"
+class="play-link">
+PLAY ▶
+</a>
+
+</div>
 
 </section>
 
 
-<!-- ===================================================== -->
-<!-- MODIL 3 ABOUT -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
+<!-- ABOUT -->
+<!-- ================================================= -->
 
 <section>
 
-  <div
-    class="title"
-    id="tAbout">
-    À PROPOS
-  </div>
+<div
+class="title"
+id="tAbout">
+À PROPOS
+</div>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <div class="grid">
+<div class="grid">
 
-    <div class="card">
+<div class="card">
 
-      <h3>
-        LA FORCE DU SON
-      </h3>
+<h3>
+LA FORCE DU SON
+</h3>
 
-      <p>
-        Radio proximité, musique, actu, culture 24h/24.
-      </p>
+<p>
+Radio de proximité, musique, actualités et culture 24h/24.
+</p>
 
-    </div>
+</div>
 
-    <div class="card">
 
-      <h3>
-        Mission
-      </h3>
+<div class="card">
 
-      <p>
-        Connecter communauté haïtienne & internationale.
-      </p>
+<h3>
+Mission
+</h3>
 
-    </div>
+<p>
+Connecter la communauté haïtienne et internationale.
+</p>
 
-    <div class="card">
+</div>
 
-      <h3>
-        Qualité Pro
-      </h3>
 
-      <p>
-        Son cristallin, sans accent.
-      </p>
+<div class="card">
 
-    </div>
+<h3>
+Qualité Professionnelle
+</h3>
 
-  </div>
+<p>
+Une expérience radio numérique moderne et professionnelle.
+</p>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ===================================================== -->
-<!-- MODIL 4 PROGRAMMES -->
-<!-- LINK 2 -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
+<!-- 2 - SHOWS -->
+<!-- ================================================= -->
 
 <section>
 
-  <a
-    class="module-link"
-    href="pages/shows.html">
+<a href="pages/shows.html">
 
-    <div class="title">
-      PROGRAMMES
-    </div>
+<div class="title">
+PROGRAMMES
+</div>
 
-  </a>
+</a>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <div class="grid">
-
-    <a
-      class="module-link"
-      href="pages/shows.html">
-
-      <div class="card">
-
-        <h3>
-          LUN-VEN 6AM-10AM
-        </h3>
-
-        <p>
-          Matin Force
-        </p>
-
-      </div>
-
-    </a>
+<div class="grid">
 
 
-    <a
-      class="module-link"
-      href="pages/shows.html">
+<a
+href="pages/shows.html"
+class="card-link">
 
-      <div class="card">
+<div class="card">
 
-        <h3>
-          10AM-3PM
-        </h3>
+<h3>
+LUN-VEN 6AM-10AM
+</h3>
 
-        <p>
-          Hit Non Stop
-        </p>
+<p>
+Matin Force
+</p>
 
-      </div>
+</div>
 
-    </a>
-
-
-    <a
-      class="module-link"
-      href="pages/shows.html">
-
-      <div class="card">
-
-        <h3>
-          3PM-7PM
-        </h3>
-
-        <p>
-          Drive Time
-        </p>
-
-      </div>
-
-    </a>
+</a>
 
 
-    <a
-      class="module-link"
-      href="pages/shows.html">
+<a
+href="pages/shows.html"
+class="card-link">
 
-      <div class="card">
+<div class="card">
 
-        <h3>
-          WEEKEND
-        </h3>
+<h3>
+10AM-3PM
+</h3>
 
-        <p>
-          Party Mix
-        </p>
+<p>
+Hit Non Stop
+</p>
 
-      </div>
+</div>
 
-    </a>
+</a>
 
-  </div>
+
+<a
+href="pages/shows.html"
+class="card-link">
+
+<div class="card">
+
+<h3>
+3PM-7PM
+</h3>
+
+<p>
+Drive Time
+</p>
+
+</div>
+
+</a>
+
+
+<a
+href="pages/shows.html"
+class="card-link">
+
+<div class="card">
+
+<h3>
+WEEKEND
+</h3>
+
+<p>
+Party Mix
+</p>
+
+</div>
+
+</a>
+
+</div>
 
 </section>
 
 
-<!-- ===================================================== -->
-<!-- MODIL 5 PODCASTS -->
-<!-- LINK 3 -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
+<!-- 3 - PODCAST -->
+<!-- 4 - MUSIC -->
+<!-- ================================================= -->
 
 <section>
 
-  <a
-    class="module-link"
-    href="pages/podcasts.html">
+<a href="pages/podcasts.html">
 
-    <div class="title">
-      PODCASTS & REPLAYS
-    </div>
+<div class="title">
+PODCASTS & REPLAYS
+</div>
 
-  </a>
+</a>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <div class="grid">
+<div class="grid">
 
 
-    <a
-      class="module-link"
-      href="pages/podcasts.html">
+<a
+href="pages/podcasts.html"
+class="card-link">
 
-      <div class="card">
+<div class="card">
 
-        <h3>
-          Replay Matinale
-        </h3>
+<h3>
+Replay Matinale
+</h3>
 
-      </div>
+</div>
 
-    </a>
-
-
-    <a
-      class="module-link"
-      href="pages/podcasts.html">
-
-      <div class="card">
-
-        <h3>
-          Interview Exclusive
-        </h3>
-
-      </div>
-
-    </a>
+</a>
 
 
-    <a
-      class="module-link"
-      href="pages/podcasts.html">
+<a
+href="pages/podcasts.html"
+class="card-link">
 
-      <div class="card">
+<div class="card">
 
-        <h3>
-          Top 20
-        </h3>
+<h3>
+Interview Exclusive
+</h3>
 
-      </div>
+</div>
 
-    </a>
+</a>
 
-  </div>
+
+<a
+href="pages/music.html"
+class="card-link">
+
+<div class="card">
+
+<h3>
+🎵 Top 20
+</h3>
+
+<p>
+Music Center
+</p>
+
+</div>
+
+</a>
+
+</div>
 
 </section>
 
 
-<!-- ===================================================== -->
-<!-- MODIL 6 ACTUALITES -->
-<!-- LINK 4 -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
+<!-- 5 - NEWS -->
+<!-- 6 - EVENTS -->
+<!-- ================================================= -->
 
 <section>
 
-  <a
-    class="module-link"
-    href="pages/news.html">
+<a href="pages/news.html">
 
-    <div class="title">
-      ACTUALITÉS
-    </div>
+<div class="title">
+ACTUALITÉS
+</div>
 
-  </a>
+</a>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <div class="grid">
+<div class="grid">
 
 
-    <a
-      class="module-link"
-      href="pages/news.html">
+<a
+href="pages/news.html"
+class="card-link">
 
-      <div class="card">
+<div class="card">
 
-        <h3>
-          News Flash
-        </h3>
+<h3>
+News Flash
+</h3>
 
-      </div>
+</div>
 
-    </a>
-
-
-    <a
-      class="module-link"
-      href="pages/events.html">
-
-      <div class="card">
-
-        <h3>
-          Événements
-        </h3>
-
-      </div>
-
-    </a>
+</a>
 
 
-    <a
-      class="module-link"
-      href="pages/news.html">
+<a
+href="pages/events.html"
+class="card-link">
 
-      <div class="card">
+<div class="card">
 
-        <h3>
-          Communauté
-        </h3>
+<h3>
+Événements
+</h3>
 
-      </div>
+</div>
 
-    </a>
+</a>
 
-  </div>
+
+<a
+href="pages/news.html"
+class="card-link">
+
+<div class="card">
+
+<h3>
+Communauté
+</h3>
+
+</div>
+
+</a>
+
+</div>
 
 </section>
 
 
-<!-- ===================================================== -->
-<!-- MODIL 7 GALERIE VIDEO -->
-<!-- LINK 5 -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
+<!-- 7 - VIDEO -->
+<!-- 8 - ARTISTS -->
+<!-- EVENTS -->
+<!-- ================================================= -->
 
 <section>
 
-  <a
-    class="module-link"
-    href="pages/video.html">
+<a href="pages/video.html">
 
-    <div class="title">
-      GALERIE VIDÉO
-    </div>
+<div class="title">
+GALERIE VIDÉO
+</div>
 
-  </a>
+</a>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <div class="grid">
+<div class="grid">
 
 
-    <a
-      class="module-link"
-      href="pages/video.html">
+<a
+href="pages/video.html"
+class="card-link">
 
-      <div
-        class="card"
-        style="
-        height:150px;
-        display:grid;
-        place-items:center;
-        ">
+<div
+class="card"
+style="
+height:150px;
+display:grid;
+place-items:center;
+">
 
-        ▶ PROMO 1
+▶ PROMO 1
 
-      </div>
+</div>
 
-    </a>
-
-
-    <a
-      class="module-link"
-      href="pages/video.html">
-
-      <div
-        class="card"
-        style="
-        height:150px;
-        display:grid;
-        place-items:center;
-        ">
-
-        ▶ STUDIO LIVE
-
-      </div>
-
-    </a>
+</a>
 
 
-    <a
-      class="module-link"
-      href="pages/events.html">
+<a
+href="pages/artists.html"
+class="card-link">
 
-      <div
-        class="card"
-        style="
-        height:150px;
-        display:grid;
-        place-items:center;
-        ">
+<div
+class="card"
+style="
+height:150px;
+display:grid;
+place-items:center;
+">
 
-        ▶ EVENT
+🎤 ARTISTES
 
-      </div>
+</div>
 
-    </a>
+</a>
 
-  </div>
+
+<a
+href="pages/events.html"
+class="card-link">
+
+<div
+class="card"
+style="
+height:150px;
+display:grid;
+place-items:center;
+">
+
+▶ EVENT
+
+</div>
+
+</a>
+
+</div>
 
 </section>
 
 
-<!-- ===================================================== -->
-<!-- MODULE RAPID LINKS -->
-<!-- LINKS 6, 7, 8 -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
+<!-- 9 - CONTACT -->
+<!-- ================================================= -->
 
 <section>
 
-  <div class="title">
-    PRO-MAX FM
-  </div>
+<a href="pages/contact.html">
 
-  <div class="divider"></div>
+<div
+class="title"
+id="tContact">
+CONTACT
+</div>
 
-  <div class="grid">
+</a>
 
+<div class="divider"></div>
 
-    <!-- MUSIC -->
-
-    <a
-      class="module-link"
-      href="pages/music.html">
-
-      <div class="card">
-
-        <h3>
-          🎵 MUSIC CENTER
-        </h3>
-
-        <p>
-          Musique • Rara • Nouveautés
-        </p>
-
-      </div>
-
-    </a>
+<div class="grid">
 
 
-    <!-- ARTISTS -->
+<div class="card">
 
-    <a
-      class="module-link"
-      href="pages/artists.html">
+<b style="color:#FF8C00">
+Téléphone
+</b>
 
-      <div class="card">
+<br>
 
-        <h3>
-          🎤 ARTISTS CENTER
-        </h3>
+<a href="tel:+14076405166">
+(407) 640-5166
+</a>
 
-        <p>
-          Artistes • Musiciens • DJs
-        </p>
+<br>
 
-      </div>
+<a href="tel:+15162168494">
+(516) 216-8494
+</a>
 
-    </a>
+</div>
 
 
-    <!-- EVENTS -->
+<div class="card">
 
-    <a
-      class="module-link"
-      href="pages/events.html">
+<b style="color:#FF8C00">
+Website
+</b>
 
-      <div class="card">
+<br>
 
-        <h3>
-          📅 EVENTS
-        </h3>
+bss1815pro-max-dmp.com
 
-        <p>
-          Concerts • Radio • Communauté
-        </p>
+<br><br>
 
-      </div>
+<b style="color:#FF8C00">
+Email
+</b>
 
-    </a>
+<br>
 
-  </div>
+<a href="mailto:promaxfm@gmail.com">
+promaxfm@gmail.com
+</a>
+
+</div>
+
+
+<div class="card">
+
+<b style="color:#FF8C00">
+Message
+</b>
+
+<br>
+
+<input
+class="input-field"
+placeholder="Nom">
+
+<textarea
+class="message-field"
+placeholder="Message">
+</textarea>
+
+<a
+href="mailto:promaxfm@gmail.com"
+class="send-btn">
+
+ENVOYER
+
+</a>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ===================================================== -->
-<!-- MODIL 8 CONTACT -->
-<!-- LINK 9 -->
-<!-- ===================================================== -->
-
-<section>
-
-  <a
-    class="module-link"
-    href="pages/contact.html">
-
-    <div
-      class="title"
-      id="tContact">
-      CONTACT
-    </div>
-
-  </a>
-
-  <div class="divider"></div>
-
-
-  <div class="grid">
-
-
-    <div class="card">
-
-      <b style="color:#FF8C00">
-        Téléphone
-      </b>
-
-      <br>
-
-      <a href="tel:+14076405166">
-        (407) 640-5166
-      </a>
-
-      <br>
-
-      <a href="tel:+15162168494">
-        (516) 216-8494
-      </a>
-
-    </div>
-
-
-    <div class="card">
-
-      <b style="color:#FF8C00">
-        Website
-      </b>
-
-      <br>
-
-      bss1815pro-max-dmp.com
-
-      <br><br>
-
-      <b style="color:#FF8C00">
-        Email
-      </b>
-
-      <br>
-
-      <a href="mailto:promaxfm@gmail.com">
-        promaxfm@gmail.com
-      </a>
-
-    </div>
-
-
-    <div class="card">
-
-      <b style="color:#FF8C00">
-        Message
-      </b>
-
-      <br>
-
-      <input
-        placeholder="Non"
-        style="
-        width:100%;
-        margin-top:8px;
-        padding:10px;
-        border-radius:10px;
-        background:#000;
-        border:1px solid #FF8C00;
-        color:#fff;
-        ">
-
-      <textarea
-        placeholder="Message"
-        style="
-        width:100%;
-        margin-top:8px;
-        padding:10px;
-        border-radius:10px;
-        background:#000;
-        border:1px solid #FF8C00;
-        color:#fff;
-        "></textarea>
-
-      <br>
-
-      <a
-        href="pages/contact.html"
-        style="
-        display:inline-block;
-        margin-top:8px;
-        background:#FF8C00;
-        color:#000;
-        border:0;
-        padding:10px 18px;
-        border-radius:10px;
-        font-weight:900;
-        ">
-
-        ENVOYER
-
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ===================================================== -->
-<!-- MODIL 9 FOOTER SOCIALS -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
 
 <footer>
 
-  <div
-    style="
-    color:#FF8C00;
-    font-weight:900;
-    letter-spacing:2px;
-    ">
+<div class="footer-title">
 
-    PRO-MAX DMP FM - LA FORCE DU SON
+PRO-MAX DMP FM - LA FORCE DU SON
 
-  </div>
+</div>
 
 
-  <div
-    class="socials"
-    style="
-    justify-content:center;
-    margin:18px 0;
-    ">
+<!-- SOCIAL NETWORKS -->
 
-    <div class="social">
-      F
-    </div>
-
-    <div class="social">
-      W
-    </div>
-
-    <div class="social">
-      T
-    </div>
-
-    <div class="social">
-      Y
-    </div>
-
-    <div class="social">
-      I
-    </div>
-
-    <div class="social">
-      TS
-    </div>
-
-    <div class="social">
-      X
-    </div>
-
-    <div class="social">
-      In
-    </div>
-
-    <div class="social">
-      S
-    </div>
-
-  </div>
+<div class="socials">
 
 
-  <div style="color:#FFD6A0">
+<a
+class="social facebook"
+href="#"
+target="_blank"
+aria-label="Facebook">
 
-    Facebook |
-    WhatsApp |
-    TikTok |
-    Youtube |
-    Instagram |
-    Truth Social |
-    X/Twitter |
-    LinkedIn |
-    Spotify
+<i class="fa-brands fa-facebook-f"></i>
 
-  </div>
+</a>
 
 
-  <div
-    style="
-    margin-top:10px;
-    color:#FFD6A0;
-    ">
+<a
+class="social whatsapp"
+href="#"
+target="_blank"
+aria-label="WhatsApp">
 
-    📞 (407) 640-5166 |
-    (516) 216-8494 |
-    🌐 bss1815pro-max-dmp.com |
-    ✉ promaxfm@gmail.com
+<i class="fa-brands fa-whatsapp"></i>
 
-  </div>
+</a>
 
 
-  <div style="margin-top:8px">
+<a
+class="social tiktok"
+href="#"
+target="_blank"
+aria-label="TikTok">
 
-    © 2026 PRO-MAX DMP FM -
-    Orange Apricot 🍊 Black ⚫️ Fade Edition
+<i class="fa-brands fa-tiktok"></i>
 
-  </div>
+</a>
+
+
+<a
+class="social youtube"
+href="#"
+target="_blank"
+aria-label="YouTube">
+
+<i class="fa-brands fa-youtube"></i>
+
+</a>
+
+
+<a
+class="social instagram"
+href="#"
+target="_blank"
+aria-label="Instagram">
+
+<i class="fa-brands fa-instagram"></i>
+
+</a>
+
+
+<a
+class="social truth"
+href="#"
+target="_blank"
+aria-label="Truth Social">
+
+TS
+
+</a>
+
+
+<a
+class="social twitter"
+href="#"
+target="_blank"
+aria-label="X">
+
+<i class="fa-brands fa-x-twitter"></i>
+
+</a>
+
+
+<a
+class="social linkedin"
+href="#"
+target="_blank"
+aria-label="LinkedIn">
+
+<i class="fa-brands fa-linkedin-in"></i>
+
+</a>
+
+
+<a
+class="social spotify"
+href="#"
+target="_blank"
+aria-label="Spotify">
+
+<i class="fa-brands fa-spotify"></i>
+
+</a>
+
+</div>
+
+
+<div>
+
+Facebook |
+WhatsApp |
+TikTok |
+YouTube |
+Instagram |
+Truth Social |
+X |
+LinkedIn |
+Spotify
+
+</div>
+
+
+<div class="footer-slogan">
+
+DEVAN DEVAN NÈT.<br>
+BATI POU JODI A.<br>
+PARE POU DEMEN.
+
+</div>
+
+
+<div class="footer-contact">
+
+📞
+<a href="tel:+14076405166">
+(407) 640-5166
+</a>
+
+|
+
+<a href="tel:+15162168494">
+(516) 216-8494
+</a>
+
+<br>
+
+✉
+<a href="mailto:promaxfm@gmail.com">
+promaxfm@gmail.com
+</a>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 PRO-MAX DMP FM.
+Tous droits réservés.
+
+</div>
 
 </footer>
 
 
-<!-- ===================================================== -->
-<!-- LANGUAGE SYSTEM -->
-<!-- ===================================================== -->
-
 <script>
 
-function setLang(l,btn){
+/* ================================================= */
+/* LANGUAGE */
+/* ================================================= */
 
-  const m={
+function setLang(lang,button){
 
-    fr:{
-      hero:'LA FORCE DU SON',
-      live:'EN DIRECT MAINTENANT',
-      about:'À PROPOS',
-      contact:'CONTACT'
-    },
+const text={
 
-    en:{
-      hero:'THE POWER OF SOUND',
-      live:'LIVE NOW',
-      about:'ABOUT US',
-      contact:'CONTACT'
-    },
+fr:{
+hero:"LA FORCE DU SON",
+live:"EN DIRECT MAINTENANT",
+about:"À PROPOS",
+contact:"CONTACT"
+},
 
-    ht:{
-      hero:'FÒS SON AN',
-      live:'LIVE KOUNYA',
-      about:'APWOPO NOU',
-      contact:'KONTAK'
-    }
+en:{
+hero:"THE POWER OF SOUND",
+live:"LIVE NOW",
+about:"ABOUT US",
+contact:"CONTACT"
+},
 
-  };
+ht:{
+hero:"FÒS SON AN",
+live:"LIVE KOUNYA",
+about:"APWOPO NOU",
+contact:"KONTAK"
+}
 
-  document.getElementById('heroSub').innerText=
-    m[l].hero;
+};
 
-  document.getElementById('tLive').innerText=
-    m[l].live;
+document.getElementById("heroSub").innerText=
+text[lang].hero;
 
-  document.getElementById('tAbout').innerText=
-    m[l].about;
+document.getElementById("tLive").innerText=
+text[lang].live;
 
-  document.getElementById('tContact').innerText=
-    m[l].contact;
+document.getElementById("tAbout").innerText=
+text[lang].about;
+
+document.getElementById("tContact").innerText=
+text[lang].contact;
+
+document
+.querySelectorAll(".lang button")
+.forEach(btn=>btn.classList.remove("active"));
+
+button.classList.add("active");
+
+}
 
 
-  document
-    .querySelectorAll('.lang button')
-    .forEach(
-      b=>b.classList.remove('active')
-    );
+/* ================================================= */
+/* LOGO VIDEO SOUND */
+/* ================================================= */
 
+function toggleLogoSound(){
 
-  btn.classList.add('active');
+const video=
+document.getElementById("mainLogoVideo");
+
+const button=
+document.getElementById("soundBtn");
+
+if(video.muted){
+
+video.muted=false;
+video.volume=1;
+
+video.play().catch(()=>{});
+
+button.innerHTML="🔊";
+
+}else{
+
+video.muted=true;
+
+button.innerHTML="🔇";
+
+}
 
 }
 
