@@ -2,189 +2,41 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEWS | PRO-MAX FM</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PRO-MAX FM - NEWS CENTER</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#ff8c32;font-family:Arial,sans-serif}
-a{color:#ff8c32!important;text-decoration:none!important}
-.topbar{position:sticky;top:0;z-index:999;background:#000;border-bottom:2px solid #ff6a00}
-.nav{max-width:1400px;margin:auto;min-height:76px;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-mark{width:52px;height:52px;border:2px solid #ff6a00;border-radius:50%;overflow:hidden;background:#000;flex:0 0 52px}
-.brand-mark video{width:100%;height:100%;object-fit:cover}
-.brand-text strong{display:block;color:#ff6a00;font-size:20px}
-.brand-text span{display:block;color:#ff8c32;font-size:11px;margin-top:2px}
-.menu{display:flex;gap:4px;flex-wrap:wrap}
-.menu a{padding:9px 11px;font-size:13px;font-weight:900;color:#ff8c32!important;border-radius:8px}
-.menu a:hover,.menu a.active{background:rgba(255,106,0,.15);color:#ff6a00!important}
-.nav-right{display:flex;align-items:center;gap:8px}
-.lang{display:flex;border:1px solid rgba(255,106,0,.35);border-radius:25px;overflow:hidden;background:#000}
-.lang button{border:0;background:#000;color:#ff8c32;padding:8px 11px;font-weight:900;font-size:11px;cursor:pointer}
-.lang button.active{background:#ff6a00;color:#000}
-.hamburger{display:none;border:1px solid #ff6a00;background:#000;color:#ff6a00;border-radius:8px;padding:8px 11px;font-size:20px;cursor:pointer}
-.hero-mini{padding:50px 20px;text-align:center;border-bottom:2px solid #ff6a00;background:radial-gradient(circle at 50% 0%,rgba(255,106,0,.15),#000)}
-.hero-mini h1{color:#ff6a00;font-size:clamp(32px,6vw,56px)}
-.hero-mini p{color:#ff8c32;margin-top:10px}
-.section{padding:60px 20px}
-.container{max-width:1250px;margin:auto}
-.news-filters{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:30px}
-.filter-btn{padding:8px 16px;border:1px solid rgba(255,106,0,.35);border-radius:20px;background:#000;color:#ff8c32;font-weight:900;font-size:12px;cursor:pointer}
-.filter-btn.active{background:#ff6a00;color:#000;border-color:#ff6a00}
-#newsGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
-footer{background:#000;border-top:2px solid #ff6a00;padding:30px 20px 20px;text-align:center;color:#ff8c32;font-size:12px}
-@media(max-width:900px){.menu{display:none;position:absolute;top:76px;left:0;right:0;background:#000;border-bottom:2px solid #ff6a00;flex-direction:column;padding:18px}.menu.open{display:flex}.hamburger{display:block}}
+body{background:linear-gradient(135deg,#FF8C00,#7A3B00 48%,#000);background-attachment:fixed;color:#FFD6A0;font-family:Segoe UI,Arial,sans-serif;min-height:100vh}
+a{text-decoration:none;color:#FFD6A0}
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 25px;background:#090300;border-bottom:2px solid #FF8C00;position:sticky;top:0;z-index:10}
+.brand{font-weight:900;color:#FF8C00;font-size:20px}
+.right{display:flex;gap:12px;align-items:center}
+.lang button{background:transparent;border:1px solid #FF8C00;color:#FF8C00;border-radius:20px;padding:6px 11px;font-weight:800}
+.lang button.active{background:#FF8C00;color:#000}
+.home{background:#FF8C00;color:#000;padding:9px 14px;border-radius:10px;font-weight:900}
+main{max-width:1100px;margin:auto;padding:50px 28px}
+h1{font-size:44px;color:#FF8C00;text-align:center}
+.sub{text-align:center;margin:12px 0 35px;font-size:19px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.card{background:rgba(0,0,0,.72);border:1px solid rgba(255,140,0,.45);border-radius:18px;padding:22px;min-height:130px}
+.card h3{color:#FF8C00;margin-bottom:10px}
+footer{text-align:center;padding:30px;background:#050200;margin-top:40px;border-top:1px solid #FF8C00}
 </style>
 </head>
 <body>
-<header class="topbar">
-<nav class="nav">
-<a href="index.html" class="brand">
-<div class="brand-mark"><video autoplay muted loop playsinline><source src="pro-max-fm.mp4" type="video/mp4"></video></div>
-<div class="brand-text"><strong>PRO-MAX FM</strong><span>LA FORCE DU SON</span></div>
-</a>
-<div class="menu" id="mainMenu">
-<a href="index.html">HOME</a>
-<a href="live.html">LIVE</a>
-<a href="news.html" class="active">NEWS</a>
-<a href="shows.html">SHOWS</a>
-<a href="podcasts.html">PODCASTS</a>
-<a href="radios-haiti.html">RADIOS D’HAÏTI 🇭🇹</a>
+
+<header>
+<div class="brand">PRO-MAX DMP FM</div>
+<div class="right">
+<div class="lang">
+<button class="active" onclick="setLang('fr',this)">FR</button>
+<button onclick="setLang('en',this)">EN</button>
+<button onclick="setLang('ht',this)">HT</button>
 </div>
-<div class="nav-right">
-<div class="lang"><button data-lang="fr" class="active">FRA</button><button data-lang="en">ENG</button><button data-lang="ht">KRE</button></div>
-<button class="hamburger" id="hamburger">☰</button>
+<a class="home" href="index.html" id="homeBtn">← ACCUEIL</a>
 </div>
-</nav>
 </header>
 
-<section class="hero-mini">
-<h1>📰 NEWS</h1>
-<p>Actualités locales et internationales - Dernières nouvelles en direct</p>
-</section>
-
-<section class="section">
-<div class="container">
-<div class="news-filters">
-<button class="filter-btn active" data-filter="all">TOUT</button>
-<button class="filter-btn" data-filter="rfi">RFI</button>
-<button class="filter-btn" data-filter="cnn">CNN</button>
-<button class="filter-btn" data-filter="miami">MIAMI HERALD</button>
-</div>
-
-<div id="newsGrid"></div>
-</div>
-</section>
-
-<footer>
-🌐 www.promaxdmp.com | 📧 PROMAXFM@GMAIL.COM | 📞 (407) 640-5166 | (516) 216-8494<br><br>
-© 2026 PRO-MAX FM DMP - DEVAN DEVAN NÈT. BATI POU JODI A. PARE POU DEMEN.
-</footer>
-
-<script>
-document.getElementById("hamburger").onclick=()=>{document.getElementById("mainMenu").classList.toggle("open")};
-
-const newsGrid = document.getElementById("newsGrid");
-
-const sources = [
-  { id: "rfi", name: "RFI", rss: "https://www.rfi.fr/fr/rss" },
-  { id: "cnn", name: "CNN", rss: "http://rss.cnn.com/rss/edition.rss" },
-  { id: "miami", name: "MIAMI HERALD", rss: "https://www.miamiherald.com/news/?format=rss" }
-];
-
-function cleanText(html=""){const d=document.createElement("div");d.innerHTML=html;return(d.textContent||"").replace(/\s+/g," ").trim()}
-function escapeHTML(t=""){const d=document.createElement("div");d.textContent=t;return d.innerHTML}
-function safeURL(v=""){try{const u=new URL(v.trim());return["http:","https:"].includes(u.protocol)?u.href:"#"}catch{return"#"}}
-
-async function loadSource(source){
-  try{
-    const res = await fetch(`/.netlify/functions/news?source=${encodeURIComponent(source.id)}`,{cache:"no-store"});
-    if(!res.ok) throw new Error(source.name+" error "+res.status);
-    const xmlText = await res.text();
-    if(xmlText.trim().startsWith("<!DOCTYPE")||xmlText.trim().startsWith("<html")) throw new Error(source.name+" returned HTML");
-    const xml = new DOMParser().parseFromString(xmlText,"application/xml");
-    if(xml.querySelector("parsererror")) throw new Error(source.name+" XML error");
-    const items=[...xml.querySelectorAll("item")].slice(0,9);
-    if(!items.length) throw new Error(source.name+" empty");
-
-    items.forEach(item=>{
-      const title=(item.querySelector("title")?.textContent||"Latest News").trim();
-      const link=(item.querySelector("link")?.textContent||"#").trim();
-      const desc=cleanText(item.querySelector("description")?.textContent||"").slice(0,200);
-      const pubRaw=item.querySelector("pubDate")?.textContent||"";
-      let dateLabel="";
-      try{dateLabel=new Date(pubRaw).toLocaleDateString("fr-FR",{day:"2-digit",month:"short"}) }catch{}
-
-      const art=document.createElement("article");
-      art.className="news-card";
-      art.dataset.source=source.id;
-      art.style.cssText="border:1px solid rgba(255,106,0,.35);border-radius:14px;background:linear-gradient(145deg,rgba(255,106,0,.10),#000);overflow:hidden;transition:.25s";
-      art.innerHTML=`
-        <div style="height:120px;background:#050200;display:grid;place-items:center;font-size:40px;border-bottom:1px solid rgba(255,106,0,.2)">📰</div>
-        <div style="padding:16px">
-          <div style="font-size:11px;color:#ff6a00;font-weight:900;margin-bottom:8px">${escapeHTML(source.name)} ${dateLabel?" • "+escapeHTML(dateLabel):""}</div>
-          <h3 style="color:#ff6a00;font-size:15px;line-height:1.3;margin-bottom:8px">${escapeHTML(title)}</h3>
-          <p style="color:#ff8c32;font-size:13px;line-height:1.5;opacity:.9;margin-bottom:12px">${escapeHTML(desc)}...</p>
-          <a href="${safeURL(link)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;padding:8px 14px;border:1px solid #ff6a00;border-radius:20px;background:#000;color:#ff6a00!important;font-size:11px;font-weight:900">LIRE PLUS</a>
-        </div>
-      `;
-      newsGrid.appendChild(art);
-    });
-    return true;
-  }catch(e){console.warn(source.name,e.message);return false}
-}
-
-async function loadNews(){
-  if(!newsGrid) return;
-  newsGrid.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:60px;color:#ff6a00;font-weight:900;border:1px solid rgba(255,106,0,.3);border-radius:14px;background:#000">📡 CHARGEMENT DES NOUVELLES...</div>`;
-
-  const results = await Promise.allSettled(sources.map(loadSource));
-
-  if(!newsGrid.querySelectorAll(".news-card").length){
-    newsGrid.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:60px;color:#ff8c32;border:1px solid rgba(255,106,0,.3);border-radius:14px;background:#000">
-      <div style="font-size:32px;margin-bottom:12px">⚠️</div>
-      <div style="color:#ff6a00;font-weight:900;margin-bottom:8px">SOURCES INDISPONIBLES POU Kounya a</div>
-      <div style="font-size:13px">Netlify Function <code>/.netlify/functions/news</code> pa enstale.<br><br>Ou bezwen kreye fichye <b>netlify/functions/news.js</b></div>
-      <button onclick="loadNews()" style="margin-top:16px;padding:10px 18px;border:1px solid #ff6a00;border-radius:20px;background:#000;color:#ff6a00;font-weight:900;cursor:pointer">RÉESSAYER</button>
-    </div>`;
-  }
-}
-
-// Filtè
-document.querySelectorAll(".filter-btn").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    const f=btn.dataset.filter;
-    document.querySelectorAll(".news-card").forEach(card=>{
-      card.style.display=(f==="all"||card.dataset.source===f)?"block":"none";
-    });
-  });
-});
-
-loadNews();
-</script>
-
-<!-- IMPORTANT: Ou bezwen Netlify Function sa a nan netlify/functions/news.js -->
-<!--
-const fetch = require('node-fetch');
-exports.handler = async (event) => {
-  const source = event.queryStringParameters.source || 'rfi';
-  const urls = {
-    rfi: 'https://www.rfi.fr/fr/rss',
-    cnn: 'http://rss.cnn.com/rss/edition.rss',
-    miami: 'https://www.miamiherald.com/news/?format=rss'
-  };
-  const url = urls[source] || urls.rfi;
-  try{
-    const res = await fetch(url);
-    const text = await res.text();
-    return { statusCode: 200, headers:{'Content-Type':'application/xml','Access-Control-Allow-Origin':'*'}, body: text };
-  }catch(e){
-    return { statusCode: 500, body: 'Error: '+e.message };
-  }
-};
--->
-
-</body>
-</html>
+<main>
+<h1 id="title">NEWS CENTER</h1>
+<div
