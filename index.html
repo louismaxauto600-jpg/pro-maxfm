@@ -4,16 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PRO-MAX FM - LIVE</title>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<title>PRO-MAX DMP FM - LIVE</title>
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
@@ -33,9 +34,11 @@ min-height:100vh;
 }
 
 a{
-text-decoration:none;
 color:#FFD6A0;
+text-decoration:none;
 }
+
+/* ================= HEADER ================= */
 
 header{
 position:sticky;
@@ -44,9 +47,10 @@ z-index:100;
 display:flex;
 justify-content:space-between;
 align-items:center;
+gap:16px;
 padding:14px 28px;
-background:rgba(0,0,0,.9);
-border-bottom:2px solid rgba(255,140,0,.4);
+background:rgba(0,0,0,.92);
+border-bottom:2px solid rgba(255,140,0,.45);
 }
 
 .brand{
@@ -65,21 +69,13 @@ object-fit:cover;
 
 .brand b{
 color:#FF8C00;
+white-space:nowrap;
 }
 
-.nav{
+.header-right{
 display:flex;
-gap:15px;
 align-items:center;
-}
-
-.nav a{
-font-weight:700;
-font-size:13px;
-}
-
-.nav a:hover{
-color:#FF8C00;
+gap:12px;
 }
 
 .lang{
@@ -91,7 +87,7 @@ gap:5px;
 background:transparent;
 border:1px solid #FF8C00;
 color:#FF8C00;
-padding:5px 10px;
+padding:6px 11px;
 border-radius:20px;
 font-weight:800;
 cursor:pointer;
@@ -102,15 +98,26 @@ background:#FF8C00;
 color:#000;
 }
 
+.home-btn{
+background:#FF8C00;
+color:#000;
+padding:9px 14px;
+border-radius:12px;
+font-weight:900;
+white-space:nowrap;
+}
+
+/* ================= MAIN ================= */
+
 main{
 max-width:1100px;
 margin:0 auto;
-padding:50px 25px;
+padding:45px 25px 55px;
 }
 
 .hero{
 text-align:center;
-padding:35px 15px 50px;
+padding:30px 15px 45px;
 }
 
 .hero h1{
@@ -132,6 +139,8 @@ padding:12px 24px;
 border-radius:100px;
 font-weight:900;
 }
+
+/* ================= PLAYER ================= */
 
 .player-card{
 background:rgba(0,0,0,.78);
@@ -159,6 +168,7 @@ flex:1;
 .station-info h2{
 color:#FF8C00;
 margin-bottom:5px;
+font-size:28px;
 }
 
 .controls{
@@ -180,11 +190,13 @@ cursor:pointer;
 
 .status{
 margin-top:18px;
-padding:12px;
+padding:12px 16px;
 border-radius:12px;
 background:rgba(255,140,0,.1);
 border:1px solid rgba(255,140,0,.4);
 }
+
+/* ================= INFO CARDS ================= */
 
 .grid{
 display:grid;
@@ -202,8 +214,14 @@ padding:22px;
 
 .card h3{
 color:#FF8C00;
-margin-bottom:8px;
+margin-bottom:10px;
 }
+
+.card p{
+line-height:1.5;
+}
+
+/* ================= BACK BUTTON ================= */
 
 .back-home{
 display:inline-block;
@@ -216,10 +234,12 @@ border-radius:12px;
 font-weight:900;
 }
 
+/* ================= FOOTER ================= */
+
 footer{
 margin-top:50px;
 padding:30px 20px;
-background:rgba(0,0,0,.92);
+background:rgba(0,0,0,.94);
 text-align:center;
 border-top:2px solid rgba(255,140,0,.3);
 }
@@ -228,21 +248,40 @@ footer strong{
 color:#FF8C00;
 }
 
+/* ================= MOBILE ================= */
+
 @media(max-width:700px){
 
 header{
 padding:12px 14px;
-overflow-x:auto;
-gap:12px;
+align-items:flex-start;
 }
 
-.nav{
-white-space:nowrap;
-gap:10px;
+.header-right{
+flex-direction:column;
+align-items:flex-end;
+gap:8px;
+}
+
+.lang button{
+padding:5px 9px;
+}
+
+.home-btn{
+font-size:12px;
+padding:8px 10px;
+}
+
+.brand b{
+font-size:15px;
 }
 
 .hero h1{
 font-size:36px;
+}
+
+.hero p{
+font-size:18px;
 }
 
 }
@@ -250,6 +289,10 @@ font-size:36px;
 </head>
 
 <body>
+
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
 
 <header>
 
@@ -263,32 +306,46 @@ font-size:36px;
 
 </div>
 
-<div class="nav">
-
-<a href="../index.html">ACCUEIL</a>
-<a href="live.html">LIVE</a>
-<a href="podcasts.html">PODCASTS</a>
-<a href="contact.html">CONTACT</a>
+<div class="header-right">
 
 <div class="lang">
 
-<button class="active" data-lang="fr" onclick="setLang('fr',this)">
+<button
+class="active"
+data-lang="fr"
+onclick="setLang('fr',this)">
 FR
 </button>
 
-<button data-lang="en" onclick="setLang('en',this)">
+<button
+data-lang="en"
+onclick="setLang('en',this)">
 EN
 </button>
 
-<button data-lang="ht" onclick="setLang('ht',this)">
+<button
+data-lang="ht"
+onclick="setLang('ht',this)">
 HT
 </button>
 
 </div>
 
+<a
+href="../index.html"
+class="home-btn"
+id="headerHome">
+← ACCUEIL
+</a>
+
 </div>
 
 </header>
+
+
+<!-- ================================================= -->
+<!-- MAIN -->
+<!-- ================================================= -->
 
 <main>
 
@@ -308,6 +365,10 @@ EN DIRECT
 
 </section>
 
+
+<!-- ================================================= -->
+<!-- LIVE PLAYER -->
+<!-- ================================================= -->
 
 <section class="player-card">
 
@@ -356,17 +417,12 @@ onclick="volumeUp()">
 </div>
 
 
-<div class="status" id="radioStatus">
+<div
+class="status"
+id="radioStatus">
 Radio prête. Appuyez sur PLAY.
 </div>
 
-
-<!--
-IMPORTANT:
-Mete URL STREAMING ZENO OU LA NAN src LA.
-Egzanp:
-https://stream.zeno.fm/XXXXXXXX
--->
 
 <audio
 id="radioPlayer"
@@ -380,6 +436,10 @@ type="audio/mpeg">
 
 </section>
 
+
+<!-- ================================================= -->
+<!-- INFO -->
+<!-- ================================================= -->
 
 <section>
 
@@ -404,15 +464,15 @@ PRO-MAX FM - LIVE 24/7
 PROGRAMMATION
 </h3>
 
-<p>
+<p id="schedule1">
 6AM - 10AM — Matin Force
 </p>
 
-<p>
+<p id="schedule2">
 10AM - 3PM — Hit Non Stop
 </p>
 
-<p>
+<p id="schedule3">
 3PM - 7PM — Drive Time
 </p>
 
@@ -454,34 +514,44 @@ promaxfm@gmail.com
 href="../index.html"
 class="back-home"
 id="backHome">
-
 ← RETOUR À L'ACCUEIL
-
 </a>
 
 </main>
 
 
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+
 <footer>
 
-<strong>
+<strong id="footerTitle">
 PRO-MAX DMP FM — LA FORCE DU SON
 </strong>
 
 <br><br>
 
+<div id="footerSlogan">
 DEVAN DEVAN NÈT.<br>
 BATI POU JODI A.<br>
 PARE POU DEMEN.
+</div>
 
-<br><br>
+<br>
 
+<div id="copyright">
 © 2026 PRO-MAX DMP FM. Tous droits réservés.
+</div>
 
 </footer>
 
 
 <script>
+
+/* ================================================= */
+/* RADIO SYSTEM */
+/* ================================================= */
 
 const radio =
 document.getElementById("radioPlayer");
@@ -495,14 +565,33 @@ document.getElementById("radioStatus");
 let playing = false;
 
 
-/* ================= RADIO ================= */
+/*
+=================================================
+IMPORTANT
+=================================================
+
+LÈ OU GEN URL ZENO STREAMING LAN,
+METE LI NAN src="" KI ANBA A:
+
+<source src="ZENO-STREAM-URL-LA" type="audio/mpeg">
+
+=================================================
+*/
+
 
 function toggleRadio(){
 
-if(!radio.currentSrc){
+const source =
+radio.querySelector("source");
+
+if(!source.src || source.getAttribute("src")===""){
 
 statusBox.textContent =
-"Ajoutez d'abord l'URL du streaming Zeno dans live.html.";
+currentLanguage === "ht"
+? "URL radyo LIVE la poko konekte."
+: currentLanguage === "en"
+? "The LIVE radio stream URL is not connected yet."
+: "L'URL du streaming LIVE n'est pas encore connectée.";
 
 return;
 
@@ -510,22 +599,31 @@ return;
 
 if(!playing){
 
+radio.load();
+
 radio.play()
 .then(()=>{
 
-playing = true;
+playing=true;
 
-playBtn.textContent =
-"⏸ PAUSE";
+playBtn.textContent="⏸ PAUSE";
 
 statusBox.textContent =
-"PRO-MAX FM est en direct.";
+currentLanguage === "ht"
+? "PRO-MAX FM ap jwe an dirèk."
+: currentLanguage === "en"
+? "PRO-MAX FM is playing live."
+: "PRO-MAX FM joue en direct.";
 
 })
 .catch(()=>{
 
 statusBox.textContent =
-"Impossible de démarrer le flux audio.";
+currentLanguage === "ht"
+? "Radyo a pa ka kòmanse. Verifye URL streaming lan."
+: currentLanguage === "en"
+? "Unable to start the radio stream."
+: "Impossible de démarrer le streaming radio.";
 
 });
 
@@ -533,13 +631,16 @@ statusBox.textContent =
 
 radio.pause();
 
-playing = false;
+playing=false;
 
-playBtn.textContent =
-"▶ PLAY";
+playBtn.textContent="▶ PLAY";
 
 statusBox.textContent =
-"Radio en pause.";
+currentLanguage === "ht"
+? "Radyo a an poz."
+: currentLanguage === "en"
+? "Radio paused."
+: "Radio en pause.";
 
 }
 
@@ -548,87 +649,173 @@ statusBox.textContent =
 
 function volumeUp(){
 
-radio.volume =
-Math.min(1,radio.volume + .1);
+radio.volume=
+Math.min(1,radio.volume+.1);
 
 }
 
 
 function volumeDown(){
 
-radio.volume =
-Math.max(0,radio.volume - .1);
+radio.volume=
+Math.max(0,radio.volume-.1);
 
 }
 
 
-/* ================= LANGUAGE ================= */
+/* ================================================= */
+/* FULL LANGUAGE SYSTEM */
+/* ================================================= */
+
+let currentLanguage="fr";
 
 const translations={
 
 fr:{
 
-title:"EN DIRECT",
+pageTitle:"EN DIRECT",
 
-subtitle:"Écoutez PRO-MAX FM en direct 24h/24.",
+pageSubtitle:
+"Écoutez PRO-MAX FM en direct 24h/24.",
 
-station:"LA FORCE DU SON",
+stationText:
+"LA FORCE DU SON",
 
-now:"EN CE MOMENT",
+status:
+"Radio prête. Appuyez sur PLAY.",
 
-nowText:"PRO-MAX FM - LIVE 24/7",
+nowTitle:
+"EN CE MOMENT",
 
-schedule:"PROGRAMMATION",
+nowText:
+"PRO-MAX FM - LIVE 24/7",
 
-contact:"CONTACT",
+scheduleTitle:
+"PROGRAMMATION",
 
-back:"← RETOUR À L'ACCUEIL",
+schedule1:
+"6AM - 10AM — Matin Force",
 
-ready:"Radio prête. Appuyez sur PLAY."
+schedule2:
+"10AM - 3PM — Hit Non Stop",
+
+schedule3:
+"3PM - 7PM — Drive Time",
+
+contactTitle:
+"CONTACT",
+
+headerHome:
+"← ACCUEIL",
+
+backHome:
+"← RETOUR À L'ACCUEIL",
+
+footerTitle:
+"PRO-MAX DMP FM — LA FORCE DU SON",
+
+copyright:
+"© 2026 PRO-MAX DMP FM. Tous droits réservés."
 
 },
+
 
 en:{
 
-title:"LIVE",
+pageTitle:
+"LIVE",
 
-subtitle:"Listen to PRO-MAX FM live 24/7.",
+pageSubtitle:
+"Listen to PRO-MAX FM live 24/7.",
 
-station:"THE POWER OF SOUND",
+stationText:
+"THE POWER OF SOUND",
 
-now:"NOW PLAYING",
+status:
+"Radio ready. Press PLAY.",
 
-nowText:"PRO-MAX FM - LIVE 24/7",
+nowTitle:
+"NOW PLAYING",
 
-schedule:"SCHEDULE",
+nowText:
+"PRO-MAX FM - LIVE 24/7",
 
-contact:"CONTACT",
+scheduleTitle:
+"SCHEDULE",
 
-back:"← BACK TO HOME",
+schedule1:
+"6AM - 10AM — Morning Force",
 
-ready:"Radio ready. Press PLAY."
+schedule2:
+"10AM - 3PM — Hit Non Stop",
+
+schedule3:
+"3PM - 7PM — Drive Time",
+
+contactTitle:
+"CONTACT",
+
+headerHome:
+"← HOME",
+
+backHome:
+"← BACK TO HOME",
+
+footerTitle:
+"PRO-MAX DMP FM — THE POWER OF SOUND",
+
+copyright:
+"© 2026 PRO-MAX DMP FM. All rights reserved."
 
 },
 
+
 ht:{
 
-title:"LIVE",
+pageTitle:
+"LIVE",
 
-subtitle:"Koute PRO-MAX FM an dirèk 24 sou 24.",
+pageSubtitle:
+"Koute PRO-MAX FM an dirèk 24 sou 24.",
 
-station:"FÒS SON AN",
+stationText:
+"FÒS SON AN",
 
-now:"KOUNYE A",
+status:
+"Radyo a pare. Peze PLAY.",
 
-nowText:"PRO-MAX FM - LIVE 24/7",
+nowTitle:
+"KOUNYE A",
 
-schedule:"PWOGRAM",
+nowText:
+"PRO-MAX FM - LIVE 24/7",
 
-contact:"KONTAK",
+scheduleTitle:
+"PWOGRAM",
 
-back:"← RETOUNEN SOU AKÈY",
+schedule1:
+"6AM - 10AM — Matin Force",
 
-ready:"Radyo a pare. Peze PLAY."
+schedule2:
+"10AM - 3PM — Hit Non Stop",
+
+schedule3:
+"3PM - 7PM — Drive Time",
+
+contactTitle:
+"KONTAK",
+
+headerHome:
+"← AKÈY",
+
+backHome:
+"← RETOUNEN SOU AKÈY",
+
+footerTitle:
+"PRO-MAX DMP FM — FÒS SON AN",
+
+copyright:
+"© 2026 PRO-MAX DMP FM. Tout dwa rezève."
 
 }
 
@@ -637,42 +824,69 @@ ready:"Radyo a pare. Peze PLAY."
 
 function setLang(lang,btn){
 
-const t =
-translations[lang];
+currentLanguage=lang;
 
-document.getElementById("pageTitle").textContent =
-t.title;
+const t=translations[lang];
 
-document.getElementById("pageSubtitle").textContent =
-t.subtitle;
+document.documentElement.lang=lang;
 
-document.getElementById("stationText").textContent =
-t.station;
+document.getElementById("pageTitle").textContent=
+t.pageTitle;
 
-document.getElementById("nowTitle").textContent =
-t.now;
+document.getElementById("pageSubtitle").textContent=
+t.pageSubtitle;
 
-document.getElementById("nowText").textContent =
+document.getElementById("stationText").textContent=
+t.stationText;
+
+document.getElementById("radioStatus").textContent=
+t.status;
+
+document.getElementById("nowTitle").textContent=
+t.nowTitle;
+
+document.getElementById("nowText").textContent=
 t.nowText;
 
-document.getElementById("scheduleTitle").textContent =
-t.schedule;
+document.getElementById("scheduleTitle").textContent=
+t.scheduleTitle;
 
-document.getElementById("contactTitle").textContent =
-t.contact;
+document.getElementById("schedule1").textContent=
+t.schedule1;
 
-document.getElementById("backHome").textContent =
-t.back;
+document.getElementById("schedule2").textContent=
+t.schedule2;
 
-statusBox.textContent =
-t.ready;
+document.getElementById("schedule3").textContent=
+t.schedule3;
 
-document.querySelectorAll(".lang button")
+document.getElementById("contactTitle").textContent=
+t.contactTitle;
+
+document.getElementById("headerHome").textContent=
+t.headerHome;
+
+document.getElementById("backHome").textContent=
+t.backHome;
+
+document.getElementById("footerTitle").textContent=
+t.footerTitle;
+
+document.getElementById("copyright").textContent=
+t.copyright;
+
+
+document
+.querySelectorAll(".lang button")
 .forEach(button=>{
 button.classList.remove("active");
 });
 
+
+if(btn){
 btn.classList.add("active");
+}
+
 
 localStorage.setItem(
 "promax-language",
@@ -682,21 +896,23 @@ lang
 }
 
 
+/* ================================================= */
+/* RESTORE LANGUAGE */
+/* ================================================= */
+
 document.addEventListener(
 "DOMContentLoaded",
-()=>{
+function(){
 
-const savedLang =
+const savedLang=
 localStorage.getItem("promax-language") || "fr";
 
-const btn =
+const button=
 document.querySelector(
-`.lang button[data-lang="${savedLang}"]`
+'.lang button[data-lang="'+savedLang+'"]'
 );
 
-if(btn){
-setLang(savedLang,btn);
-}
+setLang(savedLang,button);
 
 }
 );
