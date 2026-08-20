@@ -1,1619 +1,271 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+<title>PRO-MAX DMP FM - LA FORCE DU SON</title>
 
-<title>
-PRO-MAX DMP FM - LA FORCE DU SON
-</title>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-
-background:linear-gradient(
-135deg,
-#FF8C00 0%,
-#FFA94D 12%,
-#FF7A00 28%,
-#7A3B00 48%,
-#1a0a00 68%,
-#000 100%
-);
-
+background:linear-gradient(135deg,#FF8C00 0%,#FFA94D 12%,#FF7A00 28%,#7A3B00 48%,#1a0a00 68%,#000 100%);
 background-attachment:fixed;
-
 color:#FFD6A0;
-
 font-family:Segoe UI,Arial,sans-serif
-
 }
 
-
-a{
-
-color:#FFD6A0;
-
-text-decoration:none
-
-}
-
+a{color:#FFD6A0;text-decoration:none}
 
 header{
-
 position:sticky;
-
 top:0;
-
 z-index:100;
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
 padding:14px 28px;
-
 background:rgba(0,0,0,0.85);
-
 backdrop-filter:blur(14px);
-
 border-bottom:2px solid rgba(255,140,0,0.4)
-
 }
 
-
-.brand{
-
-display:flex;
-
-align-items:center;
-
-gap:12px
-
-}
-
+.brand{display:flex;align-items:center;gap:12px}
 
 .brand video{
-
 width:46px;
-
 height:46px;
-
 border-radius:50%;
-
 border:2px solid #FF8C00;
-
 object-fit:cover
-
 }
 
-
-.brand b{
-
-color:#FF8C00
-
-}
-
+.brand b{color:#FF8C00}
 
 .nav{
-
 display:flex;
-
-gap:18px;
-
-align-items:center
-
+gap:14px;
+align-items:center;
+flex-wrap:wrap
 }
-
 
 .nav a{
-
 color:#FFD6A0;
-
 font-weight:700;
-
 font-size:13px
-
 }
 
+.nav a:hover{color:#FF8C00}
+
+.lang{display:flex;gap:5px}
 
 .lang button{
-
 background:transparent;
-
 border:1px solid #FF8C00;
-
 color:#FF8C00;
-
 padding:5px 10px;
-
 border-radius:20px;
-
 font-weight:800;
-
 cursor:pointer
-
 }
-
 
 .lang button.active{
-
 background:#FF8C00;
-
 color:#000
-
 }
-
 
 section{
-
 padding:44px 28px;
-
 max-width:1280px;
-
 margin:0 auto
-
 }
-
 
 .hero{
-
 min-height:auto;
-
 padding:56px 28px 50px;
-
 display:flex;
-
 flex-direction:column;
-
 align-items:center;
-
 justify-content:center;
-
 text-align:center
-
 }
-
 
 .video-wrap{
-
 width:300px;
-
 height:300px;
-
 position:relative
-
 }
-
 
 .video-wrap:before{
-
 content:'';
-
 position:absolute;
-
 inset:-30px;
-
-background:radial-gradient(
-circle,
-rgba(255,140,0,0.45),
-transparent 70%
-);
-
+background:radial-gradient(circle,rgba(255,140,0,0.45),transparent 70%);
 filter:blur(18px)
-
 }
-
 
 .logo-video{
-
+position:relative;
+z-index:2;
 width:100%;
-
 height:100%;
-
 border-radius:50%;
-
 object-fit:cover;
-
 border:5px solid #FF8C00;
-
 box-shadow:0 0 60px rgba(255,140,0,0.9)
-
 }
 
+.sound-btn{
+position:absolute;
+z-index:5;
+right:5px;
+bottom:5px;
+width:48px;
+height:48px;
+border-radius:50%;
+border:2px solid #FF8C00;
+background:#000;
+color:#FF8C00;
+font-size:20px;
+cursor:pointer
+}
 
 h1{
-
 margin-top:22px;
-
 font-size:52px;
-
 color:#FF8C00
-
 }
-
 
 .sub{
-
 letter-spacing:8px;
-
 color:#FFD6A0;
-
 font-weight:700;
-
 margin-top:6px
-
 }
-
 
 .live-btn{
-
 margin-top:20px;
-
-background:linear-gradient(
-90deg,
-#FF8C00,
-#FF3C00
-);
-
+background:linear-gradient(90deg,#FF8C00,#FF3C00);
 color:#000;
-
 padding:14px 32px;
-
 border-radius:100px;
-
 font-weight:900;
-
 display:inline-block
-
 }
-
 
 .grid{
-
 display:grid;
-
-grid-template-columns:repeat(
-auto-fit,
-minmax(260px,1fr)
-);
-
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:18px;
-
 margin-top:20px
-
 }
-
 
 .card{
-
 background:rgba(0,0,0,0.68);
-
 border:1px solid rgba(255,140,0,0.35);
-
 border-radius:18px;
-
-padding:22px
-
+padding:22px;
+height:100%;
+transition:.25s ease
 }
 
+.card:hover{
+border-color:#FF8C00;
+transform:translateY(-3px);
+box-shadow:0 8px 30px rgba(255,140,0,.18)
+}
 
 .card h3{
-
 color:#FF8C00;
-
 margin-bottom:8px
-
 }
 
+.card-link{
+display:block;
+color:inherit
+}
 
 .divider{
-
 height:1px;
-
-background:linear-gradient(
-90deg,
-transparent,
-#FF8C00,
-transparent
-);
-
+background:linear-gradient(90deg,transparent,#FF8C00,transparent);
 margin:8px 0 18px
-
 }
-
 
 .title{
-
 font-size:30px;
-
 color:#FF8C00
-
 }
-
 
 .player{
-
 background:rgba(0,0,0,0.75);
-
 border:2px solid #FF8C00;
-
 border-radius:22px;
-
 padding:22px;
-
 display:flex;
-
 align-items:center;
-
 gap:18px
-
 }
-
-
-.socials{
-
-display:flex;
-
-flex-wrap:wrap;
-
-gap:10px
-
-}
-
-
-.social{
-
-width:44px;
-
-height:44px;
-
-border-radius:50%;
-
-background:rgba(255,140,0,0.15);
-
-border:1px solid #FF8C00;
-
-display:grid;
-
-place-items:center;
-
-color:#FF8C00;
-
-font-weight:900
-
-}
-
-
-/* ============================================= */
-/* 9 PRO-MAX FM MODULE LINKS */
-/* SE SÈLMAN SA KI AJOUTE NAN DESIGN LAN */
-/* ============================================= */
-
-
-.module-link{
-
-display:block;
-
-color:#FFD6A0
-
-}
-
-
-.module-card{
-
-height:100%;
-
-cursor:pointer;
-
-transition:.2s
-
-}
-
-
-.module-card:hover{
-
-border-color:#FF8C00;
-
-transform:translateY(-3px)
-
-}
-
 
 .module-number{
-
-color:#FFD6A0;
-
 font-size:12px;
-
 font-weight:900;
-
-margin-bottom:8px
-
+color:#FFD6A0;
+margin-bottom:8px;
+letter-spacing:1px
 }
 
-
-footer{
-
-padding:32px 28px;
-
-background:rgba(0,0,0,0.9);
-
-border-top:2px solid rgba(255,140,0,0.3);
-
-text-align:center
-
+.socials{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+margin:18px 0
 }
 
-
-@media(max-width:700px){
-
-.video-wrap{
-
-width:230px;
-
-height:230px
-
-}
-
-
-h1{
-
-font-size:36px
-
-}
-
-}
-
-</style>
-
-</head>
-
-
-
-<body>
-
-
-<!-- ============================================= -->
-<!-- HEADER ORIGINAL -->
-<!-- ============================================= -->
-
-<header>
-
-
-<div class="brand">
-
-<video
-autoplay
-muted
-loop
-playsinline>
-
-<source
-src="pro-max-dmp-fm.mp4"
-type="video/mp4">
-
-</video>
-
-
-<b>
-PRO-MAX DMP FM
-</b>
-
-</div>
-
-
-
-<div class="nav">
-
-
-<a
-href="#home"
-id="navHome">
-
-ACCUEIL
-
-</a>
-
-
-<a
-href="pages/live.html"
-id="navLive">
-
-LIVE
-
-</a>
-
-
-<a
-href="pages/podcasts.html"
-id="navPodcasts">
-
-PODCASTS
-
-</a>
-
-
-<a
-href="#contact"
-id="navContact">
-
-CONTACT
-
-</a>
-
-
-
-<div class="lang">
-
-
-<button
-class="active"
-onclick="setLang('fr',this)">
-
-FR
-
-</button>
-
-
-<button
-onclick="setLang('en',this)">
-
-EN
-
-</button>
-
-
-<button
-onclick="setLang('ht',this)">
-
-HT
-
-</button>
-
-
-</div>
-
-</div>
-
-</header>
-
-
-
-<!-- ============================================= -->
-<!-- MODIL 1 HERO ORIGINAL -->
-<!-- ============================================= -->
-
-<section
-class="hero"
-id="home">
-
-
-<div class="video-wrap">
-
-
-<video
-class="logo-video"
-autoplay
-muted
-loop
-playsinline>
-
-
-<source
-src="pro-max-dmp-fm.mp4"
-type="video/mp4">
-
-
-<source
-src="https://raw.githubusercontent.com/louismaxauto600-jpg/pro-maxfm/main/pro-max-fm.mp4"
-type="video/mp4">
-
-
-</video>
-
-
-</div>
-
-
-
-<h1>
-PRO-MAX DMP FM
-</h1>
-
-
-<div
-class="sub"
-id="heroSub">
-
-LA FORCE DU SON
-
-</div>
-
-
-
-<a
-href="pages/live.html"
-class="live-btn"
-id="heroLive">
-
-● EN DIRECT
-
-</a>
-
-
-</section>
-
-
-
-<!-- ============================================= -->
-<!-- MODIL 2 LIVE ORIGINAL -->
-<!-- ============================================= -->
-
-<section>
-
-
-<div
-class="title"
-id="tLive">
-
-EN DIRECT MAINTENANT
-
-</div>
-
-
-<div class="divider"></div>
-
-
-
-<div class="player">
-
-
-<div>
-
-🔊
-
-</div>
-
-
-<div>
-
-
-<b style="color:#FF8C00">
-
-PRO-MAX DMP FM - LIVE 24/7
-
-</b>
-
-
-<br>
-
-
-<small style="color:#FFD6A0">
-
-bss1815pro-max-dmp.com
-
-</small>
-
-
-</div>
-
-
-
-<a
-href="pages/live.html"
-style="
-margin-left:auto;
-background:#FF8C00;
-color:#000;
-border:0;
-padding:10px 20px;
-border-radius:10px;
+.social{
+width:44px;
+height:44px;
+border-radius:50%;
+display:grid;
+place-items:center;
 font-weight:900;
-">
-
-PLAY ▶
-
-</a>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- ============================================= -->
-<!-- MODIL 3 ABOUT ORIGINAL -->
-<!-- ============================================= -->
-
-<section>
-
-
-<div
-class="title"
-id="tAbout">
-
-À PROPOS
-
-</div>
-
-
-<div class="divider"></div>
-
-
-
-<div class="grid">
-
-
-<div class="card">
-
-
-<h3 id="powerTitle">
-
-LA FORCE DU SON
-
-</h3>
-
-
-<p id="powerText">
-
-Radio proximité, musique, actu, culture 24h/24.
-
-</p>
-
-
-</div>
-
-
-
-<div class="card">
-
-
-<h3 id="missionTitle">
-
-Mission
-
-</h3>
-
-
-<p id="missionText">
-
-Connecter communauté haïtienne & internationale.
-
-</p>
-
-
-</div>
-
-
-
-<div class="card">
-
-
-<h3 id="qualityTitle">
-
-Qualité Pro
-
-</h3>
-
-
-<p id="qualityText">
-
-Son cristallin, sans accent.
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- ============================================= -->
-<!-- MODIL 4 PROGRAMMES ORIGINAL -->
-<!-- ============================================= -->
-
-<section>
-
-
-<div
-class="title"
-id="programTitle">
-
-PROGRAMMES
-
-</div>
-
-
-<div class="divider"></div>
-
-
-
-<div class="grid">
-
-
-<div class="card">
-
-<h3>
-LUN-VEN 6AM-10AM
-</h3>
-
-<p>
-Matin Force
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-10AM-3PM
-</h3>
-
-<p>
-Hit Non Stop
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-3PM-7PM
-</h3>
-
-<p>
-Drive Time
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-WEEKEND
-</h3>
-
-<p>
-Party Mix
-</p>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- ============================================= -->
-<!-- MODIL 5 PODCASTS ORIGINAL -->
-<!-- ============================================= -->
-
-<section>
-
-
-<div
-class="title"
-id="podcastTitle">
-
-PODCASTS & REPLAYS
-
-</div>
-
-
-<div class="divider"></div>
-
-
-
-<div class="grid">
-
-
-<div class="card">
-
-<h3>
-Replay Matinale
-</h3>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-Interview Exclusive
-</h3>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-Top 20
-</h3>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- ============================================= -->
-<!-- MODIL 6 ACTU ORIGINAL -->
-<!-- ============================================= -->
-
-<section>
-
-
-<div
-class="title"
-id="newsTitle">
-
-ACTUALITÉS
-
-</div>
-
-
-<div class="divider"></div>
-
-
-
-<div class="grid">
-
-
-<div class="card">
-
-<h3>
-News Flash
-</h3>
-
-</div>
-
-
-
-<div class="card">
-
-<h3 id="eventsOld">
-
-Événements
-
-</h3>
-
-</div>
-
-
-
-<div class="card">
-
-<h3 id="communityOld">
-
-Communauté
-
-</h3>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- ============================================= -->
-<!-- MODIL 7 GALERIE ORIGINAL -->
-<!-- ============================================= -->
-
-<section>
-
-
-<div
-class="title"
-id="galleryTitle">
-
-GALERIE VIDÉO
-
-</div>
-
-
-<div class="divider"></div>
-
-
-
-<div class="grid">
-
-
-<div
-class="card"
-style="
-height:150px;
-display:grid;
-place-items:center;
-">
-
-▶ PROMO 1
-
-</div>
-
-
-
-<div
-class="card"
-style="
-height:150px;
-display:grid;
-place-items:center;
-">
-
-▶ STUDIO LIVE
-
-</div>
-
-
-
-<div
-class="card"
-style="
-height:150px;
-display:grid;
-place-items:center;
-">
-
-▶ EVENT
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- ================================================= -->
-<!-- 9 MODIL PRO-MAX FM -->
-<!-- NOUVO PATI A SÈLMAN -->
-<!-- ================================================= -->
-
-<section>
-
-
-<div
-class="title"
-id="modulesTitle">
-
-9 MODIL PRO-MAX FM
-
-</div>
-
-
-<div class="divider"></div>
-
-
-
-<div class="grid">
-
-
-<!-- 01 LIVE RADIO -->
-
-<a
-href="pages/live.html"
-class="module-link">
-
-
-<div class="card module-card">
-
-
-<div class="module-number">
-01
-</div>
-
-
-<h3 id="moduleLive">
-
-🔴 LIVE RADIO
-
-</h3>
-
-
-<p id="moduleLiveText">
-
-Radio an dirèk 24/7.
-
-</p>
-
-
-</div>
-
-
-</a>
-
-
-
-<!-- 02 NEWS -->
-
-<a
-href="pages/news.html"
-class="module-link">
-
-
-<div class="card module-card">
-
-
-<div class="module-number">
-02
-</div>
-
-
-<h3 id="moduleNews">
-
-📰 NEWS CENTER
-
-</h3>
-
-
-<p id="moduleNewsText">
-
-Actualités locales et internationales.
-
-</p>
-
-
-</div>
-
-
-</a>
-
-
-
-<!-- 03 SHOWS -->
-
-<a
-href="pages/shows.html"
-class="module-link">
-
-
-<div class="card module-card">
-
-
-<div class="module-number">
-03
-</div>
-
-
-<h3 id="moduleShows">
-
-🎙️ SHOWS & PROGRAMS
-
-</h3>
-
-
-<p id="moduleShowsText">
-
-Émissions et programmation.
-
-</p>
-
-
-</div>
-
-
-</a>
-
-
-
-<!-- 04 PODCAST -->
-
-<a
-href="pages/podcasts.html"
-class="module-link">
-
-
-<div class="card module-card">
-
-
-<div class="module-number">
-04
-</div>
-
-
-<h3 id="modulePodcasts">
-
-🎧 PODCAST CENTER
-
-</h3>
-
-
-<p id="modulePodcastsText">
-
-Podcasts et replays.
-
-</p>
-
-
-</div>
-
-
-</a>
-
-
-
-<!-- 05 MUSIC -->
-
-<a
-href="pages/music.html"
-class="module-link">
-
-
-<div class="card module-card">
-
-
-<div class="module-number">
-05
-</div>
-
-
-<h3 id="moduleMusic">
-
-🎵 MUSIC CENTER
-
-</h3>
-
-
-<p id="moduleMusicText">
-
-Musique, nouveautés et Top 20.
-
-</p>
-
-
-</div>
-
-
-</a>
-
-
-
-<!-- 06 ARTISTS -->
-
-<a
-href="pages/artists.html"
-class="module-link">
-
-
-<div class="card module-card">
-
-
-<div class="module-number">
-06
-</div>
-
-
-<h3 id="moduleArtists">
-
-🎤 ARTISTS CENTER
-
-</h3>
-
-
-<p id="moduleArtistsText">
-
-Artistes, musiciens et DJs.
-
-</p>
-
-
-</div>
-
-
-</a>
-
-
-
-<!-- 07 VIDEO -->
-
-<a
-href="pages/video.html"
-class="module-link">
-
-
-<div class="card module-card">
-
-
-<div class="module-number">
-07
-</div>
-
-
-<h3 id="moduleVideo">
-
-🎬 VIDEO GALLERY
-
-</h3>
-
-
-<p id="moduleVideoText">
-
-Vidéos, studio et archives.
-
-</p>
-
-
-</div>
-
-
-</a>
-
-
-
-<!-- 08 EVENTS -->
-
-<a
-href="pages/events.html"
-class="module-link">
-
-
-<div class="card module-card">
-
-
-<div class="module-number">
-08
-</div>
-
-
-<h3 id="moduleEvents">
-
-📅 EVENTS
-
-</h3>
-
-
-<p id="moduleEventsText">
-
-Événements et concerts.
-
-</p>
-
-
-</div>
-
-
-</a>
-
-
-
-<!-- 09 CONTACT -->
-
-<a
-href="pages/contact.html"
-class="module-link">
-
-
-<div class="card module-card">
-
-
-<div class="module-number">
-09
-</div>
-
-
-<h3 id="moduleContact">
-
-📞 CONTACT
-
-</h3>
-
-
-<p id="moduleContactText">
-
-Contactez PRO-MAX FM.
-
-</p>
-
-
-</div>
-
-
-</a>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- ============================================= -->
-<!-- MODIL 8 CONTACT ORIGINAL -->
-<!-- ============================================= -->
-
-<section id="contact">
-
-
-<div
-class="title"
-id="tContact">
-
-CONTACT
-
-</div>
-
-
-<div class="divider"></div>
-
-
-
-<div class="grid">
-
-
-<div class="card">
-
-
-<b
-style="color:#FF8C00"
-id="phoneTitle">
-
-Téléphone
-
-</b>
-
-
-<br>
-
-
-<a href="tel:+14076405166">
-
-(407) 640-5166
-
-</a>
-
-
-<br>
-
-
-<a href="tel:+15162168494">
-
-(516) 216-8494
-
-</a>
-
-
-</div>
-
-
-
-<div class="card">
-
-
-<b style="color:#FF8C00">
-
-Website
-
-</b>
-
-
-<br>
-
-
-bss1815pro-max-dmp.com
-
-
-<br><br>
-
-
-<b style="color:#FF8C00">
-
-Email
-
-</b>
-
-
-<br>
-
-
-<a href="mailto:promaxfm@gmail.com">
-
-promaxfm@gmail.com
-
-</a>
-
-
-</div>
-
-
-
-<div class="card">
-
-
-<b
-style="color:#FF8C00"
-id="messageTitle">
-
-Message
-
-</b>
-
-
-<br>
-
-
-<input
-id="nameInput"
-placeholder="Non"
-style="
+font-size:20px;
+transition:.2s ease
+}
+
+.social:hover{
+transform:scale(1.1)
+}
+
+.facebook{background:#1877F2;color:#fff}
+.whatsapp{background:#25D366;color:#fff}
+.tiktok{background:#000;color:#fff;border:1px solid #fff}
+.youtube{background:#FF0000;color:#fff}
+
+.instagram{
+background:linear-gradient(45deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5);
+color:#fff
+}
+
+.truth{background:#5448EE;color:#fff;font-size:13px}
+.twitter{background:#000;color:#fff;border:1px solid #555}
+.linkedin{background:#0A66C2;color:#fff}
+.spotify{background:#1DB954;color:#000}
+
+.contact-input{
 width:100%;
 margin-top:8px;
 padding:10px;
 border-radius:10px;
 background:#000;
 border:1px solid #FF8C00;
-color:#fff;
-">
+color:#fff
+}
 
-
-<textarea
-id="messageInput"
-placeholder="Message"
-style="
-width:100%;
-margin-top:8px;
-padding:10px;
-border-radius:10px;
-background:#000;
-border:1px solid #FF8C00;
-color:#fff;
-">
-
-</textarea>
-
-
-<br>
-
-
-<a
-href="mailto:promaxfm@gmail.com"
-id="sendButton"
-style="
+.send-btn{
 display:inline-block;
 margin-top:8px;
 background:#FF8C00;
@@ -1621,100 +273,725 @@ color:#000;
 border:0;
 padding:10px 18px;
 border-radius:10px;
-font-weight:900;
-">
+font-weight:900
+}
 
-ENVOYER
+footer{
+padding:32px 28px;
+background:rgba(0,0,0,0.9);
+border-top:2px solid rgba(255,140,0,0.3);
+text-align:center
+}
 
+@media(max-width:900px){
+header{
+flex-direction:column;
+align-items:flex-start;
+gap:12px
+}
+
+.nav{gap:10px}
+}
+
+@media(max-width:700px){
+header{padding:12px 14px}
+
+.nav a{font-size:11px}
+
+.video-wrap{
+width:230px;
+height:230px
+}
+
+h1{font-size:36px}
+
+.sub{
+letter-spacing:4px;
+font-size:14px
+}
+
+.player{
+flex-wrap:wrap
+}
+
+.player .play-link{
+margin-left:0!important;
+width:100%;
+text-align:center
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
+
+<header>
+
+<div class="brand">
+<video autoplay muted loop playsinline>
+<source src="pro-max-dmp-fm.mp4" type="video/mp4">
+</video>
+<b>PRO-MAX DMP FM</b>
+</div>
+
+<div class="nav">
+
+<a href="index.html" id="navHome">ACCUEIL</a>
+
+<a href="pages/live.html">LIVE</a>
+<a href="pages/news.html">NEWS</a>
+<a href="pages/shows.html">SHOWS</a>
+<a href="pages/podcasts.html">PODCASTS</a>
+<a href="pages/music.html">MUSIC</a>
+<a href="pages/artists.html">ARTISTS</a>
+<a href="pages/video.html">VIDEO</a>
+<a href="pages/events.html">EVENTS</a>
+<a href="pages/contact.html" id="navContact">CONTACT</a>
+
+<div class="lang">
+<button class="active" onclick="setLang('fr',this)">FR</button>
+<button onclick="setLang('en',this)">EN</button>
+<button onclick="setLang('ht',this)">HT</button>
+</div>
+
+</div>
+
+</header>
+
+
+<!-- ================================================= -->
+<!-- HERO -->
+<!-- ================================================= -->
+
+<section class="hero">
+
+<div class="video-wrap">
+
+<video
+id="mainVideo"
+class="logo-video"
+autoplay
+muted
+loop
+playsinline>
+
+<source src="pro-max-dmp-fm.mp4" type="video/mp4">
+
+<source
+src="https://raw.githubusercontent.com/louismaxauto600-jpg/pro-maxfm/main/pro-max-fm.mp4"
+type="video/mp4">
+
+</video>
+
+<button
+class="sound-btn"
+id="soundBtn"
+onclick="toggleSound()"
+aria-label="Sound">
+🔇
+</button>
+
+</div>
+
+<h1>PRO-MAX DMP FM</h1>
+
+<div class="sub" id="heroSub">
+LA FORCE DU SON
+</div>
+
+<a href="pages/live.html" class="live-btn" id="heroLive">
+● EN DIRECT
+</a>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- LIVE HOMEPAGE -->
+<!-- ================================================= -->
+
+<section>
+
+<div class="title" id="tLive">
+EN DIRECT MAINTENANT
+</div>
+
+<div class="divider"></div>
+
+<div class="player">
+
+<div style="font-size:30px">🔊</div>
+
+<div>
+<b style="color:#FF8C00">
+PRO-MAX DMP FM - LIVE 24/7
+</b>
+<br>
+<small style="color:#FFD6A0">
+bss1815pro-max-dmp.com
+</small>
+</div>
+
+<a
+href="pages/live.html"
+class="play-link"
+id="playBtn"
+style="
+margin-left:auto;
+background:#FF8C00;
+color:#000;
+padding:10px 20px;
+border-radius:10px;
+font-weight:900">
+PLAY ▶
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- À PROPOS -->
+<!-- ================================================= -->
+
+<section>
+
+<div class="title" id="tAbout">
+À PROPOS
+</div>
+
+<div class="divider"></div>
+
+<div class="grid">
+
+<div class="card">
+<h3 id="about1Title">LA FORCE DU SON</h3>
+<p id="about1Text">
+Radio proximité, musique, actu, culture 24h/24.
+</p>
+</div>
+
+<div class="card">
+<h3 id="about2Title">Mission</h3>
+<p id="about2Text">
+Connecter communauté haïtienne & internationale.
+</p>
+</div>
+
+<div class="card">
+<h3 id="about3Title">Qualité Pro</h3>
+<p id="about3Text">
+Son cristallin, qualité professionnelle.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- 9 MODIL OFISYÈL PRO-MAX DMP FM -->
+<!-- ================================================= -->
+
+<section id="proMaxModules">
+
+<div class="title" id="modulesTitle">
+9 MODIL PRO-MAX DMP FM
+</div>
+
+<div class="divider"></div>
+
+<div class="grid">
+
+
+<!-- 1 LIVE RADIO -->
+
+<a href="pages/live.html" class="card-link">
+<div class="card">
+<div class="module-number">01</div>
+<h3 id="moduleLiveTitle">🔴 LIVE RADIO</h3>
+<p id="moduleLiveText">
+Radio en direct 24/7.
+</p>
+</div>
+</a>
+
+
+<!-- 2 NEWS CENTER -->
+
+<a href="pages/news.html" class="card-link">
+<div class="card">
+<div class="module-number">02</div>
+<h3 id="moduleNewsTitle">📰 NEWS CENTER</h3>
+<p id="moduleNewsText">
+Actualités locales, haïtiennes et internationales.
+</p>
+</div>
+</a>
+
+
+<!-- 3 SHOWS & PROGRAMS -->
+
+<a href="pages/shows.html" class="card-link">
+<div class="card">
+<div class="module-number">03</div>
+<h3 id="moduleShowsTitle">🎙️ SHOWS & PROGRAMS</h3>
+<p id="moduleShowsText">
+Émissions, animateurs et programmation.
+</p>
+</div>
+</a>
+
+
+<!-- 4 PODCAST CENTER -->
+
+<a href="pages/podcasts.html" class="card-link">
+<div class="card">
+<div class="module-number">04</div>
+<h3 id="modulePodcastsTitle">🎧 PODCAST CENTER</h3>
+<p id="modulePodcastsText">
+Podcasts, replays et émissions enregistrées.
+</p>
+</div>
+</a>
+
+
+<!-- 5 MUSIC CENTER -->
+
+<a href="pages/music.html" class="card-link">
+<div class="card">
+<div class="module-number">05</div>
+<h3 id="moduleMusicTitle">🎵 MUSIC CENTER</h3>
+<p id="moduleMusicText">
+Musique, nouveautés, Top 20 et Rara.
+</p>
+</div>
+</a>
+
+
+<!-- 6 ARTISTS CENTER -->
+
+<a href="pages/artists.html" class="card-link">
+<div class="card">
+<div class="module-number">06</div>
+<h3 id="moduleArtistsTitle">🎤 ARTISTS CENTER</h3>
+<p id="moduleArtistsText">
+Artistes, musiciens, DJs et groupes.
+</p>
+</div>
+</a>
+
+
+<!-- 7 VIDEO GALLERY -->
+
+<a href="pages/video.html" class="card-link">
+<div class="card">
+<div class="module-number">07</div>
+<h3 id="moduleVideoTitle">🎬 VIDEO GALLERY</h3>
+<p id="moduleVideoText">
+Studio, promotions, interviews et archives vidéo.
+</p>
+</div>
+</a>
+
+
+<!-- 8 EVENTS -->
+
+<a href="pages/events.html" class="card-link">
+<div class="card">
+<div class="module-number">08</div>
+<h3 id="moduleEventsTitle">📅 EVENTS</h3>
+<p id="moduleEventsText">
+Concerts, événements radio et activités communautaires.
+</p>
+</div>
+</a>
+
+
+<!-- 9 CONTACT -->
+
+<a href="pages/contact.html" class="card-link">
+<div class="card">
+<div class="module-number">09</div>
+<h3 id="moduleContactTitle">📞 CONTACT</h3>
+<p id="moduleContactText">
+Contactez directement PRO-MAX DMP FM.
+</p>
+</div>
 </a>
 
 
 </div>
 
+</section>
 
+
+<!-- ================================================= -->
+<!-- PROGRAMMES -->
+<!-- ================================================= -->
+
+<section>
+
+<div class="title" id="tPrograms">
+PROGRAMMES
 </div>
 
+<div class="divider"></div>
+
+<div class="grid">
+
+<a href="pages/shows.html" class="card-link">
+<div class="card">
+<h3>LUN-VEN 6AM-10AM</h3>
+<p>Matin Force</p>
+</div>
+</a>
+
+<a href="pages/shows.html" class="card-link">
+<div class="card">
+<h3>10AM-3PM</h3>
+<p>Hit Non Stop</p>
+</div>
+</a>
+
+<a href="pages/shows.html" class="card-link">
+<div class="card">
+<h3>3PM-7PM</h3>
+<p>Drive Time</p>
+</div>
+</a>
+
+<a href="pages/shows.html" class="card-link">
+<div class="card">
+<h3>WEEKEND</h3>
+<p>Party Mix</p>
+</div>
+</a>
+
+</div>
 
 </section>
 
 
+<!-- ================================================= -->
+<!-- PODCASTS & REPLAYS -->
+<!-- ================================================= -->
 
-<!-- ============================================= -->
-<!-- MODIL 9 FOOTER SOCIALS ORIGINAL -->
-<!-- ============================================= -->
+<section>
+
+<div class="title" id="tPodcasts">
+PODCASTS & REPLAYS
+</div>
+
+<div class="divider"></div>
+
+<div class="grid">
+
+<a href="pages/podcasts.html" class="card-link">
+<div class="card">
+<h3 id="replayTitle">Replay Matinale</h3>
+</div>
+</a>
+
+<a href="pages/podcasts.html" class="card-link">
+<div class="card">
+<h3 id="interviewTitle">Interview Exclusive</h3>
+</div>
+</a>
+
+<a href="pages/music.html" class="card-link">
+<div class="card">
+<h3>Top 20</h3>
+</div>
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ACTUALITÉS -->
+<!-- ================================================= -->
+
+<section>
+
+<div class="title" id="tNews">
+ACTUALITÉS
+</div>
+
+<div class="divider"></div>
+
+<div class="grid">
+
+<a href="pages/news.html" class="card-link">
+<div class="card">
+<h3 id="newsFlash">News Flash</h3>
+</div>
+</a>
+
+<a href="pages/events.html" class="card-link">
+<div class="card">
+<h3 id="eventsText">Événements</h3>
+</div>
+</a>
+
+<a href="pages/news.html" class="card-link">
+<div class="card">
+<h3 id="communityText">Communauté</h3>
+</div>
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- GALERIE VIDÉO -->
+<!-- ================================================= -->
+
+<section>
+
+<div class="title" id="tGallery">
+GALERIE VIDÉO
+</div>
+
+<div class="divider"></div>
+
+<div class="grid">
+
+<a href="pages/video.html" class="card-link">
+<div
+class="card"
+style="height:150px;display:grid;place-items:center">
+▶ PROMO 1
+</div>
+</a>
+
+<a href="pages/video.html" class="card-link">
+<div
+class="card"
+style="height:150px;display:grid;place-items:center">
+▶ STUDIO LIVE
+</div>
+</a>
+
+<a href="pages/events.html" class="card-link">
+<div
+class="card"
+style="height:150px;display:grid;place-items:center">
+▶ EVENT
+</div>
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- CONTACT -->
+<!-- ================================================= -->
+
+<section id="contact">
+
+<div class="title" id="tContact">
+CONTACT
+</div>
+
+<div class="divider"></div>
+
+<div class="grid">
+
+<div class="card">
+
+<b style="color:#FF8C00" id="phoneLabel">
+Téléphone
+</b>
+
+<br>
+
+<a href="tel:+14076405166">
+(407) 640-5166
+</a>
+
+<br>
+
+<a href="tel:+15162168494">
+(516) 216-8494
+</a>
+
+</div>
+
+
+<div class="card">
+
+<b style="color:#FF8C00">
+Website
+</b>
+
+<br>
+
+bss1815pro-max-dmp.com
+
+<br><br>
+
+<b style="color:#FF8C00">
+Email
+</b>
+
+<br>
+
+<a href="mailto:promaxfm@gmail.com">
+promaxfm@gmail.com
+</a>
+
+</div>
+
+
+<div class="card">
+
+<b style="color:#FF8C00" id="messageLabel">
+Message
+</b>
+
+<br>
+
+<input
+id="nameInput"
+class="contact-input"
+placeholder="Nom">
+
+<textarea
+id="messageInput"
+class="contact-input"
+placeholder="Message"></textarea>
+
+<br>
+
+<a
+href="mailto:promaxfm@gmail.com"
+id="sendBtn"
+class="send-btn">
+ENVOYER
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- FOOTER / SOCIAL NETWORKS -->
+<!-- ================================================= -->
 
 <footer>
 
-
 <div
+id="footerTitle"
 style="
 color:#FF8C00;
 font-weight:900;
-letter-spacing:2px;
-"
-id="footerTitle">
+letter-spacing:2px">
 
 PRO-MAX DMP FM - LA FORCE DU SON
 
 </div>
 
 
+<div class="socials">
 
-<div
-class="socials"
-style="
-justify-content:center;
-margin:18px 0;
-">
+<a
+href="#"
+class="social facebook"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
 
+<a
+href="#"
+class="social whatsapp"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
 
-<div class="social">
-F
-</div>
+<a
+href="#"
+class="social tiktok"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="TikTok">
+<i class="fa-brands fa-tiktok"></i>
+</a>
 
+<a
+href="#"
+class="social youtube"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="YouTube">
+<i class="fa-brands fa-youtube"></i>
+</a>
 
-<div class="social">
-W
-</div>
+<a
+href="#"
+class="social instagram"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
 
-
-<div class="social">
-T
-</div>
-
-
-<div class="social">
-Y
-</div>
-
-
-<div class="social">
-I
-</div>
-
-
-<div class="social">
+<a
+href="#"
+class="social truth"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Truth Social">
 TS
+</a>
+
+<a
+href="#"
+class="social twitter"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="X">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
+
+<a
+href="#"
+class="social linkedin"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="LinkedIn">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+
+<a
+href="#"
+class="social spotify"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Spotify">
+<i class="fa-brands fa-spotify"></i>
+</a>
+
 </div>
-
-
-<div class="social">
-X
-</div>
-
-
-<div class="social">
-In
-</div>
-
-
-<div class="social">
-S
-</div>
-
-
-</div>
-
 
 
 <div style="color:#FFD6A0">
@@ -1722,7 +999,7 @@ S
 Facebook |
 WhatsApp |
 TikTok |
-Youtube |
+YouTube |
 Instagram |
 Truth Social |
 X/Twitter |
@@ -1732,671 +1009,332 @@ Spotify
 </div>
 
 
+<div style="margin-top:10px;color:#FFD6A0">
 
-<div
-style="
-margin-top:10px;
-color:#FFD6A0;
-">
+📞
+<a href="tel:+14076405166">
+(407) 640-5166
+</a>
 
-📞 (407) 640-5166 |
+|
 
-(516) 216-8494 |
+<a href="tel:+15162168494">
+(516) 216-8494
+</a>
 
-🌐 bss1815pro-max-dmp.com |
+|
+
+🌐 bss1815pro-max-dmp.com
+
+|
 
 ✉
-
 <a href="mailto:promaxfm@gmail.com">
-
 promaxfm@gmail.com
-
 </a>
 
 </div>
 
 
+<div
+style="
+margin-top:16px;
+color:#FF8C00;
+font-weight:900;
+line-height:1.7">
 
-<div style="margin-top:8px">
-
-© 2026 PRO-MAX DMP FM -
-Orange Apricot 🍊 Black ⚫️ Fade Edition
+DEVAN DEVAN NÈT.<br>
+BATI POU JODI A.<br>
+PARE POU DEMEN.
 
 </div>
 
 
+<div style="margin-top:10px">
+
+© 2026 PRO-MAX DMP FM - Orange Apricot 🍊 Black ⚫️ Fade Edition
+
+</div>
+
 </footer>
 
 
-
-<!-- ============================================= -->
-<!-- LANGUAGE TOGGLE -->
-<!-- KORÈKSYON JS SÈLMAN -->
-<!-- ============================================= -->
-
 <script>
 
+/* ================================================= */
+/* LANGUAGE SYSTEM FR / EN / HT */
+/* ================================================= */
 
 const translations={
 
-
 fr:{
-
-
-navHome:'ACCUEIL',
-
-navLive:'LIVE',
-
-navPodcasts:'PODCASTS',
-
-navContact:'CONTACT',
-
-
-hero:'LA FORCE DU SON',
-
-heroLive:'● EN DIRECT',
-
-
-live:'EN DIRECT MAINTENANT',
-
-about:'À PROPOS',
-
-programs:'PROGRAMMES',
-
-podcasts:'PODCASTS & REPLAYS',
-
-news:'ACTUALITÉS',
-
-gallery:'GALERIE VIDÉO',
-
-modules:'9 MODIL PRO-MAX FM',
-
-contact:'CONTACT',
-
-
-powerTitle:'LA FORCE DU SON',
-
-powerText:'Radio proximité, musique, actu, culture 24h/24.',
-
-
-missionTitle:'Mission',
-
-missionText:'Connecter communauté haïtienne & internationale.',
-
-
-qualityTitle:'Qualité Pro',
-
-qualityText:'Son cristallin, sans accent.',
-
-
-eventsOld:'Événements',
-
-communityOld:'Communauté',
-
-
-moduleLive:'🔴 LIVE RADIO',
-
-moduleLiveText:'Radio en direct 24/7.',
-
-
-moduleNews:'📰 NEWS CENTER',
-
-moduleNewsText:'Actualités locales et internationales.',
-
-
-moduleShows:'🎙️ SHOWS & PROGRAMS',
-
-moduleShowsText:'Émissions et programmation.',
-
-
-modulePodcasts:'🎧 PODCAST CENTER',
-
-modulePodcastsText:'Podcasts et replays.',
-
-
-moduleMusic:'🎵 MUSIC CENTER',
-
-moduleMusicText:'Musique, nouveautés et Top 20.',
-
-
-moduleArtists:'🎤 ARTISTS CENTER',
-
-moduleArtistsText:'Artistes, musiciens et DJs.',
-
-
-moduleVideo:'🎬 VIDEO GALLERY',
-
-moduleVideoText:'Vidéos, studio et archives.',
-
-
-moduleEvents:'📅 EVENTS',
-
-moduleEventsText:'Événements et concerts.',
-
-
-moduleContact:'📞 CONTACT',
-
-moduleContactText:'Contactez PRO-MAX FM.',
-
-
-phone:'Téléphone',
-
-message:'Message',
-
-name:'Nom',
-
-send:'ENVOYER',
-
-
-footer:'PRO-MAX DMP FM - LA FORCE DU SON'
-
-
+home:"ACCUEIL",
+contactNav:"CONTACT",
+hero:"LA FORCE DU SON",
+heroLive:"● EN DIRECT",
+live:"EN DIRECT MAINTENANT",
+play:"PLAY ▶",
+about:"À PROPOS",
+about1Title:"LA FORCE DU SON",
+about1Text:"Radio proximité, musique, actu, culture 24h/24.",
+about2Title:"Mission",
+about2Text:"Connecter communauté haïtienne & internationale.",
+about3Title:"Qualité Pro",
+about3Text:"Son cristallin, qualité professionnelle.",
+modules:"9 MODIL PRO-MAX DMP FM",
+moduleLiveTitle:"🔴 LIVE RADIO",
+moduleLiveText:"Radio en direct 24/7.",
+moduleNewsTitle:"📰 NEWS CENTER",
+moduleNewsText:"Actualités locales, haïtiennes et internationales.",
+moduleShowsTitle:"🎙️ SHOWS & PROGRAMS",
+moduleShowsText:"Émissions, animateurs et programmation.",
+modulePodcastsTitle:"🎧 PODCAST CENTER",
+modulePodcastsText:"Podcasts, replays et émissions enregistrées.",
+moduleMusicTitle:"🎵 MUSIC CENTER",
+moduleMusicText:"Musique, nouveautés, Top 20 et Rara.",
+moduleArtistsTitle:"🎤 ARTISTS CENTER",
+moduleArtistsText:"Artistes, musiciens, DJs et groupes.",
+moduleVideoTitle:"🎬 VIDEO GALLERY",
+moduleVideoText:"Studio, promotions, interviews et archives vidéo.",
+moduleEventsTitle:"📅 EVENTS",
+moduleEventsText:"Concerts, événements radio et activités communautaires.",
+moduleContactTitle:"📞 CONTACT",
+moduleContactText:"Contactez directement PRO-MAX DMP FM.",
+programs:"PROGRAMMES",
+podcasts:"PODCASTS & REPLAYS",
+replay:"Replay Matinale",
+interview:"Interview Exclusive",
+news:"ACTUALITÉS",
+newsFlash:"News Flash",
+events:"Événements",
+community:"Communauté",
+gallery:"GALERIE VIDÉO",
+contact:"CONTACT",
+phone:"Téléphone",
+message:"Message",
+name:"Nom",
+send:"ENVOYER",
+footer:"PRO-MAX DMP FM - LA FORCE DU SON"
 },
-
-
 
 en:{
-
-
-navHome:'HOME',
-
-navLive:'LIVE',
-
-navPodcasts:'PODCASTS',
-
-navContact:'CONTACT',
-
-
-hero:'THE POWER OF SOUND',
-
-heroLive:'● LIVE',
-
-
-live:'LIVE NOW',
-
-about:'ABOUT US',
-
-programs:'PROGRAMS',
-
-podcasts:'PODCASTS & REPLAYS',
-
-news:'NEWS',
-
-gallery:'VIDEO GALLERY',
-
-modules:'9 PRO-MAX FM MODULES',
-
-contact:'CONTACT',
-
-
-powerTitle:'THE POWER OF SOUND',
-
-powerText:'Local radio, music, news and culture 24/7.',
-
-
-missionTitle:'Mission',
-
-missionText:'Connecting the Haitian and international community.',
-
-
-qualityTitle:'Professional Quality',
-
-qualityText:'Professional digital radio sound.',
-
-
-eventsOld:'Events',
-
-communityOld:'Community',
-
-
-moduleLive:'🔴 LIVE RADIO',
-
-moduleLiveText:'Live radio 24/7.',
-
-
-moduleNews:'📰 NEWS CENTER',
-
-moduleNewsText:'Local and international news.',
-
-
-moduleShows:'🎙️ SHOWS & PROGRAMS',
-
-moduleShowsText:'Shows and programming.',
-
-
-modulePodcasts:'🎧 PODCAST CENTER',
-
-modulePodcastsText:'Podcasts and replays.',
-
-
-moduleMusic:'🎵 MUSIC CENTER',
-
-moduleMusicText:'Music, new releases and Top 20.',
-
-
-moduleArtists:'🎤 ARTISTS CENTER',
-
-moduleArtistsText:'Artists, musicians and DJs.',
-
-
-moduleVideo:'🎬 VIDEO GALLERY',
-
-moduleVideoText:'Videos, studio and archives.',
-
-
-moduleEvents:'📅 EVENTS',
-
-moduleEventsText:'Events and concerts.',
-
-
-moduleContact:'📞 CONTACT',
-
-moduleContactText:'Contact PRO-MAX FM.',
-
-
-phone:'Telephone',
-
-message:'Message',
-
-name:'Name',
-
-send:'SEND',
-
-
-footer:'PRO-MAX DMP FM - THE POWER OF SOUND'
-
-
+home:"HOME",
+contactNav:"CONTACT",
+hero:"THE POWER OF SOUND",
+heroLive:"● LIVE",
+live:"LIVE NOW",
+play:"PLAY ▶",
+about:"ABOUT US",
+about1Title:"THE POWER OF SOUND",
+about1Text:"Local radio, music, news and culture 24/7.",
+about2Title:"Mission",
+about2Text:"Connecting the Haitian and international community.",
+about3Title:"Professional Quality",
+about3Text:"Professional digital radio sound.",
+modules:"9 PRO-MAX DMP FM MODULES",
+moduleLiveTitle:"🔴 LIVE RADIO",
+moduleLiveText:"Live radio 24/7.",
+moduleNewsTitle:"📰 NEWS CENTER",
+moduleNewsText:"Local, Haitian and international news.",
+moduleShowsTitle:"🎙️ SHOWS & PROGRAMS",
+moduleShowsText:"Shows, hosts and programming.",
+modulePodcastsTitle:"🎧 PODCAST CENTER",
+modulePodcastsText:"Podcasts, replays and recorded shows.",
+moduleMusicTitle:"🎵 MUSIC CENTER",
+moduleMusicText:"Music, new releases, Top 20 and Rara.",
+moduleArtistsTitle:"🎤 ARTISTS CENTER",
+moduleArtistsText:"Artists, musicians, DJs and bands.",
+moduleVideoTitle:"🎬 VIDEO GALLERY",
+moduleVideoText:"Studio, promotions, interviews and video archives.",
+moduleEventsTitle:"📅 EVENTS",
+moduleEventsText:"Concerts, radio events and community activities.",
+moduleContactTitle:"📞 CONTACT",
+moduleContactText:"Contact PRO-MAX DMP FM directly.",
+programs:"PROGRAMS",
+podcasts:"PODCASTS & REPLAYS",
+replay:"Morning Replay",
+interview:"Exclusive Interview",
+news:"NEWS",
+newsFlash:"News Flash",
+events:"Events",
+community:"Community",
+gallery:"VIDEO GALLERY",
+contact:"CONTACT",
+phone:"Telephone",
+message:"Message",
+name:"Name",
+send:"SEND",
+footer:"PRO-MAX DMP FM - THE POWER OF SOUND"
 },
 
-
-
 ht:{
-
-
-navHome:'AKÈY',
-
-navLive:'LIVE',
-
-navPodcasts:'PODCAST',
-
-navContact:'KONTAK',
-
-
-hero:'FÒS SON AN',
-
-heroLive:'● LIVE',
-
-
-live:'LIVE KOUNYE A',
-
-about:'APWOPO NOU',
-
-programs:'PWOGRAM',
-
-podcasts:'PODCAST AK REPLAY',
-
-news:'AKTYALITE',
-
-gallery:'GALRI VIDEYO',
-
-modules:'9 MODIL PRO-MAX FM',
-
-contact:'KONTAK',
-
-
-powerTitle:'FÒS SON AN',
-
-powerText:'Radyo lokal, mizik, nouvèl ak kilti 24 sou 24.',
-
-
-missionTitle:'Misyon',
-
-missionText:'Konekte kominote ayisyèn ak kominote entènasyonal la.',
-
-
-qualityTitle:'Kalite Pwofesyonèl',
-
-qualityText:'Son radyo dijital pwofesyonèl.',
-
-
-eventsOld:'Evènman',
-
-communityOld:'Kominote',
-
-
-moduleLive:'🔴 LIVE RADIO',
-
-moduleLiveText:'Radyo an dirèk 24 sou 24.',
-
-
-moduleNews:'📰 SANT NOUVÈL',
-
-moduleNewsText:'Nouvèl lokal ak entènasyonal.',
-
-
-moduleShows:'🎙️ EMISYON & PWOGRAM',
-
-moduleShowsText:'Emisyon ak pwogramasyon.',
-
-
-modulePodcasts:'🎧 SANT PODCAST',
-
-modulePodcastsText:'Podcast ak replay.',
-
-
-moduleMusic:'🎵 SANT MIZIK',
-
-moduleMusicText:'Mizik, nouvo mizik ak Top 20.',
-
-
-moduleArtists:'🎤 SANT ATIS',
-
-moduleArtistsText:'Atis, mizisyen ak DJ.',
-
-
-moduleVideo:'🎬 GALRI VIDEYO',
-
-moduleVideoText:'Videyo, studio ak achiv.',
-
-
-moduleEvents:'📅 EVÈNMAN',
-
-moduleEventsText:'Evènman ak konsè.',
-
-
-moduleContact:'📞 KONTAK',
-
-moduleContactText:'Kontakte PRO-MAX FM.',
-
-
-phone:'Telefòn',
-
-message:'Mesaj',
-
-name:'Non',
-
-send:'VOYE',
-
-
-footer:'PRO-MAX DMP FM - FÒS SON AN'
-
-
+home:"AKÈY",
+contactNav:"KONTAK",
+hero:"FÒS SON AN",
+heroLive:"● LIVE",
+live:"LIVE KOUNYE A",
+play:"JWE ▶",
+about:"APWOPO NOU",
+about1Title:"FÒS SON AN",
+about1Text:"Radyo lokal, mizik, nouvèl ak kilti 24 sou 24.",
+about2Title:"Misyon",
+about2Text:"Konekte kominote ayisyèn ak kominote entènasyonal la.",
+about3Title:"Kalite Pwofesyonèl",
+about3Text:"Son radyo dijital pwofesyonèl.",
+modules:"9 MODIL PRO-MAX DMP FM",
+moduleLiveTitle:"🔴 RADYO LIVE",
+moduleLiveText:"Radyo an dirèk 24 sou 24.",
+moduleNewsTitle:"📰 SANT NOUVÈL",
+moduleNewsText:"Nouvèl lokal, Ayiti ak entènasyonal.",
+moduleShowsTitle:"🎙️ EMISYON & PWOGRAM",
+moduleShowsText:"Emisyon, animatè ak pwogramasyon.",
+modulePodcastsTitle:"🎧 SANT PODCAST",
+modulePodcastsText:"Podcast, replay ak emisyon anrejistre.",
+moduleMusicTitle:"🎵 SANT MIZIK",
+moduleMusicText:"Mizik, nouvo mizik, Top 20 ak Rara.",
+moduleArtistsTitle:"🎤 SANT ATIS",
+moduleArtistsText:"Atis, mizisyen, DJ ak gwoup.",
+moduleVideoTitle:"🎬 GALRI VIDEYO",
+moduleVideoText:"Studio, promosyon, entèvyou ak achiv videyo.",
+moduleEventsTitle:"📅 EVÈNMAN",
+moduleEventsText:"Konsè, evènman radyo ak aktivite kominotè.",
+moduleContactTitle:"📞 KONTAK",
+moduleContactText:"Kontakte PRO-MAX DMP FM dirèkteman.",
+programs:"PWOGRAM",
+podcasts:"PODCAST AK REPLAY",
+replay:"Replay Maten",
+interview:"Entèvyou Eksklizif",
+news:"AKTYALITE",
+newsFlash:"Dènye Nouvèl",
+events:"Evènman",
+community:"Kominote",
+gallery:"GALRI VIDEYO",
+contact:"KONTAK",
+phone:"Telefòn",
+message:"Mesaj",
+name:"Non",
+send:"VOYE",
+footer:"PRO-MAX DMP FM - FÒS SON AN"
 }
 
 };
 
 
+function setLang(lang,btn){
 
-function setLang(l,button){
+const t=translations[lang];
 
+document.documentElement.lang=lang;
 
-const m=translations[l];
+document.getElementById("navHome").textContent=t.home;
+document.getElementById("navContact").textContent=t.contactNav;
 
+document.getElementById("heroSub").textContent=t.hero;
+document.getElementById("heroLive").textContent=t.heroLive;
 
-document.documentElement.lang=l;
+document.getElementById("tLive").textContent=t.live;
+document.getElementById("playBtn").textContent=t.play;
 
+document.getElementById("tAbout").textContent=t.about;
 
-/* HEADER */
+document.getElementById("about1Title").textContent=t.about1Title;
+document.getElementById("about1Text").textContent=t.about1Text;
 
-document.getElementById('navHome').innerText=
-m.navHome;
+document.getElementById("about2Title").textContent=t.about2Title;
+document.getElementById("about2Text").textContent=t.about2Text;
 
+document.getElementById("about3Title").textContent=t.about3Title;
+document.getElementById("about3Text").textContent=t.about3Text;
 
-document.getElementById('navLive').innerText=
-m.navLive;
+document.getElementById("modulesTitle").textContent=t.modules;
 
+document.getElementById("moduleLiveTitle").textContent=t.moduleLiveTitle;
+document.getElementById("moduleLiveText").textContent=t.moduleLiveText;
 
-document.getElementById('navPodcasts').innerText=
-m.navPodcasts;
+document.getElementById("moduleNewsTitle").textContent=t.moduleNewsTitle;
+document.getElementById("moduleNewsText").textContent=t.moduleNewsText;
 
+document.getElementById("moduleShowsTitle").textContent=t.moduleShowsTitle;
+document.getElementById("moduleShowsText").textContent=t.moduleShowsText;
 
-document.getElementById('navContact').innerText=
-m.navContact;
+document.getElementById("modulePodcastsTitle").textContent=t.modulePodcastsTitle;
+document.getElementById("modulePodcastsText").textContent=t.modulePodcastsText;
 
+document.getElementById("moduleMusicTitle").textContent=t.moduleMusicTitle;
+document.getElementById("moduleMusicText").textContent=t.moduleMusicText;
 
-/* HERO */
+document.getElementById("moduleArtistsTitle").textContent=t.moduleArtistsTitle;
+document.getElementById("moduleArtistsText").textContent=t.moduleArtistsText;
 
-document.getElementById('heroSub').innerText=
-m.hero;
+document.getElementById("moduleVideoTitle").textContent=t.moduleVideoTitle;
+document.getElementById("moduleVideoText").textContent=t.moduleVideoText;
 
+document.getElementById("moduleEventsTitle").textContent=t.moduleEventsTitle;
+document.getElementById("moduleEventsText").textContent=t.moduleEventsText;
 
-document.getElementById('heroLive').innerText=
-m.heroLive;
+document.getElementById("moduleContactTitle").textContent=t.moduleContactTitle;
+document.getElementById("moduleContactText").textContent=t.moduleContactText;
 
+document.getElementById("tPrograms").textContent=t.programs;
 
-/* ORIGINAL SECTIONS */
+document.getElementById("tPodcasts").textContent=t.podcasts;
+document.getElementById("replayTitle").textContent=t.replay;
+document.getElementById("interviewTitle").textContent=t.interview;
 
-document.getElementById('tLive').innerText=
-m.live;
+document.getElementById("tNews").textContent=t.news;
+document.getElementById("newsFlash").textContent=t.newsFlash;
+document.getElementById("eventsText").textContent=t.events;
+document.getElementById("communityText").textContent=t.community;
 
+document.getElementById("tGallery").textContent=t.gallery;
 
-document.getElementById('tAbout').innerText=
-m.about;
+document.getElementById("tContact").textContent=t.contact;
+document.getElementById("phoneLabel").textContent=t.phone;
+document.getElementById("messageLabel").textContent=t.message;
 
+document.getElementById("nameInput").placeholder=t.name;
+document.getElementById("messageInput").placeholder=t.message;
 
-document.getElementById('programTitle').innerText=
-m.programs;
+document.getElementById("sendBtn").textContent=t.send;
+document.getElementById("footerTitle").textContent=t.footer;
 
-
-document.getElementById('podcastTitle').innerText=
-m.podcasts;
-
-
-document.getElementById('newsTitle').innerText=
-m.news;
-
-
-document.getElementById('galleryTitle').innerText=
-m.gallery;
-
-
-document.getElementById('tContact').innerText=
-m.contact;
-
-
-/* ABOUT */
-
-document.getElementById('powerTitle').innerText=
-m.powerTitle;
-
-
-document.getElementById('powerText').innerText=
-m.powerText;
-
-
-document.getElementById('missionTitle').innerText=
-m.missionTitle;
-
-
-document.getElementById('missionText').innerText=
-m.missionText;
-
-
-document.getElementById('qualityTitle').innerText=
-m.qualityTitle;
-
-
-document.getElementById('qualityText').innerText=
-m.qualityText;
-
-
-document.getElementById('eventsOld').innerText=
-m.eventsOld;
-
-
-document.getElementById('communityOld').innerText=
-m.communityOld;
-
-
-/* 9 MODULES */
-
-document.getElementById('modulesTitle').innerText=
-m.modules;
-
-
-document.getElementById('moduleLive').innerText=
-m.moduleLive;
-
-
-document.getElementById('moduleLiveText').innerText=
-m.moduleLiveText;
-
-
-document.getElementById('moduleNews').innerText=
-m.moduleNews;
-
-
-document.getElementById('moduleNewsText').innerText=
-m.moduleNewsText;
-
-
-document.getElementById('moduleShows').innerText=
-m.moduleShows;
-
-
-document.getElementById('moduleShowsText').innerText=
-m.moduleShowsText;
-
-
-document.getElementById('modulePodcasts').innerText=
-m.modulePodcasts;
-
-
-document.getElementById('modulePodcastsText').innerText=
-m.modulePodcastsText;
-
-
-document.getElementById('moduleMusic').innerText=
-m.moduleMusic;
-
-
-document.getElementById('moduleMusicText').innerText=
-m.moduleMusicText;
-
-
-document.getElementById('moduleArtists').innerText=
-m.moduleArtists;
-
-
-document.getElementById('moduleArtistsText').innerText=
-m.moduleArtistsText;
-
-
-document.getElementById('moduleVideo').innerText=
-m.moduleVideo;
-
-
-document.getElementById('moduleVideoText').innerText=
-m.moduleVideoText;
-
-
-document.getElementById('moduleEvents').innerText=
-m.moduleEvents;
-
-
-document.getElementById('moduleEventsText').innerText=
-m.moduleEventsText;
-
-
-document.getElementById('moduleContact').innerText=
-m.moduleContact;
-
-
-document.getElementById('moduleContactText').innerText=
-m.moduleContactText;
-
-
-/* CONTACT */
-
-document.getElementById('phoneTitle').innerText=
-m.phone;
-
-
-document.getElementById('messageTitle').innerText=
-m.message;
-
-
-document.getElementById('nameInput').placeholder=
-m.name;
-
-
-document.getElementById('messageInput').placeholder=
-m.message;
-
-
-document.getElementById('sendButton').innerText=
-m.send;
-
-
-/* FOOTER */
-
-document.getElementById('footerTitle').innerText=
-m.footer;
-
-
-/* ACTIVE LANGUAGE */
-
-document
-.querySelectorAll('.lang button')
-.forEach(function(btn){
-
-btn.classList.remove('active');
-
+document.querySelectorAll(".lang button").forEach(function(button){
+button.classList.remove("active");
 });
 
-
-button.classList.add('active');
-
-
-localStorage.setItem(
-'promax-language',
-l
-);
-
+btn.classList.add("active");
 
 }
 
 
+/* ================================================= */
+/* VIDEO SOUND */
+/* ================================================= */
 
-document.addEventListener(
-'DOMContentLoaded',
-function(){
+function toggleSound(){
 
+const video=document.getElementById("mainVideo");
+const btn=document.getElementById("soundBtn");
 
-const savedLanguage=
-localStorage.getItem('promax-language') || 'fr';
+if(video.muted){
 
+video.muted=false;
+video.volume=1;
 
-const buttons=
-document.querySelectorAll('.lang button');
+video.play().catch(function(){});
 
+btn.textContent="🔊";
 
-if(savedLanguage==='en'){
+}else{
 
-setLang('en',buttons[1]);
-
-}
-
-else if(savedLanguage==='ht'){
-
-setLang('ht',buttons[2]);
-
-}
-
-else{
-
-setLang('fr',buttons[0]);
+video.muted=true;
+btn.textContent="🔇";
 
 }
 
-
 }
-);
-
 
 </script>
 
-
 </body>
-
 </html>
