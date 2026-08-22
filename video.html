@@ -3,162 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRO-MAX FM | Video</title>
+<title>VIDEO GALLERY - PRO-MAX DMP FM</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <style>
-:root{--orange:#ff6500;--orange2:#ff8a3d;--orange3:#ffb066;--border:rgba(255,101,0,.38);}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:radial-gradient(circle at 50% 0,rgba(255,101,0,.13),transparent 35%),linear-gradient(180deg,#000,#0b0300,#000);color:var(--orange2);font-family:Arial,sans-serif;min-height:100vh;}
-a{color:inherit;text-decoration:none;}
-header{background:#000;border-bottom:2px solid var(--orange);position:sticky;top:0;z-index:1000;}
-.nav{max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:20px;}
-.brand{display:flex;align-items:center;gap:12px;}
-.logo{width:56px;height:56px;border:2px solid var(--orange);border-radius:50%;overflow:hidden;background:#000;flex-shrink:0;}
-.logo video{width:100%;height:100%;object-fit:cover;display:block;}
-.brand h2{color:var(--orange);}
-.brand small{display:block;margin-top:4px;}
-.languages{display:flex;border:1px solid var(--border);border-radius:30px;overflow:hidden;}
-.languages button{border:0;background:#000;color:var(--orange);padding:9px 12px;font-weight:bold;cursor:pointer;}
-.languages button.active{background:var(--orange);color:#000;}
-.hero{padding:80px 20px 55px;text-align:center;border-bottom:1px solid var(--border);}
-.hero h1{color:var(--orange);font-size:clamp(40px,7vw,76px);}
-.hero p{max-width:800px;margin:18px auto 0;font-size:18px;line-height:1.7;color:var(--orange3);}
-.featured{max-width:1100px;margin:55px auto 0;padding:0 20px;}
-.featured-box{border:2px solid var(--orange);border-radius:22px;overflow:hidden;background:#050100;cursor:pointer;transition:.3s;}
-.featured-box:hover{transform:scale(1.01);box-shadow:0 0 30px rgba(255,101,0,.25);}
-.featured-screen{aspect-ratio:16/9;display:grid;place-items:center;background:radial-gradient(circle,rgba(255,101,0,.22),transparent 65%),#000;font-size:100px;position:relative;}
-.featured-screen::after{content:"CLIQUEZ POUR REGARDER";position:absolute;bottom:20px;background:var(--orange);color:#000;padding:8px 14px;border-radius:20px;font-size:12px;font-weight:bold;}
-.featured-content{padding:28px;}
-.featured-content h2{color:var(--orange);margin-bottom:10px;font-size:30px;}
-.featured-content p{line-height:1.7;}
-.filters{max-width:1200px;margin:50px auto 20px;padding:0 20px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
-.filter-btn{border:1px solid var(--orange);background:#000;color:var(--orange);padding:9px 15px;border-radius:30px;font-weight:bold;cursor:pointer;transition:.2s;}
-.filter-btn.active,.filter-btn:hover{background:var(--orange);color:#000;transform:scale(1.05);}
-.section{max-width:1200px;margin:auto;padding:35px 20px 70px;}
-.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
-.video-card{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:linear-gradient(145deg,#150700,#020202);transition:.3s;cursor:pointer;}
-.video-card:hover{transform:translateY(-5px);border-color:var(--orange);box-shadow:0 0 22px rgba(255,101,0,.25);}
-.video-thumb{height:190px;display:grid;place-items:center;font-size:75px;background:radial-gradient(circle,rgba(255,101,0,.22),transparent 65%),#050100;position:relative;}
-.video-thumb::after{content:"▶";position:absolute;inset:0;background:rgba(0,0,0,.5);display:grid;place-items:center;font-size:40px;opacity:0;transition:.3s;}
-.video-card:hover.video-thumb::after{opacity:1;}
-.video-info{padding:22px;}
-.video-info h3{color:var(--orange);margin-bottom:9px;font-size:21px;}
-.video-info p{line-height:1.6;font-size:14px;}
-.status{display:inline-block;margin-top:16px;border:1px solid var(--orange);border-radius:8px;padding:8px 12px;font-size:12px;font-weight:bold;color:#000;background:var(--orange);cursor:pointer;transition:.2s;}
-.status:hover{transform:scale(1.05);}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;place-items:center;z-index:10000;padding:20px;}
-.modal.active{display:grid;}
-.modal-box{background:#000;border:2px solid var(--orange);border-radius:20px;max-width:900px;width:100%;overflow:hidden;animation:pop.3s;}
-@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
-.modal-screen{aspect-ratio:16/9;display:grid;place-items:center;background:#050100;font-size:100px;position:relative;}
-.modal-info{padding:20px;text-align:center;}
-.modal-info h3{color:var(--orange);font-size:24px;margin-bottom:8px;}
-.modal-close{position:absolute;top:15px;right:15px;background:var(--orange);border:0;width:40px;height:40px;border-radius:50%;cursor:pointer;font-weight:bold;z-index:2;}
-footer{border-top:2px solid var(--orange);background:#000;padding:38px 20px;text-align:center;line-height:1.8;}
-footer strong{color:var(--orange);}
-@media(max-width:520px){.nav{padding:12px;gap:10px;}.logo{width:48px;height:48px;}.brand h2{font-size:17px;}.brand small{font-size:10px;}.languages button{font-size:11px;padding:8px;}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:linear-gradient(135deg,#FF8C00 0%,#FFA94D 12%,#FF7A00 28%,#7A3B00 48%,#1a0a00 68%,#000 100%);background-attachment:fixed;color:#FFD6A0;font-family:Segoe UI,Arial,sans-serif}
+a{color:#FFD6A0;text-decoration:none}
+header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:rgba(0,0,0,0.85);backdrop-filter:blur(14px);border-bottom:2px solid rgba(255,140,0,0.4)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand video{width:46px;height:46px;border-radius:50%;border:2px solid #FF8C00;object-fit:cover}
+.brand b{color:#FF8C00}
+.nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{color:#FFD6A0;font-weight:700;font-size:13px}
+.nav a.current{color:#FF8C00;border-bottom:2px solid #FF8C00;padding-bottom:2px}
+.nav a:hover{color:#FF8C00}
+.lang{display:flex;gap:5px}
+.lang button{background:transparent;border:1px solid #FF8C00;color:#FF8C00;padding:5px 10px;border-radius:20px;font-weight:800;cursor:pointer}
+.lang button.active{background:#FF8C00;color:#000}
+section{padding:44px 28px;max-width:1280px;margin:0 auto}
+.page-hero{padding:40px 28px 20px;text-align:center}
+.page-hero h1{font-size:40px;color:#FF8C00}
+.page-hero p{color:#FFD6A0;margin-top:10px;max-width:640px;margin-left:auto;margin-right:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:20px}
+.card{background:rgba(0,0,0,0.68);border:1px solid rgba(255,140,0,0.35);border-radius:18px;padding:22px;height:100%;transition:.25s ease}
+.card:hover{border-color:#FF8C00;transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,140,0,.18)}
+.card h3{color:#FF8C00;margin-bottom:8px}
+.card-link{display:block;color:inherit}
+.divider{height:1px;background:linear-gradient(90deg,transparent,#FF8C00,transparent);margin:8px 0 18px}
+.title{font-size:30px;color:#FF8C00}
+.player{background:rgba(0,0,0,0.75);border:2px solid #FF8C00;border-radius:22px;padding:22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.module-number{font-size:12px;font-weight:900;color:#FFD6A0;margin-bottom:8px;letter-spacing:1px}
+.socials{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:18px 0}
+.social{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:20px;transition:.2s ease}
+.social:hover{transform:scale(1.1)}
+.facebook{background:#1877F2;color:#fff}
+.whatsapp{background:#25D366;color:#fff}
+.tiktok{background:#000;color:#fff;border:1px solid #fff}
+.youtube{background:#FF0000;color:#fff}
+.instagram{background:linear-gradient(45deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5);color:#fff}
+.truth{background:#5448EE;color:#fff;font-size:13px}
+.twitter{background:#000;color:#fff;border:1px solid #555}
+.linkedin{background:#0A66C2;color:#fff}
+.spotify{background:#1DB954;color:#000}
+.contact-input{width:100%;margin-top:8px;padding:10px;border-radius:10px;background:#000;border:1px solid #FF8C00;color:#fff}
+.send-btn{display:inline-block;margin-top:8px;background:#FF8C00;color:#000;border:0;padding:10px 18px;border-radius:10px;font-weight:900}
+footer{padding:32px 28px;background:rgba(0,0,0,0.9);border-top:2px solid rgba(255,140,0,0.3);text-align:center}
+@media(max-width:900px){header{flex-direction:column;align-items:flex-start;gap:12px}.nav{gap:10px}}
+@media(max-width:700px){header{padding:12px 14px}.nav a{font-size:11px}.page-hero h1{font-size:28px}.player{flex-wrap:wrap}}
 </style>
 </head>
 <body>
 <header>
+<div class="brand">
+<video autoplay muted loop playsinline><source src="../pro-max-dmp-fm.mp4" type="video/mp4"></video>
+<b>PRO-MAX DMP FM</b>
+</div>
 <div class="nav">
-<a href="index.html" class="brand"><div class="logo"><video autoplay loop muted playsinline><source src="pro-max-fm.mp4" type="video/mp4"></video></div><div><h2>PRO-MAX FM</h2><small data-i18n="slogan">LA FORCE DU SON</small></div></a>
-<div class="languages"><button data-lang="fr" class="active">FRA</button><button data-lang="en">ENG</button><button data-lang="ht">KRE</button></div>
+<a href="../index.html">ACCUEIL</a>
+<a href="live.html">LIVE</a>
+<a href="news.html">NEWS</a>
+<a href="shows.html">SHOWS</a>
+<a href="podcasts.html">PODCASTS</a>
+<a href="music.html">MUSIC</a>
+<a href="artists.html">ARTISTS</a>
+<a href="video.html" class="current">VIDEO</a>
+<a href="events.html">EVENTS</a>
+<a href="contact.html">CONTACT</a>
+<div class="lang">
+<button class="active" onclick="setLang('fr',this)">FR</button>
+<button onclick="setLang('en',this)">EN</button>
+<button onclick="setLang('ht',this)">HT</button>
+</div>
 </div>
 </header>
 
-<section class="hero">
-<h1 data-i18n="title">🎥 VIDEO</h1>
-<p data-i18n="hero">Découvrez les productions vidéo, interviews, émissions, événements et contenus visuels de PRO-MAX FM.</p>
+<section class="page-hero">
+<div class="title">🎬 VIDEO GALLERY</div>
+<div class="divider"></div>
+<p>Studio, pwomosyon, entèvyou ak achiv videyo.</p>
 </section>
-
-<section class="featured">
-<div class="featured-box" onclick="openVideo(0)">
-<div class="featured-screen">▶️</div>
-<div class="featured-content"><h2>PRO-MAX FM VIDEO</h2><p data-i18n="featuredText">Les productions vidéo officielles de PRO-MAX FM apparaîtront ici dès leur publication.</p></div>
-</div>
-</section>
-
-<div class="filters">
-<button class="filter-btn active" data-filter="all" data-i18n="all">TOUT</button>
-<button class="filter-btn" data-filter="shows" data-i18n="shows">ÉMISSIONS</button>
-<button class="filter-btn" data-filter="interviews" data-i18n="interviews">INTERVIEWS</button>
-<button class="filter-btn" data-filter="events" data-i18n="events">ÉVÉNEMENTS</button>
-<button class="filter-btn" data-filter="music" data-i18n="music">MUSIQUE</button>
-<button class="filter-btn" data-filter="culture" data-i18n="culture">CULTURE</button>
-</div>
-
-<section class="section">
-<div class="video-grid">
-<div class="video-card" data-category="shows" onclick="openVideo(0)"><div class="video-thumb">🎙️</div><div class="video-info"><h3 data-i18n="showsTitle">PRO-MAX FM SHOWS</h3><p data-i18n="showsDesc">Extraits et productions vidéo des émissions officielles de la station.</p><span class="status" data-i18n="watch">REGARDER</span></div></div>
-<div class="video-card" data-category="interviews" onclick="openVideo(1)"><div class="video-thumb">🎤</div><div class="video-info"><h3 data-i18n="interviewsTitle">INTERVIEWS</h3><p data-i18n="interviewsDesc">Conversations avec artistes, leaders, entrepreneurs et invités spéciaux.</p><span class="status" data-i18n="watch">REGARDER</span></div></div>
-<div class="video-card" data-category="events" onclick="openVideo(2)"><div class="video-thumb">🎉</div><div class="video-info"><h3 data-i18n="eventsTitle">ÉVÉNEMENTS</h3><p data-i18n="eventsDesc">Concerts, activités, événements communautaires et moments spéciaux.</p><span class="status" data-i18n="watch">REGARDER</span></div></div>
-<div class="video-card" data-category="music" onclick="openVideo(3)"><div class="video-thumb">🎵</div><div class="video-info"><h3 data-i18n="musicTitle">MUSIQUE</h3><p data-i18n="musicDesc">Clips, performances, sessions musicales et découvertes artistiques.</p><span class="status" data-i18n="watch">REGARDER</span></div></div>
-<div class="video-card" data-category="culture" onclick="openVideo(4)"><div class="video-thumb">🥁</div><div class="video-info"><h3 data-i18n="cultureTitle">RACINES MYSTIQUES</h3><p data-i18n="cultureDesc">Vodou, culture, traditions, histoire et patrimoine haïtien.</p><span class="status" data-i18n="watch">REGARDER</span></div></div>
-<div class="video-card" data-category="shows" onclick="openVideo(5)"><div class="video-thumb">📻</div><div class="video-info"><h3 data-i18n="behindTitle">COULISSES PRO-MAX FM</h3><p data-i18n="behindDesc">Découvrez les coulisses, productions et moments de la station.</p><span class="status" data-i18n="watch">REGARDER</span></div></div>
-</div>
-</section>
-
-<div class="modal" id="videoModal" onclick="closeVideo()">
-<div class="modal-box" onclick="event.stopPropagation()">
-<button class="modal-close" onclick="closeVideo()">✕</button>
-<div class="modal-screen" id="modalScreen">▶️</div>
-<div class="modal-info"><h3 id="modalTitle">PRO-MAX FM VIDEO</h3><p id="modalDesc">Production officielle PRO-MAX FM</p></div>
-</div>
-</div>
+<section><div class="grid"><div class="card" style="height:150px;display:grid;place-items:center">▶ PROMO 1</div>
+<div class="card" style="height:150px;display:grid;place-items:center">▶ STUDIO LIVE</div>
+<div class="card" style="height:150px;display:grid;place-items:center">▶ EVENT</div>
+<div class="card" style="height:150px;display:grid;place-items:center">▶ ARCHIV</div></div></section>
 
 <footer>
-<p><strong>PRO-MAX FM</strong><br><span data-i18n="slogan">LA FORCE DU SON</span></p>
-<p data-i18n="footerLine">Vidéo • Radio • Médias • Culture</p>
-<p>© 2026 PRO-MAX FM DMP — Tous droits réservés.</p>
-<p><strong>DEVAN DEVAN NÈT. BATI POU JODI A. PARE POU DEMEN.</strong></p>
+<div style="color:#FF8C00;font-weight:900;letter-spacing:2px">PRO-MAX DMP FM - LA FORCE DU SON</div>
+<div class="socials">
+<a href="#" class="social facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="#" class="social whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="#" class="social tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+<a href="#" class="social youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+<a href="#" class="social instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="#" class="social truth" target="_blank" rel="noopener noreferrer" aria-label="Truth Social">TS</a>
+<a href="#" class="social twitter" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+<a href="#" class="social linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="#" class="social spotify" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fa-brands fa-spotify"></i></a>
+</div>
+<div style="color:#FFD6A0">Facebook | WhatsApp | TikTok | YouTube | Instagram | Truth Social | X/Twitter | LinkedIn | Spotify</div>
+<div style="margin-top:10px;color:#FFD6A0">📞 <a href="tel:+14076405166">(407) 640-5166</a> | <a href="tel:+15162168494">(516) 216-8494</a> | 🌐 bss1815pro-max-dmp.com | ✉ <a href="mailto:promaxfm@gmail.com">promaxfm@gmail.com</a></div>
+<div style="margin-top:10px">© 2026 PRO-MAX DMP FM - Orange Apricot 🍊 Black ⚫️ Fade Edition</div>
 </footer>
 
 <script>
-const videos=[
-{icon:"🎙️",title_fr:"PRO-MAX FM SHOWS",desc_fr:"Émissions officielles"},
-{icon:"🎤",title_fr:"INTERVIEWS",desc_fr:"Artistes et invités"},
-{icon:"🎉",title_fr:"ÉVÉNEMENTS",desc_fr:"Concerts et moments spéciaux"},
-{icon:"🎵",title_fr:"MUSIQUE",desc_fr:"Clips et performances"},
-{icon:"🥁",title_fr:"RACINES MYSTIQUES",desc_fr:"Culture haïtienne"},
-{icon:"📻",title_fr:"COULISSES PRO-MAX FM",desc_fr:"Derrière les scènes"}
-];
-function openVideo(i){
-document.getElementById('modalScreen').innerText=videos[i].icon;
-document.getElementById('modalTitle').innerText=videos[i].title_fr;
-document.getElementById('modalDesc').innerText=videos[i].desc_fr;
-document.getElementById('videoModal').classList.add('active');
+function setLang(l,btn){
+document.querySelectorAll('.lang button').forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
 }
-function closeVideo(){document.getElementById('videoModal').classList.remove('active');}
-
-const buttons=document.querySelectorAll(".filter-btn");
-const cards=document.querySelectorAll(".video-card");
-buttons.forEach(button=>{
-button.addEventListener("click",()=>{
-buttons.forEach(btn=>btn.classList.remove("active"));
-button.classList.add("active");
-const filter=button.dataset.filter;
-cards.forEach(card=>{
-card.style.display=filter==="all"||card.dataset.category===filter?"block":"none";
-});
-});
-});
-
-const translations={
-fr:{slogan:"LA FORCE DU SON",title:"🎥 VIDEO",hero:"Découvrez les productions vidéo, interviews, émissions, événements et contenus visuels de PRO-MAX FM.",featuredText:"Les productions vidéo officielles de PRO-MAX FM apparaîtront ici dès leur publication.",all:"TOUT",shows:"ÉMISSIONS",interviews:"INTERVIEWS",events:"ÉVÉNEMENTS",music:"MUSIQUE",culture:"CULTURE",showsTitle:"PRO-MAX FM SHOWS",showsDesc:"Extraits et productions vidéo des émissions officielles de la station.",interviewsTitle:"INTERVIEWS",interviewsDesc:"Conversations avec artistes, leaders, entrepreneurs et invités spéciaux.",eventsTitle:"ÉVÉNEMENTS",eventsDesc:"Concerts, activités, événements communautaires et moments spéciaux.",musicTitle:"MUSIQUE",musicDesc:"Clips, performances, sessions musicales et découvertes artistiques.",cultureTitle:"RACINES MYSTIQUES",cultureDesc:"Vodou, culture, traditions, histoire et patrimoine haïtien.",behindTitle:"COULISSES PRO-MAX FM",behindDesc:"Découvrez les coulisses, productions et moments de la station.",watch:"REGARDER",footerLine:"Vidéo • Radio • Médias • Culture"},
-en:{slogan:"THE POWER OF SOUND",title:"🎥 VIDEO",hero:"Discover video productions, interviews, shows, events and visual content from PRO-MAX FM.",featuredText:"Official PRO-MAX FM video productions will appear here once published.",all:"ALL",shows:"SHOWS",interviews:"INTERVIEWS",events:"EVENTS",music:"MUSIC",culture:"CULTURE",showsTitle:"PRO-MAX FM SHOWS",showsDesc:"Clips and video productions from official station shows.",interviewsTitle:"INTERVIEWS",interviewsDesc:"Conversations with artists, leaders, entrepreneurs and special guests.",eventsTitle:"EVENTS",eventsDesc:"Concerts, activities, community events and special moments.",musicTitle:"MUSIC",musicDesc:"Clips, performances, music sessions and artistic discoveries.",cultureTitle:"MYSTICAL ROOTS",cultureDesc:"Vodou, culture, traditions, history and Haitian heritage.",behindTitle:"BEHIND THE SCENES",behindDesc:"Discover behind the scenes, productions and moments of the station.",watch:"WATCH",footerLine:"Video • Radio • Media • Culture"},
-ht:{slogan:"FÒS SON AN",title:"🎥 VIDEYO",hero:"Dekouvri pwodiksyon videyo, entèvyou, emisyon, evènman ak kontni vizyèl PRO-MAX FM yo.",featuredText:"Pwodiksyon videyo ofisyèl PRO-MAX FM yo ap parèt isit la lè yo pibliye.",all:"TOUT",shows:"EMISYON",interviews:"ENTÈVYOU",events:"EVÈNMAN",music:"MIZIK",culture:"KILTI",showsTitle:"EMISYON PRO-MAX FM",showsDesc:"Ekstrè ak pwodiksyon videyo emisyon ofisyèl estasyon an.",interviewsTitle:"ENTÈVYOU",interviewsDesc:"Konvèsasyon ak atis, lidè, antreprenè ak envite espesyal.",eventsTitle:"EVÈNMAN",eventsDesc:"Konsè, aktivite, evènman kominotè ak moman espesyal.",musicTitle:"MIZIK",musicDesc:"Klip, pèfòmans, sesyon mizik ak dekouvèt atistik.",cultureTitle:"RASIN MISTIK",cultureDesc:"Vodou, kilti, tradisyon, istwa ak eritaj ayisyen.",behindTitle:"DÈYÈ SÈN PRO-MAX FM",behindDesc:"Dekouvri dèyè sèn, pwodiksyon ak moman estasyon an.",watch:"GADE",footerLine:"Videyo • Radyo • Medya • Kilti"}
-};
-function applyLanguage(lang){
-const dict=translations[lang]||translations.fr;
-document.documentElement.lang=lang;
-document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(dict[k])el.textContent=dict[k];});
-document.querySelectorAll("[data-lang]").forEach(btn=>{btn.classList.toggle("active",btn.dataset.lang===lang);});
-localStorage.setItem("promax-language",lang);
-}
-document.querySelectorAll("[data-lang]").forEach(b=>{b.addEventListener("click",()=>applyLanguage(b.dataset.lang));});
-const saved=localStorage.getItem("promax-language");
-const browser=navigator.language.toLowerCase().split("-")[0];
-applyLanguage(saved||(["fr","en","ht"].includes(browser)?browser:"fr"));
 </script>
 </body>
 </html>
