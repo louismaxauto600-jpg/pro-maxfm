@@ -2,41 +2,117 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>PRO-MAX FM - NEWS CENTER</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEWS CENTER - PRO-MAX DMP FM</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:linear-gradient(135deg,#FF8C00,#7A3B00 48%,#000);background-attachment:fixed;color:#FFD6A0;font-family:Segoe UI,Arial,sans-serif;min-height:100vh}
-a{text-decoration:none;color:#FFD6A0}
-header{display:flex;justify-content:space-between;align-items:center;padding:15px 25px;background:#090300;border-bottom:2px solid #FF8C00;position:sticky;top:0;z-index:10}
-.brand{font-weight:900;color:#FF8C00;font-size:20px}
-.right{display:flex;gap:12px;align-items:center}
-.lang button{background:transparent;border:1px solid #FF8C00;color:#FF8C00;border-radius:20px;padding:6px 11px;font-weight:800}
+body{background:linear-gradient(135deg,#FF8C00 0%,#FFA94D 12%,#FF7A00 28%,#7A3B00 48%,#1a0a00 68%,#000 100%);background-attachment:fixed;color:#FFD6A0;font-family:Segoe UI,Arial,sans-serif}
+a{color:#FFD6A0;text-decoration:none}
+header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:rgba(0,0,0,0.85);backdrop-filter:blur(14px);border-bottom:2px solid rgba(255,140,0,0.4)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand video{width:46px;height:46px;border-radius:50%;border:2px solid #FF8C00;object-fit:cover}
+.brand b{color:#FF8C00}
+.nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{color:#FFD6A0;font-weight:700;font-size:13px}
+.nav a.current{color:#FF8C00;border-bottom:2px solid #FF8C00;padding-bottom:2px}
+.nav a:hover{color:#FF8C00}
+.lang{display:flex;gap:5px}
+.lang button{background:transparent;border:1px solid #FF8C00;color:#FF8C00;padding:5px 10px;border-radius:20px;font-weight:800;cursor:pointer}
 .lang button.active{background:#FF8C00;color:#000}
-.home{background:#FF8C00;color:#000;padding:9px 14px;border-radius:10px;font-weight:900}
-main{max-width:1100px;margin:auto;padding:50px 28px}
-h1{font-size:44px;color:#FF8C00;text-align:center}
-.sub{text-align:center;margin:12px 0 35px;font-size:19px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
-.card{background:rgba(0,0,0,.72);border:1px solid rgba(255,140,0,.45);border-radius:18px;padding:22px;min-height:130px}
-.card h3{color:#FF8C00;margin-bottom:10px}
-footer{text-align:center;padding:30px;background:#050200;margin-top:40px;border-top:1px solid #FF8C00}
+section{padding:44px 28px;max-width:1280px;margin:0 auto}
+.page-hero{padding:40px 28px 20px;text-align:center}
+.page-hero h1{font-size:40px;color:#FF8C00}
+.page-hero p{color:#FFD6A0;margin-top:10px;max-width:640px;margin-left:auto;margin-right:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:20px}
+.card{background:rgba(0,0,0,0.68);border:1px solid rgba(255,140,0,0.35);border-radius:18px;padding:22px;height:100%;transition:.25s ease}
+.card:hover{border-color:#FF8C00;transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,140,0,.18)}
+.card h3{color:#FF8C00;margin-bottom:8px}
+.card-link{display:block;color:inherit}
+.divider{height:1px;background:linear-gradient(90deg,transparent,#FF8C00,transparent);margin:8px 0 18px}
+.title{font-size:30px;color:#FF8C00}
+.player{background:rgba(0,0,0,0.75);border:2px solid #FF8C00;border-radius:22px;padding:22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.module-number{font-size:12px;font-weight:900;color:#FFD6A0;margin-bottom:8px;letter-spacing:1px}
+.socials{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:18px 0}
+.social{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:20px;transition:.2s ease}
+.social:hover{transform:scale(1.1)}
+.facebook{background:#1877F2;color:#fff}
+.whatsapp{background:#25D366;color:#fff}
+.tiktok{background:#000;color:#fff;border:1px solid #fff}
+.youtube{background:#FF0000;color:#fff}
+.instagram{background:linear-gradient(45deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5);color:#fff}
+.truth{background:#5448EE;color:#fff;font-size:13px}
+.twitter{background:#000;color:#fff;border:1px solid #555}
+.linkedin{background:#0A66C2;color:#fff}
+.spotify{background:#1DB954;color:#000}
+.contact-input{width:100%;margin-top:8px;padding:10px;border-radius:10px;background:#000;border:1px solid #FF8C00;color:#fff}
+.send-btn{display:inline-block;margin-top:8px;background:#FF8C00;color:#000;border:0;padding:10px 18px;border-radius:10px;font-weight:900}
+footer{padding:32px 28px;background:rgba(0,0,0,0.9);border-top:2px solid rgba(255,140,0,0.3);text-align:center}
+@media(max-width:900px){header{flex-direction:column;align-items:flex-start;gap:12px}.nav{gap:10px}}
+@media(max-width:700px){header{padding:12px 14px}.nav a{font-size:11px}.page-hero h1{font-size:28px}.player{flex-wrap:wrap}}
 </style>
 </head>
 <body>
-
 <header>
-<div class="brand">PRO-MAX DMP FM</div>
-<div class="right">
+<div class="brand">
+<video autoplay muted loop playsinline><source src="../pro-max-dmp-fm.mp4" type="video/mp4"></video>
+<b>PRO-MAX DMP FM</b>
+</div>
+<div class="nav">
+<a href="../index.html">ACCUEIL</a>
+<a href="live.html">LIVE</a>
+<a href="news.html" class="current">NEWS</a>
+<a href="shows.html">SHOWS</a>
+<a href="podcasts.html">PODCASTS</a>
+<a href="music.html">MUSIC</a>
+<a href="artists.html">ARTISTS</a>
+<a href="video.html">VIDEO</a>
+<a href="events.html">EVENTS</a>
+<a href="contact.html">CONTACT</a>
 <div class="lang">
 <button class="active" onclick="setLang('fr',this)">FR</button>
 <button onclick="setLang('en',this)">EN</button>
 <button onclick="setLang('ht',this)">HT</button>
 </div>
-<a class="home" href="index.html" id="homeBtn">← ACCUEIL</a>
 </div>
 </header>
 
-<main>
-<h1 id="title">NEWS CENTER</h1>
-<div
+<section class="page-hero">
+<div class="title">📰 NEWS CENTER</div>
+<div class="divider"></div>
+<p>Aktyalite lokal, ayisyen ak entènasyonal.</p>
+</section>
+<section><div class="grid">
+<div class="card"><h3>News Flash</h3><p>Dènye nouvèl ap parèt isit la.</p></div>
+<div class="card"><h3>Politik & Sosyete</h3><p>Dènye nouvèl ap parèt isit la.</p></div>
+<div class="card"><h3>Kominote Ayisyen</h3><p>Dènye nouvèl ap parèt isit la.</p></div>
+<div class="card"><h3>Entènasyonal</h3><p>Dènye nouvèl ap parèt isit la.</p></div>
+</div></section>
+
+<footer>
+<div style="color:#FF8C00;font-weight:900;letter-spacing:2px">PRO-MAX DMP FM - LA FORCE DU SON</div>
+<div class="socials">
+<a href="#" class="social facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="#" class="social whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="#" class="social tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+<a href="#" class="social youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+<a href="#" class="social instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="#" class="social truth" target="_blank" rel="noopener noreferrer" aria-label="Truth Social">TS</a>
+<a href="#" class="social twitter" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+<a href="#" class="social linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="#" class="social spotify" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fa-brands fa-spotify"></i></a>
+</div>
+<div style="color:#FFD6A0">Facebook | WhatsApp | TikTok | YouTube | Instagram | Truth Social | X/Twitter | LinkedIn | Spotify</div>
+<div style="margin-top:10px;color:#FFD6A0">📞 <a href="tel:+14076405166">(407) 640-5166</a> | <a href="tel:+15162168494">(516) 216-8494</a> | 🌐 bss1815pro-max-dmp.com | ✉ <a href="mailto:promaxfm@gmail.com">promaxfm@gmail.com</a></div>
+<div style="margin-top:10px">© 2026 PRO-MAX DMP FM - Orange Apricot 🍊 Black ⚫️ Fade Edition</div>
+</footer>
+
+<script>
+function setLang(l,btn){
+document.querySelectorAll('.lang button').forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+}
+</script>
+</body>
+</html>
