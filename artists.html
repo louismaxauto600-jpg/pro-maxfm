@@ -1,364 +1,116 @@
 <!DOCTYPE html>
-<html lang="ht">
-
+<html lang="fr">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Artists | PRO-MAX FM</title>
-
-<link rel="stylesheet" href="style.css">
-
+<title>ARTISTS CENTER - PRO-MAX DMP FM</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:linear-gradient(135deg,#FF8C00 0%,#FFA94D 12%,#FF7A00 28%,#7A3B00 48%,#1a0a00 68%,#000 100%);background-attachment:fixed;color:#FFD6A0;font-family:Segoe UI,Arial,sans-serif}
+a{color:#FFD6A0;text-decoration:none}
+header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:rgba(0,0,0,0.85);backdrop-filter:blur(14px);border-bottom:2px solid rgba(255,140,0,0.4)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand video{width:46px;height:46px;border-radius:50%;border:2px solid #FF8C00;object-fit:cover}
+.brand b{color:#FF8C00}
+.nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{color:#FFD6A0;font-weight:700;font-size:13px}
+.nav a.current{color:#FF8C00;border-bottom:2px solid #FF8C00;padding-bottom:2px}
+.nav a:hover{color:#FF8C00}
+.lang{display:flex;gap:5px}
+.lang button{background:transparent;border:1px solid #FF8C00;color:#FF8C00;padding:5px 10px;border-radius:20px;font-weight:800;cursor:pointer}
+.lang button.active{background:#FF8C00;color:#000}
+section{padding:44px 28px;max-width:1280px;margin:0 auto}
+.page-hero{padding:40px 28px 20px;text-align:center}
+.page-hero h1{font-size:40px;color:#FF8C00}
+.page-hero p{color:#FFD6A0;margin-top:10px;max-width:640px;margin-left:auto;margin-right:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:20px}
+.card{background:rgba(0,0,0,0.68);border:1px solid rgba(255,140,0,0.35);border-radius:18px;padding:22px;height:100%;transition:.25s ease}
+.card:hover{border-color:#FF8C00;transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,140,0,.18)}
+.card h3{color:#FF8C00;margin-bottom:8px}
+.card-link{display:block;color:inherit}
+.divider{height:1px;background:linear-gradient(90deg,transparent,#FF8C00,transparent);margin:8px 0 18px}
+.title{font-size:30px;color:#FF8C00}
+.player{background:rgba(0,0,0,0.75);border:2px solid #FF8C00;border-radius:22px;padding:22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.module-number{font-size:12px;font-weight:900;color:#FFD6A0;margin-bottom:8px;letter-spacing:1px}
+.socials{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:18px 0}
+.social{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:20px;transition:.2s ease}
+.social:hover{transform:scale(1.1)}
+.facebook{background:#1877F2;color:#fff}
+.whatsapp{background:#25D366;color:#fff}
+.tiktok{background:#000;color:#fff;border:1px solid #fff}
+.youtube{background:#FF0000;color:#fff}
+.instagram{background:linear-gradient(45deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5);color:#fff}
+.truth{background:#5448EE;color:#fff;font-size:13px}
+.twitter{background:#000;color:#fff;border:1px solid #555}
+.linkedin{background:#0A66C2;color:#fff}
+.spotify{background:#1DB954;color:#000}
+.contact-input{width:100%;margin-top:8px;padding:10px;border-radius:10px;background:#000;border:1px solid #FF8C00;color:#fff}
+.send-btn{display:inline-block;margin-top:8px;background:#FF8C00;color:#000;border:0;padding:10px 18px;border-radius:10px;font-weight:900}
+footer{padding:32px 28px;background:rgba(0,0,0,0.9);border-top:2px solid rgba(255,140,0,0.3);text-align:center}
+@media(max-width:900px){header{flex-direction:column;align-items:flex-start;gap:12px}.nav{gap:10px}}
+@media(max-width:700px){header{padding:12px 14px}.nav a{font-size:11px}.page-hero h1{font-size:28px}.player{flex-wrap:wrap}}
+</style>
 </head>
-
 <body>
-
-<header class="header">
-
-<div class="logo">
-
-<a href="index.html">
-<img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM Logo">
-</a>
-
-<h1>PRO-MAX FM</h1>
-
+<header>
+<div class="brand">
+<video autoplay muted loop playsinline><source src="../pro-max-dmp-fm.mp4" type="video/mp4"></video>
+<b>PRO-MAX DMP FM</b>
 </div>
-
-<nav>
-
-<ul>
-
-<li><a href="index.html">HOME</a></li>
-<li><a href="live.html">LIVE</a></li>
-<li><a href="news.html">NEWS</a></li>
-<li><a href="shows.html">SHOWS</a></li>
-<li><a href="podcasts.html">PODCASTS</a></li>
-<li><a href="gallery.html">GALLERY</a></li>
-<li><a href="video.html">VIDEO</a></li>
-<li><a href="academy.html">AKADEMY</a></li>
-<li><a href="advertise.html">ADVERTISE</a></li>
-<li><a href="events.html">EVENTS</a></li>
-<li><a href="artists.html" class="active">ARTISTS</a></li>
-<li><a href="contact.html">CONTACT</a></li>
-
-</ul>
-
-</nav>
-
+<div class="nav">
+<a href="../index.html">ACCUEIL</a>
+<a href="live.html">LIVE</a>
+<a href="news.html">NEWS</a>
+<a href="shows.html">SHOWS</a>
+<a href="podcasts.html">PODCASTS</a>
+<a href="music.html">MUSIC</a>
+<a href="artists.html" class="current">ARTISTS</a>
+<a href="video.html">VIDEO</a>
+<a href="events.html">EVENTS</a>
+<a href="contact.html">CONTACT</a>
+<div class="lang">
+<button class="active" onclick="setLang('fr',this)">FR</button>
+<button onclick="setLang('en',this)">EN</button>
+<button onclick="setLang('ht',this)">HT</button>
+</div>
+</div>
 </header>
 
-<section class="page-banner">
-
-<div class="overlay">
-
-<h1>FEATURED ARTISTS</h1>
-
-<p>
-
-Dekouvri atis, mizisyen, DJ, chantè,
-gwoup mizik ak envite espesyal
-ki fè pati PRO-MAX FM Digital Radio Network.
-
-</p>
-
-</div>
-
+<section class="page-hero">
+<div class="title">🎤 ARTISTS CENTER</div>
+<div class="divider"></div>
+<p>Atis, mizisyen, DJ ak gwoup PRO-MAX DMP FM ap sipòte.</p>
 </section>
-
-<section class="content">
-
-<div class="gallery-grid">
-
-<div class="gallery-card">
-
-<img src="pro-max-fm-dmp.jpg" alt="Artist">
-
-<h2>FEATURED ARTIST</h2>
-
-<p>
-
-Prezantasyon ofisyèl atis la,
-istwa li,
-mizik li,
-ak reyalizasyon li.
-
-</p>
-
-<a href="#" class="button">
-
-VIEW PROFILE
-
-</a>
-
-</div>
-
-<div class="gallery-card">
-
-<img src="pro-max-fm-dmp.jpg" alt="Singer">
-
-<h2>SINGER</h2>
-
-<p>
-
-Dekouvri nouvo chantè
-ak pi gwo talan mizikal yo.
-
-</p>
-
-<a href="#" class="button">
-
-VIEW PROFILE
-
-</a>
-
-</div>
-
-<div class="gallery-card">
-
-<img src="pro-max-fm-dmp.jpg" alt="Band">
-
-<h2>MUSIC BAND</h2>
-
-<p>
-
-Gwoup mizik,
-Rara,
-Konpa,
-Gospel,
-ak lòt estil mizikal.
-
-</p>
-
-<a href="#" class="button">
-
-VIEW PROFILE
-
-</a>
-
-</div>
-
-<div class="gallery-card">
-
-<img src="pro-max-fm-dmp.jpg" alt="DJ">
-
-<h2>DJ</h2>
-
-<p>
-
-DJ ofisyèl yo
-ak tout playlist espesyal yo.
-
-</p>
-
-<a href="#" class="button">
-
-VIEW PROFILE
-
-</a>
-
-</div>
-
-<div class="gallery-card">
-
-<img src="pro-max-fm-dmp.jpg" alt="Producer">
-
-<h2>MUSIC PRODUCER</h2>
-
-<p>
-
-Pwodiktè mizik,
-aranjè,
-ak teknisyen son.
-
-</p>
-
-<a href="#" class="button">
-
-VIEW PROFILE
-
-</a>
-
-</div>
-
-<div class="gallery-card">
-
-<img src="pro-max-fm-dmp.jpg" alt="Guest Artist">
-
-<h2>GUEST ARTISTS</h2>
-
-<p>
-
-Envite espesyal
-ki patisipe sou PRO-MAX FM.
-
-</p>
-
-<a href="#" class="button">
-
-VIEW PROFILE
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="schedule">
-
-<h2>ARTIST DIRECTORY</h2>
-
-<table>
-
-<tr>
-
-<th>ARTIST</th>
-
-<th>CATEGORY</th>
-
-<th>STATUS</th>
-
-</tr>
-
-<tr>
-
-<td>Featured Artist</td>
-
-<td>Music</td>
-
-<td>Active</td>
-
-</tr>
-
-<tr>
-
-<td>Singer</td>
-
-<td>Vocal</td>
-
-<td>Active</td>
-
-</tr>
-
-<tr>
-
-<td>Band</td>
-
-<td>Group</td>
-
-<td>Active</td>
-
-</tr>
-
-<tr>
-
-<td>DJ</td>
-
-<td>Entertainment</td>
-
-<td>Active</td>
-
-</tr>
-
-<tr>
-
-<td>Producer</td>
-
-<td>Production</td>
-
-<td>Active</td>
-
-</tr>
-
-<tr>
-
-<td>Guest Artist</td>
-
-<td>Special Guest</td>
-
-<td>Available</td>
-
-</tr>
-
-</table>
-
-</section>
-
-<section class="content">
-
-<h2>JOIN PRO-MAX FM</h2>
-
-<form class="contact-form">
-
-<input type="text" placeholder="Artist / Group Name" required>
-
-<input type="text" placeholder="Music Category">
-
-<input type="email" placeholder="Email Address" required>
-
-<input type="tel" placeholder="Phone Number">
-
-<input type="text" placeholder="City / Country">
-
-<textarea rows="8" placeholder="Tell us about yourself or your music career"></textarea>
-
-<button type="submit" class="button">
-
-APPLY NOW
-
-</button>
-
-</form>
-
-</section>
+<section><div class="grid"><div class="card"><h3>Atis Vedèt</h3></div>
+<div class="card"><h3>Gwoup Popilè</h3></div>
+<div class="card"><h3>DJ Rezidan</h3></div>
+<div class="card"><h3>Nouvo Talan</h3></div></div></section>
 
 <footer>
-
-<img src="pro-max-fm-dmp.jpg" alt="PRO-MAX FM">
-
-<h3>PRO-MAX FM</h3>
-
-<p>
-
-POWERING THE FUTURE OF DIGITAL RADIO
-
-</p>
-
-<p>
-
-FEATURED ARTISTS CENTER
-
-</p>
-
-<p>
-
-CONTACT: gmail.com
-
-</p>
-
-<p>
-
-WEBSITE: PRO-MAXFM.COM
-
-</p>
-
-<p>
-
-TEL: (407) 640-5166
-
-</p>
-
-<p>
-
-© 2026 PRO-MAX FM. ALL RIGHTS RESERVED.
-
-</p>
-
+<div style="color:#FF8C00;font-weight:900;letter-spacing:2px">PRO-MAX DMP FM - LA FORCE DU SON</div>
+<div class="socials">
+<a href="#" class="social facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="#" class="social whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="#" class="social tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+<a href="#" class="social youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+<a href="#" class="social instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="#" class="social truth" target="_blank" rel="noopener noreferrer" aria-label="Truth Social">TS</a>
+<a href="#" class="social twitter" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+<a href="#" class="social linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="#" class="social spotify" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fa-brands fa-spotify"></i></a>
+</div>
+<div style="color:#FFD6A0">Facebook | WhatsApp | TikTok | YouTube | Instagram | Truth Social | X/Twitter | LinkedIn | Spotify</div>
+<div style="margin-top:10px;color:#FFD6A0">📞 <a href="tel:+14076405166">(407) 640-5166</a> | <a href="tel:+15162168494">(516) 216-8494</a> | 🌐 bss1815pro-max-dmp.com | ✉ <a href="mailto:promaxfm@gmail.com">promaxfm@gmail.com</a></div>
+<div style="margin-top:10px">© 2026 PRO-MAX DMP FM - Orange Apricot 🍊 Black ⚫️ Fade Edition</div>
 </footer>
 
+<script>
+function setLang(l,btn){
+document.querySelectorAll('.lang button').forEach(function(b){b.classList.remove('active')});
+btn.classList.add('active');
+}
+</script>
 </body>
-
 </html>
