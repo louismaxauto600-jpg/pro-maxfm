@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ht" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#050301">
+  <title>PRO-MAX FM | Module</title>
+  <style>
+    :root{--o:#ff8c00;--a:#ffb15a;--b:#050301;--p:#140904}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0,#432000 0,#160a04 38%,#050301 78%);color:var(--a);font-family:Arial,sans-serif}
+    header{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:18px 5%;background:#050301;border-bottom:1px solid #ff8c0060}
+    .brand{display:flex;align-items:center;gap:12px;color:var(--o);font-weight:900;font-size:20px}.mark{display:grid;place-items:center;width:50px;height:50px;border:2px solid var(--o);border-radius:50%}
+    a{color:inherit;text-decoration:none}.home{padding:11px 16px;border:1px solid var(--o);border-radius:10px;font-weight:800}
+    main{width:min(900px,92%);margin:auto;padding:55px 0 75px;text-align:center}.pill{display:inline-block;padding:9px 16px;border:1px solid var(--o);border-radius:999px;color:var(--o);font-weight:900}
+    h1{margin:24px 0 12px;color:var(--o);font-size:clamp(34px,7vw,66px)}.lead{font-size:18px;font-weight:700;line-height:1.6}
+    .panel{margin-top:36px;padding:30px 22px;border:1px solid #ff8c0080;border-radius:22px;background:linear-gradient(145deg,#1c0d05,#070301);box-shadow:0 22px 55px #0009}
+    .icon{font-size:58px}.panel h2{color:var(--o);margin:15px 0}.panel p{max-width:620px;margin:auto;line-height:1.7}.back{display:inline-block;margin-top:26px;padding:13px 22px;background:var(--o);color:#050301;border-radius:10px;font-weight:900}
+    footer{text-align:center;padding:24px;border-top:1px solid #ff8c0045;color:var(--o);font-size:12px;font-weight:800}
+    @media(max-width:560px){header{padding:13px 4%}.brand{font-size:14px}.home{font-size:12px}.panel{padding:25px 15px}}
+  </style>
+</head>
+<body>
+  <header><a class="brand" href="../index.html"><span class="mark">FM</span><span>PRO-MAX FM</span></a><a class="home" href="../index.html">← HOME</a></header>
+  <main>
+    <span class="pill">PRO-MAX FM • 9 MODIL</span>
+    <h1 id="title">PRO-MAX FM</h1>
+    <p class="lead" id="subtitle">LA FORCE DU SON</p>
+    <section class="panel"><div class="icon" id="icon">📻</div><h2 id="heading">MODULE CENTER</h2><p id="description"></p><a class="back" href="../index.html">RETOUNEN SOU HOMEPAGE</a></section>
+  </main>
+  <footer>© 2026 PRO-MAX FM • BSS1815 PRO-MAX DMP</footer>
+  <script>
+    const modules={
+      news:["NEWS CENTER","📰","AKTYALITE","Nouvèl lokal, ayisyen ak entènasyonal PRO-MAX FM yo pral disponib isit la."],
+      shows:["SHOWS & PROGRAMS","🎙️","EMISYON AK PWOGRAM","Dekouvri emisyon, animatè ak orè pwogram PRO-MAX FM yo."],
+      podcasts:["PODCAST CENTER","🎧","PODCASTS & REPLAYS","Koute podcast, replay ak emisyon PRO-MAX FM ki anrejistre yo."],
+      music:["MUSIC CENTER","🎵","MIZIK","Mizik, nouvo sòti, Top 20 ak son Rara PRO-MAX FM yo."],
+      artists:["ARTISTS CENTER","🎤","ATIS","Atis, mizisyen, DJ ak gwoup ki prezante sou PRO-MAX FM."],
+      video:["VIDEO GALLERY","🎬","VIDEYO","Videyo studio, pwomosyon, entèvyou ak achiv PRO-MAX FM yo."],
+      events:["EVENTS","📅","EVÈNMAN","Konsè, aktivite radio ak evènman kominotè PRO-MAX FM yo."],
+      contact:["CONTACT","📞","KONTAKTE PRO-MAX FM","Email: promaxfm@gmail.com • Telefòn: (407) 640-5166"]
+    };
+    const key=new URLSearchParams(location.search).get("section")||"news";
+    const data=modules[key]||modules.news;
+    document.title=`${data[0]} | PRO-MAX FM`;
+    document.getElementById("title").textContent=data[0];
+    document.getElementById("icon").textContent=data[1];
+    document.getElementById("heading").textContent=data[2];
+    document.getElementById("description").textContent=data[3];
+  </script>
+</body>
+</html>
