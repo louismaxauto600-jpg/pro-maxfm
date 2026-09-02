@@ -1,118 +1,32 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEWS CENTER - PRO-MAX DMP FM</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:linear-gradient(135deg,#FF8C00 0%,#FFA94D 12%,#FF7A00 28%,#7A3B00 48%,#1a0a00 68%,#000 100%);background-attachment:fixed;color:#FFD6A0;font-family:Segoe UI,Arial,sans-serif}
-a{color:#FFD6A0;text-decoration:none}
-header{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:rgba(0,0,0,0.85);backdrop-filter:blur(14px);border-bottom:2px solid rgba(255,140,0,0.4)}
-.brand{display:flex;align-items:center;gap:12px}
-.brand video{width:46px;height:46px;border-radius:50%;border:2px solid #FF8C00;object-fit:cover}
-.brand b{color:#FF8C00}
-.nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.nav::-webkit-scrollbar{display:none}
-.nav a{color:#FFD6A0;font-weight:700;font-size:13px}
-.nav a.current{color:#FF8C00;border-bottom:2px solid #FF8C00;padding-bottom:2px}
-.nav a:hover{color:#FF8C00}
-.lang{display:flex;gap:5px}
-.lang button{background:transparent;border:1px solid #FF8C00;color:#FF8C00;padding:5px 10px;border-radius:20px;font-weight:800;cursor:pointer}
-.lang button.active{background:#FF8C00;color:#000}
-section{padding:44px 28px;max-width:1280px;margin:0 auto}
-.page-hero{padding:40px 28px 20px;text-align:center}
-.page-hero h1{font-size:40px;color:#FF8C00}
-.page-hero p{color:#FFD6A0;margin-top:10px;max-width:640px;margin-left:auto;margin-right:auto}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:20px}
-.card{background:rgba(0,0,0,0.68);border:1px solid rgba(255,140,0,0.35);border-radius:18px;padding:22px;height:100%;transition:.25s ease}
-.card:hover{border-color:#FF8C00;transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,140,0,.18)}
-.card h3{color:#FF8C00;margin-bottom:8px}
-.card-link{display:block;color:inherit}
-.divider{height:1px;background:linear-gradient(90deg,transparent,#FF8C00,transparent);margin:8px 0 18px}
-.title{font-size:30px;color:#FF8C00}
-.player{background:rgba(0,0,0,0.75);border:2px solid #FF8C00;border-radius:22px;padding:22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.module-number{font-size:12px;font-weight:900;color:#FFD6A0;margin-bottom:8px;letter-spacing:1px}
-.socials{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:18px 0}
-.social{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:20px;transition:.2s ease}
-.social:hover{transform:scale(1.1)}
-.facebook{background:#1877F2;color:#fff}
-.whatsapp{background:#25D366;color:#fff}
-.tiktok{background:#000;color:#fff;border:1px solid #fff}
-.youtube{background:#FF0000;color:#fff}
-.instagram{background:linear-gradient(45deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5);color:#fff}
-.truth{background:#5448EE;color:#fff;font-size:13px}
-.twitter{background:#000;color:#fff;border:1px solid #555}
-.linkedin{background:#0A66C2;color:#fff}
-.spotify{background:#1DB954;color:#000}
-.contact-input{width:100%;margin-top:8px;padding:10px;border-radius:10px;background:#000;border:1px solid #FF8C00;color:#fff}
-.send-btn{display:inline-block;margin-top:8px;background:#FF8C00;color:#000;border:0;padding:10px 18px;border-radius:10px;font-weight:900}
-footer{padding:32px 28px;background:rgba(0,0,0,0.9);border-top:2px solid rgba(255,140,0,0.3);text-align:center}
-@media(max-width:900px){header{flex-direction:column;align-items:flex-start;gap:12px}.nav{gap:10px}}
-@media(max-width:700px){header{padding:12px 14px}.nav a{font-size:11px}.page-hero h1{font-size:28px}.player{flex-wrap:wrap}}
-</style>
-</head>
-<body>
-<header>
-<div class="brand">
-<video autoplay muted loop playsinline><source src="../pro-max-dmp-fm.mp4" type="video/mp4"></video>
-<b>PRO-MAX DMP FM</b>
-</div>
-<div class="nav">
-<a href="../index.html">ACCUEIL</a>
-<a href="live.html">LIVE</a>
-<a href="news.html" class="current">NEWS</a>
-<a href="shows.html">SHOWS</a>
-<a href="podcasts.html">PODCASTS</a>
-<a href="music.html">MUSIC</a>
-<a href="artists.html">ARTISTS</a>
-<a href="video.html">VIDEO</a>
-<a href="events.html">EVENTS</a>
-<a href="contact.html">CONTACT</a>
-<div class="lang">
-<button class="active" onclick="setLang('fr',this)">FR</button>
-<button onclick="setLang('en',this)">EN</button>
-<button onclick="setLang('ht',this)">HT</button>
-</div>
-</div>
-</header>
-
-<section class="page-hero">
-<div class="title">📰 NEWS CENTER</div>
-<div class="divider"></div>
-<p>Aktyalite lokal, ayisyen ak entènasyonal.</p>
+<!DOCTYPE html><html lang="ht"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050301"><meta name="description" content="PRO-MAX FM News Center — radyo ak nouvèl Ayiti, USA ak Florida."><title>NEWS CENTER | PRO-MAX FM</title>
+<style>:root{--o:#ff8c00;--a:#ffb15a;--b:#050301}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#3b1b00,#100602 42%,#050301 80%);color:var(--a);font-family:Arial,sans-serif;min-height:100vh}a{text-decoration:none;color:inherit}header{display:flex;justify-content:space-between;align-items:center;padding:15px 4%;background:#050301;border-bottom:1px solid #ff8c0060}.brand{color:var(--o);font-weight:900;font-size:20px}.home,.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:9px;background:var(--o);color:#050301;font-weight:900}.home{background:transparent;color:var(--o);border:1px solid var(--o)}nav{display:flex;gap:8px;overflow:auto;padding:11px 4%;background:#0a0401}nav a{white-space:nowrap;padding:8px 11px;border:1px solid #ff8c0050;border-radius:99px;font-size:12px;font-weight:800}nav a.active{background:var(--o);color:#050301}main{width:min(1100px,92%);margin:auto;padding:42px 0 70px}.hero{text-align:center}.hero h1{color:var(--o);font-size:clamp(34px,7vw,62px);margin:12px 0}.version{display:inline-block;margin-top:8px;padding:7px 12px;border:1px solid var(--o);border-radius:99px;color:var(--o);font-size:12px;font-weight:900}.news-group{margin-top:34px}.group-title{display:flex;align-items:center;gap:12px;margin:0 0 15px;padding-bottom:12px;border-bottom:2px solid var(--o);color:var(--o);font-size:clamp(22px,4vw,31px)}.group-title span{font-size:34px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:32px}.news-group .grid{margin-top:0}.card{display:flex;flex-direction:column;padding:22px;border:1px solid #ff8c0065;border-radius:18px;background:linear-gradient(145deg,#1c0d05,#070301);box-shadow:0 18px 40px #0008}.card h2{color:var(--o)}.card p{line-height:1.6;flex:1}.icon{font-size:42px}.wide{grid-column:1/-1}.media{width:100%;max-height:520px;border-radius:12px;background:#000}.hidden{display:none}.btn{margin-top:12px;min-height:48px}.outline{background:transparent;color:var(--o);border:1px solid var(--o)}table{width:100%;border-collapse:collapse}td,th{padding:12px;text-align:left;border-bottom:1px solid #ff8c0035}th{color:var(--o)}footer{text-align:center;padding:24px;border-top:1px solid #ff8c0040;color:var(--o);font-weight:800;font-size:12px}@media(max-width:560px){.brand{font-size:15px}.card{padding:18px 14px}.news-group .grid{grid-template-columns:1fr}.btn{width:100%}}</style></head>
+<body><header><a class="brand" href="index.html">FM ◉ PRO-MAX FM</a><a class="home" href="index.html">← HOME</a></header><nav id="nav"><a data-k="news" href="news.html">NEWS</a><a data-k="shows" href="module.html?section=shows">SHOWS</a><a data-k="podcasts" href="module.html?section=podcasts">PODCASTS</a><a data-k="music" href="module.html?section=music">MUSIC</a><a data-k="artists" href="module.html?section=artists">ARTISTS</a><a data-k="video" href="module.html?section=video">VIDEO</a><a data-k="events" href="module.html?section=events">EVENTS</a><a data-k="contact" href="module.html?section=contact">CONTACT</a></nav>
+<main><section class="hero"><b>PRO-MAX FM • LA FORCE DU SON</b><h1 id="title">NEWS CENTER</h1><p id="lead">Nouvèl lokal, ayisyen ak entènasyonal</p></section>
+<section class="mod" data-m="news">
+<div class="version">NEWS CENTER • FINAL V3 • 11 SOUS</div>
+<div class="news-group"><h2 class="group-title"><span>📻</span> RADYO AYITI LIVE</h2><div class="grid">
+<article class="card"><div class="icon">📡</div><h2>RADIO TÉLÉ ÉCLAIR</h2><p>100.5 FM — nouvèl ak emisyon an dirèk.</p><a class="btn" target="_blank" rel="noopener noreferrer" href="https://radioteleeclair.com/live/">▶ KOUTE TÉLÉ ÉCLAIR</a></article>
+<article class="card"><div class="icon">📻</div><h2>RADIO CARAÏBES</h2><p>94.5 FM — nouvèl, politik, kilti ak espò.</p><a class="btn" target="_blank" rel="noopener noreferrer" href="https://www.radiotelecaraibes.com/">▶ KOUTE CARAÏBES</a></article>
+<article class="card"><div class="icon">📡</div><h2>VISION 2000</h2><p>Nouvèl, deba, espò ak pwogram nasyonal.</p><a class="btn" target="_blank" rel="noopener noreferrer" href="https://radio.ht/vision-2000/">▶ KOUTE VISION 2000</a></article>
+<article class="card"><div class="icon">🎙️</div><h2>RADIO KISKEYA</h2><p>Nouvèl, analiz, talk-show ak kilti.</p><a class="btn" target="_blank" rel="noopener noreferrer" href="https://radio.ht/kiskeya/">▶ KOUTE KISKEYA</a></article>
+<article class="card"><div class="icon">📻</div><h2>SIGNAL FM</h2><p>Enfòmasyon ak pwogram radyo an dirèk.</p><a class="btn" target="_blank" rel="noopener noreferrer" href="https://radio.ht/signal-fm/">▶ KOUTE SIGNAL FM</a></article>
+<article class="card"><div class="icon">📡</div><h2>RADIO MÉTROPOLE</h2><p>100.1 FM — enfòmasyon, analiz ak emisyon an dirèk.</p><a class="btn" target="_blank" rel="noopener noreferrer" href="https://metropole.ht/100-1-fm/">▶ KOUTE MÉTROPOLE</a></article>
+</div></div>
+<div class="news-group"><h2 class="group-title"><span>🇭🇹</span> NOUVÈL AYITI</h2><div class="grid">
+<article class="card"><div class="icon">📺</div><h2>METRONEWS</h2><p>Videyo nouvèl, repòtaj ak analiz sou aktyalite Ayiti.</p><a class="btn" target="_blank" rel="noopener noreferrer" href="https://metropole.ht/metronews/">OUVRI METRONEWS ↗</a></article>
+<article class="card"><div class="icon">📰</div><h2>LE NOUVELLISTE</h2><p>Dènye nouvèl ak analiz sou Ayiti.</p><a class="btn" target="_blank" rel="noopener noreferrer" href="https://lenouvelliste.com/">OUVRI LE NOUVELLISTE ↗</a></article>
+<article class="card"><div class="icon">🌍</div><h2>RFI</h2><p>Nouvèl Ayiti, Lafrans ak entènasyonal.</p><a class="btn" target="_blank" rel="noopener noreferrer" href="https://www.rfi.fr/fr/">OUVRI RFI ↗</a></article>
+</div></div>
+<div class="news-group"><h2 class="group-title"><span>🇺🇸</span> USA &amp; FLORIDA NEWS</h2><div class="grid">
+<article class="card"><div class="icon">🌐</div><h2>CNN</h2><p>Nouvèl Etazini ak nouvèl entènasyonal.</p><a class="btn" target="_blank" rel="noopener noreferrer" href="https://www.cnn.com/">OUVRI CNN ↗</a></article>
+<article class="card"><div class="icon">🌴</div><h2>MIAMI HERALD</h2><p>Nouvèl Miami, Florida ak kominote Karayib la.</p><a class="btn" target="_blank" rel="noopener noreferrer" href="https://www.miamiherald.com/">OUVRI MIAMI HERALD ↗</a></article>
+</div></div>
 </section>
-<section><div class="grid">
-<div class="card"><h3>News Flash</h3><p>Dènye nouvèl ap parèt isit la.</p></div>
-<div class="card"><h3>Politik & Sosyete</h3><p>Dènye nouvèl ap parèt isit la.</p></div>
-<div class="card"><h3>Kominote Ayisyen</h3><p>Dènye nouvèl ap parèt isit la.</p></div>
-<div class="card"><h3>Entènasyonal</h3><p>Dènye nouvèl ap parèt isit la.</p></div>
-</div></section>
-
-<footer>
-<div style="color:#FF8C00;font-weight:900;letter-spacing:2px">PRO-MAX DMP FM - LA FORCE DU SON</div>
-<div class="socials">
-<a href="#" class="social facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-<a href="#" class="social whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-<a href="#" class="social tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-<a href="#" class="social youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-<a href="#" class="social instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-<a href="#" class="social truth" target="_blank" rel="noopener noreferrer" aria-label="Truth Social">TS</a>
-<a href="#" class="social twitter" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-<a href="#" class="social linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-<a href="#" class="social spotify" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i class="fa-brands fa-spotify"></i></a>
-</div>
-<div style="color:#FFD6A0">Facebook | WhatsApp | TikTok | YouTube | Instagram | Truth Social | X/Twitter | LinkedIn | Spotify</div>
-<div style="margin-top:10px;color:#FFD6A0">📞 <a href="tel:+14076405166">(407) 640-5166</a> | <a href="tel:+15162168494">(516) 216-8494</a> | 🌐 bss1815pro-max-dmp.com | ✉ <a href="mailto:promaxfm@gmail.com">promaxfm@gmail.com</a></div>
-<div style="margin-top:10px">© 2026 PRO-MAX DMP FM - Orange Apricot 🍊 Black ⚫️ Fade Edition</div>
-</footer>
-
-<script>
-function setLang(l,btn){
-document.querySelectorAll('.lang button').forEach(function(b){b.classList.remove('active')});
-btn.classList.add('active');
-}
-</script>
-</body>
-</html>
+<section class="mod hidden" data-m="shows"><div class="grid"><article class="card wide"><h2>PROGRAMMES</h2><table><tr><th>EMISYON</th><th>ESTATI</th></tr><tr><td>Matinale PRO-MAX</td><td>Pwogramasyon</td></tr><tr><td>News Flash</td><td>Pwogramasyon</td></tr><tr><td>Culture & Communauté</td><td>Pwogramasyon</td></tr><tr><td>Music Mix</td><td>Pwogramasyon</td></tr></table><a class="btn" href="live.html">KOUTE LIVE ▶</a></article></div></section>
+<section class="mod hidden" data-m="podcasts"><div class="grid"><article class="card"><div class="icon">🎧</div><h2>PODCASTS</h2><p>Podcast ak replay PRO-MAX FM yo.</p><a class="btn" href="live.html">KOUTE RADIO</a></article><article class="card"><div class="icon">📤</div><h2>SOUMÈT PODCAST</h2><p>Voye podcast ou pou konsiderasyon.</p><a class="btn outline" href="mailto:promaxfm@gmail.com?subject=Podcast%20PRO-MAX%20FM">VOYE PODCAST</a></article></div></section>
+<section class="mod hidden" data-m="music"><div class="grid"><article class="card"><div class="icon">📻</div><h2>RADIO LIVE</h2><a class="btn" href="live.html">PLAY LIVE ▶</a></article><article class="card"><div class="icon">🟢</div><h2>SPOTIFY</h2><a class="btn" target="_blank" rel="noopener" href="https://open.spotify.com/">OUVRI SPOTIFY</a></article><article class="card"><div class="icon">🎶</div><h2>SOUMÈT MIZIK</h2><a class="btn outline" href="mailto:promaxfm@gmail.com?subject=Mizik%20pou%20PRO-MAX%20FM">VOYE MIZIK</a></article></div></section>
+<section class="mod hidden" data-m="artists"><div class="grid"><article class="card"><div class="icon">🎤</div><h2>ARTIST SPOTLIGHT</h2><p>Prezante atis, DJ, mizisyen ak gwoup.</p><a class="btn" href="mailto:promaxfm@gmail.com?subject=Artist%20Spotlight">SOUMÈT YON ATIS</a></article><article class="card"><div class="icon">🎙️</div><h2>ENTÈVYOU</h2><p>Mande yon entèvyou sou PRO-MAX FM.</p><a class="btn outline" href="module.html?section=contact">KONTAKTE NOU</a></article></div></section>
+<section class="mod hidden" data-m="video"><div class="grid"><article class="card wide"><h2>VIDEO GALLERY</h2><video class="media" controls playsinline preload="metadata"><source src="pro-max-dmp-fm.mp4" type="video/mp4"><source src="pro-max-fm.mp4" type="video/mp4"></video><p>Videyo, pwomosyon ak achiv PRO-MAX FM.</p></article></div></section>
+<section class="mod hidden" data-m="events"><div class="grid"><article class="card"><div class="icon">📅</div><h2>EVÈNMAN</h2><p>Evènman radio ak aktivite kominotè.</p><a class="btn" href="mailto:promaxfm@gmail.com?subject=Ev%C3%A8nman%20PRO-MAX%20FM">PWOPOZE EVÈNMAN</a></article><article class="card"><div class="icon">📣</div><h2>PROMOSYON</h2><p>Fè pwomosyon aktivite ou sou radio a.</p><a class="btn outline" href="module.html?section=contact">KONTAKTE RADIO A</a></article></div></section>
+<section class="mod hidden" data-m="contact"><div class="grid"><article class="card"><div class="icon">✉️</div><h2>EMAIL</h2><p>promaxfm@gmail.com</p><a class="btn" href="mailto:promaxfm@gmail.com">VOYE EMAIL</a></article><article class="card"><div class="icon">📞</div><h2>TELEFÒN</h2><p>(407) 640-5166</p><a class="btn" href="tel:+14076405166">RELE</a></article><article class="card"><div class="icon">🟢</div><h2>WHATSAPP</h2><p>(516) 216-8494</p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/15162168494">WHATSAPP</a></article></div></section></main>
+<footer>© 2026 PRO-MAX FM • BSS1815 PRO-MAX DMP</footer><script>const n={news:["NEWS CENTER","Nouvèl lokal, ayisyen ak entènasyonal"],shows:["SHOWS & PROGRAMS","Emisyon ak pwogramasyon"],podcasts:["PODCAST CENTER","Podcasts ak replays"],music:["MUSIC CENTER","Live radio, mizik ak Spotify"],artists:["ARTISTS CENTER","Atis, DJ ak entèvyou"],video:["VIDEO GALLERY","Videyo ak achiv"],events:["EVENTS","Evènman ak pwomosyon"],contact:["CONTACT","Pale dirèkteman ak PRO-MAX FM"]};const k=new URLSearchParams(location.search).get("section")||"news",d=n[k]||n.news;document.getElementById("title").textContent=d[0];document.getElementById("lead").textContent=d[1];document.querySelector(`[data-m="${k}"]`).classList.remove("hidden");document.querySelector(`[data-k="${k}"]`)?.classList.add("active");document.title=d[0]+" | PRO-MAX FM";</script></body></html>
