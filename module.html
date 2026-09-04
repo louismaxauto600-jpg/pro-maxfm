@@ -643,7 +643,6 @@ var ui = {
 };
 
 /* MODULE DEFINITIONS — one entry per section, 3 language variants each */
-/* items = [ title, description, link (optional — omit or "#" = no link) ] */
 
 var modules = {
 
@@ -722,29 +721,26 @@ var modules = {
     icon:"🎧",
     fr:{
       title:"PODCAST CENTER",
-      description:"Podcasts, reprises et émissions enregistrées à réécouter.",
+      description:"Retrouvez tous nos podcasts et émissions sur Spotify et YouTube.",
       items:[
-        ["REPLAY MATINALE","La matinale en réécoute."],
-        ["ENTREVUE EXCLUSIVE","Nos entretiens marquants."],
-        ["TOP 20 PRO-MAX","Le classement musical de la semaine."]
+        ["PRO-MAX FM SUR SPOTIFY","Écoutez nos podcasts et playlists.","https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"],
+        ["PRO-MAX FM SUR YOUTUBE","Émissions et podcasts en vidéo.","https://www.youtube.com/@BSS1815PROMAXDMP"]
       ]
     },
     en:{
       title:"PODCAST CENTER",
-      description:"Podcasts, replays and recorded shows you can listen back to.",
+      description:"Find all our podcasts and shows on Spotify and YouTube.",
       items:[
-        ["MORNING REPLAY","Catch up on the morning show."],
-        ["EXCLUSIVE INTERVIEW","Our standout conversations."],
-        ["PRO-MAX TOP 20","This week's music chart."]
+        ["PRO-MAX FM ON SPOTIFY","Listen to our podcasts and playlists.","https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"],
+        ["PRO-MAX FM ON YOUTUBE","Shows and podcasts in video.","https://www.youtube.com/@BSS1815PROMAXDMP"]
       ]
     },
     ht:{
       title:"SANT PODCAST",
-      description:"Podcast, replay ak emisyon anrejistre pou w reekoute.",
+      description:"Jwenn tout podcast ak emisyon nou yo sou Spotify ak YouTube.",
       items:[
-        ["REPLAY MATEN","Reekoute emisyon maten an."],
-        ["ENTÈVYOU EKSKLIZIF","Entèvyou ki make nou yo."],
-        ["TOP 20 PRO-MAX","Klasman mizik semèn nan."]
+        ["PRO-MAX FM SOU SPOTIFY","Koute podcast ak playlist nou yo.","https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"],
+        ["PRO-MAX FM SOU YOUTUBE","Emisyon ak podcast an videyo.","https://www.youtube.com/@BSS1815PROMAXDMP"]
       ]
     }
   },
@@ -787,29 +783,35 @@ var modules = {
     icon:"🎤",
     fr:{
       title:"ARTISTS CENTER",
-      description:"Artistes, musiciens, DJ et groupes à découvrir.",
+      description:"Les artistes qui font vibrer PRO-MAX FM.",
       items:[
-        ["ARTISTE EN VEDETTE","Le portrait de la semaine."],
-        ["DJ & PRODUCTEURS","Les talents derrière les sons."],
-        ["GROUPES & BANDS","Les formations qui font vibrer Haïti."]
+        ["BJ TENOR","Artiste vedette PRO-MAX FM."],
+        ["ZANGI PEYI A","Artiste vedette PRO-MAX FM."],
+        ["SANBA SERGE","Artiste vedette PRO-MAX FM."],
+        ["ADAN","Artiste vedette PRO-MAX FM."],
+        ["LYSMY","Artiste vedette PRO-MAX FM."]
       ]
     },
     en:{
       title:"ARTISTS CENTER",
-      description:"Artists, musicians, DJs and bands to discover.",
+      description:"The artists behind PRO-MAX FM's sound.",
       items:[
-        ["FEATURED ARTIST","This week's spotlight."],
-        ["DJS & PRODUCERS","The talent behind the sound."],
-        ["BANDS & GROUPS","The acts moving Haiti."]
+        ["BJ TENOR","Featured PRO-MAX FM artist."],
+        ["ZANGI PEYI A","Featured PRO-MAX FM artist."],
+        ["SANBA SERGE","Featured PRO-MAX FM artist."],
+        ["ADAN","Featured PRO-MAX FM artist."],
+        ["LYSMY","Featured PRO-MAX FM artist."]
       ]
     },
     ht:{
       title:"SANT ATIS",
-      description:"Atis, mizisyen, DJ ak gwoup pou dekouvri.",
+      description:"Atis ki fè PRO-MAX FM boujonnen.",
       items:[
-        ["ATIS AN VEDÈT","Pòtre semèn nan."],
-        ["DJ AK PWODIKTÈ","Talan ki dèyè son yo."],
-        ["GWOUP","Gwoup ki fè Ayiti boujonnen."]
+        ["BJ TENOR","Atis vedèt PRO-MAX FM."],
+        ["ZANGI PEYI A","Atis vedèt PRO-MAX FM."],
+        ["SANBA SERGE","Atis vedèt PRO-MAX FM."],
+        ["ADAN","Atis vedèt PRO-MAX FM."],
+        ["LYSMY","Atis vedèt PRO-MAX FM."]
       ]
     }
   },
@@ -818,29 +820,23 @@ var modules = {
     icon:"🎬",
     fr:{
       title:"GALERIE VIDÉO",
-      description:"Studio, promotions, entrevues et archives vidéo.",
+      description:"Toutes nos vidéos sont disponibles sur notre chaîne YouTube.",
       items:[
-        ["PROMO 1","Notre vidéo de présentation."],
-        ["STUDIO LIVE","Extraits en direct du studio."],
-        ["EVENT","Moments forts de nos événements."]
+        ["PRO-MAX FM SUR YOUTUBE","Studio, promotions, entrevues et archives vidéo.","https://www.youtube.com/@BSS1815PROMAXDMP"]
       ]
     },
     en:{
       title:"VIDEO GALLERY",
-      description:"Studio, promotions, interviews and video archives.",
+      description:"All our videos are available on our YouTube channel.",
       items:[
-        ["PROMO 1","Our intro video."],
-        ["STUDIO LIVE","Live studio clips."],
-        ["EVENT","Highlights from our events."]
+        ["PRO-MAX FM ON YOUTUBE","Studio, promotions, interviews and video archives.","https://www.youtube.com/@BSS1815PROMAXDMP"]
       ]
     },
     ht:{
       title:"GALRI VIDEYO",
-      description:"Estidyo, pwomosyon, entèvyou ak achiv videyo.",
+      description:"Tout videyo nou yo disponib sou chèn YouTube nou an.",
       items:[
-        ["PROMO 1","Videyo prezantasyon nou an."],
-        ["STUDIO LIVE","Ekstrè an dirèk nan estidyo a."],
-        ["EVENT","Pi bon moman nan evènman nou yo."]
+        ["PRO-MAX FM SOU YOUTUBE","Estidyo, pwomosyon, entèvyou ak achiv videyo.","https://www.youtube.com/@BSS1815PROMAXDMP"]
       ]
     }
   },
@@ -849,30 +845,18 @@ var modules = {
     icon:"📅",
     fr:{
       title:"EVENTS",
-      description:"Concerts, événements radio et activités communautaires.",
-      items:[
-        ["CONCERT À VENIR","Détails annoncés bientôt."],
-        ["ÉVÉNEMENT RADIO","Nos rendez-vous en direct."],
-        ["ACTIVITÉ COMMUNAUTAIRE","La communauté PRO-MAX FM en action."]
-      ]
+      description:"Aucun événement programmé pour le moment. Revenez bientôt !",
+      items:[]
     },
     en:{
       title:"EVENTS",
-      description:"Concerts, radio events and community activities.",
-      items:[
-        ["UPCOMING CONCERT","Details announced soon."],
-        ["RADIO EVENT","Our live meet-ups."],
-        ["COMMUNITY ACTIVITY","The PRO-MAX FM community in action."]
-      ]
+      description:"No events scheduled at the moment. Check back soon!",
+      items:[]
     },
     ht:{
       title:"EVÈNMAN",
-      description:"Konsè, evènman radyo ak aktivite kominotè.",
-      items:[
-        ["KONSÈ K AP VINI","Detay ap anonse byento."],
-        ["EVÈNMAN RADYO","Rankont an dirèk nou yo."],
-        ["AKTIVITE KOMINOTÈ","Kominote PRO-MAX FM an aksyon."]
-      ]
+      description:"Pa gen evènman pwograme kounye a. Tounen vini byento!",
+      items:[]
     }
   }
 
