@@ -340,6 +340,11 @@ header{
   transform:scale(1.05);
 }
 
+.play-btn:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
 .volume-wrap{
   display:flex;
   align-items:center;
@@ -356,6 +361,10 @@ header{
   font-size:.82rem;
   line-height:1.6;
   min-height:1.4em;
+}
+
+.player-message.error{
+  color:#ff9c8a;
 }
 
 .now-playing{
@@ -606,9 +615,7 @@ footer{
       PRO-MAX FM — LIVE 24/7
     </p>
 
-    <p class="player-message" id="playerMessage" data-i18n="streamPending">
-      Le lien du flux en direct sera ajouté sous peu. Revenez bientôt pour écouter PRO-MAX FM en direct.
-    </p>
+    <p class="player-message" id="playerMessage"></p>
 
   </div>
 
@@ -676,14 +683,16 @@ footer{
 
 /*
   ============================================
-  STREAM URL — remplacez la valeur ci-dessous
-  par le lien direct du flux (ex: .mp3, .aac)
-  obtenu depuis le tableau de bord on-air.fm.
-  Tant que c'est vide, le bouton PLAY affichera
-  un message au lieu de jouer le direct.
+  STREAM URL — MyRadioStream (Webcaster Basic)
+  ⚠️ Ce lien est en HTTP (pas HTTPS). Si ce site
+  est servi en HTTPS, certains navigateurs (surtout
+  iPhone/Safari) bloqueront le son par sécurité
+  ("mixed content"). Le script ci-dessous détecte
+  ce cas et affiche un message clair à la place
+  d'un lecteur silencieux.
   ============================================
 */
-var STREAM_URL = "";
+var STREAM_URL = "http://s9.myradiostream.com:48124/";
 
 /* MOBILE MENU */
 
@@ -719,9 +728,9 @@ var translations = {
     statusOffline:"HORS LIGNE",
     statusLive:"EN DIRECT",
     nowPlayingDefault:"PRO-MAX FM — LIVE 24/7",
-    streamPending:"Le lien du flux en direct sera ajouté sous peu. Revenez bientôt pour écouter PRO-MAX FM en direct.",
     streamError:"Impossible de se connecter au direct pour le moment. Réessayez plus tard.",
     streamLoading:"Connexion au direct...",
+    mixedContentError:"Le direct ne peut pas démarrer car ce site est sécurisé (HTTPS) mais le flux radio ne l'est pas (HTTP). Contactez l'administrateur pour activer le HTTPS sur le flux.",
     cardScheduleTitle:"PROGRAMMATION",
     cardScheduleText:"Consultez la grille complète de la semaine sur la page d'accueil.",
     cardAppTitle:"ÉCOUTER PARTOUT",
@@ -738,9 +747,9 @@ var translations = {
     statusOffline:"OFFLINE",
     statusLive:"LIVE NOW",
     nowPlayingDefault:"PRO-MAX FM — LIVE 24/7",
-    streamPending:"The live stream link will be added shortly. Check back soon to listen to PRO-MAX FM live.",
     streamError:"Unable to connect to the live stream right now. Please try again later.",
     streamLoading:"Connecting to live stream...",
+    mixedContentError:"The live stream can't start because this site is secure (HTTPS) but the stream isn't (HTTP). Please contact the administrator to enable HTTPS on the stream.",
     cardScheduleTitle:"PROGRAMMING",
     cardScheduleText:"Check the full weekly schedule on the home page.",
     cardAppTitle:"LISTEN ANYWHERE",
@@ -757,9 +766,9 @@ var translations = {
     statusOffline:"OFFLINE",
     statusLive:"LIVE KOUNYE A",
     nowPlayingDefault:"PRO-MAX FM — LIVE 24/7",
-    streamPending:"Lyen live la ap ajoute talè. Tounen vini pita pou koute PRO-MAX FM an dirèk.",
     streamError:"Nou pa ka konekte ak live a kounye a. Eseye ankò pita.",
     streamLoading:"K ap konekte ak live a...",
+    mixedContentError:"Live a pa ka kòmanse paske sit sa a sekirize (HTTPS) men flux radyo a pa sekirize (HTTP). Kontakte administratè a pou aktive HTTPS sou flux la.",
     cardScheduleTitle:"PWOGRAMASYON",
     cardScheduleText:"Gade pwogram konplè semèn nan sou paj akèy la.",
     cardAppTitle:"KOUTE PATOUT",
@@ -782,18 +791,29 @@ var volumeSlider = document.getElementById("volumeSlider");
 
 var isPlaying = false;
 
-function setMessage(key){
+/* Detect mixed-content situation: page is HTTPS but stream is HTTP */
+var pageIsSecure = window.location.protocol === "https:";
+var streamIsInsecure = STREAM_URL.indexOf("http://") === 0;
+var mixedContentBlocked = pageIsSecure && streamIsInsecure;
+
+function setMessage(key, isError){
   playerMessage.textContent = translations[currentLanguage][key];
+  playerMessage.classList.toggle("error", !!isError);
 }
 
 if(STREAM_URL){
   audio.src = STREAM_URL;
 }
 
+if(mixedContentBlocked){
+  playButton.disabled = true;
+  setMessage("mixedContentError", true);
+}
+
 playButton.addEventListener("click", function(){
 
-  if(!STREAM_URL){
-    setMessage("streamPending");
+  if(mixedContentBlocked){
+    setMessage("mixedContentError", true);
     return;
   }
 
@@ -803,27 +823,27 @@ playButton.addEventListener("click", function(){
     isPlaying = false;
     playIcon.className = "fa-solid fa-play";
     statusDot.classList.remove("live");
-    statusText.setAttribute("data-i18n", "statusOffline");
     statusText.textContent = translations[currentLanguage].statusOffline;
+    playerMessage.textContent = "";
+    playerMessage.classList.remove("error");
 
   }
   else{
 
-    setMessage("streamLoading");
+    setMessage("streamLoading", false);
 
     audio.play().then(function(){
 
       isPlaying = true;
       playIcon.className = "fa-solid fa-pause";
       statusDot.classList.add("live");
-      statusText.setAttribute("data-i18n", "statusLive");
       statusText.textContent = translations[currentLanguage].statusLive;
-      setMessage("nowPlayingDefault");
       playerMessage.textContent = "";
+      playerMessage.classList.remove("error");
 
     }).catch(function(){
 
-      setMessage("streamError");
+      setMessage("streamError", true);
       isPlaying = false;
       playIcon.className = "fa-solid fa-play";
 
@@ -859,6 +879,10 @@ function applyLanguage(language){
   document.querySelectorAll(".lang-btn").forEach(function(button){
     button.classList.toggle("active", button.getAttribute("data-lang") === language);
   });
+
+  if(mixedContentBlocked){
+    setMessage("mixedContentError", true);
+  }
 
   try{
     localStorage.setItem("proMaxFmLanguage", language);
