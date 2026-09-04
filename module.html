@@ -319,6 +319,7 @@ header{
   border-radius:20px;
   background:rgba(0,0,0,.76);
   transition:.25s;
+  display:block;
 }
 
 .card:hover{
@@ -642,6 +643,7 @@ var ui = {
 };
 
 /* MODULE DEFINITIONS — one entry per section, 3 language variants each */
+/* items = [ title, description, link (optional — "#" or omitted = no link) ] */
 
 var modules = {
 
@@ -649,32 +651,38 @@ var modules = {
     icon:"📰",
     fr:{
       title:"ACTUALITÉS",
-      description:"Les dernières nouvelles locales, haïtiennes et internationales.",
+      description:"Nos sources d'information partenaires — cliquez pour les visiter.",
       items:[
-        ["NEWS FLASH","Les dernières nouvelles en bref."],
-        ["ACTUALITÉ HAÏTI","Ce qui se passe en Haïti aujourd'hui."],
-        ["ACTUALITÉ INTERNATIONALE","Un tour d'horizon du monde."],
-        ["COMMUNAUTÉ","Informations pour la diaspora."]
+        ["RADIO CARAÏBES FM","Actualités, talk-shows et débats.","https://www.caraibesfm.com"],
+        ["TÉLÉ ÉCLAIR","Télévision d'information haïtienne.","https://www.teleeclairhaiti.net"],
+        ["RADIO MÉTROPOLE","Information continue et analyses.","https://www.metropolehaiti.com"],
+        ["RADIO MEGA","Musique, actualités et animation.","https://www.radiomegastereo.com"],
+        ["RADIO HAÏTI","Nouvelles nationales et internationales.","#"],
+        ["EXCELLENCE FM","Radio d'information et de musique.","#"]
       ]
     },
     en:{
       title:"NEWS",
-      description:"The latest local, Haitian and international news.",
+      description:"Our partner news sources — click to visit.",
       items:[
-        ["NEWS FLASH","The latest headlines in brief."],
-        ["HAITI NEWS","What's happening in Haiti today."],
-        ["INTERNATIONAL NEWS","A look around the world."],
-        ["COMMUNITY","Updates for the diaspora."]
+        ["RADIO CARAÏBES FM","News, talk shows and debates.","https://www.caraibesfm.com"],
+        ["TÉLÉ ÉCLAIR","Haitian news television.","https://www.teleeclairhaiti.net"],
+        ["RADIO MÉTROPOLE","Continuous news and analysis.","https://www.metropolehaiti.com"],
+        ["RADIO MEGA","Music, news and entertainment.","https://www.radiomegastereo.com"],
+        ["RADIO HAÏTI","National and international news.","#"],
+        ["EXCELLENCE FM","News and music radio.","#"]
       ]
     },
     ht:{
       title:"AKTYALITE",
-      description:"Dènye nouvèl lokal, ayisyen ak entènasyonal.",
+      description:"Sous nouvèl patnè nou yo — klike pou vizite yo.",
       items:[
-        ["DÈNYE NOUVÈL","Dènye nouvèl an rezime."],
-        ["NOUVÈL AYITI","Sa k ap pase an Ayiti jodi a."],
-        ["NOUVÈL ENTÈNASYONAL","Yon ti gade sou mond lan."],
-        ["KOMINOTE","Enfòmasyon pou dyaspora a."]
+        ["RADIO CARAÏBES FM","Nouvèl, talk-show ak deba.","https://www.caraibesfm.com"],
+        ["TÉLÉ ÉCLAIR","Televizyon nouvèl ayisyen.","https://www.teleeclairhaiti.net"],
+        ["RADIO MÉTROPOLE","Nouvèl kontinyèl ak analiz.","https://www.metropolehaiti.com"],
+        ["RADIO MEGA","Mizik, nouvèl ak animasyon.","https://www.radiomegastereo.com"],
+        ["RADIO HAÏTI","Nouvèl nasyonal ak entènasyonal.","#"],
+        ["EXCELLENCE FM","Radyo nouvèl ak mizik.","#"]
       ]
     }
   },
@@ -924,13 +932,18 @@ function renderModule(){
   grid.innerHTML = data.items.map(function(item, index){
 
     var num = String(index + 1).padStart(2, "0");
+    var hasLink = item[2] && item[2] !== "#";
+    var tag = hasLink ? "a" : "article";
+    var linkAttrs = hasLink
+      ? ' href="' + item[2] + '" target="_blank" rel="noopener noreferrer"'
+      : "";
 
     return (
-      '<article class="card">' +
+      '<' + tag + ' class="card"' + linkAttrs + '>' +
         '<div class="card-number">' + num + '</div>' +
         '<h3>' + item[0] + '</h3>' +
         '<p>' + item[1] + '</p>' +
-      '</article>'
+      '</' + tag + '>'
     );
 
   }).join("") + (
