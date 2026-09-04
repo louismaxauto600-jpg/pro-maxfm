@@ -18,6 +18,19 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 >
 
+<script>
+// === FIX ROUTAGE PRO-MAX FM - POU MODULE YO ATERI BIEN ===
+(function(){
+  try{
+    var params = new URLSearchParams(location.search);
+    var section = params.get("section");
+    if(section &&!location.pathname.includes("module.html")){
+      location.replace("./module.html?section=" + encodeURIComponent(section));
+    }
+  }catch(e){}
+})();
+</script>
+
 <style>
 :root{
   --black:#000;
@@ -701,7 +714,7 @@ footer{
 /* RESPONSIVE */
 
 @media(max-width:1050px){
-  .nav{
+ .nav{
     position:absolute;
     top:82px;
     left:14px;
@@ -716,74 +729,74 @@ footer{
     box-shadow:0 22px 50px rgba(0,0,0,.75);
   }
 
-  .nav.open{
+ .nav.open{
     display:flex;
   }
 
-  .nav a{
+ .nav a{
     width:100%;
     padding:11px;
     text-align:center;
   }
 
-  .menu-toggle{
+ .menu-toggle{
     display:block;
   }
 }
 
 @media(max-width:820px){
-  .grid,
-  .schedule-grid,
-  .contact-grid{
+ .grid,
+ .schedule-grid,
+ .contact-grid{
     grid-template-columns:1fr;
   }
 
-  .player{
+ .player{
     flex-direction:column;
     text-align:center;
   }
 
-  .player-button{
+ .player-button{
     width:100%;
   }
 }
 
 @media(max-width:600px){
-  .header-inner{
+ .header-inner{
     min-height:74px;
   }
 
-  .brand-video{
+ .brand-video{
     width:49px;
     height:49px;
   }
 
-  .brand strong{
+ .brand strong{
     font-size:.84rem;
   }
 
-  .brand small{
+ .brand small{
     font-size:.48rem;
   }
 
-  .languages{
+ .languages{
     display:none;
   }
 
-  .nav .languages{
+ .nav.languages{
     display:flex;
   }
 
-  .hero{
+ .hero{
     min-height:auto;
     padding:55px 0 70px;
   }
 
-  .section{
+ .section{
     padding:68px 0;
   }
 
-  .hero-tagline{
+ .hero-tagline{
     letter-spacing:.20em;
   }
 }
@@ -1701,7 +1714,7 @@ if(menuToggle && mainNav){
         mainNav.classList.toggle("open");
 
       menuToggle.textContent =
-        open ? "✕" : "☰";
+        open? "✕" : "☰";
 
       menuToggle.setAttribute(
         "aria-expanded",
@@ -1712,8 +1725,8 @@ if(menuToggle && mainNav){
   );
 
   mainNav
-    .querySelectorAll("a")
-    .forEach(function(link){
+   .querySelectorAll("a")
+   .forEach(function(link){
 
       link.addEventListener(
         "click",
@@ -1749,21 +1762,21 @@ if(heroVideo && soundButton){
     function(){
 
       heroVideo.muted =
-        !heroVideo.muted;
+       !heroVideo.muted;
 
       if(!heroVideo.muted){
 
         heroVideo.currentTime = 0;
 
         heroVideo
-          .play()
-          .catch(function(){});
+         .play()
+         .catch(function(){});
 
       }
 
       soundButton.textContent =
         heroVideo.muted
-          ? "🔇"
+         ? "🔇"
           : "🔊";
 
     }
@@ -2312,8 +2325,8 @@ function applyLanguage(language){
   document.documentElement.lang = language;
 
   document
-    .querySelectorAll("[data-i18n]")
-    .forEach(function(element){
+   .querySelectorAll("[data-i18n]")
+   .forEach(function(element){
 
       var key =
         element.getAttribute("data-i18n");
@@ -2321,15 +2334,15 @@ function applyLanguage(language){
       var value =
         translations[language][key];
 
-      if(typeof value !== "undefined"){
+      if(typeof value!== "undefined"){
         element.textContent = value;
       }
 
     });
 
   document
-    .querySelectorAll(".lang-btn")
-    .forEach(function(button){
+   .querySelectorAll(".lang-btn")
+   .forEach(function(button){
 
       button.classList.toggle(
         "active",
@@ -2351,8 +2364,8 @@ function applyLanguage(language){
 }
 
 document
-  .querySelectorAll(".lang-btn")
-  .forEach(function(button){
+ .querySelectorAll(".lang-btn")
+ .forEach(function(button){
 
     button.addEventListener(
       "click",
@@ -2380,15 +2393,15 @@ if(sendButton){
 
       var name =
         document
-          .getElementById("contactName")
-          .value
-          .trim();
+         .getElementById("contactName")
+         .value
+         .trim();
 
       var message =
         document
-          .getElementById("contactMessage")
-          .value
-          .trim();
+         .getElementById("contactMessage")
+         .value
+         .trim();
 
       var subject =
         encodeURIComponent(
