@@ -3,17 +3,15 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080808">
-<title>PRO-MAX FM | NEWS CENTER + LIVE + PODCASTS</title>
-
+<title>PRO-MAX FM | LA FORCE DU SON</title>
 <style>
 :root{
  --orange:#ff8c00;
  --apricot:#ffb347;
  --black:#080808;
  --panel:#17100a;
- --text:#ffca82;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -21,8 +19,7 @@ body{
  margin:0;
  font-family:Arial,sans-serif;
  background:linear-gradient(135deg,#000,#211207,#000);
- color:var(--text);
- min-height:100vh;
+ color:var(--apricot);
 }
 a{color:inherit}
 button,input{font:inherit}
@@ -35,29 +32,18 @@ header{
 }
 .official-logo{
  display:block;
- width:min(300px,80vw);
- height:auto;
+ width:min(280px,80vw);
  margin:0 auto 15px;
  border-radius:50%;
  border:3px solid var(--orange);
- box-shadow:0 0 30px #ff8c0066;
 }
 .brand-name{
  font-size:clamp(28px,5vw,44px);
  font-weight:900;
  color:var(--orange);
 }
-header h1{
- color:var(--orange);
- margin:12px 0 5px;
-}
-header p{
- color:var(--apricot);
- letter-spacing:2px;
-}
-.languages{margin-top:18px}
-.languages button,
-.filters button{
+header h1{color:var(--orange)}
+.languages button,.filters button{
  background:#160c04;
  border:1px solid var(--orange);
  color:var(--orange);
@@ -66,8 +52,7 @@ header p{
  border-radius:8px;
  font-weight:bold;
 }
-.languages button.active,
-.filters button.active{
+.languages button.active,.filters button.active{
  background:var(--orange);
  color:#000;
 }
@@ -86,26 +71,14 @@ nav a{
  font-weight:bold;
  padding:9px;
 }
-nav a:hover{color:var(--apricot)}
 .hero{
  text-align:center;
  padding:48px 20px;
  background:radial-gradient(circle,#432000,#080808 75%);
 }
-.hero h2{
- font-size:clamp(25px,5vw,40px);
- color:var(--orange);
-}
-.hero p{
- max-width:760px;
- margin:auto;
- line-height:1.8;
-}
-.container{
- max-width:1250px;
- margin:auto;
- padding:25px 18px;
-}
+.hero h2{color:var(--orange)}
+.hero p{max-width:760px;margin:auto;line-height:1.8}
+.container{max-width:1250px;margin:auto;padding:25px 18px}
 .section-title{
  color:var(--orange);
  text-align:center;
@@ -118,139 +91,57 @@ nav a:hover{color:var(--apricot)}
  max-width:850px;
  margin:0 auto 25px;
 }
-.search-box{
- text-align:center;
- margin:25px 0;
-}
-.search-box input{
- width:min(100%,600px);
+.search-box{text-align:center;margin:25px 0}
+.search-box input,.audio-search{
+ width:min(100%,650px);
  padding:15px;
  background:#130c07;
  border:2px solid var(--orange);
  border-radius:10px;
  color:var(--apricot);
 }
-.filters{
- text-align:center;
- margin:22px 0;
-}
-.source-count{
- text-align:center;
- color:var(--apricot);
- font-size:17px;
- margin:20px 0 25px;
-}
-.grid{
+.filters{text-align:center;margin:22px 0}
+.source-count{text-align:center;margin:20px}
+.grid,.audio-grid{
  display:grid;
- grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
- gap:20px;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:18px;
 }
-.card{
+.card,.audio-item{
  background:linear-gradient(145deg,#201207,#080808);
  border:1px solid #a95700;
  border-radius:16px;
- padding:23px;
- display:flex;
- flex-direction:column;
- gap:14px;
- transition:.25s;
- min-height:230px;
+ padding:20px;
 }
-.card:hover{
- transform:translateY(-4px);
- border-color:var(--apricot);
- box-shadow:0 0 20px #ff8c0033;
-}
-.media-heading{
- display:flex;
- align-items:center;
- gap:15px;
-}
+.card h3,.audio-item h3{color:var(--orange)}
+.media-heading{display:flex;align-items:center;gap:14px}
 .media-mark{
- width:88px;
- height:88px;
+ width:76px;
+ height:76px;
  flex-shrink:0;
- display:flex;
- justify-content:center;
- align-items:center;
- border-radius:14px;
- background:linear-gradient(135deg,#201207,#080808);
+ display:grid;
+ place-items:center;
+ background:#170e08;
+ border:1px solid var(--orange);
+ border-radius:12px;
  color:var(--orange);
- font-size:21px;
  font-weight:900;
- border:1px solid #a95700;
  overflow:hidden;
 }
-.media-mark img{
- width:100%;
- height:100%;
- object-fit:contain;
- background:#18100a;
-}
-.media-heading-text{min-width:0}
-.card h3{
- color:var(--orange);
- font-size:21px;
- margin:0 0 6px;
- overflow-wrap:anywhere;
-}
-.category{
- color:var(--apricot);
- font-size:12px;
- line-height:1.5;
-}
-.media-actions{
- display:flex;
- flex-wrap:wrap;
- gap:8px;
- margin-top:10px;
-}
-.media-link,
-.disabled-link,
-.main-link{
- display:inline-flex;
- justify-content:center;
- align-items:center;
- gap:6px;
- background:transparent;
- border:1px solid #a95700;
+.media-mark img{width:100%;height:100%;object-fit:contain}
+.category{font-size:12px}
+.media-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.media-link,.main-link{
+ display:inline-block;
+ padding:10px 13px;
+ border:1px solid var(--orange);
+ border-radius:9px;
  color:var(--orange);
  text-decoration:none;
- padding:10px 12px;
- border-radius:9px;
- font-size:13px;
  font-weight:bold;
 }
-.media-link:hover{
- background:var(--orange);
- color:#000;
-}
-.disabled-link{
- background:#201207;
- color:var(--apricot);
-}
-.main-link{
- background:var(--orange);
- color:#000;
- font-size:15px;
- margin-top:12px;
-}
-.media-contact{
- color:var(--apricot);
- font-size:14px;
- line-height:1.7;
- margin-top:auto;
-}
-.media-contact a{
- color:var(--apricot);
- overflow-wrap:anywhere;
-}
-.media-pending{
- color:#b99468;
- font-size:13px;
- line-height:1.6;
- margin-top:auto;
-}
+.main-link{background:var(--orange);color:#000}
+.media-contact{margin-top:12px;font-size:14px;line-height:1.7}
 .info-panel{
  background:linear-gradient(120deg,#251307,#090909);
  border-left:5px solid var(--orange);
@@ -259,6 +150,70 @@ nav a:hover{color:var(--apricot)}
  border-radius:10px;
  line-height:1.8;
 }
+.live-shell,.audio-section{
+ background:radial-gradient(ellipse at top,#3b1c06,#080808 75%);
+ border:2px solid var(--orange);
+ border-radius:20px;
+ padding:25px;
+ margin:35px 0;
+ text-align:center;
+}
+.live-orb{
+ width:130px;
+ height:130px;
+ border:3px solid var(--orange);
+ border-radius:50%;
+ margin:10px auto;
+ display:grid;
+ place-items:center;
+ font-size:36px;
+ font-weight:900;
+ color:var(--orange);
+}
+.live-status,.audio-status{
+ color:var(--apricot);
+ font-weight:bold;
+ margin:15px 0;
+}
+audio{display:block;width:100%;margin:18px auto;accent-color:var(--orange)}
+.action-button,.audio-item button{
+ background:var(--orange);
+ color:#000;
+ border:0;
+ border-radius:9px;
+ padding:12px 18px;
+ font-weight:bold;
+ margin:5px;
+}
+button:disabled{opacity:.5;cursor:not-allowed}
+.audio-filters{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:8px;
+ margin:22px 0;
+}
+.audio-filters button{
+ background:#160c04;
+ color:var(--orange);
+ border:1px solid var(--orange);
+ border-radius:9px;
+ padding:10px 13px;
+ font-weight:bold;
+}
+.audio-filters button.active{background:var(--orange);color:#000}
+.audio-search{display:block;margin:20px auto}
+.audio-item{text-align:left}
+.audio-item p{line-height:1.6}
+.genre-card{
+ border:1px solid #a95700;
+ border-radius:13px;
+ padding:22px;
+ background:linear-gradient(145deg,#301806,#080808);
+ text-align:center;
+}
+.genre-card h3{color:var(--orange)}
+.genre-card p{font-size:13px}
 .social-grid{
  display:grid;
  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
@@ -271,28 +226,12 @@ nav a:hover{color:var(--apricot)}
  padding:18px 8px;
  border-radius:12px;
 }
-.social-icon{
- display:flex;
- justify-content:center;
- align-items:center;
- margin:0 auto 10px;
- width:52px;
- height:52px;
- font-size:34px;
- font-weight:900;
-}
-.social-item strong{
- display:block;
- font-size:13px;
-}
-.social-item small{
- display:block;
- margin-top:8px;
- font-size:11px;
-}
+.social-icon{font-size:34px;font-weight:900;margin-bottom:10px}
+.social-item strong,.social-item small{display:block}
+.social-item small{font-size:11px;margin-top:8px}
 .contacts{
  display:grid;
- grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
  gap:20px;
 }
 .contact-card{
@@ -306,7 +245,6 @@ nav a:hover{color:var(--apricot)}
  display:block;
  color:var(--apricot);
  text-decoration:none;
- font-size:19px;
  margin:13px 0;
 }
 .platform{text-align:center}
@@ -318,224 +256,10 @@ footer{
  margin-top:40px;
  color:var(--orange);
 }
-footer p{line-height:1.7}
-
-/* SECTION 02 — LIVE */
-.live-shell{
- background:radial-gradient(ellipse at top,#3b1c06,#080808 70%);
- border:2px solid var(--orange);
- border-radius:22px;
- padding:30px 22px;
- text-align:center;
- box-shadow:0 0 35px #ff8c0025;
-}
-.live-orb{
- width:130px;
- height:130px;
- border-radius:50%;
- margin:10px auto 22px;
- border:3px solid var(--orange);
- background:radial-gradient(circle,#482408,#080808);
- display:grid;
- place-items:center;
- color:var(--orange);
- font-size:34px;
- font-weight:900;
- box-shadow:0 0 25px #ff8c0044;
-}
-.live-shell h3{
- font-size:clamp(23px,4vw,34px);
- color:var(--orange);
- margin:10px 0;
-}
-.live-status{
- display:inline-block;
- border:1px solid #a95700;
- border-radius:30px;
- padding:9px 18px;
- font-weight:bold;
- color:var(--apricot);
- margin:12px 0;
-}
-.live-player{
- width:min(100%,680px);
- display:block;
- margin:20px auto;
- accent-color:var(--orange);
-}
-.live-buttons{
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:12px;
-}
-.live-buttons button{
- border:1px solid var(--orange);
- border-radius:10px;
- background:var(--orange);
- color:#080808;
- padding:12px 20px;
- font-weight:900;
-}
-.live-buttons button:disabled{
- opacity:.5;
- cursor:not-allowed;
-}
-.live-notice{
- font-size:14px;
- line-height:1.7;
- max-width:680px;
- margin:16px auto;
- color:var(--apricot);
-}
-
-/* SECTION PODCASTS — NOUVO */
-.podcast-shell{
- background:radial-gradient(ellipse at top,#331806,#080808 75%);
- border:2px solid var(--orange);
- border-radius:22px;
- padding:26px;
- box-shadow:0 0 30px #ff8c0022;
-}
-.podcast-feature{
- display:grid;
- grid-template-columns:160px 1fr;
- gap:25px;
- align-items:center;
-}
-.podcast-art{
- width:150px;
- height:150px;
- border:2px solid var(--orange);
- border-radius:18px;
- background:linear-gradient(135deg,#512704,#080808);
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:65px;
- color:var(--orange);
-}
-.podcast-feature h3{
- color:var(--orange);
- font-size:25px;
- margin:0 0 10px;
-}
-.podcast-feature p{
- line-height:1.7;
- margin:8px 0;
-}
-.podcast-player{
- width:100%;
- margin:18px 0 5px;
- accent-color:var(--orange);
-}
-.podcast-status{
- color:var(--apricot);
- font-weight:bold;
- padding:12px 0;
-}
-.podcast-search{
- margin:22px 0;
- text-align:center;
-}
-.podcast-search input{
- width:min(100%,600px);
- padding:15px;
- border:2px solid var(--orange);
- border-radius:10px;
- background:#130c07;
- color:var(--apricot);
-}
-.podcast-filters{
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:8px;
- margin:18px 0 25px;
-}
-.podcast-filters button{
- background:#160c04;
- border:1px solid var(--orange);
- color:var(--orange);
- border-radius:9px;
- padding:10px 14px;
- font-weight:bold;
-}
-.podcast-filters button.active{
- background:var(--orange);
- color:#000;
-}
-.podcast-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
- gap:18px;
-}
-.podcast-card{
- background:linear-gradient(145deg,#211207,#080808);
- border:1px solid #a95700;
- border-radius:15px;
- padding:20px;
- display:flex;
- flex-direction:column;
- gap:12px;
-}
-.podcast-card h3{
- color:var(--orange);
- margin:0;
- font-size:20px;
-}
-.podcast-card p{
- margin:0;
- line-height:1.7;
- font-size:14px;
-}
-.podcast-tag{
- color:var(--apricot);
- font-size:12px;
- font-weight:bold;
-}
-.podcast-action{
- border:1px solid var(--orange);
- border-radius:9px;
- background:var(--orange);
- color:#000;
- padding:12px;
- font-weight:900;
- margin-top:auto;
-}
-.podcast-action:disabled{
- opacity:.55;
- cursor:not-allowed;
-}
-.podcast-empty{
- text-align:center;
- color:var(--apricot);
- padding:24px;
-}
-.podcast-library-note{
- border-left:4px solid var(--orange);
- padding:15px 20px;
- background:#180d05;
- border-radius:8px;
- margin-top:25px;
- line-height:1.7;
-}
 @media(max-width:600px){
- .hero{padding:32px 15px}
  .container{padding:15px}
- .official-logo{width:min(250px,80vw)}
- .grid{grid-template-columns:1fr}
- .card{padding:18px}
- .media-mark{width:75px;height:75px}
- .card h3{font-size:19px}
- .live-shell{padding:22px 12px}
- .podcast-shell{padding:18px}
- .podcast-feature{
-  grid-template-columns:1fr;
-  text-align:center;
- }
- .podcast-art{margin:auto}
- .podcast-grid{grid-template-columns:1fr}
+ .grid,.audio-grid{grid-template-columns:1fr}
+ .live-shell,.audio-section{padding:18px 12px}
 }
 </style>
 </head>
@@ -543,9 +267,7 @@ footer p{line-height:1.7}
 <body>
 
 <header>
- <img src="pro-max-fm.jpg"
-      alt="PRO-MAX FM Logo Officiel"
-      class="official-logo">
+ <img src="pro-max-fm.jpg" alt="PRO-MAX FM" class="official-logo">
  <div class="brand-name">PRO-MAX FM</div>
  <h1>NEWS CENTER</h1>
  <p>LA FORCE DU SON</p>
@@ -558,11 +280,11 @@ footer p{line-height:1.7}
 
 <nav>
  <a href="index.html" id="homeLink">ACCUEIL</a>
- <a href="#live" id="liveNav">LIVE</a>
+ <a href="#live">LIVE</a>
  <a href="#news">NEWS</a>
  <a href="pages/shows.html">SHOWS</a>
  <a href="#podcasts">PODCASTS</a>
- <a href="pages/music.html">MUSIC</a>
+ <a href="#music">MUSIC</a>
  <a href="pages/artists.html">ARTISTS</a>
  <a href="pages/video.html">VIDEO</a>
  <a href="pages/events.html">EVENTS</a>
@@ -572,178 +294,83 @@ footer p{line-height:1.7}
 <section class="hero">
  <h2 id="heroTitle">ACTUALITÉS DU MONDE</h2>
  <p id="heroDescription">
-  Retrouvez les médias haïtiens, internationaux
-  et communautaires sur PRO-MAX FM.
+  Retrouvez les médias haïtiens, internationaux et communautaires sur PRO-MAX FM.
  </p>
 </section>
 
 <main class="container">
 
-<!-- SECTION 02: LIVE -->
-<section id="live" aria-labelledby="liveTitle">
- <h2 class="section-title" id="liveTitle">
-  PRO-MAX FM — EN DIRECT
- </h2>
- <p class="section-description" id="liveDescription">
-  LA FORCE DU SON • La radio de tous,
-  partout et toujours.
- </p>
-
+<section id="live">
+ <h2 class="section-title" id="liveTitle">PRO-MAX FM — EN DIRECT</h2>
+ <p class="section-description" id="liveDescription">LA FORCE DU SON</p>
  <div class="live-shell">
-  <div class="live-orb" aria-hidden="true">FM</div>
-  <h3>PRO-MAX FM</h3>
+  <div class="live-orb">FM</div>
+  <h2>PRO-MAX FM</h2>
   <p>LA FORCE DU SON</p>
-
-  <div class="live-status" id="liveStatus" role="status">
-   STREAMING NON CONFIGURÉ
-  </div>
-
-  <audio
-   id="radioPlayer"
-   class="live-player"
-   controls
-   preload="none"
-   aria-label="PRO-MAX FM live player">
-  </audio>
-
-  <div class="live-buttons">
-   <button id="playLive" type="button"
-           onclick="playRadio()">
-    ▶ ÉCOUTER
-   </button>
-   <button id="stopLive" type="button"
-           onclick="stopRadio()">
-    ■ ARRÊTER
-   </button>
-  </div>
-
-  <p class="live-notice" id="liveNotice">
-   Le lecteur est prêt. Ajoutez l’URL directe
-   du flux RadioKing dans STREAM_URL
-   pour activer la diffusion.
-  </p>
+  <div class="live-status" id="liveStatus">STREAMING NON CONFIGURÉ</div>
+  <audio id="radioPlayer" controls preload="none"></audio>
+  <button class="action-button" id="playLive" onclick="playRadio()">▶ ÉCOUTER</button>
+  <button class="action-button" id="stopLive" onclick="stopRadio()">■ ARRÊTER</button>
+  <p id="liveNotice">Ajoutez votre URL RadioKing pour activer la diffusion.</p>
  </div>
 </section>
 
-<!-- NEWS CENTER CONSERVÉ -->
 <section id="news">
- <h2 class="section-title" id="sourcesTitle">
-  NOS SOURCES D'INFORMATION
- </h2>
+ <h2 class="section-title" id="sourcesTitle">NOS SOURCES D'INFORMATION</h2>
  <p class="section-description" id="sourcesDescription">
-  Identité visuelle, sites internet, réseaux sociaux
-  et coordonnées disponibles pour chaque média.
+  Médias haïtiens, internationaux et communautaires.
  </p>
-
  <div class="search-box">
-  <input type="search"
-         id="searchInput"
-         placeholder="Rechercher un média..."
-         aria-label="Rechercher un média"
-         oninput="renderSources()">
+  <input id="searchInput" type="search" placeholder="Rechercher un média..." oninput="renderSources()">
  </div>
-
  <div class="filters" id="filters"></div>
- <div class="source-count" id="sourceCount"></div>
+ <p class="source-count" id="sourceCount"></p>
  <div class="grid" id="newsGrid"></div>
 </section>
 
 <div class="info-panel">
  <h2 id="flashTitle">🎙️ PRO-MAX FM FLASH INFO</h2>
  <p id="flashDescription">
-  Notre centre d'information rassemble différentes
-  sources médiatiques. Les informations doivent
-  être vérifiées avant toute diffusion.
+  Les informations doivent être vérifiées avant toute diffusion.
  </p>
 </div>
 
-<!-- NOUVELLE SECTION: PODCASTS -->
-<section id="podcasts" aria-labelledby="podcastsTitle">
- <h2 class="section-title" id="podcastsTitle">
-  PRO-MAX FM — PODCASTS & REPLAYS
- </h2>
- <p class="section-description" id="podcastsDescription">
-  Retrouvez nos émissions enregistrées,
-  entretiens, actualités et programmes audio.
+<section id="podcasts" class="audio-section">
+ <h2>PRO-MAX FM — PODCASTS & REPLAYS</h2>
+ <p id="podcastsIntro">Émissions enregistrées, entretiens et archives audio.</p>
+ <div class="audio-status" id="podcastStatus">AUCUN ÉPISODE SÉLECTIONNÉ</div>
+ <audio id="podcastPlayer" controls preload="none"></audio>
+ <input class="audio-search" id="podcastSearch" type="search"
+  placeholder="Rechercher un podcast..." oninput="renderPodcasts()">
+ <div class="audio-filters" id="podcastFilters"></div>
+ <p id="podcastCount"></p>
+ <div class="audio-grid" id="podcastGrid"></div>
+</section>
+
+<!-- MUSIC: SEKSYON ENTEGRE NAN MENM INDEX.HTML -->
+<section id="music" class="audio-section">
+ <h2>PRO-MAX FM — MUSIC</h2>
+ <p id="musicIntro">
+  Kompa • Reggae • Rap Kreyòl • Rabòday • Rara • Kompa Love •
+  Hip-Hop • Reggaeton • Reggae for Lovers • Ansyèn Mizik •
+  Tropicana • Septen • Racine
  </p>
-
- <div class="podcast-shell">
-  <div class="podcast-feature">
-   <div class="podcast-art" aria-hidden="true">🎙</div>
-   <div>
-    <h3 id="podcastFeatureTitle">
-     LA FORCE DU SON — À LA DEMANDE
-    </h3>
-    <p id="podcastFeatureDescription">
-     Écoutez vos programmes préférés quand
-     vous le souhaitez.
-    </p>
-    <div class="podcast-status"
-         id="podcastStatus"
-         role="status">
-     AUCUN ÉPISODE SÉLECTIONNÉ
-    </div>
-   </div>
-  </div>
-
-  <audio
-   id="podcastPlayer"
-   class="podcast-player"
-   controls
-   preload="none"
-   aria-label="PRO-MAX FM podcast player">
-  </audio>
-
-  <div class="live-buttons">
-   <button type="button"
-           id="podcastStopButton"
-           onclick="stopPodcast()">
-    ■ ARRÊTER LE PODCAST
-   </button>
-  </div>
- </div>
-
- <div class="podcast-search">
-  <input
-   type="search"
-   id="podcastSearch"
-   placeholder="Rechercher un podcast..."
-   oninput="renderPodcasts()"
-   aria-label="Rechercher un podcast">
- </div>
-
- <div class="podcast-filters"
-      id="podcastFilters"></div>
-
- <div class="source-count"
-      id="podcastCount"></div>
-
- <div class="podcast-grid"
-      id="podcastGrid"></div>
-
- <div class="podcast-library-note">
-  <strong id="podcastLibraryTitle">
-   BIBLIOTHÈQUE AUDIO PRO-MAX FM
-  </strong>
-  <p id="podcastLibraryDescription">
-   Les catégories sont prêtes. Les épisodes
-   seront disponibles après l'ajout de leurs
-   fichiers audio ou de leurs liens directs.
-  </p>
- </div>
+ <div class="audio-status" id="musicStatus">AUCUNE MUSIQUE SÉLECTIONNÉE</div>
+ <audio id="musicPlayer" controls preload="none"></audio>
+ <input class="audio-search" id="musicSearch" type="search"
+  placeholder="Rechercher une musique ou un artiste..." oninput="renderMusic()">
+ <div class="audio-filters" id="musicFilters"></div>
+ <p id="musicCount"></p>
+ <div class="audio-grid" id="musicGrid"></div>
 </section>
 
 <section id="social">
- <h2 class="section-title" id="socialTitle">
-  RÉSEAUX SOCIAUX
- </h2>
+ <h2 class="section-title" id="socialTitle">RÉSEAUX SOCIAUX</h2>
  <div class="social-grid" id="socialGrid"></div>
 </section>
 
 <section id="contact">
- <h2 class="section-title" id="contactTitle">
-  CONTACT
- </h2>
+ <h2 class="section-title" id="contactTitle">CONTACT</h2>
  <div class="contacts">
   <div class="contact-card">
    <h3>🇺🇸 USA — FLORIDA</h3>
@@ -762,11 +389,9 @@ footer p{line-height:1.7}
 <div class="info-panel platform">
  <h2>BSS1815 PRO-MAX DMP</h2>
  <p>DIGITAL MANAGEMENT PLATFORM</p>
- <a class="main-link"
-    href="https://bss1815promaxdmp.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    id="platformLink">
+ <a class="main-link" id="platformLink"
+  href="https://bss1815promaxdmp.com"
+  target="_blank" rel="noopener noreferrer">
   VISITER NOTRE PLATEFORME
  </a>
 </div>
@@ -776,380 +401,145 @@ footer p{line-height:1.7}
 <footer>
  <h2>PRO-MAX FM</h2>
  <p>LA FORCE DU SON</p>
- <p id="footerText">
-  La radio de tous, partout et toujours.
- </p>
+ <p id="footerText">La radio de tous, partout et toujours.</p>
  <p>© 2026 PRO-MAX FM</p>
 </footer>
 
 <script>
-/*
- PRO-MAX FM NEWS CENTER + LIVE + PODCASTS
- 23 MEDIA SOURCES
-*/
-
 const sources=[
- {
-  name:"Radio Télé Éclair",
-  category:"haiti",
-  url:"https://www.radioteleclair.com",
-  domain:"radioteleclair.com",
-  mark:"RTÉ",
-  phone:"+509 44 54 8812",
-  phoneLink:"+50944548812"
- },
- {
-  name:"Radio Télévision Caraïbes",
-  category:"haiti",
-  url:"https://www.radiotelevisioncaraibes.com",
-  domain:"radiotelevisioncaraibes.com",
-  mark:"RTVC"
- },
- {
-  name:"Radio Vision 2000",
-  category:"haiti",
-  url:null,
-  domain:null,
-  logo:"media-logos/radio-vision-2000.png",
-  mark:"V2000",
-  phone:"+509 2813 1875",
-  phoneLink:"+50928131875",
-  email:"info@radiovision2000haiti.net"
- },
- {
-  name:"Le Nouvelliste",
-  category:"haiti",
-  url:"https://lenouvelliste.com",
-  domain:"lenouvelliste.com",
-  mark:"LN"
- },
- {
-  name:"Radio Télé 6 Univers",
-  category:"haiti",
-  url:null,
-  domain:null,
-  logo:"media-logos/radio-tele-6-univers.png",
-  mark:"6U"
- },
- {
-  name:"ZOOM HAITI TV",
-  category:"digital",
-  url:null,
-  domain:null,
-  logo:"media-logos/zoom-haiti-tv.png",
-  mark:"ZH"
- },
- {
-  name:"Tripotay Bò Lakay",
-  category:"digital",
-  url:null,
-  domain:null,
-  logo:"media-logos/tripotay-bo-lakay.png",
-  mark:"TBL"
- },
- {
-  name:"EnfoFyab TV",
-  category:"digital",
-  url:null,
-  domain:null,
-  logo:"media-logos/enfofyab-tv.png",
-  mark:"EF"
- },
- {
-  name:"Info Media / MRJEAN",
-  category:"digital",
-  url:null,
-  domain:null,
-  logo:"media-logos/info-media-mrjean.png",
-  mark:"IM"
- },
- {
-  name:"CNN",
-  category:"world",
-  url:"https://www.cnn.com",
-  domain:"cnn.com",
-  mark:"CNN"
- },
- {
-  name:"BBC News",
-  category:"world",
-  url:"https://www.bbc.com/news",
-  domain:"bbc.com",
-  mark:"BBC"
- },
- {
-  name:"France 24",
-  category:"world",
-  url:"https://www.france24.com",
-  domain:"france24.com",
-  mark:"F24"
- },
- {
-  name:"RFI",
-  category:"world",
-  url:"https://www.rfi.fr",
-  domain:"rfi.fr",
-  mark:"RFI"
- },
- {
-  name:"Reuters",
-  category:"world",
-  url:"https://www.reuters.com",
-  domain:"reuters.com",
-  mark:"R"
- },
- {
-  name:"Associated Press",
-  category:"world",
-  url:"https://apnews.com",
-  domain:"apnews.com",
-  mark:"AP"
- },
- {
-  name:"Axios",
-  category:"world",
-  url:"https://www.axios.com",
-  domain:"axios.com",
-  mark:"AX"
- },
- {
-  name:"Miami Herald",
-  category:"diaspora",
-  url:"https://www.miamiherald.com",
-  domain:"miamiherald.com",
-  mark:"MH"
- },
- {
-  name:"The Haitian Times",
-  category:"diaspora",
-  url:"https://haitiantimes.com",
-  domain:"haitiantimes.com",
-  mark:"HT"
- },
- {
-  name:"PAP Times",
-  category:"diaspora",
-  url:null,
-  domain:null,
-  logo:"media-logos/pap-times.png",
-  mark:"PAP"
- },
- {
-  name:"AyiboPost",
-  category:"independent",
-  url:"https://ayibopost.com",
-  domain:"ayibopost.com",
-  mark:"AY"
- },
- {
-  name:"Loop Haiti",
-  category:"independent",
-  url:null,
-  domain:null,
-  logo:"media-logos/loop-haiti.png",
-  mark:"LOOP"
- },
- {
-  name:"Tabou Network",
-  category:"independent",
-  url:null,
-  domain:null,
-  logo:"media-logos/tabou-network.png",
-  mark:"TN"
- },
- {
-  name:"LÉOGÂNE INFO",
-  category:"community",
-  url:null,
-  domain:null,
-  logo:"leogane-info-logo.png",
-  mark:"LI"
- }
+ {name:"Radio Télé Éclair",category:"haiti",url:"https://www.radioteleclair.com",domain:"radioteleclair.com",mark:"RTÉ",phone:"+509 44 54 8812"},
+ {name:"Radio Télévision Caraïbes",category:"haiti",url:"https://www.radiotelevisioncaraibes.com",domain:"radiotelevisioncaraibes.com",mark:"RTVC"},
+ {name:"Radio Vision 2000",category:"haiti",logo:"media-logos/radio-vision-2000.png",mark:"V2000",phone:"+509 2813 1875",email:"info@radiovision2000haiti.net"},
+ {name:"Le Nouvelliste",category:"haiti",url:"https://lenouvelliste.com",domain:"lenouvelliste.com",mark:"LN"},
+ {name:"Radio Télé 6 Univers",category:"haiti",logo:"media-logos/radio-tele-6-univers.png",mark:"6U"},
+ {name:"ZOOM HAITI TV",category:"digital",logo:"media-logos/zoom-haiti-tv.png",mark:"ZH"},
+ {name:"Tripotay Bò Lakay",category:"digital",logo:"media-logos/tripotay-bo-lakay.png",mark:"TBL"},
+ {name:"EnfoFyab TV",category:"digital",logo:"media-logos/enfofyab-tv.png",mark:"EF"},
+ {name:"Info Media / MRJEAN",category:"digital",logo:"media-logos/info-media-mrjean.png",mark:"IM"},
+ {name:"CNN",category:"world",url:"https://www.cnn.com",domain:"cnn.com",mark:"CNN"},
+ {name:"BBC News",category:"world",url:"https://www.bbc.com/news",domain:"bbc.com",mark:"BBC"},
+ {name:"France 24",category:"world",url:"https://www.france24.com",domain:"france24.com",mark:"F24"},
+ {name:"RFI",category:"world",url:"https://www.rfi.fr",domain:"rfi.fr",mark:"RFI"},
+ {name:"Reuters",category:"world",url:"https://www.reuters.com",domain:"reuters.com",mark:"R"},
+ {name:"Associated Press",category:"world",url:"https://apnews.com",domain:"apnews.com",mark:"AP"},
+ {name:"Axios",category:"world",url:"https://www.axios.com",domain:"axios.com",mark:"AX"},
+ {name:"Miami Herald",category:"diaspora",url:"https://www.miamiherald.com",domain:"miamiherald.com",mark:"MH"},
+ {name:"The Haitian Times",category:"diaspora",url:"https://haitiantimes.com",domain:"haitiantimes.com",mark:"HT"},
+ {name:"PAP Times",category:"diaspora",logo:"media-logos/pap-times.png",mark:"PAP"},
+ {name:"AyiboPost",category:"independent",url:"https://ayibopost.com",domain:"ayibopost.com",mark:"AY"},
+ {name:"Loop Haiti",category:"independent",logo:"media-logos/loop-haiti.png",mark:"LOOP"},
+ {name:"Tabou Network",category:"independent",logo:"media-logos/tabou-network.png",mark:"TN"},
+ {name:"LÉOGÂNE INFO",category:"community",logo:"leogane-info-logo.png",mark:"LI"}
 ];
 
 const translations={
  fr:{
-  home:"ACCUEIL",
-  hero:"ACTUALITÉS DU MONDE",
+  home:"ACCUEIL",hero:"ACTUALITÉS DU MONDE",
   description:"Retrouvez les médias haïtiens, internationaux et communautaires sur PRO-MAX FM.",
   sources:"NOS SOURCES D'INFORMATION",
   sourcesDescription:"Identité visuelle, sites internet, réseaux sociaux et coordonnées disponibles pour chaque média.",
   search:"Rechercher un média...",
-  all:"TOUS",
-  haiti:"RADIOS & MÉDIAS HAÏTIENS",
-  digital:"MÉDIAS DIGITAUX",
-  world:"INTERNATIONAL",
+  all:"TOUS",haiti:"RADIOS & MÉDIAS HAÏTIENS",
+  digital:"MÉDIAS DIGITAUX",world:"INTERNATIONAL",
   diaspora:"FLORIDE & DIASPORA",
-  independent:"INDÉPENDANTS",
-  community:"COMMUNAUTÉ",
-  visit:"🌐 SITE WEB",
-  live:"▶ LIVE",
-  contactMedia:"✉ CONTACT",
-  unavailable:"LIEN À CONFIRMER",
-  pendingMedia:"Coordonnées et réseaux non confirmés",
+  independent:"INDÉPENDANTS",community:"COMMUNAUTÉ",
+  visit:"🌐 SITE WEB",pending:"PROFIL À CONNECTER",
+  empty:"Aucun média trouvé.",count:"médias",
   flash:"🎙️ PRO-MAX FM FLASH INFO",
   flashText:"Notre centre d'information rassemble différentes sources médiatiques. Les informations doivent être vérifiées avant toute diffusion.",
-  social:"RÉSEAUX SOCIAUX",
-  contact:"CONTACT",
+  social:"RÉSEAUX SOCIAUX",contact:"CONTACT",
   platform:"VISITER NOTRE PLATEFORME",
   footer:"La radio de tous, partout et toujours.",
-  empty:"Aucun média trouvé.",
-  pending:"PROFIL À CONNECTER",
-  count:"médias",
   liveTitle:"PRO-MAX FM — EN DIRECT",
   liveDescription:"LA FORCE DU SON • La radio de tous, partout et toujours.",
   liveOffline:"STREAMING NON CONFIGURÉ",
-  liveReady:"PRÊT À ÉCOUTER",
-  livePlaying:"DIFFUSION EN COURS",
+  liveReady:"PRÊT À ÉCOUTER",livePlaying:"DIFFUSION EN COURS",
   liveError:"IMPOSSIBLE DE LIRE LE FLUX",
-  livePlay:"▶ ÉCOUTER",
-  liveStop:"■ ARRÊTER",
-  liveNotice:"Le lecteur est prêt. Ajoutez l’URL directe du flux RadioKing dans STREAM_URL pour activer la diffusion.",
-  podcastsTitle:"PRO-MAX FM — PODCASTS & REPLAYS",
-  podcastsDescription:"Retrouvez nos émissions enregistrées, entretiens, actualités et programmes audio.",
-  podcastFeatureTitle:"LA FORCE DU SON — À LA DEMANDE",
-  podcastFeatureDescription:"Écoutez vos programmes préférés quand vous le souhaitez.",
-  podcastNone:"AUCUN ÉPISODE SÉLECTIONNÉ",
-  podcastReady:"PRÊT À ÉCOUTER",
-  podcastPlaying:"LECTURE EN COURS",
-  podcastError:"LECTURE IMPOSSIBLE",
-  podcastStop:"■ ARRÊTER LE PODCAST",
+  livePlay:"▶ ÉCOUTER",liveStop:"■ ARRÊTER",
+  liveNotice:"Ajoutez l'URL directe RadioKing dans STREAM_URL pour activer la diffusion.",
+  podcastIntro:"Émissions enregistrées, entretiens et archives audio.",
+  musicIntro:"Découvrez les catégories musicales de PRO-MAX FM.",
   podcastSearch:"Rechercher un podcast...",
-  podcastEmpty:"Aucun épisode disponible pour le moment.",
-  podcastPlay:"▶ ÉCOUTER",
-  podcastPending:"ÉPISODE À AJOUTER",
-  podcastCount:"épisodes disponibles",
-  podcastLibraryTitle:"BIBLIOTHÈQUE AUDIO PRO-MAX FM",
-  podcastLibraryDescription:"Les catégories sont prêtes. Les épisodes seront disponibles après l'ajout de leurs fichiers audio ou de leurs liens directs.",
-  podcastAll:"TOUS",
-  podcastNews:"ACTUALITÉS",
-  podcastInterviews:"ENTRETIENS",
-  podcastCulture:"CULTURE",
-  podcastCommunity:"COMMUNAUTÉ",
-  podcastShows:"ÉMISSIONS",
-  podcastArchives:"ARCHIVES"
+  musicSearch:"Rechercher une musique ou un artiste...",
+  noEpisodes:"Aucun épisode disponible pour le moment.",
+  noTracks:"Aucun fichier MP3 disponible pour le moment.",
+  episodes:"épisodes disponibles",tracks:"morceaux disponibles",
+  listen:"▶ ÉCOUTER",error:"LECTURE IMPOSSIBLE",
+  podcastNone:"AUCUN ÉPISODE SÉLECTIONNÉ",
+  musicNone:"AUCUNE MUSIQUE SÉLECTIONNÉE",
+  genrePending:"Fichiers MP3 à ajouter"
  },
  en:{
-  home:"HOME",
-  hero:"WORLD NEWS",
+  home:"HOME",hero:"WORLD NEWS",
   description:"Explore Haitian, international and community news sources on PRO-MAX FM.",
   sources:"OUR MEDIA & INFORMATION SOURCES",
-  sourcesDescription:"Visual identity, websites, social media and contact information available for each media outlet.",
+  sourcesDescription:"Visual identity, websites, social media and contact information available for each outlet.",
   search:"Search for a media outlet...",
-  all:"ALL",
-  haiti:"HAITIAN RADIO & MEDIA",
-  digital:"DIGITAL MEDIA",
-  world:"INTERNATIONAL",
+  all:"ALL",haiti:"HAITIAN RADIO & MEDIA",
+  digital:"DIGITAL MEDIA",world:"INTERNATIONAL",
   diaspora:"FLORIDA & DIASPORA",
-  independent:"INDEPENDENT",
-  community:"COMMUNITY",
-  visit:"🌐 WEBSITE",
-  live:"▶ LIVE",
-  contactMedia:"✉ CONTACT",
-  unavailable:"LINK TO CONFIRM",
-  pendingMedia:"Contact details/networks not confirmed",
+  independent:"INDEPENDENT",community:"COMMUNITY",
+  visit:"🌐 WEBSITE",pending:"PROFILE NOT CONNECTED",
+  empty:"No media sources found.",count:"media",
   flash:"🎙️ PRO-MAX FM NEWS FLASH",
   flashText:"Our news center brings together different media sources. Information must be verified before broadcasting.",
-  social:"SOCIAL NETWORKS",
-  contact:"CONTACT",
+  social:"SOCIAL NETWORKS",contact:"CONTACT",
   platform:"VISIT OUR MAIN PLATFORM",
   footer:"The radio for everyone, everywhere, always.",
-  empty:"No media sources found.",
-  pending:"PROFILE NOT CONNECTED",
-  count:"media",
   liveTitle:"PRO-MAX FM — LIVE",
   liveDescription:"LA FORCE DU SON • The radio for everyone, everywhere, always.",
   liveOffline:"STREAM NOT CONFIGURED",
-  liveReady:"READY TO LISTEN",
-  livePlaying:"STREAM PLAYING",
+  liveReady:"READY TO LISTEN",livePlaying:"STREAM PLAYING",
   liveError:"UNABLE TO PLAY STREAM",
-  livePlay:"▶ LISTEN",
-  liveStop:"■ STOP",
-  liveNotice:"The player is ready. Add the direct RadioKing streaming URL to STREAM_URL to enable broadcasting.",
-  podcastsTitle:"PRO-MAX FM — PODCASTS & REPLAYS",
-  podcastsDescription:"Discover recorded shows, interviews, news and audio programs.",
-  podcastFeatureTitle:"LA FORCE DU SON — ON DEMAND",
-  podcastFeatureDescription:"Listen to your favorite programs whenever you want.",
-  podcastNone:"NO EPISODE SELECTED",
-  podcastReady:"READY TO LISTEN",
-  podcastPlaying:"NOW PLAYING",
-  podcastError:"PLAYBACK FAILED",
-  podcastStop:"■ STOP PODCAST",
+  livePlay:"▶ LISTEN",liveStop:"■ STOP",
+  liveNotice:"Add the direct RadioKing streaming URL to STREAM_URL.",
+  podcastIntro:"Recorded shows, interviews and audio archives.",
+  musicIntro:"Explore the music genres of PRO-MAX FM.",
   podcastSearch:"Search podcasts...",
-  podcastEmpty:"No episodes available yet.",
-  podcastPlay:"▶ LISTEN",
-  podcastPending:"EPISODE TO BE ADDED",
-  podcastCount:"available episodes",
-  podcastLibraryTitle:"PRO-MAX FM AUDIO LIBRARY",
-  podcastLibraryDescription:"Categories are ready. Episodes will become available when audio files or direct links are added.",
-  podcastAll:"ALL",
-  podcastNews:"NEWS",
-  podcastInterviews:"INTERVIEWS",
-  podcastCulture:"CULTURE",
-  podcastCommunity:"COMMUNITY",
-  podcastShows:"SHOWS",
-  podcastArchives:"ARCHIVES"
+  musicSearch:"Search music or artists...",
+  noEpisodes:"No episodes available yet.",
+  noTracks:"No MP3 files available yet.",
+  episodes:"available episodes",tracks:"available tracks",
+  listen:"▶ LISTEN",error:"PLAYBACK FAILED",
+  podcastNone:"NO EPISODE SELECTED",
+  musicNone:"NO MUSIC SELECTED",
+  genrePending:"MP3 files to be added"
  },
  ht:{
-  home:"AKÈY",
-  hero:"NOUVÈL MONDYAL",
+  home:"AKÈY",hero:"NOUVÈL MONDYAL",
   description:"Dekouvri sous nouvèl ayisyen, entènasyonal ak kominotè sou PRO-MAX FM.",
   sources:"SOUS MEDYA AK ENFÒMASYON NOU YO",
-  sourcesDescription:"Idantite vizyèl, sit entènèt, rezo sosyal ak enfòmasyon kontak ki disponib pou chak medya.",
+  sourcesDescription:"Idantite vizyèl, sit entènèt, rezo sosyal ak enfòmasyon kontak pou chak medya.",
   search:"Chèche yon medya...",
-  all:"TOUT",
-  haiti:"RADYO AK MEDYA AYISYEN",
-  digital:"MEDYA DIJITAL",
-  world:"ENTÈNASYONAL",
+  all:"TOUT",haiti:"RADYO AK MEDYA AYISYEN",
+  digital:"MEDYA DIJITAL",world:"ENTÈNASYONAL",
   diaspora:"FLORIDA & DYASPORA",
-  independent:"ENDEPANDAN",
-  community:"KOMINOTE",
-  visit:"🌐 SIT ENTÈNÈT",
-  live:"▶ AN DIRÈK",
-  contactMedia:"✉ KONTAK",
-  unavailable:"LYEN POU KONFIME",
-  pendingMedia:"Kontak ak rezo sosyal poko konfime",
+  independent:"ENDEPANDAN",community:"KOMINOTE",
+  visit:"🌐 SIT ENTÈNÈT",pending:"PWOFIL POKO KONEKTE",
+  empty:"Nou pa jwenn okenn medya.",count:"medya",
   flash:"🎙️ PRO-MAX FM FLASH INFO",
   flashText:"Sant nouvèl nou an rasanble plizyè sous medya. Nou dwe verifye enfòmasyon yo anvan nou difize yo.",
-  social:"REZO SOSYAL",
-  contact:"KONTAK",
+  social:"REZO SOSYAL",contact:"KONTAK",
   platform:"VIZITE PLATFÒM NOU AN",
   footer:"Radyo pou tout moun, tout kote, tout tan.",
-  empty:"Nou pa jwenn okenn medya.",
-  pending:"PWOFIL POKO KONEKTE",
-  count:"medya",
   liveTitle:"PRO-MAX FM — AN DIRÈK",
   liveDescription:"LA FORCE DU SON • Radyo pou tout moun, tout kote, tout tan.",
   liveOffline:"STREAMING POKO KONFIGIRE",
-  liveReady:"PARE POU KOUTE",
-  livePlaying:"RADYO A AP JWE",
+  liveReady:"PARE POU KOUTE",livePlaying:"RADYO A AP JWE",
   liveError:"PA KA JWE STREAM LAN",
-  livePlay:"▶ KOUTE",
-  liveStop:"■ KANPE",
-  liveNotice:"Player la pare. Mete lyen streaming dirèk RadioKing la nan STREAM_URL pou aktive difizyon an.",
-  podcastsTitle:"PRO-MAX FM — PODCASTS & REPLAYS",
-  podcastsDescription:"Jwenn emisyon anrejistre, entèvyou, nouvèl ak pwogram odyo nou yo.",
-  podcastFeatureTitle:"LA FORCE DU SON — KOUTE LÈ OU VLE",
-  podcastFeatureDescription:"Koute pwogram ou renmen yo nenpòt lè.",
+  livePlay:"▶ KOUTE",liveStop:"■ KANPE",
+  liveNotice:"Mete lyen streaming RadioKing la nan STREAM_URL.",
+  podcastIntro:"Emisyon anrejistre, entèvyou ak achiv odyo.",
+  musicIntro:"Dekouvri tout kategori mizik PRO-MAX FM yo.",
+  podcastSearch:"Chèche podcast...",
+  musicSearch:"Chèche mizik oswa atis...",
+  noEpisodes:"Poko gen epizòd.",
+  noTracks:"Poko gen fichye MP3.",
+  episodes:"epizòd disponib",tracks:"mizik disponib",
+  listen:"▶ KOUTE",error:"PA KA JWE",
   podcastNone:"OKEN EPIZÒD PA CHWAZI",
-  podcastReady:"PARE POU KOUTE",
-  podcastPlaying:"PODCAST LA AP JWE",
-  podcastError:"PODCAST LA PA KA JWE",
-  podcastStop:"■ KANPE PODCAST",
-  podcastSearch:"Chèche yon podcast...",
-  podcastEmpty:"Poko gen epizòd ki disponib.",
-  podcastPlay:"▶ KOUTE",
-  podcastPending:"EPIZÒD POU AJOUTE",
-  podcastCount:"epizòd disponib",
-  podcastLibraryTitle:"BIBLIYOTÈK ODYO PRO-MAX FM",
-  podcastLibraryDescription:"Kategori yo pare. Epizòd yo ap disponib lè nou ajoute fichye odyo oswa lyen dirèk yo.",
-  podcastAll:"TOUT",
-  podcastNews:"NOUVÈL",
-  podcastInterviews:"ENTÈVYOU",
-  podcastCulture:"KILTI",
-  podcastCommunity:"KOMINOTE",
-  podcastShows:"EMISYON",
-  podcastArchives:"ACHIV"
+  musicNone:"OKEN MIZIK PA CHWAZI",
+  genrePending:"Fichye MP3 pou ajoute"
  }
 };
 
@@ -1157,9 +547,108 @@ const categories=[
  "all","haiti","digital","world",
  "diaspora","independent","community"
 ];
-
 let currentLanguage="fr";
 let currentCategory="all";
+
+function renderFilters(){
+ const box=document.getElementById("filters");
+ box.replaceChildren();
+ categories.forEach(category=>{
+  const button=document.createElement("button");
+  button.textContent=translations[currentLanguage][category];
+  button.classList.toggle("active",currentCategory===category);
+  button.onclick=()=>{
+   currentCategory=category;
+   renderFilters();
+   renderSources();
+  };
+  box.append(button);
+ });
+}
+
+function renderSources(){
+ const grid=document.getElementById("newsGrid");
+ const t=translations[currentLanguage];
+ const q=document.getElementById("searchInput").value.toLowerCase();
+ const filtered=sources.filter(s=>
+  (currentCategory==="all"||s.category===currentCategory)&&
+  s.name.toLowerCase().includes(q)
+ );
+ document.getElementById("sourceCount").textContent=
+  filtered.length+" "+t.count;
+ grid.replaceChildren();
+
+ if(!filtered.length){
+  const p=document.createElement("p");
+  p.textContent=t.empty;
+  grid.append(p);
+  return;
+ }
+
+ filtered.forEach(s=>{
+  const card=document.createElement("article");
+  card.className="card";
+  const heading=document.createElement("div");
+  heading.className="media-heading";
+  const mark=document.createElement("div");
+  mark.className="media-mark";
+  mark.textContent=s.mark;
+
+  const logo=s.logo||
+   (s.domain
+    ?"https://www.google.com/s2/favicons?domain="+
+     encodeURIComponent(s.domain)+"&sz=128"
+    :null);
+
+  if(logo){
+   const img=document.createElement("img");
+   img.src=logo;
+   img.alt=s.name;
+   img.onerror=()=>img.remove();
+   mark.append(img);
+  }
+
+  const details=document.createElement("div");
+  const title=document.createElement("h3");
+  title.textContent=s.name;
+  const category=document.createElement("small");
+  category.textContent=t[s.category];
+  details.append(title,category);
+  heading.append(mark,details);
+  card.append(heading);
+
+  if(s.url){
+   const actions=document.createElement("div");
+   actions.className="media-actions";
+   const a=document.createElement("a");
+   a.href=s.url;
+   a.target="_blank";
+   a.rel="noopener noreferrer";
+   a.className="media-link";
+   a.textContent=t.visit;
+   actions.append(a);
+   card.append(actions);
+  }
+
+  if(s.phone||s.email){
+   const contact=document.createElement("div");
+   contact.className="media-contact";
+   if(s.phone){
+    const p=document.createElement("p");
+    p.textContent="TEL.: "+s.phone;
+    contact.append(p);
+   }
+   if(s.email){
+    const a=document.createElement("a");
+    a.href="mailto:"+s.email;
+    a.textContent=s.email;
+    contact.append(a);
+   }
+   card.append(contact);
+  }
+  grid.append(card);
+ });
+}
 
 const socialNetworks=[
  {name:"Facebook",color:"#1877f2",symbol:"f"},
@@ -1176,262 +665,49 @@ const socialNetworks=[
 function renderSocial(){
  const grid=document.getElementById("socialGrid");
  grid.replaceChildren();
-
  socialNetworks.forEach(s=>{
   const card=document.createElement("div");
   card.className="social-item";
-
   const icon=document.createElement("div");
   icon.className="social-icon";
   icon.style.color=s.color;
   icon.textContent=s.symbol;
-
   const name=document.createElement("strong");
   name.textContent=s.name;
-
   const status=document.createElement("small");
   status.textContent=translations[currentLanguage].pending;
-
   card.append(icon,name,status);
   grid.append(card);
  });
 }
 
-function renderFilters(){
- const box=document.getElementById("filters");
- box.replaceChildren();
-
- categories.forEach(category=>{
-  const button=document.createElement("button");
-  button.textContent=translations[currentLanguage][category];
-  button.classList.toggle(
-   "active",currentCategory===category
-  );
-
-  button.onclick=()=>{
-   currentCategory=category;
-   renderFilters();
-   renderSources();
-  };
-
-  box.append(button);
- });
-}
-
-function loadMediaLogo(source,mark){
- const urls=[];
-
- if(source.logo){
-  urls.push(source.logo);
- }
-
- if(source.domain){
-  urls.push(
-   "https://www.google.com/s2/favicons?domain="+
-   encodeURIComponent(source.domain)+"&sz=128"
-  );
- }
-
- if(!urls.length)return;
-
- let index=0;
- const img=document.createElement("img");
- img.alt=source.name+" logo";
- img.loading="lazy";
-
- function tryNext(){
-  if(index>=urls.length){
-   img.remove();
-   return;
-  }
-  img.src=urls[index++];
- }
-
- img.onerror=tryNext;
- img.onload=()=>{
-  if(img.naturalWidth<2)tryNext();
- };
-
- mark.append(img);
- tryNext();
-}
-
-function addMediaButton(container,label,url){
- if(!url)return;
-
- const a=document.createElement("a");
- a.className="media-link";
- a.href=url;
- a.target="_blank";
- a.rel="noopener noreferrer";
- a.textContent=label;
- container.append(a);
-}
-
-function renderMediaContact(source,card){
- const t=translations[currentLanguage];
- const details=document.createElement("div");
- details.className="media-contact";
- let hasContact=false;
-
- if(source.phone){
-  const phone=document.createElement("div");
-  phone.textContent="TEL.: "+source.phone;
-  details.append(phone);
-  hasContact=true;
- }
-
- if(source.email){
-  const emailRow=document.createElement("div");
-  emailRow.append("EMAIL: ");
-
-  const a=document.createElement("a");
-  a.href="mailto:"+source.email;
-  a.textContent=source.email;
-  emailRow.append(a);
-
-  details.append(emailRow);
-  hasContact=true;
- }
-
- if(hasContact){
-  card.append(details);
- }else if(
-  !source.url &&
-  !source.live &&
-  !source.facebook &&
-  !source.youtube &&
-  !source.instagram &&
-  !source.x
- ){
-  const pending=document.createElement("p");
-  pending.className="media-pending";
-  pending.textContent=t.pendingMedia;
-  card.append(pending);
- }
-}
-
-function renderSources(){
- const grid=document.getElementById("newsGrid");
- const search=document.getElementById("searchInput")
-  .value.toLocaleLowerCase().trim();
- const t=translations[currentLanguage];
-
- const filtered=sources.filter(s=>
-  (currentCategory==="all"||
-   s.category===currentCategory)
-  &&
-  s.name.toLocaleLowerCase().includes(search)
- );
-
- document.getElementById("sourceCount").textContent=
-  filtered.length+" "+t.count;
-
- grid.replaceChildren();
-
- if(!filtered.length){
-  const p=document.createElement("p");
-  p.textContent=t.empty;
-  grid.append(p);
-  return;
- }
-
- filtered.forEach(s=>{
-  const card=document.createElement("article");
-  card.className="card";
-
-  const heading=document.createElement("div");
-  heading.className="media-heading";
-
-  const mark=document.createElement("div");
-  mark.className="media-mark";
-  mark.textContent=s.mark;
-  mark.setAttribute("aria-label",s.name);
-
-  loadMediaLogo(s,mark);
-
-  const headingText=document.createElement("div");
-  headingText.className="media-heading-text";
-
-  const title=document.createElement("h3");
-  title.textContent=s.name;
-
-  const category=document.createElement("div");
-  category.className="category";
-  category.textContent=t[s.category];
-
-  headingText.append(title,category);
-  heading.append(mark,headingText);
-  card.append(heading);
-
-  const actions=document.createElement("div");
-  actions.className="media-actions";
-
-  addMediaButton(actions,t.visit,s.url);
-  addMediaButton(actions,t.live,s.live);
-  addMediaButton(actions,t.contactMedia,s.contact);
-  addMediaButton(actions,"f Facebook",s.facebook);
-  addMediaButton(actions,"▶ YouTube",s.youtube);
-  addMediaButton(actions,"◎ Instagram",s.instagram);
-  addMediaButton(actions,"𝕏 X",s.x);
-  addMediaButton(actions,"♪ TikTok",s.tiktok);
-  addMediaButton(actions,"◉ WhatsApp",s.whatsapp);
-
-  if(actions.children.length){
-   card.append(actions);
-  }
-
-  renderMediaContact(s,card);
-  grid.append(card);
- });
-}
-
-/*
- SECTION 02 — RADIOKING LIVE
-*/
 const STREAM_URL="";
-
 const radioPlayer=document.getElementById("radioPlayer");
+const podcastPlayer=document.getElementById("podcastPlayer");
+const musicPlayer=document.getElementById("musicPlayer");
 
 function refreshLive(){
  const t=translations[currentLanguage];
-
- document.getElementById("liveTitle").textContent=
-  t.liveTitle;
- document.getElementById("liveDescription").textContent=
-  t.liveDescription;
- document.getElementById("playLive").textContent=
-  t.livePlay;
- document.getElementById("stopLive").textContent=
-  t.liveStop;
- document.getElementById("liveNotice").textContent=
-  t.liveNotice;
-
- document.getElementById("playLive").disabled=
-  !STREAM_URL;
-
+ document.getElementById("liveTitle").textContent=t.liveTitle;
+ document.getElementById("liveDescription").textContent=t.liveDescription;
+ document.getElementById("playLive").textContent=t.livePlay;
+ document.getElementById("stopLive").textContent=t.liveStop;
+ document.getElementById("liveNotice").textContent=t.liveNotice;
+ document.getElementById("playLive").disabled=!STREAM_URL;
  document.getElementById("liveStatus").textContent=
-  !STREAM_URL
-   ? t.liveOffline
-   : radioPlayer.paused
-    ? t.liveReady
-    : t.livePlaying;
-
- if(STREAM_URL&&!radioPlayer.getAttribute("src")){
-  radioPlayer.src=STREAM_URL;
- }
+  !STREAM_URL?t.liveOffline:
+  radioPlayer.paused?t.liveReady:t.livePlaying;
 }
 
 async function playRadio(){
  if(!STREAM_URL)return;
-
+ podcastPlayer.pause();
+ musicPlayer.pause();
+ radioPlayer.src=STREAM_URL;
  try{
-  if(!radioPlayer.getAttribute("src")){
-   radioPlayer.src=STREAM_URL;
-  }
   await radioPlayer.play();
   refreshLive();
- }catch(error){
+ }catch(e){
   document.getElementById("liveStatus").textContent=
    translations[currentLanguage].liveError;
  }
@@ -1439,251 +715,193 @@ async function playRadio(){
 
 function stopRadio(){
  radioPlayer.pause();
-
- if(STREAM_URL){
-  radioPlayer.removeAttribute("src");
-  radioPlayer.load();
- }
-
+ radioPlayer.removeAttribute("src");
+ radioPlayer.load();
  refreshLive();
 }
 
-radioPlayer.addEventListener("play",refreshLive);
-radioPlayer.addEventListener("pause",refreshLive);
-radioPlayer.addEventListener("error",()=>{
- if(STREAM_URL){
-  document.getElementById("liveStatus").textContent=
-   translations[currentLanguage].liveError;
- }
-});
-
-/*
- NOUVO — PODCASTS & REPLAYS
-
- Ajoute epizòd reyèl nan lis sa a:
- {
-  id:"episode-001",
-  title:"Titre de l'épisode",
-  category:"interviews",
-  description:"Description",
-  date:"2026-11-09",
-  duration:"25:00",
-  audio:"podcasts/episode-001.mp3"
- }
-
- Pa gen okenn fo epizòd.
-*/
 const podcastEpisodes=[];
-
-const podcastCategories=[
- {id:"all",key:"podcastAll"},
- {id:"news",key:"podcastNews"},
- {id:"interviews",key:"podcastInterviews"},
- {id:"culture",key:"podcastCulture"},
- {id:"community",key:"podcastCommunity"},
- {id:"shows",key:"podcastShows"},
- {id:"archives",key:"podcastArchives"}
+const podcastGenres=[
+ "TOUS","NEWS","INTERVIEWS","CULTURE",
+ "COMMUNITY","SHOWS","ARCHIVES"
 ];
-
-let activePodcastCategory="all";
-let activePodcastId=null;
-let podcastPlaybackError=false;
-
-const podcastPlayer=document.getElementById("podcastPlayer");
-
-function renderPodcastFilters(){
- const box=document.getElementById("podcastFilters");
- const t=translations[currentLanguage];
-
- box.replaceChildren();
-
- podcastCategories.forEach(category=>{
-  const button=document.createElement("button");
-  button.type="button";
-  button.textContent=t[category.key];
-
-  button.classList.toggle(
-   "active",
-   activePodcastCategory===category.id
-  );
-
-  button.onclick=()=>{
-   activePodcastCategory=category.id;
-   renderPodcastFilters();
-   renderPodcasts();
-  };
-
-  box.append(button);
- });
-}
+let selectedPodcastGenre="TOUS";
 
 function renderPodcasts(){
- const grid=document.getElementById("podcastGrid");
- const search=document.getElementById("podcastSearch")
-  .value.toLocaleLowerCase().trim();
  const t=translations[currentLanguage];
+ const filters=document.getElementById("podcastFilters");
+ const grid=document.getElementById("podcastGrid");
+ filters.replaceChildren();
 
- const filtered=podcastEpisodes.filter(ep=>{
-  const matchesCategory=
-   activePodcastCategory==="all"||
-   ep.category===activePodcastCategory;
-
-  const matchesSearch=(
-   (ep.title||"")+" "+
-   (ep.description||"")
-  ).toLocaleLowerCase().includes(search);
-
-  return matchesCategory&&matchesSearch;
+ podcastGenres.forEach(genre=>{
+  const button=document.createElement("button");
+  button.textContent=genre==="TOUS"?t.all:genre;
+  button.classList.toggle("active",genre===selectedPodcastGenre);
+  button.onclick=()=>{
+   selectedPodcastGenre=genre;
+   renderPodcasts();
+  };
+  filters.append(button);
  });
 
- document.getElementById("podcastCount").textContent=
-  filtered.filter(ep=>Boolean(ep.audio)).length+
-  " "+t.podcastCount;
+ const q=document.getElementById("podcastSearch").value.toLowerCase();
+ const entries=podcastEpisodes.filter(x=>
+  (selectedPodcastGenre==="TOUS"||
+   (x.category||"").toUpperCase()===selectedPodcastGenre)&&
+  (x.title+" "+(x.description||"")).toLowerCase().includes(q)
+ );
 
  grid.replaceChildren();
+ document.getElementById("podcastCount").textContent=
+  entries.filter(x=>x.audio).length+" "+t.episodes;
 
- if(!filtered.length){
-  const empty=document.createElement("p");
-  empty.className="podcast-empty";
-  empty.textContent=t.podcastEmpty;
-  grid.append(empty);
-  return;
+ if(!entries.length){
+  const p=document.createElement("p");
+  p.textContent=t.noEpisodes;
+  grid.append(p);
  }
 
- filtered.forEach(ep=>{
+ entries.forEach(x=>{
   const card=document.createElement("article");
-  card.className="podcast-card";
-
-  const tag=document.createElement("div");
-  tag.className="podcast-tag";
-
-  const category=podcastCategories.find(
-   c=>c.id===ep.category
-  );
-
-  tag.textContent=category
-   ? t[category.key]
-   : ep.category||"PODCAST";
-
-  const title=document.createElement("h3");
-  title.textContent=ep.title||"PRO-MAX FM";
-
-  const description=document.createElement("p");
-  description.textContent=ep.description||"";
-
-  const metadata=document.createElement("p");
-  metadata.textContent=[
-   ep.date||"",
-   ep.duration||""
-  ].filter(Boolean).join(" • ");
-
-  const button=document.createElement("button");
-  button.className="podcast-action";
-  button.type="button";
-  button.disabled=!ep.audio;
-  button.textContent=ep.audio
-   ? t.podcastPlay
-   : t.podcastPending;
-
-  button.onclick=()=>playPodcast(ep.id);
-
-  card.append(tag,title,description);
-
-  if(metadata.textContent){
-   card.append(metadata);
-  }
-
-  card.append(button);
+  card.className="audio-item";
+  const h=document.createElement("h3");
+  h.textContent=x.title;
+  const p=document.createElement("p");
+  p.textContent=x.description||"";
+  const b=document.createElement("button");
+  b.textContent=t.listen;
+  b.disabled=!x.audio;
+  b.onclick=async()=>{
+   radioPlayer.pause();
+   musicPlayer.pause();
+   podcastPlayer.src=x.audio;
+   try{
+    await podcastPlayer.play();
+    document.getElementById("podcastStatus").textContent=x.title;
+   }catch(e){
+    document.getElementById("podcastStatus").textContent=t.error;
+   }
+  };
+  card.append(h,p,b);
   grid.append(card);
  });
 }
 
-function refreshPodcast(){
+/*
+ MUSIC LIBRARY
+ Ajoute mizik reyèl yo nan tablo sa a.
+
+ Egzanp:
+ {
+  title:"Non mizik",
+  artist:"Non atis",
+  genre:"KOMPA",
+  audio:"music/non-fichye.mp3"
+ }
+*/
+const musicTracks=[];
+
+const musicGenres=[
+ "KOMPA",
+ "REGGAE",
+ "RAP KREYÒL",
+ "RABÒDAY",
+ "RARA",
+ "KOMPA LOVE",
+ "HIP-HOP",
+ "REGGAETON",
+ "REGGAE FOR LOVERS",
+ "ANSYÈN MIZIK",
+ "TROPICANA",
+ "SEPTEN",
+ "RACINE"
+];
+
+let selectedMusicGenre="TOUS";
+
+function renderMusic(){
  const t=translations[currentLanguage];
+ const filters=document.getElementById("musicFilters");
+ const grid=document.getElementById("musicGrid");
+ filters.replaceChildren();
 
- const fields=[
-  ["podcastsTitle","podcastsTitle"],
-  ["podcastsDescription","podcastsDescription"],
-  ["podcastFeatureTitle","podcastFeatureTitle"],
-  ["podcastFeatureDescription","podcastFeatureDescription"],
-  ["podcastStopButton","podcastStop"],
-  ["podcastLibraryTitle","podcastLibraryTitle"],
-  ["podcastLibraryDescription","podcastLibraryDescription"]
- ];
-
- fields.forEach(([id,key])=>{
-  document.getElementById(id).textContent=t[key];
+ ["TOUS",...musicGenres].forEach(genre=>{
+  const button=document.createElement("button");
+  button.textContent=genre==="TOUS"?t.all:genre;
+  button.classList.toggle("active",genre===selectedMusicGenre);
+  button.onclick=()=>{
+   selectedMusicGenre=genre;
+   renderMusic();
+  };
+  filters.append(button);
  });
 
- document.getElementById("podcastSearch").placeholder=
-  t.podcastSearch;
+ const q=document.getElementById("musicSearch").value.toLowerCase();
 
- const episode=podcastEpisodes.find(
-  ep=>ep.id===activePodcastId
+ const tracks=musicTracks.filter(x=>
+  (selectedMusicGenre==="TOUS"||
+   (x.genre||"").toUpperCase()===selectedMusicGenre)&&
+  (x.title+" "+(x.artist||"")).toLowerCase().includes(q)
  );
 
- let status=t.podcastNone;
+ document.getElementById("musicCount").textContent=
+  tracks.filter(x=>x.audio).length+" "+t.tracks;
 
- if(podcastPlaybackError){
-  status=t.podcastError;
- }else if(episode){
-  status=podcastPlayer.paused
-   ? episode.title+" — "+t.podcastReady
-   : episode.title+" — "+t.podcastPlaying;
+ grid.replaceChildren();
+
+ /*
+  Kategori yo toujou parèt sou paj la,
+  menm lè bibliyotèk MP3 a vid.
+ */
+ if(!tracks.length){
+  const visibleGenres=selectedMusicGenre==="TOUS"
+   ?musicGenres
+   :[selectedMusicGenre];
+
+  visibleGenres.forEach(genre=>{
+   const card=document.createElement("article");
+   card.className="genre-card";
+   const h=document.createElement("h3");
+   h.textContent="🎵 "+genre;
+   const p=document.createElement("p");
+   p.textContent=t.genrePending;
+   card.append(h,p);
+   grid.append(card);
+  });
+  return;
  }
 
- document.getElementById("podcastStatus").textContent=
-  status;
+ tracks.forEach(x=>{
+  const card=document.createElement("article");
+  card.className="audio-item";
+  const h=document.createElement("h3");
+  h.textContent=x.title;
+  const p=document.createElement("p");
+  p.textContent=(x.artist||"")+" • "+(x.genre||"");
+  const button=document.createElement("button");
+  button.textContent=t.listen;
+  button.disabled=!x.audio;
 
- renderPodcastFilters();
- renderPodcasts();
+  button.onclick=async()=>{
+   radioPlayer.pause();
+   podcastPlayer.pause();
+   musicPlayer.src=x.audio;
+   try{
+    await musicPlayer.play();
+    document.getElementById("musicStatus").textContent=
+     x.title+" — "+(x.artist||"");
+   }catch(e){
+    document.getElementById("musicStatus").textContent=t.error;
+   }
+  };
+
+  card.append(h,p,button);
+  grid.append(card);
+ });
 }
 
-async function playPodcast(id){
- const episode=podcastEpisodes.find(
-  ep=>ep.id===id
- );
-
- if(!episode||!episode.audio)return;
-
- podcastPlaybackError=false;
-
- if(activePodcastId!==id){
-  podcastPlayer.pause();
-  podcastPlayer.src=episode.audio;
-  activePodcastId=id;
- }
-
- try{
-  await podcastPlayer.play();
-  refreshPodcast();
- }catch(error){
-  podcastPlaybackError=true;
-  refreshPodcast();
- }
-}
-
-function stopPodcast(){
- podcastPlayer.pause();
- podcastPlayer.currentTime=0;
- refreshPodcast();
-}
-
-podcastPlayer.addEventListener("play",refreshPodcast);
-podcastPlayer.addEventListener("pause",refreshPodcast);
-podcastPlayer.addEventListener("error",()=>{
- if(activePodcastId){
-  podcastPlaybackError=true;
-  refreshPodcast();
- }
-});
-
-/*
- FR / ENG / KRE
-*/
 function setLanguage(lang){
  if(!translations[lang])return;
-
  currentLanguage=lang;
  const t=translations[lang];
  document.documentElement.lang=lang;
@@ -1699,34 +917,43 @@ function setLanguage(lang){
   ["socialTitle","social"],
   ["contactTitle","contact"],
   ["platformLink","platform"],
-  ["footerText","footer"]
+  ["footerText","footer"],
+  ["podcastsIntro","podcastIntro"],
+  ["musicIntro","musicIntro"]
  ];
 
  fields.forEach(([id,key])=>{
   document.getElementById(id).textContent=t[key];
  });
 
- document.getElementById("searchInput").placeholder=
-  t.search;
+ document.getElementById("searchInput").placeholder=t.search;
+ document.getElementById("podcastSearch").placeholder=t.podcastSearch;
+ document.getElementById("musicSearch").placeholder=t.musicSearch;
 
- document.querySelectorAll(".languages button")
-  .forEach(button=>{
-   button.classList.remove("active");
-  });
+ document.querySelectorAll(".languages button").forEach(b=>
+  b.classList.remove("active")
+ );
 
  document.getElementById(
   {fr:"frBtn",en:"enBtn",ht:"htBtn"}[lang]
  ).classList.add("active");
 
+ if(!podcastPlayer.getAttribute("src")){
+  document.getElementById("podcastStatus").textContent=t.podcastNone;
+ }
+ if(!musicPlayer.getAttribute("src")){
+  document.getElementById("musicStatus").textContent=t.musicNone;
+ }
+
  renderFilters();
  renderSources();
  renderSocial();
  refreshLive();
- refreshPodcast();
+ renderPodcasts();
+ renderMusic();
 }
 
 setLanguage("fr");
 </script>
-
 </body>
 </html>
