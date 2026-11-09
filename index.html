@@ -257,13 +257,9 @@ footer{
  color:var(--orange);
 }
 
-/* ==================================================
-   ARTISTS — CSS KONSÈVE
-   ================================================== */
+/* ARTISTS — CSS KONSÈVE */
 .artists-section{
- background:radial-gradient(
-  ellipse at top,#402008,#080808 78%
- );
+ background:radial-gradient(ellipse at top,#402008,#080808 78%);
  border:2px solid var(--orange);
  border-radius:20px;
  padding:28px 18px;
@@ -316,15 +312,11 @@ footer{
 }
 .artists-grid{
  display:grid;
- grid-template-columns:repeat(
-  auto-fit,minmax(240px,1fr)
- );
+ grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
  gap:20px;
 }
 .artist-card{
- background:linear-gradient(
-  145deg,#301806,#080808
- );
+ background:linear-gradient(145deg,#301806,#080808);
  border:1px solid #a95700;
  border-radius:16px;
  padding:20px;
@@ -336,9 +328,7 @@ footer{
  height:145px;
  border:3px solid var(--orange);
  border-radius:50%;
- background:radial-gradient(
-  circle,#542807,#090909
- );
+ background:radial-gradient(circle,#542807,#090909);
  margin:0 auto 17px;
  display:grid;
  place-items:center;
@@ -379,9 +369,7 @@ footer{
 .artist-placeholder{
  border:1px dashed #a95700;
  border-radius:15px;
- background:linear-gradient(
-  145deg,#251307,#080808
- );
+ background:linear-gradient(145deg,#251307,#080808);
  padding:24px 15px;
  text-align:center;
 }
@@ -390,9 +378,7 @@ footer{
  height:110px;
  font-size:36px;
 }
-.artist-placeholder h3{
- color:var(--orange);
-}
+.artist-placeholder h3{color:var(--orange)}
 .artist-placeholder p{
  font-size:13px;
  line-height:1.6;
@@ -408,13 +394,9 @@ footer{
  line-height:1.7;
 }
 
-/* ==================================================
-   VIDEO — NOUVO CSS SÈLMAN
-   ================================================== */
+/* VIDEO — CSS KONSÈVE */
 .video-section{
- background:radial-gradient(
-  ellipse at top,#3b1b06,#080808 78%
- );
+ background:radial-gradient(ellipse at top,#3b1b06,#080808 78%);
  border:2px solid var(--orange);
  border-radius:20px;
  padding:28px 18px;
@@ -500,9 +482,7 @@ footer{
 }
 .video-grid{
  display:grid;
- grid-template-columns:repeat(
-  auto-fit,minmax(260px,1fr)
- );
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
  gap:20px;
 }
 .video-card{
@@ -580,13 +560,156 @@ footer{
  text-align:left;
  line-height:1.7;
 }
+
+/* EVENTS — NOUVO CSS */
+.events-section{
+ background:radial-gradient(ellipse at top,#402008,#080808 78%);
+ border:2px solid var(--orange);
+ border-radius:20px;
+ padding:28px 18px;
+ margin:35px 0;
+ text-align:center;
+}
+.events-section h2{
+ color:var(--orange);
+ font-size:clamp(25px,4vw,34px);
+ margin:8px 0 18px;
+}
+.events-intro{
+ max-width:850px;
+ margin:0 auto 22px;
+ line-height:1.8;
+}
+.events-search{
+ display:block;
+ width:min(100%,650px);
+ margin:22px auto;
+ padding:15px;
+ background:#130c07;
+ color:var(--apricot);
+ border:2px solid var(--orange);
+ border-radius:10px;
+}
+.events-filters{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:9px;
+ margin:24px 0;
+}
+.events-filters button{
+ background:#160c04;
+ color:var(--orange);
+ border:1px solid var(--orange);
+ padding:10px 13px;
+ border-radius:9px;
+ font-weight:bold;
+}
+.events-filters button.active{
+ background:var(--orange);
+ color:#000;
+}
+.events-count{
+ margin:18px 0;
+ font-weight:bold;
+}
+.events-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:20px;
+}
+.event-card{
+ background:linear-gradient(145deg,#301806,#080808);
+ border:1px solid #a95700;
+ border-radius:16px;
+ padding:18px;
+ text-align:left;
+ overflow:hidden;
+}
+.event-card h3{
+ color:var(--orange);
+ margin:15px 0 10px;
+}
+.event-card p{
+ font-size:14px;
+ line-height:1.7;
+}
+.event-poster{
+ width:100%;
+ aspect-ratio:16/9;
+ display:grid;
+ place-items:center;
+ background:radial-gradient(circle,#482105,#080808);
+ border:1px solid var(--orange);
+ border-radius:12px;
+ color:var(--orange);
+ font-size:46px;
+ font-weight:900;
+ overflow:hidden;
+}
+.event-poster img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+.event-date{
+ display:inline-block;
+ padding:9px 12px;
+ border-radius:8px;
+ background:#180d05;
+ border:1px solid var(--orange);
+ color:var(--orange);
+ font-weight:bold;
+ margin-top:14px;
+}
+.event-card-actions{
+ display:flex;
+ flex-wrap:wrap;
+ gap:9px;
+ margin-top:16px;
+}
+.event-card-actions a{
+ display:inline-block;
+ background:var(--orange);
+ color:#000;
+ border:1px solid var(--orange);
+ border-radius:9px;
+ padding:10px 13px;
+ font-size:13px;
+ font-weight:bold;
+ text-decoration:none;
+}
+.event-placeholder{
+ background:linear-gradient(145deg,#251307,#080808);
+ border:1px dashed #a95700;
+ border-radius:15px;
+ padding:20px;
+ text-align:center;
+}
+.event-placeholder h3{color:var(--orange)}
+.event-placeholder p{
+ font-size:13px;
+ line-height:1.6;
+}
+.events-notice{
+ margin:25px auto 0;
+ max-width:850px;
+ border-left:4px solid var(--orange);
+ background:#180d05;
+ border-radius:9px;
+ padding:16px;
+ text-align:left;
+ line-height:1.7;
+}
 @media(max-width:600px){
  .container{padding:15px}
- .grid,.audio-grid,.artists-grid,.video-grid{
+ .grid,.audio-grid,.artists-grid,
+ .video-grid,.events-grid{
   grid-template-columns:1fr;
  }
  .live-shell,.audio-section,
- .artists-section,.video-section{
+ .artists-section,.video-section,
+ .events-section{
   padding:18px 12px;
  }
  .video-player-shell{padding:12px}
@@ -604,12 +727,9 @@ footer{
  <h1>NEWS CENTER</h1>
  <p>LA FORCE DU SON</p>
  <div class="languages">
-  <button id="frBtn"
-   onclick="setLanguage('fr')">FR</button>
-  <button id="enBtn"
-   onclick="setLanguage('en')">ENG</button>
-  <button id="htBtn"
-   onclick="setLanguage('ht')">KRE</button>
+  <button id="frBtn" onclick="setLanguage('fr')">FR</button>
+  <button id="enBtn" onclick="setLanguage('en')">ENG</button>
+  <button id="htBtn" onclick="setLanguage('ht')">KRE</button>
  </div>
 </header>
 
@@ -622,7 +742,7 @@ footer{
  <a href="#music">MUSIC</a>
  <a href="#artists">ARTISTS</a>
  <a href="#video">VIDEO</a>
- <a href="pages/events.html">EVENTS</a>
+ <a href="#events">EVENTS</a>
  <a href="#contact">CONTACT</a>
 </nav>
 
@@ -782,9 +902,7 @@ footer{
  </div>
 </section>
 
-<!-- ==================================================
-     VIDEO — NOUVO BLOK SÈLMAN
-     ================================================== -->
+<!-- VIDEO — KONSÈVE -->
 <section id="video" class="video-section">
 
  <h2 id="videoTitle">
@@ -842,6 +960,50 @@ footer{
    Les vidéos officielles seront ajoutées
    avec leurs titres, descriptions,
    catégories et liens vérifiés.
+  </p>
+ </div>
+
+</section>
+
+<!-- EVENTS — NOUVO BLOK -->
+<section id="events" class="events-section">
+
+ <h2 id="eventsTitle">
+  PRO-MAX FM — EVENTS
+ </h2>
+
+ <p class="events-intro" id="eventsIntro">
+  Découvrez les concerts, festivals,
+  événements communautaires,
+  émissions spéciales et activités
+  de PRO-MAX FM.
+ </p>
+
+ <input
+  id="eventsSearch"
+  class="events-search"
+  type="search"
+  placeholder="Rechercher un événement..."
+  oninput="renderEvents()">
+
+ <div id="eventsFilters"
+      class="events-filters"></div>
+
+ <p id="eventsCount"
+    class="events-count"></p>
+
+ <div id="eventsGrid"
+      class="events-grid"></div>
+
+ <div class="events-notice">
+  <strong id="eventsNoticeTitle">
+   PRO-MAX FM — AGENDA DES ÉVÉNEMENTS
+  </strong>
+  <p id="eventsNoticeText">
+   Les événements officiels seront publiés
+   avec les dates, lieux, affiches,
+   organisateurs et liens de réservation
+   ou d'inscription vérifiés.
   </p>
  </div>
 
@@ -1004,7 +1166,21 @@ const translations={
   videoStop:"■ ARRÊTER",
   videoExternal:"OUVRIR LA VIDÉO",
   videoNoticeTitle:"PRO-MAX FM — VIDÉOTHÈQUE",
-  videoNoticeText:"Les vidéos officielles seront ajoutées avec leurs titres, descriptions, catégories et liens vérifiés."
+  videoNoticeText:"Les vidéos officielles seront ajoutées avec leurs titres, descriptions, catégories et liens vérifiés.",
+
+  eventsTitle:"PRO-MAX FM — EVENTS",
+  eventsIntro:"Découvrez les concerts, festivals, événements communautaires, émissions spéciales et activités de PRO-MAX FM.",
+  eventsSearch:"Rechercher un événement...",
+  eventsCount:"événements disponibles",
+  eventsPending:"Événements à annoncer",
+  eventsDate:"DATE",
+  eventsTime:"HEURE",
+  eventsLocation:"LIEU",
+  eventsOrganizer:"ORGANISATEUR",
+  eventsDetails:"DÉTAILS",
+  eventsRegister:"RÉSERVER / S'INSCRIRE",
+  eventsNoticeTitle:"PRO-MAX FM — AGENDA DES ÉVÉNEMENTS",
+  eventsNoticeText:"Les événements officiels seront publiés avec les dates, lieux, affiches, organisateurs et liens de réservation ou d'inscription vérifiés."
  },
  en:{
   home:"HOME",hero:"WORLD NEWS",
@@ -1071,7 +1247,21 @@ const translations={
   videoStop:"■ STOP",
   videoExternal:"OPEN VIDEO",
   videoNoticeTitle:"PRO-MAX FM — VIDEO LIBRARY",
-  videoNoticeText:"Official videos will be added with titles, descriptions, categories and verified links."
+  videoNoticeText:"Official videos will be added with titles, descriptions, categories and verified links.",
+
+  eventsTitle:"PRO-MAX FM — EVENTS",
+  eventsIntro:"Discover concerts, festivals, community events, special broadcasts and PRO-MAX FM activities.",
+  eventsSearch:"Search events...",
+  eventsCount:"available events",
+  eventsPending:"Events to be announced",
+  eventsDate:"DATE",
+  eventsTime:"TIME",
+  eventsLocation:"LOCATION",
+  eventsOrganizer:"ORGANIZER",
+  eventsDetails:"DETAILS",
+  eventsRegister:"BOOK / REGISTER",
+  eventsNoticeTitle:"PRO-MAX FM — EVENTS CALENDAR",
+  eventsNoticeText:"Official events will be published with dates, locations, posters, organizers and verified booking or registration links."
  },
  ht:{
   home:"AKÈY",hero:"NOUVÈL MONDYAL",
@@ -1138,7 +1328,21 @@ const translations={
   videoStop:"■ KANPE",
   videoExternal:"OUVRI VIDEYO A",
   videoNoticeTitle:"PRO-MAX FM — BIBLIYOTÈK VIDEYO",
-  videoNoticeText:"N ap ajoute videyo ofisyèl yo ak tit, deskripsyon, kategori ak lyen ki verifye."
+  videoNoticeText:"N ap ajoute videyo ofisyèl yo ak tit, deskripsyon, kategori ak lyen ki verifye.",
+
+  eventsTitle:"PRO-MAX FM — EVÈNMAN",
+  eventsIntro:"Dekouvri konsè, festival, aktivite kominotè, emisyon espesyal ak evènman PRO-MAX FM yo.",
+  eventsSearch:"Chèche yon evènman...",
+  eventsCount:"evènman disponib",
+  eventsPending:"Evènman pou anonse",
+  eventsDate:"DAT",
+  eventsTime:"LÈ",
+  eventsLocation:"KOTE",
+  eventsOrganizer:"ÒGANIZATÈ",
+  eventsDetails:"DETAY",
+  eventsRegister:"REZÈVE / ENSKRI",
+  eventsNoticeTitle:"PRO-MAX FM — KALANDRIYE EVÈNMAN",
+  eventsNoticeText:"N ap pibliye evènman ofisyèl yo ak dat, kote, afich, òganizatè ak lyen rezèvasyon oswa enskripsyon ki verifye."
  }
 };
 
@@ -1768,37 +1972,31 @@ function refreshArtistsLanguage(){
  renderArtists();
 }
 
-/* ==================================================
-   VIDEO — NOUVO JAVASCRIPT SÈLMAN
-   ==================================================
+/* VIDEO — KONSÈVE
 
-   Ajoute videyo reyèl nan tablo sa a.
+ MP4 lokal:
+ {
+  id:"video-001",
+  title:"Tit videyo",
+  category:"SHOWS",
+  description:"Deskripsyon",
+  video:"videos/non-video.mp4",
+  thumbnail:"videos/afich.jpg",
+  url:""
+ }
 
-   MP4 lokal:
-   {
-    id:"video-001",
-    title:"Tit videyo",
-    category:"SHOWS",
-    description:"Deskripsyon",
-    video:"videos/non-video.mp4",
-    thumbnail:"videos/afich.jpg",
-    url:""
-   }
+ YouTube oswa lòt paj ofisyèl:
+ {
+  id:"video-002",
+  title:"Tit videyo",
+  category:"INTERVIEWS",
+  description:"Deskripsyon",
+  video:"",
+  thumbnail:"",
+  url:"https://..."
+ }
 
-   YouTube oswa lòt paj ofisyèl:
-   {
-    id:"video-002",
-    title:"Tit videyo",
-    category:"INTERVIEWS",
-    description:"Deskripsyon",
-    video:"",
-    thumbnail:"",
-    url:"https://..."
-   }
-
-   URL YouTube òdinè yo louvri
-   nan yon lòt onglet.
-   Pa mete URL paj YouTube kòm MP4.
+ Pa mete URL paj YouTube kòm MP4.
 */
 
 const videoLibrary=[];
@@ -2099,6 +2297,222 @@ function refreshVideoLanguage(){
  refreshVideoStatus();
 }
 
+/* EVENTS — NOUVO JAVASCRIPT
+
+ Ajoute evènman reyèl nan tablo sa a:
+
+ {
+  id:"event-001",
+  title:"Non evènman an",
+  category:"CONCERTS",
+  date:"2026-12-20",
+  time:"19:00",
+  location:"Orlando, Florida",
+  organizer:"PRO-MAX FM",
+  description:"Deskripsyon evènman an",
+  poster:"events/afich.jpg",
+  url:"https://...",
+  registration:"https://..."
+ }
+
+ Dat, lokal ak lyen yo dwe reyèl.
+*/
+
+const eventsLibrary=[];
+
+const eventCategories=[
+ "TOUS",
+ "CONCERTS",
+ "FESTIVALS",
+ "COMMUNITY",
+ "LIVE SHOWS",
+ "CULTURE",
+ "EDUCATION",
+ "SPECIAL EVENTS",
+ "ARCHIVES"
+];
+
+let selectedEventCategory="TOUS";
+
+function renderEvents(){
+ const t=translations[currentLanguage];
+ const filters=document.getElementById("eventsFilters");
+ const grid=document.getElementById("eventsGrid");
+
+ filters.replaceChildren();
+
+ eventCategories.forEach(category=>{
+  const button=document.createElement("button");
+  button.type="button";
+  button.textContent=
+   category==="TOUS"?t.all:category;
+
+  button.classList.toggle(
+   "active",
+   category===selectedEventCategory
+  );
+
+  button.onclick=()=>{
+   selectedEventCategory=category;
+   renderEvents();
+  };
+
+  filters.append(button);
+ });
+
+ const q=document.getElementById("eventsSearch")
+  .value.toLocaleLowerCase().trim();
+
+ const filtered=eventsLibrary.filter(item=>{
+  const matchesCategory=
+   selectedEventCategory==="TOUS"||
+   (item.category||"").toUpperCase()===
+    selectedEventCategory;
+
+  const searchable=[
+   item.title,
+   item.category,
+   item.location,
+   item.organizer,
+   item.description,
+   item.date
+  ].filter(Boolean).join(" ")
+   .toLocaleLowerCase();
+
+  return matchesCategory&&searchable.includes(q);
+ });
+
+ document.getElementById("eventsCount")
+  .textContent=
+   filtered.length+" "+t.eventsCount;
+
+ grid.replaceChildren();
+
+ if(!filtered.length){
+  const visibleCategories=
+   selectedEventCategory==="TOUS"
+    ?eventCategories.filter(x=>x!=="TOUS")
+    :[selectedEventCategory];
+
+  visibleCategories.forEach(category=>{
+   const card=document.createElement("article");
+   card.className="event-placeholder";
+
+   const poster=document.createElement("div");
+   poster.className="event-poster";
+   poster.textContent="📅";
+
+   const heading=document.createElement("h3");
+   heading.textContent=category;
+
+   const p=document.createElement("p");
+   p.textContent=t.eventsPending;
+
+   card.append(poster,heading,p);
+   grid.append(card);
+  });
+
+  return;
+ }
+
+ filtered.forEach(item=>{
+  const card=document.createElement("article");
+  card.className="event-card";
+
+  const poster=document.createElement("div");
+  poster.className="event-poster";
+  poster.textContent="📅";
+
+  if(item.poster){
+   const image=document.createElement("img");
+   image.src=item.poster;
+   image.alt=item.title||"Event";
+   image.loading="lazy";
+   image.onerror=()=>image.remove();
+   poster.append(image);
+  }
+
+  const heading=document.createElement("h3");
+  heading.textContent=item.title||"EVENT";
+
+  const category=document.createElement("p");
+  category.textContent=item.category||"";
+
+  const date=document.createElement("div");
+  date.className="event-date";
+  date.textContent=
+   t.eventsDate+": "+(item.date||"—");
+
+  const details=document.createElement("div");
+
+  [
+   [t.eventsTime,item.time],
+   [t.eventsLocation,item.location],
+   [t.eventsOrganizer,item.organizer]
+  ].forEach(([label,value])=>{
+   if(!value)return;
+
+   const p=document.createElement("p");
+   p.textContent=label+": "+value;
+   details.append(p);
+  });
+
+  const description=document.createElement("p");
+  description.textContent=item.description||"";
+
+  const actions=document.createElement("div");
+  actions.className="event-card-actions";
+
+  [
+   [t.eventsDetails,item.url],
+   [t.eventsRegister,item.registration]
+  ].forEach(([label,url])=>{
+   const safeUrl=safeVideoUrl(url);
+   if(!safeUrl)return;
+
+   const link=document.createElement("a");
+   link.href=safeUrl;
+   link.target="_blank";
+   link.rel="noopener noreferrer";
+   link.textContent=label;
+   actions.append(link);
+  });
+
+  card.append(
+   poster,
+   heading,
+   category,
+   date,
+   details,
+   description,
+   actions
+  );
+
+  grid.append(card);
+ });
+}
+
+function refreshEventsLanguage(){
+ const t=translations[currentLanguage];
+
+ document.getElementById("eventsTitle")
+  .textContent=t.eventsTitle;
+
+ document.getElementById("eventsIntro")
+  .textContent=t.eventsIntro;
+
+ document.getElementById("eventsSearch")
+  .placeholder=t.eventsSearch;
+
+ document.getElementById("eventsNoticeTitle")
+  .textContent=t.eventsNoticeTitle;
+
+ document.getElementById("eventsNoticeText")
+  .textContent=t.eventsNoticeText;
+
+ renderEvents();
+}
+
 /* LANGUAGES — TOUT MODIL YO */
 function setLanguage(lang){
  if(!translations[lang])return;
@@ -2167,8 +2581,11 @@ function setLanguage(lang){
  /* ARTISTS — KONSÈVE */
  refreshArtistsLanguage();
 
- /* VIDEO — NOUVO */
+ /* VIDEO — KONSÈVE */
  refreshVideoLanguage();
+
+ /* EVENTS — NOUVO */
+ refreshEventsLanguage();
 }
 
 /* INITIALISATION */
