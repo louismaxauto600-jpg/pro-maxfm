@@ -3,9 +3,10 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080808">
 <title>PRO-MAX FM | NEWS CENTER</title>
+
 <style>
 :root {
   --orange:#ff8c00;
@@ -14,7 +15,11 @@
   --panel:#17100a;
   --text:#ffca82;
 }
+
 * {box-sizing:border-box}
+
+html {scroll-behavior:smooth}
+
 body {
   margin:0;
   font-family:Arial,sans-serif;
@@ -22,40 +27,50 @@ body {
   color:var(--text);
   min-height:100vh;
 }
+
 a {color:inherit}
 button,input {font:inherit}
 button {cursor:pointer}
+
 header {
   background:linear-gradient(90deg,#000,#452000,#000);
-  border-bottom:2px solid var(--orange);
-  padding:24px 15px;
+  border-bottom:3px solid var(--orange);
+  padding:30px 15px;
   text-align:center;
 }
-.brand {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:18px;
-}
-.brand img {
-  width:105px;
-  height:105px;
-  object-fit:contain;
+
+.official-logo {
+  display:block;
+  width:min(340px,85vw);
+  height:auto;
+  margin:0 auto 18px;
   border-radius:50%;
-  border:2px solid var(--orange);
+  border:3px solid var(--orange);
+  box-shadow:0 0 30px #ff8c0066;
 }
+
 .brand-name {
-  font-size:clamp(25px,5vw,42px);
+  font-size:clamp(28px,5vw,44px);
   font-weight:900;
   color:var(--orange);
 }
+
 header h1 {
   color:var(--orange);
-  margin:15px 0 5px;
+  margin:12px 0 5px;
+  font-size:clamp(25px,4vw,36px);
 }
-.languages {margin-top:18px}
-.languages button,.filters button {
+
+header p {
+  color:var(--apricot);
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.languages {margin-top:20px}
+
+.languages button,
+.filters button {
   background:#160c04;
   border:1px solid var(--orange);
   color:var(--orange);
@@ -64,10 +79,13 @@ header h1 {
   border-radius:8px;
   font-weight:bold;
 }
-.languages button.active,.filters button.active {
+
+.languages button.active,
+.filters button.active {
   background:var(--orange);
   color:#000;
 }
+
 nav {
   display:flex;
   justify-content:center;
@@ -75,40 +93,53 @@ nav {
   gap:8px;
   padding:15px;
   background:#100a05;
+  border-bottom:1px solid var(--orange);
 }
+
 nav a {
   color:var(--orange);
   text-decoration:none;
   font-weight:bold;
   padding:9px;
 }
+
 nav a:hover {color:var(--apricot)}
+
 .hero {
   text-align:center;
   padding:48px 20px;
   background:radial-gradient(circle,#432000,#080808 75%);
 }
+
 .hero h2 {
   font-size:clamp(25px,5vw,40px);
   color:var(--orange);
 }
+
 .hero p {
   max-width:760px;
   margin:auto;
   line-height:1.8;
 }
+
 .container {
   max-width:1250px;
   margin:auto;
   padding:25px 18px;
 }
+
 .section-title {
   color:var(--orange);
   text-align:center;
   font-size:27px;
   margin:32px 0 20px;
 }
-.search-box {text-align:center;margin:25px 0}
+
+.search-box {
+  text-align:center;
+  margin:25px 0;
+}
+
 .search-box input {
   width:min(100%,600px);
   padding:15px;
@@ -117,12 +148,18 @@ nav a:hover {color:var(--apricot)}
   border-radius:10px;
   color:var(--apricot);
 }
-.filters {text-align:center;margin:22px 0}
+
+.filters {
+  text-align:center;
+  margin:22px 0;
+}
+
 .grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
 }
+
 .card {
   background:linear-gradient(145deg,#201207,#080808);
   border:1px solid #a95700;
@@ -131,11 +168,13 @@ nav a:hover {color:var(--apricot)}
   text-align:center;
   transition:.25s;
 }
+
 .card:hover {
   transform:translateY(-4px);
   border-color:var(--apricot);
   box-shadow:0 0 20px #ff8c0033;
 }
+
 .media-mark {
   width:78px;
   height:78px;
@@ -146,19 +185,30 @@ nav a:hover {color:var(--apricot)}
   border-radius:50%;
   background:linear-gradient(135deg,#ffb347,#a54d00);
   color:#080808;
-  font-size:23px;
+  font-size:20px;
   font-weight:900;
   border:3px solid #080808;
   box-shadow:0 0 0 2px var(--orange);
+  overflow:hidden;
 }
+
 .media-mark img {
   width:100%;
   height:100%;
   object-fit:contain;
-  border-radius:50%;
+  background:#18100a;
 }
-.card h3 {color:var(--orange);font-size:20px}
-.card p {font-size:14px;line-height:1.6}
+
+.card h3 {
+  color:var(--orange);
+  font-size:20px;
+}
+
+.card p {
+  font-size:14px;
+  line-height:1.6;
+}
+
 .category {
   display:inline-block;
   border:1px solid var(--orange);
@@ -167,7 +217,10 @@ nav a:hover {color:var(--apricot)}
   font-size:12px;
   margin-bottom:10px;
 }
-.media-link,.disabled-link,.main-link {
+
+.media-link,
+.disabled-link,
+.main-link {
   display:inline-block;
   background:var(--orange);
   color:#000;
@@ -177,10 +230,12 @@ nav a:hover {color:var(--apricot)}
   font-weight:bold;
   margin-top:12px;
 }
+
 .disabled-link {
   background:#51300d;
   color:var(--apricot);
 }
+
 .info-panel {
   background:linear-gradient(120deg,#251307,#090909);
   border-left:5px solid var(--orange);
@@ -189,11 +244,13 @@ nav a:hover {color:var(--apricot)}
   border-radius:10px;
   line-height:1.8;
 }
+
 .social-grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
   gap:14px;
 }
+
 .social-item {
   text-align:center;
   border:1px solid #a95700;
@@ -201,37 +258,50 @@ nav a:hover {color:var(--apricot)}
   padding:18px 8px;
   border-radius:12px;
 }
+
 .social-icon {
   display:flex;
   justify-content:center;
   align-items:center;
-  margin:auto auto 10px;
+  margin:0 auto 10px;
   width:52px;
   height:52px;
+  font-size:30px;
+  font-weight:900;
 }
+
 .social-icon svg {
   width:44px;
   height:44px;
   fill:currentColor;
 }
-.social-item strong {display:block;font-size:13px}
+
+.social-item strong {
+  display:block;
+  font-size:13px;
+}
+
 .social-item small {
   display:block;
   margin-top:8px;
   font-size:11px;
 }
+
 .contacts {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
   gap:20px;
 }
+
 .contact-card {
   background:var(--panel);
   border:1px solid var(--orange);
   border-radius:14px;
   padding:23px;
 }
+
 .contact-card h3 {color:var(--orange)}
+
 .contact-card a {
   display:block;
   color:var(--apricot);
@@ -239,7 +309,9 @@ nav a:hover {color:var(--apricot)}
   font-size:19px;
   margin:13px 0;
 }
+
 .platform {text-align:center}
+
 footer {
   background:#080808;
   border-top:2px solid var(--orange);
@@ -248,24 +320,31 @@ footer {
   margin-top:40px;
   color:var(--orange);
 }
+
 footer p {line-height:1.7}
+
 @media(max-width:600px) {
   .hero {padding:32px 15px}
   .container {padding:15px}
+  .official-logo {width:min(280px,85vw)}
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <div class="brand">
-    <img src="../pro-max-fm.jpg"
-         alt="PRO-MAX FM Logo"
-         onerror="this.style.display='none'">
-    <div class="brand-name">PRO-MAX FM</div>
-  </div>
+  <!-- LOGO OFISYÈL PRO-MAX FM -->
+  <img
+    src="pro-max-fm.jpg"
+    alt="PRO-MAX FM — Logo Officiel"
+    class="official-logo"
+  >
+
+  <div class="brand-name">PRO-MAX FM</div>
   <h1>NEWS CENTER</h1>
   <p>LA FORCE DU SON</p>
+
   <div class="languages">
     <button id="frBtn" onclick="setLanguage('fr')">FR</button>
     <button id="enBtn" onclick="setLanguage('en')">ENG</button>
@@ -274,16 +353,16 @@ footer p {line-height:1.7}
 </header>
 
 <nav>
-  <a href="../index.html" id="homeLink">ACCUEIL</a>
-  <a href="live.html">LIVE</a>
-  <a href="news.html">NEWS</a>
-  <a href="shows.html">SHOWS</a>
-  <a href="podcasts.html">PODCASTS</a>
-  <a href="music.html">MUSIC</a>
-  <a href="artists.html">ARTISTS</a>
-  <a href="video.html">VIDEO</a>
-  <a href="events.html">EVENTS</a>
-  <a href="contact.html">CONTACT</a>
+  <a href="index.html" id="homeLink">ACCUEIL</a>
+  <a href="pages/live.html">LIVE</a>
+  <a href="#news">NEWS</a>
+  <a href="pages/shows.html">SHOWS</a>
+  <a href="pages/podcasts.html">PODCASTS</a>
+  <a href="pages/music.html">MUSIC</a>
+  <a href="pages/artists.html">ARTISTS</a>
+  <a href="pages/video.html">VIDEO</a>
+  <a href="pages/events.html">EVENTS</a>
+  <a href="#contact">CONTACT</a>
 </nav>
 
 <section class="hero">
@@ -295,17 +374,24 @@ footer p {line-height:1.7}
 </section>
 
 <main class="container">
-  <h2 class="section-title" id="sourcesTitle">
-    NOS SOURCES D'INFORMATION
-  </h2>
-  <div class="search-box">
-    <input type="search" id="searchInput"
-           placeholder="Rechercher un média..."
-           oninput="renderSources()"
-           aria-label="Rechercher un média">
-  </div>
-  <div class="filters" id="filters"></div>
-  <div class="grid" id="newsGrid"></div>
+
+  <section id="news">
+    <h2 class="section-title" id="sourcesTitle">
+      NOS SOURCES D'INFORMATION
+    </h2>
+
+    <div class="search-box">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Rechercher un média..."
+        oninput="renderSources()"
+        aria-label="Rechercher un média">
+    </div>
+
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="newsGrid"></div>
+  </section>
 
   <div class="info-panel">
     <h2 id="flashTitle">🎙️ PRO-MAX FM FLASH INFO</h2>
@@ -316,36 +402,45 @@ footer p {line-height:1.7}
     </p>
   </div>
 
-  <h2 class="section-title" id="socialTitle">
-    RÉSEAUX SOCIAUX
-  </h2>
-  <div class="social-grid" id="socialGrid"></div>
+  <section id="social">
+    <h2 class="section-title" id="socialTitle">
+      RÉSEAUX SOCIAUX
+    </h2>
+    <div class="social-grid" id="socialGrid"></div>
+  </section>
 
-  <h2 class="section-title" id="contactTitle">CONTACT</h2>
-  <div class="contacts">
-    <div class="contact-card">
-      <h3>🇺🇸 USA — FLORIDA</h3>
-      <a href="tel:+14076405166">☎ (407) 640-5166</a>
-      <a href="tel:+13175381150">☎ (317) 538-1150</a>
+  <section id="contact">
+    <h2 class="section-title" id="contactTitle">CONTACT</h2>
+
+    <div class="contacts">
+      <div class="contact-card">
+        <h3>🇺🇸 USA — FLORIDA</h3>
+        <a href="tel:+14076405166">☎ (407) 640-5166</a>
+        <a href="tel:+13175381150">☎ (317) 538-1150</a>
+      </div>
+
+      <div class="contact-card">
+        <h3>🇭🇹 HAITI</h3>
+        <a href="tel:+50942544447">☎ +509 4254 4447</a>
+        <a href="tel:+50944829869">☎ +509 4482 9869</a>
+        <a href="tel:+50943437488">☎ +509 4343 7488</a>
+      </div>
     </div>
-    <div class="contact-card">
-      <h3>🇭🇹 HAITI</h3>
-      <a href="tel:+50942544447">☎ +509 4254 4447</a>
-      <a href="tel:+50944829869">☎ +509 4482 9869</a>
-      <a href="tel:+50943437488">☎ +509 4343 7488</a>
-    </div>
-  </div>
+  </section>
 
   <div class="info-panel platform">
     <h2>BSS1815 PRO-MAX DMP</h2>
     <p>DIGITAL MANAGEMENT PLATFORM</p>
-    <a class="main-link"
-       href="https://bss1815promaxdmp.com"
-       target="_blank" rel="noopener noreferrer"
-       id="platformLink">
-       VISITER NOTRE PLATEFORME
+    <a
+      class="main-link"
+      href="https://bss1815promaxdmp.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      id="platformLink">
+      VISITER NOTRE PLATEFORME
     </a>
   </div>
+
 </main>
 
 <footer>
@@ -358,7 +453,10 @@ footer p {line-height:1.7}
 </footer>
 
 <script>
-/* PRO-MAX FM — NEWS DIRECTORY */
+/* =========================================
+   PRO-MAX FM — NEWS CENTER
+   23 MEDIA SOURCES
+========================================= */
 
 const sources = [
   {name:"Radio Télé Éclair",category:"haiti",
@@ -409,13 +507,19 @@ const sources = [
    url:null,mark:"LI"}
 ];
 
+/* =========================================
+   LANGUAGE SYSTEM
+========================================= */
+
 const translations = {
  fr:{
-  home:"ACCUEIL",hero:"ACTUALITÉS DU MONDE",
+  home:"ACCUEIL",
+  hero:"ACTUALITÉS DU MONDE",
   description:"Retrouvez les médias haïtiens, internationaux et communautaires sur PRO-MAX FM.",
   sources:"NOS SOURCES D'INFORMATION",
   search:"Rechercher un média...",
-  all:"TOUS",haiti:"HAÏTI",
+  all:"TOUS",
+  haiti:"HAÏTI",
   digital:"MÉDIAS DIGITAUX",
   world:"INTERNATIONAL",
   diaspora:"FLORIDE & DIASPORA",
@@ -433,11 +537,13 @@ const translations = {
   pending:"PROFIL À CONNECTER"
  },
  en:{
-  home:"HOME",hero:"WORLD NEWS",
+  home:"HOME",
+  hero:"WORLD NEWS",
   description:"Explore Haitian, international and community news sources on PRO-MAX FM.",
   sources:"OUR NEWS SOURCES",
   search:"Search for a media outlet...",
-  all:"ALL",haiti:"HAITI",
+  all:"ALL",
+  haiti:"HAITI",
   digital:"DIGITAL MEDIA",
   world:"INTERNATIONAL",
   diaspora:"FLORIDA & DIASPORA",
@@ -455,11 +561,13 @@ const translations = {
   pending:"PROFILE NOT CONNECTED"
  },
  ht:{
-  home:"AKÈY",hero:"NOUVÈL MONDYAL",
+  home:"AKÈY",
+  hero:"NOUVÈL MONDYAL",
   description:"Dekouvri sous nouvèl ayisyen, entènasyonal ak kominotè sou PRO-MAX FM.",
   sources:"SOUS NOUVÈL NOU YO",
   search:"Chèche yon medya...",
-  all:"TOUT",haiti:"AYITI",
+  all:"TOUT",
+  haiti:"AYITI",
   digital:"MEDYA DIJITAL",
   world:"ENTÈNASYONAL",
   diaspora:"FLORIDA & DYASPORA",
@@ -486,7 +594,10 @@ const categories=[
 let currentLanguage="fr";
 let currentCategory="all";
 
-/* SOCIAL ICONS — SVG */
+/* =========================================
+   SOCIAL NETWORKS — ICONS
+========================================= */
+
 const socialNetworks=[
  {name:"Facebook",color:"#1877f2",icon:"facebook"},
  {name:"WhatsApp",color:"#25d366",icon:"whatsapp"},
@@ -511,72 +622,108 @@ const iconPaths={
  truth:'<path d="M4 3h16v4H4V3Zm6 4h4v14h-4V7ZM4 10h5v4H4v-4Zm11 0h5v4h-5v-4Z"/>'
 };
 
+/* =========================================
+   RENDER SOCIAL ICONS
+========================================= */
+
 function renderSocial(){
  const grid=document.getElementById("socialGrid");
  grid.innerHTML="";
+
  socialNetworks.forEach(s=>{
   const card=document.createElement("div");
   card.className="social-item";
+
   const icon=document.createElement("div");
   icon.className="social-icon";
   icon.style.color=s.color;
-  icon.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+iconPaths[s.icon]+'</svg>';
+  icon.innerHTML=
+   '<svg viewBox="0 0 24 24" aria-hidden="true">'+
+   iconPaths[s.icon]+'</svg>';
+
   const name=document.createElement("strong");
   name.textContent=s.name;
+
   const status=document.createElement("small");
   status.textContent=translations[currentLanguage].pending;
+
   card.append(icon,name,status);
   grid.appendChild(card);
  });
 }
 
+/* =========================================
+   CATEGORY FILTERS
+========================================= */
+
 function renderFilters(){
  const box=document.getElementById("filters");
  box.innerHTML="";
+
  categories.forEach(category=>{
   const button=document.createElement("button");
   button.textContent=translations[currentLanguage][category];
-  if(currentCategory===category) button.classList.add("active");
+
+  if(currentCategory===category){
+   button.classList.add("active");
+  }
+
   button.onclick=()=>{
    currentCategory=category;
    renderFilters();
    renderSources();
   };
+
   box.appendChild(button);
  });
 }
+
+/* =========================================
+   RENDER 23 MEDIA SOURCES
+========================================= */
 
 function renderSources(){
  const grid=document.getElementById("newsGrid");
  const search=document.getElementById("searchInput")
   .value.toLowerCase().trim();
+
  const t=translations[currentLanguage];
+
  const filtered=sources.filter(s=>
   (currentCategory==="all"||s.category===currentCategory)
   &&s.name.toLowerCase().includes(search)
  );
+
  grid.innerHTML="";
+
  if(!filtered.length){
   const p=document.createElement("p");
   p.textContent=t.empty;
   grid.appendChild(p);
   return;
  }
+
  filtered.forEach(source=>{
   const card=document.createElement("article");
   card.className="card";
+
   const mark=document.createElement("div");
   mark.className="media-mark";
   mark.textContent=source.mark;
   mark.setAttribute("aria-label",source.name);
+
   const category=document.createElement("span");
   category.className="category";
   category.textContent=t[source.category];
+
   const title=document.createElement("h3");
   title.textContent=source.name;
+
   const desc=document.createElement("p");
   desc.textContent="PRO-MAX FM NEWS CENTER";
+
   card.append(mark,category,title,desc);
+
   if(source.url){
    const a=document.createElement("a");
    a.className="media-link";
@@ -591,14 +738,21 @@ function renderSources(){
    span.textContent=t.unavailable;
    card.appendChild(span);
   }
+
   grid.appendChild(card);
  });
 }
 
+/* =========================================
+   LANGUAGE TOGGLE
+========================================= */
+
 function setLanguage(lang){
  currentLanguage=lang;
  const t=translations[lang];
+
  document.documentElement.lang=lang;
+
  document.getElementById("homeLink").textContent=t.home;
  document.getElementById("heroTitle").textContent=t.hero;
  document.getElementById("heroDescription").textContent=t.description;
@@ -610,15 +764,19 @@ function setLanguage(lang){
  document.getElementById("contactTitle").textContent=t.contact;
  document.getElementById("platformLink").textContent=t.platform;
  document.getElementById("footerText").textContent=t.footer;
+
  document.querySelectorAll(".languages button")
   .forEach(b=>b.classList.remove("active"));
+
  document.getElementById(
   {fr:"frBtn",en:"enBtn",ht:"htBtn"}[lang]
  ).classList.add("active");
+
  renderFilters();
  renderSources();
  renderSocial();
 }
+
 setLanguage("fr");
 </script>
 </body>
