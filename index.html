@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#080808">
-<title>PRO-MAX FM | NEWS CENTER + LIVE</title>
+<title>PRO-MAX FM | NEWS CENTER + LIVE + PODCASTS</title>
 
 <style>
 :root{
@@ -388,6 +388,138 @@ footer p{line-height:1.7}
  margin:16px auto;
  color:var(--apricot);
 }
+
+/* SECTION PODCASTS — NOUVO */
+.podcast-shell{
+ background:radial-gradient(ellipse at top,#331806,#080808 75%);
+ border:2px solid var(--orange);
+ border-radius:22px;
+ padding:26px;
+ box-shadow:0 0 30px #ff8c0022;
+}
+.podcast-feature{
+ display:grid;
+ grid-template-columns:160px 1fr;
+ gap:25px;
+ align-items:center;
+}
+.podcast-art{
+ width:150px;
+ height:150px;
+ border:2px solid var(--orange);
+ border-radius:18px;
+ background:linear-gradient(135deg,#512704,#080808);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:65px;
+ color:var(--orange);
+}
+.podcast-feature h3{
+ color:var(--orange);
+ font-size:25px;
+ margin:0 0 10px;
+}
+.podcast-feature p{
+ line-height:1.7;
+ margin:8px 0;
+}
+.podcast-player{
+ width:100%;
+ margin:18px 0 5px;
+ accent-color:var(--orange);
+}
+.podcast-status{
+ color:var(--apricot);
+ font-weight:bold;
+ padding:12px 0;
+}
+.podcast-search{
+ margin:22px 0;
+ text-align:center;
+}
+.podcast-search input{
+ width:min(100%,600px);
+ padding:15px;
+ border:2px solid var(--orange);
+ border-radius:10px;
+ background:#130c07;
+ color:var(--apricot);
+}
+.podcast-filters{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:8px;
+ margin:18px 0 25px;
+}
+.podcast-filters button{
+ background:#160c04;
+ border:1px solid var(--orange);
+ color:var(--orange);
+ border-radius:9px;
+ padding:10px 14px;
+ font-weight:bold;
+}
+.podcast-filters button.active{
+ background:var(--orange);
+ color:#000;
+}
+.podcast-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+ gap:18px;
+}
+.podcast-card{
+ background:linear-gradient(145deg,#211207,#080808);
+ border:1px solid #a95700;
+ border-radius:15px;
+ padding:20px;
+ display:flex;
+ flex-direction:column;
+ gap:12px;
+}
+.podcast-card h3{
+ color:var(--orange);
+ margin:0;
+ font-size:20px;
+}
+.podcast-card p{
+ margin:0;
+ line-height:1.7;
+ font-size:14px;
+}
+.podcast-tag{
+ color:var(--apricot);
+ font-size:12px;
+ font-weight:bold;
+}
+.podcast-action{
+ border:1px solid var(--orange);
+ border-radius:9px;
+ background:var(--orange);
+ color:#000;
+ padding:12px;
+ font-weight:900;
+ margin-top:auto;
+}
+.podcast-action:disabled{
+ opacity:.55;
+ cursor:not-allowed;
+}
+.podcast-empty{
+ text-align:center;
+ color:var(--apricot);
+ padding:24px;
+}
+.podcast-library-note{
+ border-left:4px solid var(--orange);
+ padding:15px 20px;
+ background:#180d05;
+ border-radius:8px;
+ margin-top:25px;
+ line-height:1.7;
+}
 @media(max-width:600px){
  .hero{padding:32px 15px}
  .container{padding:15px}
@@ -397,6 +529,13 @@ footer p{line-height:1.7}
  .media-mark{width:75px;height:75px}
  .card h3{font-size:19px}
  .live-shell{padding:22px 12px}
+ .podcast-shell{padding:18px}
+ .podcast-feature{
+  grid-template-columns:1fr;
+  text-align:center;
+ }
+ .podcast-art{margin:auto}
+ .podcast-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -422,7 +561,7 @@ footer p{line-height:1.7}
  <a href="#live" id="liveNav">LIVE</a>
  <a href="#news">NEWS</a>
  <a href="pages/shows.html">SHOWS</a>
- <a href="pages/podcasts.html">PODCASTS</a>
+ <a href="#podcasts">PODCASTS</a>
  <a href="pages/music.html">MUSIC</a>
  <a href="pages/artists.html">ARTISTS</a>
  <a href="pages/video.html">VIDEO</a>
@@ -518,6 +657,82 @@ footer p{line-height:1.7}
  </p>
 </div>
 
+<!-- NOUVELLE SECTION: PODCASTS -->
+<section id="podcasts" aria-labelledby="podcastsTitle">
+ <h2 class="section-title" id="podcastsTitle">
+  PRO-MAX FM — PODCASTS & REPLAYS
+ </h2>
+ <p class="section-description" id="podcastsDescription">
+  Retrouvez nos émissions enregistrées,
+  entretiens, actualités et programmes audio.
+ </p>
+
+ <div class="podcast-shell">
+  <div class="podcast-feature">
+   <div class="podcast-art" aria-hidden="true">🎙</div>
+   <div>
+    <h3 id="podcastFeatureTitle">
+     LA FORCE DU SON — À LA DEMANDE
+    </h3>
+    <p id="podcastFeatureDescription">
+     Écoutez vos programmes préférés quand
+     vous le souhaitez.
+    </p>
+    <div class="podcast-status"
+         id="podcastStatus"
+         role="status">
+     AUCUN ÉPISODE SÉLECTIONNÉ
+    </div>
+   </div>
+  </div>
+
+  <audio
+   id="podcastPlayer"
+   class="podcast-player"
+   controls
+   preload="none"
+   aria-label="PRO-MAX FM podcast player">
+  </audio>
+
+  <div class="live-buttons">
+   <button type="button"
+           id="podcastStopButton"
+           onclick="stopPodcast()">
+    ■ ARRÊTER LE PODCAST
+   </button>
+  </div>
+ </div>
+
+ <div class="podcast-search">
+  <input
+   type="search"
+   id="podcastSearch"
+   placeholder="Rechercher un podcast..."
+   oninput="renderPodcasts()"
+   aria-label="Rechercher un podcast">
+ </div>
+
+ <div class="podcast-filters"
+      id="podcastFilters"></div>
+
+ <div class="source-count"
+      id="podcastCount"></div>
+
+ <div class="podcast-grid"
+      id="podcastGrid"></div>
+
+ <div class="podcast-library-note">
+  <strong id="podcastLibraryTitle">
+   BIBLIOTHÈQUE AUDIO PRO-MAX FM
+  </strong>
+  <p id="podcastLibraryDescription">
+   Les catégories sont prêtes. Les épisodes
+   seront disponibles après l'ajout de leurs
+   fichiers audio ou de leurs liens directs.
+  </p>
+ </div>
+</section>
+
 <section id="social">
  <h2 class="section-title" id="socialTitle">
   RÉSEAUX SOCIAUX
@@ -569,7 +784,7 @@ footer p{line-height:1.7}
 
 <script>
 /*
- PRO-MAX FM NEWS CENTER + LIVE
+ PRO-MAX FM NEWS CENTER + LIVE + PODCASTS
  23 MEDIA SOURCES
 */
 
@@ -789,7 +1004,30 @@ const translations={
   liveError:"IMPOSSIBLE DE LIRE LE FLUX",
   livePlay:"▶ ÉCOUTER",
   liveStop:"■ ARRÊTER",
-  liveNotice:"Le lecteur est prêt. Ajoutez l’URL directe du flux RadioKing dans STREAM_URL pour activer la diffusion."
+  liveNotice:"Le lecteur est prêt. Ajoutez l’URL directe du flux RadioKing dans STREAM_URL pour activer la diffusion.",
+  podcastsTitle:"PRO-MAX FM — PODCASTS & REPLAYS",
+  podcastsDescription:"Retrouvez nos émissions enregistrées, entretiens, actualités et programmes audio.",
+  podcastFeatureTitle:"LA FORCE DU SON — À LA DEMANDE",
+  podcastFeatureDescription:"Écoutez vos programmes préférés quand vous le souhaitez.",
+  podcastNone:"AUCUN ÉPISODE SÉLECTIONNÉ",
+  podcastReady:"PRÊT À ÉCOUTER",
+  podcastPlaying:"LECTURE EN COURS",
+  podcastError:"LECTURE IMPOSSIBLE",
+  podcastStop:"■ ARRÊTER LE PODCAST",
+  podcastSearch:"Rechercher un podcast...",
+  podcastEmpty:"Aucun épisode disponible pour le moment.",
+  podcastPlay:"▶ ÉCOUTER",
+  podcastPending:"ÉPISODE À AJOUTER",
+  podcastCount:"épisodes disponibles",
+  podcastLibraryTitle:"BIBLIOTHÈQUE AUDIO PRO-MAX FM",
+  podcastLibraryDescription:"Les catégories sont prêtes. Les épisodes seront disponibles après l'ajout de leurs fichiers audio ou de leurs liens directs.",
+  podcastAll:"TOUS",
+  podcastNews:"ACTUALITÉS",
+  podcastInterviews:"ENTRETIENS",
+  podcastCulture:"CULTURE",
+  podcastCommunity:"COMMUNAUTÉ",
+  podcastShows:"ÉMISSIONS",
+  podcastArchives:"ARCHIVES"
  },
  en:{
   home:"HOME",
@@ -827,7 +1065,30 @@ const translations={
   liveError:"UNABLE TO PLAY STREAM",
   livePlay:"▶ LISTEN",
   liveStop:"■ STOP",
-  liveNotice:"The player is ready. Add the direct RadioKing streaming URL to STREAM_URL to enable broadcasting."
+  liveNotice:"The player is ready. Add the direct RadioKing streaming URL to STREAM_URL to enable broadcasting.",
+  podcastsTitle:"PRO-MAX FM — PODCASTS & REPLAYS",
+  podcastsDescription:"Discover recorded shows, interviews, news and audio programs.",
+  podcastFeatureTitle:"LA FORCE DU SON — ON DEMAND",
+  podcastFeatureDescription:"Listen to your favorite programs whenever you want.",
+  podcastNone:"NO EPISODE SELECTED",
+  podcastReady:"READY TO LISTEN",
+  podcastPlaying:"NOW PLAYING",
+  podcastError:"PLAYBACK FAILED",
+  podcastStop:"■ STOP PODCAST",
+  podcastSearch:"Search podcasts...",
+  podcastEmpty:"No episodes available yet.",
+  podcastPlay:"▶ LISTEN",
+  podcastPending:"EPISODE TO BE ADDED",
+  podcastCount:"available episodes",
+  podcastLibraryTitle:"PRO-MAX FM AUDIO LIBRARY",
+  podcastLibraryDescription:"Categories are ready. Episodes will become available when audio files or direct links are added.",
+  podcastAll:"ALL",
+  podcastNews:"NEWS",
+  podcastInterviews:"INTERVIEWS",
+  podcastCulture:"CULTURE",
+  podcastCommunity:"COMMUNITY",
+  podcastShows:"SHOWS",
+  podcastArchives:"ARCHIVES"
  },
  ht:{
   home:"AKÈY",
@@ -865,7 +1126,30 @@ const translations={
   liveError:"PA KA JWE STREAM LAN",
   livePlay:"▶ KOUTE",
   liveStop:"■ KANPE",
-  liveNotice:"Player la pare. Mete lyen streaming dirèk RadioKing la nan STREAM_URL pou aktive difizyon an."
+  liveNotice:"Player la pare. Mete lyen streaming dirèk RadioKing la nan STREAM_URL pou aktive difizyon an.",
+  podcastsTitle:"PRO-MAX FM — PODCASTS & REPLAYS",
+  podcastsDescription:"Jwenn emisyon anrejistre, entèvyou, nouvèl ak pwogram odyo nou yo.",
+  podcastFeatureTitle:"LA FORCE DU SON — KOUTE LÈ OU VLE",
+  podcastFeatureDescription:"Koute pwogram ou renmen yo nenpòt lè.",
+  podcastNone:"OKEN EPIZÒD PA CHWAZI",
+  podcastReady:"PARE POU KOUTE",
+  podcastPlaying:"PODCAST LA AP JWE",
+  podcastError:"PODCAST LA PA KA JWE",
+  podcastStop:"■ KANPE PODCAST",
+  podcastSearch:"Chèche yon podcast...",
+  podcastEmpty:"Poko gen epizòd ki disponib.",
+  podcastPlay:"▶ KOUTE",
+  podcastPending:"EPIZÒD POU AJOUTE",
+  podcastCount:"epizòd disponib",
+  podcastLibraryTitle:"BIBLIYOTÈK ODYO PRO-MAX FM",
+  podcastLibraryDescription:"Kategori yo pare. Epizòd yo ap disponib lè nou ajoute fichye odyo oswa lyen dirèk yo.",
+  podcastAll:"TOUT",
+  podcastNews:"NOUVÈL",
+  podcastInterviews:"ENTÈVYOU",
+  podcastCulture:"KILTI",
+  podcastCommunity:"KOMINOTE",
+  podcastShows:"EMISYON",
+  podcastArchives:"ACHIV"
  }
 };
 
@@ -1104,8 +1388,6 @@ function renderSources(){
 
 /*
  SECTION 02 — RADIOKING LIVE
- Mete URL dirèk streaming lan ant
- de gimè yo lè li disponib.
 */
 const STREAM_URL="";
 
@@ -1176,6 +1458,227 @@ radioPlayer.addEventListener("error",()=>{
 });
 
 /*
+ NOUVO — PODCASTS & REPLAYS
+
+ Ajoute epizòd reyèl nan lis sa a:
+ {
+  id:"episode-001",
+  title:"Titre de l'épisode",
+  category:"interviews",
+  description:"Description",
+  date:"2026-11-09",
+  duration:"25:00",
+  audio:"podcasts/episode-001.mp3"
+ }
+
+ Pa gen okenn fo epizòd.
+*/
+const podcastEpisodes=[];
+
+const podcastCategories=[
+ {id:"all",key:"podcastAll"},
+ {id:"news",key:"podcastNews"},
+ {id:"interviews",key:"podcastInterviews"},
+ {id:"culture",key:"podcastCulture"},
+ {id:"community",key:"podcastCommunity"},
+ {id:"shows",key:"podcastShows"},
+ {id:"archives",key:"podcastArchives"}
+];
+
+let activePodcastCategory="all";
+let activePodcastId=null;
+let podcastPlaybackError=false;
+
+const podcastPlayer=document.getElementById("podcastPlayer");
+
+function renderPodcastFilters(){
+ const box=document.getElementById("podcastFilters");
+ const t=translations[currentLanguage];
+
+ box.replaceChildren();
+
+ podcastCategories.forEach(category=>{
+  const button=document.createElement("button");
+  button.type="button";
+  button.textContent=t[category.key];
+
+  button.classList.toggle(
+   "active",
+   activePodcastCategory===category.id
+  );
+
+  button.onclick=()=>{
+   activePodcastCategory=category.id;
+   renderPodcastFilters();
+   renderPodcasts();
+  };
+
+  box.append(button);
+ });
+}
+
+function renderPodcasts(){
+ const grid=document.getElementById("podcastGrid");
+ const search=document.getElementById("podcastSearch")
+  .value.toLocaleLowerCase().trim();
+ const t=translations[currentLanguage];
+
+ const filtered=podcastEpisodes.filter(ep=>{
+  const matchesCategory=
+   activePodcastCategory==="all"||
+   ep.category===activePodcastCategory;
+
+  const matchesSearch=(
+   (ep.title||"")+" "+
+   (ep.description||"")
+  ).toLocaleLowerCase().includes(search);
+
+  return matchesCategory&&matchesSearch;
+ });
+
+ document.getElementById("podcastCount").textContent=
+  filtered.filter(ep=>Boolean(ep.audio)).length+
+  " "+t.podcastCount;
+
+ grid.replaceChildren();
+
+ if(!filtered.length){
+  const empty=document.createElement("p");
+  empty.className="podcast-empty";
+  empty.textContent=t.podcastEmpty;
+  grid.append(empty);
+  return;
+ }
+
+ filtered.forEach(ep=>{
+  const card=document.createElement("article");
+  card.className="podcast-card";
+
+  const tag=document.createElement("div");
+  tag.className="podcast-tag";
+
+  const category=podcastCategories.find(
+   c=>c.id===ep.category
+  );
+
+  tag.textContent=category
+   ? t[category.key]
+   : ep.category||"PODCAST";
+
+  const title=document.createElement("h3");
+  title.textContent=ep.title||"PRO-MAX FM";
+
+  const description=document.createElement("p");
+  description.textContent=ep.description||"";
+
+  const metadata=document.createElement("p");
+  metadata.textContent=[
+   ep.date||"",
+   ep.duration||""
+  ].filter(Boolean).join(" • ");
+
+  const button=document.createElement("button");
+  button.className="podcast-action";
+  button.type="button";
+  button.disabled=!ep.audio;
+  button.textContent=ep.audio
+   ? t.podcastPlay
+   : t.podcastPending;
+
+  button.onclick=()=>playPodcast(ep.id);
+
+  card.append(tag,title,description);
+
+  if(metadata.textContent){
+   card.append(metadata);
+  }
+
+  card.append(button);
+  grid.append(card);
+ });
+}
+
+function refreshPodcast(){
+ const t=translations[currentLanguage];
+
+ const fields=[
+  ["podcastsTitle","podcastsTitle"],
+  ["podcastsDescription","podcastsDescription"],
+  ["podcastFeatureTitle","podcastFeatureTitle"],
+  ["podcastFeatureDescription","podcastFeatureDescription"],
+  ["podcastStopButton","podcastStop"],
+  ["podcastLibraryTitle","podcastLibraryTitle"],
+  ["podcastLibraryDescription","podcastLibraryDescription"]
+ ];
+
+ fields.forEach(([id,key])=>{
+  document.getElementById(id).textContent=t[key];
+ });
+
+ document.getElementById("podcastSearch").placeholder=
+  t.podcastSearch;
+
+ const episode=podcastEpisodes.find(
+  ep=>ep.id===activePodcastId
+ );
+
+ let status=t.podcastNone;
+
+ if(podcastPlaybackError){
+  status=t.podcastError;
+ }else if(episode){
+  status=podcastPlayer.paused
+   ? episode.title+" — "+t.podcastReady
+   : episode.title+" — "+t.podcastPlaying;
+ }
+
+ document.getElementById("podcastStatus").textContent=
+  status;
+
+ renderPodcastFilters();
+ renderPodcasts();
+}
+
+async function playPodcast(id){
+ const episode=podcastEpisodes.find(
+  ep=>ep.id===id
+ );
+
+ if(!episode||!episode.audio)return;
+
+ podcastPlaybackError=false;
+
+ if(activePodcastId!==id){
+  podcastPlayer.pause();
+  podcastPlayer.src=episode.audio;
+  activePodcastId=id;
+ }
+
+ try{
+  await podcastPlayer.play();
+  refreshPodcast();
+ }catch(error){
+  podcastPlaybackError=true;
+  refreshPodcast();
+ }
+}
+
+function stopPodcast(){
+ podcastPlayer.pause();
+ podcastPlayer.currentTime=0;
+ refreshPodcast();
+}
+
+podcastPlayer.addEventListener("play",refreshPodcast);
+podcastPlayer.addEventListener("pause",refreshPodcast);
+podcastPlayer.addEventListener("error",()=>{
+ if(activePodcastId){
+  podcastPlaybackError=true;
+  refreshPodcast();
+ }
+});
+
+/*
  FR / ENG / KRE
 */
 function setLanguage(lang){
@@ -1219,6 +1722,7 @@ function setLanguage(lang){
  renderSources();
  renderSocial();
  refreshLive();
+ refreshPodcast();
 }
 
 setLanguage("fr");
