@@ -256,10 +256,165 @@ footer{
  margin-top:40px;
  color:var(--orange);
 }
+
+/* ==================================================
+   ARTISTS — NOUVO CSS
+   ================================================== */
+.artists-section{
+ background:radial-gradient(
+  ellipse at top,#402008,#080808 78%
+ );
+ border:2px solid var(--orange);
+ border-radius:20px;
+ padding:28px 18px;
+ margin:35px 0;
+ text-align:center;
+}
+.artists-section h2{
+ color:var(--orange);
+ font-size:clamp(25px,4vw,34px);
+ margin:8px 0 18px;
+}
+.artists-intro{
+ max-width:800px;
+ margin:0 auto 22px;
+ line-height:1.8;
+}
+.artists-search{
+ display:block;
+ width:min(100%,650px);
+ margin:22px auto;
+ padding:15px;
+ background:#130c07;
+ color:var(--apricot);
+ border:2px solid var(--orange);
+ border-radius:10px;
+}
+.artists-filters{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:9px;
+ margin:24px 0;
+}
+.artists-filters button{
+ background:#160c04;
+ color:var(--orange);
+ border:1px solid var(--orange);
+ padding:10px 13px;
+ border-radius:9px;
+ font-weight:bold;
+}
+.artists-filters button.active{
+ background:var(--orange);
+ color:#000;
+}
+.artists-count{
+ color:var(--apricot);
+ margin:18px 0;
+ font-weight:bold;
+}
+.artists-grid{
+ display:grid;
+ grid-template-columns:repeat(
+  auto-fit,minmax(240px,1fr)
+ );
+ gap:20px;
+}
+.artist-card{
+ background:linear-gradient(
+  145deg,#301806,#080808
+ );
+ border:1px solid #a95700;
+ border-radius:16px;
+ padding:20px;
+ text-align:center;
+ overflow:hidden;
+}
+.artist-photo{
+ width:145px;
+ height:145px;
+ border:3px solid var(--orange);
+ border-radius:50%;
+ background:radial-gradient(
+  circle,#542807,#090909
+ );
+ margin:0 auto 17px;
+ display:grid;
+ place-items:center;
+ overflow:hidden;
+ font-size:46px;
+ font-weight:900;
+ color:var(--orange);
+}
+.artist-photo img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+.artist-card h3{
+ color:var(--orange);
+ margin:12px 0;
+}
+.artist-card p{
+ line-height:1.6;
+ font-size:14px;
+}
+.artist-links{
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ gap:9px;
+ margin-top:17px;
+}
+.artist-links a{
+ border:1px solid var(--orange);
+ border-radius:8px;
+ padding:10px 12px;
+ color:var(--orange);
+ text-decoration:none;
+ font-size:13px;
+ font-weight:bold;
+}
+.artist-placeholder{
+ border:1px dashed #a95700;
+ border-radius:15px;
+ background:linear-gradient(
+  145deg,#251307,#080808
+ );
+ padding:24px 15px;
+ text-align:center;
+}
+.artist-placeholder .artist-photo{
+ width:110px;
+ height:110px;
+ font-size:36px;
+}
+.artist-placeholder h3{
+ color:var(--orange);
+}
+.artist-placeholder p{
+ font-size:13px;
+ line-height:1.6;
+}
+.artists-notice{
+ margin:25px auto 0;
+ max-width:850px;
+ border-left:4px solid var(--orange);
+ background:#180d05;
+ border-radius:9px;
+ padding:16px;
+ text-align:left;
+ line-height:1.7;
+}
 @media(max-width:600px){
  .container{padding:15px}
- .grid,.audio-grid{grid-template-columns:1fr}
- .live-shell,.audio-section{padding:18px 12px}
+ .grid,.audio-grid,.artists-grid{
+  grid-template-columns:1fr;
+ }
+ .live-shell,.audio-section,.artists-section{
+  padding:18px 12px;
+ }
 }
 </style>
 </head>
@@ -267,14 +422,19 @@ footer{
 <body>
 
 <header>
- <img src="pro-max-fm.jpg" alt="PRO-MAX FM" class="official-logo">
+ <img src="pro-max-fm.jpg"
+      alt="PRO-MAX FM"
+      class="official-logo">
  <div class="brand-name">PRO-MAX FM</div>
  <h1>NEWS CENTER</h1>
  <p>LA FORCE DU SON</p>
  <div class="languages">
-  <button id="frBtn" onclick="setLanguage('fr')">FR</button>
-  <button id="enBtn" onclick="setLanguage('en')">ENG</button>
-  <button id="htBtn" onclick="setLanguage('ht')">KRE</button>
+  <button id="frBtn"
+   onclick="setLanguage('fr')">FR</button>
+  <button id="enBtn"
+   onclick="setLanguage('en')">ENG</button>
+  <button id="htBtn"
+   onclick="setLanguage('ht')">KRE</button>
  </div>
 </header>
 
@@ -285,7 +445,7 @@ footer{
  <a href="pages/shows.html">SHOWS</a>
  <a href="#podcasts">PODCASTS</a>
  <a href="#music">MUSIC</a>
- <a href="pages/artists.html">ARTISTS</a>
+ <a href="#artists">ARTISTS</a>
  <a href="pages/video.html">VIDEO</a>
  <a href="pages/events.html">EVENTS</a>
  <a href="#contact">CONTACT</a>
@@ -294,34 +454,58 @@ footer{
 <section class="hero">
  <h2 id="heroTitle">ACTUALITÉS DU MONDE</h2>
  <p id="heroDescription">
-  Retrouvez les médias haïtiens, internationaux et communautaires sur PRO-MAX FM.
+  Retrouvez les médias haïtiens,
+  internationaux et communautaires
+  sur PRO-MAX FM.
  </p>
 </section>
 
 <main class="container">
 
+<!-- LIVE — KONSÈVE -->
 <section id="live">
- <h2 class="section-title" id="liveTitle">PRO-MAX FM — EN DIRECT</h2>
- <p class="section-description" id="liveDescription">LA FORCE DU SON</p>
+ <h2 class="section-title" id="liveTitle">
+  PRO-MAX FM — EN DIRECT
+ </h2>
+ <p class="section-description"
+    id="liveDescription">LA FORCE DU SON</p>
  <div class="live-shell">
   <div class="live-orb">FM</div>
   <h2>PRO-MAX FM</h2>
   <p>LA FORCE DU SON</p>
-  <div class="live-status" id="liveStatus">STREAMING NON CONFIGURÉ</div>
-  <audio id="radioPlayer" controls preload="none"></audio>
-  <button class="action-button" id="playLive" onclick="playRadio()">▶ ÉCOUTER</button>
-  <button class="action-button" id="stopLive" onclick="stopRadio()">■ ARRÊTER</button>
-  <p id="liveNotice">Ajoutez votre URL RadioKing pour activer la diffusion.</p>
+  <div class="live-status" id="liveStatus">
+   STREAMING NON CONFIGURÉ
+  </div>
+  <audio id="radioPlayer"
+         controls preload="none"></audio>
+  <button class="action-button"
+          id="playLive"
+          onclick="playRadio()">▶ ÉCOUTER</button>
+  <button class="action-button"
+          id="stopLive"
+          onclick="stopRadio()">■ ARRÊTER</button>
+  <p id="liveNotice">
+   Ajoutez votre URL RadioKing
+   pour activer la diffusion.
+  </p>
  </div>
 </section>
 
+<!-- NEWS — KONSÈVE -->
 <section id="news">
- <h2 class="section-title" id="sourcesTitle">NOS SOURCES D'INFORMATION</h2>
- <p class="section-description" id="sourcesDescription">
-  Médias haïtiens, internationaux et communautaires.
+ <h2 class="section-title" id="sourcesTitle">
+  NOS SOURCES D'INFORMATION
+ </h2>
+ <p class="section-description"
+    id="sourcesDescription">
+  Médias haïtiens, internationaux
+  et communautaires.
  </p>
  <div class="search-box">
-  <input id="searchInput" type="search" placeholder="Rechercher un média..." oninput="renderSources()">
+  <input id="searchInput"
+   type="search"
+   placeholder="Rechercher un média..."
+   oninput="renderSources()">
  </div>
  <div class="filters" id="filters"></div>
  <p class="source-count" id="sourceCount"></p>
@@ -329,59 +513,144 @@ footer{
 </section>
 
 <div class="info-panel">
- <h2 id="flashTitle">🎙️ PRO-MAX FM FLASH INFO</h2>
+ <h2 id="flashTitle">
+  🎙️ PRO-MAX FM FLASH INFO
+ </h2>
  <p id="flashDescription">
-  Les informations doivent être vérifiées avant toute diffusion.
+  Les informations doivent être vérifiées
+  avant toute diffusion.
  </p>
 </div>
 
+<!-- PODCASTS — KONSÈVE -->
 <section id="podcasts" class="audio-section">
  <h2>PRO-MAX FM — PODCASTS & REPLAYS</h2>
- <p id="podcastsIntro">Émissions enregistrées, entretiens et archives audio.</p>
- <div class="audio-status" id="podcastStatus">AUCUN ÉPISODE SÉLECTIONNÉ</div>
- <audio id="podcastPlayer" controls preload="none"></audio>
- <input class="audio-search" id="podcastSearch" type="search"
-  placeholder="Rechercher un podcast..." oninput="renderPodcasts()">
- <div class="audio-filters" id="podcastFilters"></div>
+ <p id="podcastsIntro">
+  Émissions enregistrées, entretiens
+  et archives audio.
+ </p>
+ <div class="audio-status" id="podcastStatus">
+  AUCUN ÉPISODE SÉLECTIONNÉ
+ </div>
+ <audio id="podcastPlayer"
+        controls preload="none"></audio>
+ <input class="audio-search"
+        id="podcastSearch"
+        type="search"
+        placeholder="Rechercher un podcast..."
+        oninput="renderPodcasts()">
+ <div class="audio-filters"
+      id="podcastFilters"></div>
  <p id="podcastCount"></p>
- <div class="audio-grid" id="podcastGrid"></div>
+ <div class="audio-grid"
+      id="podcastGrid"></div>
 </section>
 
-<!-- MUSIC: SEKSYON ENTEGRE NAN MENM INDEX.HTML -->
+<!-- MUSIC — KONSÈVE -->
 <section id="music" class="audio-section">
  <h2>PRO-MAX FM — MUSIC</h2>
  <p id="musicIntro">
-  Kompa • Reggae • Rap Kreyòl • Rabòday • Rara • Kompa Love •
-  Hip-Hop • Reggaeton • Reggae for Lovers • Ansyèn Mizik •
+  Kompa • Reggae • Rap Kreyòl •
+  Rabòday • Rara • Kompa Love •
+  Hip-Hop • Reggaeton •
+  Reggae for Lovers • Ansyèn Mizik •
   Tropicana • Septen • Racine
  </p>
- <div class="audio-status" id="musicStatus">AUCUNE MUSIQUE SÉLECTIONNÉE</div>
- <audio id="musicPlayer" controls preload="none"></audio>
- <input class="audio-search" id="musicSearch" type="search"
-  placeholder="Rechercher une musique ou un artiste..." oninput="renderMusic()">
- <div class="audio-filters" id="musicFilters"></div>
+ <div class="audio-status" id="musicStatus">
+  AUCUNE MUSIQUE SÉLECTIONNÉE
+ </div>
+ <audio id="musicPlayer"
+        controls preload="none"></audio>
+ <input class="audio-search"
+        id="musicSearch"
+        type="search"
+        placeholder="Rechercher une musique ou un artiste..."
+        oninput="renderMusic()">
+ <div class="audio-filters"
+      id="musicFilters"></div>
  <p id="musicCount"></p>
- <div class="audio-grid" id="musicGrid"></div>
+ <div class="audio-grid"
+      id="musicGrid"></div>
 </section>
 
+<!-- ==================================================
+     ARTISTS — NOUVO BLOK
+     ================================================== -->
+<section id="artists" class="artists-section">
+
+ <h2 id="artistsTitle">
+  PRO-MAX FM — ARTISTS
+ </h2>
+
+ <p class="artists-intro" id="artistsIntro">
+  Découvrez les artistes, les groupes
+  et les talents musicaux d'Haïti,
+  de la Caraïbe et de la diaspora.
+ </p>
+
+ <input
+  id="artistsSearch"
+  class="artists-search"
+  type="search"
+  placeholder="Rechercher un artiste ou un groupe..."
+  oninput="renderArtists()">
+
+ <div id="artistsFilters"
+      class="artists-filters"></div>
+
+ <p id="artistsCount"
+    class="artists-count"></p>
+
+ <div id="artistsGrid"
+      class="artists-grid"></div>
+
+ <div class="artists-notice">
+  <strong id="artistsNoticeTitle">
+   PRO-MAX FM — ARTIST DIRECTORY
+  </strong>
+  <p id="artistsNoticeText">
+   Les profils officiels seront ajoutés
+   avec les photos, biographies,
+   styles musicaux et liens vérifiés.
+  </p>
+ </div>
+
+</section>
+
+<!-- SOCIAL — KONSÈVE -->
 <section id="social">
- <h2 class="section-title" id="socialTitle">RÉSEAUX SOCIAUX</h2>
+ <h2 class="section-title" id="socialTitle">
+  RÉSEAUX SOCIAUX
+ </h2>
  <div class="social-grid" id="socialGrid"></div>
 </section>
 
+<!-- CONTACT — KONSÈVE -->
 <section id="contact">
- <h2 class="section-title" id="contactTitle">CONTACT</h2>
+ <h2 class="section-title" id="contactTitle">
+  CONTACT
+ </h2>
  <div class="contacts">
   <div class="contact-card">
    <h3>🇺🇸 USA — FLORIDA</h3>
-   <a href="tel:+14076405166">☎ (407) 640-5166</a>
-   <a href="tel:+13175381150">☎ (317) 538-1150</a>
+   <a href="tel:+14076405166">
+    ☎ (407) 640-5166
+   </a>
+   <a href="tel:+13175381150">
+    ☎ (317) 538-1150
+   </a>
   </div>
   <div class="contact-card">
    <h3>🇭🇹 HAITI</h3>
-   <a href="tel:+50942544447">☎ +509 4254 4447</a>
-   <a href="tel:+50944829869">☎ +509 4482 9869</a>
-   <a href="tel:+50943437488">☎ +509 4343 7488</a>
+   <a href="tel:+50942544447">
+    ☎ +509 4254 4447
+   </a>
+   <a href="tel:+50944829869">
+    ☎ +509 4482 9869
+   </a>
+   <a href="tel:+50943437488">
+    ☎ +509 4343 7488
+   </a>
   </div>
  </div>
 </section>
@@ -389,9 +658,11 @@ footer{
 <div class="info-panel platform">
  <h2>BSS1815 PRO-MAX DMP</h2>
  <p>DIGITAL MANAGEMENT PLATFORM</p>
- <a class="main-link" id="platformLink"
-  href="https://bss1815promaxdmp.com"
-  target="_blank" rel="noopener noreferrer">
+ <a class="main-link"
+    id="platformLink"
+    href="https://bss1815promaxdmp.com"
+    target="_blank"
+    rel="noopener noreferrer">
   VISITER NOTRE PLATEFORME
  </a>
 </div>
@@ -401,11 +672,15 @@ footer{
 <footer>
  <h2>PRO-MAX FM</h2>
  <p>LA FORCE DU SON</p>
- <p id="footerText">La radio de tous, partout et toujours.</p>
+ <p id="footerText">
+  La radio de tous, partout et toujours.
+ </p>
  <p>© 2026 PRO-MAX FM</p>
 </footer>
 
 <script>
+
+/* NEWS CENTER — 23 SOUS MEDYA */
 const sources=[
  {name:"Radio Télé Éclair",category:"haiti",url:"https://www.radioteleclair.com",domain:"radioteleclair.com",mark:"RTÉ",phone:"+509 44 54 8812"},
  {name:"Radio Télévision Caraïbes",category:"haiti",url:"https://www.radiotelevisioncaraibes.com",domain:"radiotelevisioncaraibes.com",mark:"RTVC"},
@@ -432,6 +707,7 @@ const sources=[
  {name:"LÉOGÂNE INFO",category:"community",logo:"leogane-info-logo.png",mark:"LI"}
 ];
 
+/* TRADIKSYON — FR / ENG / KRE */
 const translations={
  fr:{
   home:"ACCUEIL",hero:"ACTUALITÉS DU MONDE",
@@ -453,7 +729,8 @@ const translations={
   liveTitle:"PRO-MAX FM — EN DIRECT",
   liveDescription:"LA FORCE DU SON • La radio de tous, partout et toujours.",
   liveOffline:"STREAMING NON CONFIGURÉ",
-  liveReady:"PRÊT À ÉCOUTER",livePlaying:"DIFFUSION EN COURS",
+  liveReady:"PRÊT À ÉCOUTER",
+  livePlaying:"DIFFUSION EN COURS",
   liveError:"IMPOSSIBLE DE LIRE LE FLUX",
   livePlay:"▶ ÉCOUTER",liveStop:"■ ARRÊTER",
   liveNotice:"Ajoutez l'URL directe RadioKing dans STREAM_URL pour activer la diffusion.",
@@ -463,11 +740,26 @@ const translations={
   musicSearch:"Rechercher une musique ou un artiste...",
   noEpisodes:"Aucun épisode disponible pour le moment.",
   noTracks:"Aucun fichier MP3 disponible pour le moment.",
-  episodes:"épisodes disponibles",tracks:"morceaux disponibles",
-  listen:"▶ ÉCOUTER",error:"LECTURE IMPOSSIBLE",
+  episodes:"épisodes disponibles",
+  tracks:"morceaux disponibles",
+  listen:"▶ ÉCOUTER",
+  error:"LECTURE IMPOSSIBLE",
   podcastNone:"AUCUN ÉPISODE SÉLECTIONNÉ",
   musicNone:"AUCUNE MUSIQUE SÉLECTIONNÉE",
-  genrePending:"Fichiers MP3 à ajouter"
+  genrePending:"Fichiers MP3 à ajouter",
+
+  artistsTitle:"PRO-MAX FM — ARTISTS",
+  artistsIntro:"Découvrez les artistes, les groupes et les talents musicaux d'Haïti, de la Caraïbe et de la diaspora.",
+  artistsSearch:"Rechercher un artiste ou un groupe...",
+  artistsCount:"artistes enregistrés",
+  artistsPending:"Profils d'artistes à ajouter",
+  artistsNoticeTitle:"PRO-MAX FM — RÉPERTOIRE DES ARTISTES",
+  artistsNoticeText:"Les profils officiels seront ajoutés avec les photos, biographies, styles musicaux et liens vérifiés.",
+  artistProfile:"VOIR LE PROFIL",
+  artistWebsite:"SITE OFFICIEL",
+  artistYoutube:"YOUTUBE",
+  artistSpotify:"SPOTIFY",
+  artistInstagram:"INSTAGRAM"
  },
  en:{
   home:"HOME",hero:"WORLD NEWS",
@@ -489,7 +781,8 @@ const translations={
   liveTitle:"PRO-MAX FM — LIVE",
   liveDescription:"LA FORCE DU SON • The radio for everyone, everywhere, always.",
   liveOffline:"STREAM NOT CONFIGURED",
-  liveReady:"READY TO LISTEN",livePlaying:"STREAM PLAYING",
+  liveReady:"READY TO LISTEN",
+  livePlaying:"STREAM PLAYING",
   liveError:"UNABLE TO PLAY STREAM",
   livePlay:"▶ LISTEN",liveStop:"■ STOP",
   liveNotice:"Add the direct RadioKing streaming URL to STREAM_URL.",
@@ -499,11 +792,26 @@ const translations={
   musicSearch:"Search music or artists...",
   noEpisodes:"No episodes available yet.",
   noTracks:"No MP3 files available yet.",
-  episodes:"available episodes",tracks:"available tracks",
-  listen:"▶ LISTEN",error:"PLAYBACK FAILED",
+  episodes:"available episodes",
+  tracks:"available tracks",
+  listen:"▶ LISTEN",
+  error:"PLAYBACK FAILED",
   podcastNone:"NO EPISODE SELECTED",
   musicNone:"NO MUSIC SELECTED",
-  genrePending:"MP3 files to be added"
+  genrePending:"MP3 files to be added",
+
+  artistsTitle:"PRO-MAX FM — ARTISTS",
+  artistsIntro:"Discover artists, bands and musical talent from Haiti, the Caribbean and the diaspora.",
+  artistsSearch:"Search for an artist or band...",
+  artistsCount:"registered artists",
+  artistsPending:"Artist profiles to be added",
+  artistsNoticeTitle:"PRO-MAX FM — ARTIST DIRECTORY",
+  artistsNoticeText:"Official profiles will include photos, biographies, music genres and verified links.",
+  artistProfile:"VIEW PROFILE",
+  artistWebsite:"OFFICIAL WEBSITE",
+  artistYoutube:"YOUTUBE",
+  artistSpotify:"SPOTIFY",
+  artistInstagram:"INSTAGRAM"
  },
  ht:{
   home:"AKÈY",hero:"NOUVÈL MONDYAL",
@@ -525,7 +833,8 @@ const translations={
   liveTitle:"PRO-MAX FM — AN DIRÈK",
   liveDescription:"LA FORCE DU SON • Radyo pou tout moun, tout kote, tout tan.",
   liveOffline:"STREAMING POKO KONFIGIRE",
-  liveReady:"PARE POU KOUTE",livePlaying:"RADYO A AP JWE",
+  liveReady:"PARE POU KOUTE",
+  livePlaying:"RADYO A AP JWE",
   liveError:"PA KA JWE STREAM LAN",
   livePlay:"▶ KOUTE",liveStop:"■ KANPE",
   liveNotice:"Mete lyen streaming RadioKing la nan STREAM_URL.",
@@ -535,11 +844,26 @@ const translations={
   musicSearch:"Chèche mizik oswa atis...",
   noEpisodes:"Poko gen epizòd.",
   noTracks:"Poko gen fichye MP3.",
-  episodes:"epizòd disponib",tracks:"mizik disponib",
-  listen:"▶ KOUTE",error:"PA KA JWE",
+  episodes:"epizòd disponib",
+  tracks:"mizik disponib",
+  listen:"▶ KOUTE",
+  error:"PA KA JWE",
   podcastNone:"OKEN EPIZÒD PA CHWAZI",
   musicNone:"OKEN MIZIK PA CHWAZI",
-  genrePending:"Fichye MP3 pou ajoute"
+  genrePending:"Fichye MP3 pou ajoute",
+
+  artistsTitle:"PRO-MAX FM — ATIS",
+  artistsIntro:"Dekouvri atis, gwoup mizikal ak talan Ayiti, Karayib la ak dyaspora a.",
+  artistsSearch:"Chèche yon atis oswa yon gwoup...",
+  artistsCount:"atis anrejistre",
+  artistsPending:"Pwofil atis pou ajoute",
+  artistsNoticeTitle:"PRO-MAX FM — REPÈTWA ATIS",
+  artistsNoticeText:"N ap ajoute pwofil ofisyèl yo ak foto, biyografi, kategori mizik ak lyen ki verifye.",
+  artistProfile:"WÈ PWOFIL",
+  artistWebsite:"SIT OFISYÈL",
+  artistYoutube:"YOUTUBE",
+  artistSpotify:"SPOTIFY",
+  artistInstagram:"INSTAGRAM"
  }
 };
 
@@ -553,15 +877,22 @@ let currentCategory="all";
 function renderFilters(){
  const box=document.getElementById("filters");
  box.replaceChildren();
+
  categories.forEach(category=>{
   const button=document.createElement("button");
-  button.textContent=translations[currentLanguage][category];
-  button.classList.toggle("active",currentCategory===category);
+  button.textContent=
+   translations[currentLanguage][category];
+
+  button.classList.toggle(
+   "active",currentCategory===category
+  );
+
   button.onclick=()=>{
    currentCategory=category;
    renderFilters();
    renderSources();
   };
+
   box.append(button);
  });
 }
@@ -569,13 +900,18 @@ function renderFilters(){
 function renderSources(){
  const grid=document.getElementById("newsGrid");
  const t=translations[currentLanguage];
- const q=document.getElementById("searchInput").value.toLowerCase();
+ const q=document.getElementById("searchInput")
+  .value.toLowerCase();
+
  const filtered=sources.filter(s=>
-  (currentCategory==="all"||s.category===currentCategory)&&
+  (currentCategory==="all"||
+   s.category===currentCategory)&&
   s.name.toLowerCase().includes(q)
  );
+
  document.getElementById("sourceCount").textContent=
   filtered.length+" "+t.count;
+
  grid.replaceChildren();
 
  if(!filtered.length){
@@ -588,8 +924,10 @@ function renderSources(){
  filtered.forEach(s=>{
   const card=document.createElement("article");
   card.className="card";
+
   const heading=document.createElement("div");
   heading.className="media-heading";
+
   const mark=document.createElement("div");
   mark.className="media-mark";
   mark.textContent=s.mark;
@@ -611,8 +949,10 @@ function renderSources(){
   const details=document.createElement("div");
   const title=document.createElement("h3");
   title.textContent=s.name;
+
   const category=document.createElement("small");
   category.textContent=t[s.category];
+
   details.append(title,category);
   heading.append(mark,details);
   card.append(heading);
@@ -620,12 +960,14 @@ function renderSources(){
   if(s.url){
    const actions=document.createElement("div");
    actions.className="media-actions";
+
    const a=document.createElement("a");
    a.href=s.url;
    a.target="_blank";
    a.rel="noopener noreferrer";
    a.className="media-link";
    a.textContent=t.visit;
+
    actions.append(a);
    card.append(actions);
   }
@@ -633,19 +975,23 @@ function renderSources(){
   if(s.phone||s.email){
    const contact=document.createElement("div");
    contact.className="media-contact";
+
    if(s.phone){
     const p=document.createElement("p");
     p.textContent="TEL.: "+s.phone;
     contact.append(p);
    }
+
    if(s.email){
     const a=document.createElement("a");
     a.href="mailto:"+s.email;
     a.textContent=s.email;
     contact.append(a);
    }
+
    card.append(contact);
   }
+
   grid.append(card);
  });
 }
@@ -665,22 +1011,29 @@ const socialNetworks=[
 function renderSocial(){
  const grid=document.getElementById("socialGrid");
  grid.replaceChildren();
+
  socialNetworks.forEach(s=>{
   const card=document.createElement("div");
   card.className="social-item";
+
   const icon=document.createElement("div");
   icon.className="social-icon";
   icon.style.color=s.color;
   icon.textContent=s.symbol;
+
   const name=document.createElement("strong");
   name.textContent=s.name;
+
   const status=document.createElement("small");
-  status.textContent=translations[currentLanguage].pending;
+  status.textContent=
+   translations[currentLanguage].pending;
+
   card.append(icon,name,status);
   grid.append(card);
  });
 }
 
+/* LIVE — KONSÈVE */
 const STREAM_URL="";
 const radioPlayer=document.getElementById("radioPlayer");
 const podcastPlayer=document.getElementById("podcastPlayer");
@@ -688,12 +1041,21 @@ const musicPlayer=document.getElementById("musicPlayer");
 
 function refreshLive(){
  const t=translations[currentLanguage];
- document.getElementById("liveTitle").textContent=t.liveTitle;
- document.getElementById("liveDescription").textContent=t.liveDescription;
- document.getElementById("playLive").textContent=t.livePlay;
- document.getElementById("stopLive").textContent=t.liveStop;
- document.getElementById("liveNotice").textContent=t.liveNotice;
- document.getElementById("playLive").disabled=!STREAM_URL;
+
+ document.getElementById("liveTitle").textContent=
+  t.liveTitle;
+ document.getElementById("liveDescription").textContent=
+  t.liveDescription;
+ document.getElementById("playLive").textContent=
+  t.livePlay;
+ document.getElementById("stopLive").textContent=
+  t.liveStop;
+ document.getElementById("liveNotice").textContent=
+  t.liveNotice;
+
+ document.getElementById("playLive").disabled=
+  !STREAM_URL;
+
  document.getElementById("liveStatus").textContent=
   !STREAM_URL?t.liveOffline:
   radioPlayer.paused?t.liveReady:t.livePlaying;
@@ -701,9 +1063,11 @@ function refreshLive(){
 
 async function playRadio(){
  if(!STREAM_URL)return;
+
  podcastPlayer.pause();
  musicPlayer.pause();
  radioPlayer.src=STREAM_URL;
+
  try{
   await radioPlayer.play();
   refreshLive();
@@ -720,40 +1084,54 @@ function stopRadio(){
  refreshLive();
 }
 
+/* PODCASTS — KONSÈVE */
 const podcastEpisodes=[];
+
 const podcastGenres=[
  "TOUS","NEWS","INTERVIEWS","CULTURE",
  "COMMUNITY","SHOWS","ARCHIVES"
 ];
+
 let selectedPodcastGenre="TOUS";
 
 function renderPodcasts(){
  const t=translations[currentLanguage];
  const filters=document.getElementById("podcastFilters");
  const grid=document.getElementById("podcastGrid");
+
  filters.replaceChildren();
 
  podcastGenres.forEach(genre=>{
   const button=document.createElement("button");
   button.textContent=genre==="TOUS"?t.all:genre;
-  button.classList.toggle("active",genre===selectedPodcastGenre);
+  button.classList.toggle(
+   "active",genre===selectedPodcastGenre
+  );
+
   button.onclick=()=>{
    selectedPodcastGenre=genre;
    renderPodcasts();
   };
+
   filters.append(button);
  });
 
- const q=document.getElementById("podcastSearch").value.toLowerCase();
+ const q=document.getElementById("podcastSearch")
+  .value.toLowerCase();
+
  const entries=podcastEpisodes.filter(x=>
   (selectedPodcastGenre==="TOUS"||
-   (x.category||"").toUpperCase()===selectedPodcastGenre)&&
-  (x.title+" "+(x.description||"")).toLowerCase().includes(q)
+   (x.category||"").toUpperCase()===
+    selectedPodcastGenre)&&
+  (x.title+" "+(x.description||""))
+   .toLowerCase().includes(q)
  );
 
  grid.replaceChildren();
+
  document.getElementById("podcastCount").textContent=
-  entries.filter(x=>x.audio).length+" "+t.episodes;
+  entries.filter(x=>x.audio).length+
+  " "+t.episodes;
 
  if(!entries.length){
   const p=document.createElement("p");
@@ -764,41 +1142,38 @@ function renderPodcasts(){
  entries.forEach(x=>{
   const card=document.createElement("article");
   card.className="audio-item";
+
   const h=document.createElement("h3");
   h.textContent=x.title;
+
   const p=document.createElement("p");
   p.textContent=x.description||"";
+
   const b=document.createElement("button");
   b.textContent=t.listen;
   b.disabled=!x.audio;
+
   b.onclick=async()=>{
    radioPlayer.pause();
    musicPlayer.pause();
    podcastPlayer.src=x.audio;
+
    try{
     await podcastPlayer.play();
-    document.getElementById("podcastStatus").textContent=x.title;
+    document.getElementById("podcastStatus")
+     .textContent=x.title;
    }catch(e){
-    document.getElementById("podcastStatus").textContent=t.error;
+    document.getElementById("podcastStatus")
+     .textContent=t.error;
    }
   };
+
   card.append(h,p,b);
   grid.append(card);
  });
 }
 
-/*
- MUSIC LIBRARY
- Ajoute mizik reyèl yo nan tablo sa a.
-
- Egzanp:
- {
-  title:"Non mizik",
-  artist:"Non atis",
-  genre:"KOMPA",
-  audio:"music/non-fichye.mp3"
- }
-*/
+/* MUSIC — KONSÈVE */
 const musicTracks=[];
 
 const musicGenres=[
@@ -823,61 +1198,75 @@ function renderMusic(){
  const t=translations[currentLanguage];
  const filters=document.getElementById("musicFilters");
  const grid=document.getElementById("musicGrid");
+
  filters.replaceChildren();
 
  ["TOUS",...musicGenres].forEach(genre=>{
   const button=document.createElement("button");
   button.textContent=genre==="TOUS"?t.all:genre;
-  button.classList.toggle("active",genre===selectedMusicGenre);
+  button.classList.toggle(
+   "active",genre===selectedMusicGenre
+  );
+
   button.onclick=()=>{
    selectedMusicGenre=genre;
    renderMusic();
   };
+
   filters.append(button);
  });
 
- const q=document.getElementById("musicSearch").value.toLowerCase();
+ const q=document.getElementById("musicSearch")
+  .value.toLowerCase();
 
  const tracks=musicTracks.filter(x=>
   (selectedMusicGenre==="TOUS"||
-   (x.genre||"").toUpperCase()===selectedMusicGenre)&&
-  (x.title+" "+(x.artist||"")).toLowerCase().includes(q)
+   (x.genre||"").toUpperCase()===
+    selectedMusicGenre)&&
+  (x.title+" "+(x.artist||""))
+   .toLowerCase().includes(q)
  );
 
  document.getElementById("musicCount").textContent=
-  tracks.filter(x=>x.audio).length+" "+t.tracks;
+  tracks.filter(x=>x.audio).length+
+  " "+t.tracks;
 
  grid.replaceChildren();
 
- /*
-  Kategori yo toujou parèt sou paj la,
-  menm lè bibliyotèk MP3 a vid.
- */
  if(!tracks.length){
-  const visibleGenres=selectedMusicGenre==="TOUS"
-   ?musicGenres
-   :[selectedMusicGenre];
+  const visibleGenres=
+   selectedMusicGenre==="TOUS"
+    ?musicGenres
+    :[selectedMusicGenre];
 
   visibleGenres.forEach(genre=>{
    const card=document.createElement("article");
    card.className="genre-card";
+
    const h=document.createElement("h3");
    h.textContent="🎵 "+genre;
+
    const p=document.createElement("p");
    p.textContent=t.genrePending;
+
    card.append(h,p);
    grid.append(card);
   });
+
   return;
  }
 
  tracks.forEach(x=>{
   const card=document.createElement("article");
   card.className="audio-item";
+
   const h=document.createElement("h3");
   h.textContent=x.title;
+
   const p=document.createElement("p");
-  p.textContent=(x.artist||"")+" • "+(x.genre||"");
+  p.textContent=
+   (x.artist||"")+" • "+(x.genre||"");
+
   const button=document.createElement("button");
   button.textContent=t.listen;
   button.disabled=!x.audio;
@@ -886,12 +1275,15 @@ function renderMusic(){
    radioPlayer.pause();
    podcastPlayer.pause();
    musicPlayer.src=x.audio;
+
    try{
     await musicPlayer.play();
-    document.getElementById("musicStatus").textContent=
-     x.title+" — "+(x.artist||"");
+    document.getElementById("musicStatus")
+     .textContent=
+      x.title+" — "+(x.artist||"");
    }catch(e){
-    document.getElementById("musicStatus").textContent=t.error;
+    document.getElementById("musicStatus")
+     .textContent=t.error;
    }
   };
 
@@ -900,8 +1292,238 @@ function renderMusic(){
  });
 }
 
+/* ==================================================
+   ARTISTS — NOUVO JAVASCRIPT
+   ==================================================
+
+   Ajoute pwofil atis reyèl yo isit la.
+
+   Egzanp estrikti sèlman:
+
+   {
+    id:"artist-001",
+    name:"NON ATIS",
+    genre:"KOMPA",
+    country:"HAITI",
+    photo:"artists/foto-atis.jpg",
+    bio:"Biyografi atis la",
+    website:"",
+    youtube:"",
+    spotify:"",
+    instagram:""
+   }
+
+   Pa gen fo atis ni fo lyen.
+*/
+
+const artists=[];
+
+const artistGenres=[
+ "TOUS",
+ ...musicGenres
+];
+
+let selectedArtistGenre="TOUS";
+
+function safeArtistLink(url){
+ if(typeof url!=="string"||!url.trim()){
+  return null;
+ }
+
+ try{
+  const parsed=new URL(
+   url,
+   window.location.href
+  );
+
+  if(
+   parsed.protocol==="https:"||
+   parsed.protocol==="http:"
+  ){
+   return parsed.href;
+  }
+ }catch(e){}
+
+ return null;
+}
+
+function createArtistLink(label,url){
+ const safeUrl=safeArtistLink(url);
+ if(!safeUrl)return null;
+
+ const link=document.createElement("a");
+ link.href=safeUrl;
+ link.target="_blank";
+ link.rel="noopener noreferrer";
+ link.textContent=label;
+
+ return link;
+}
+
+function renderArtists(){
+ const t=translations[currentLanguage];
+ const filters=document.getElementById("artistsFilters");
+ const grid=document.getElementById("artistsGrid");
+ const search=document.getElementById("artistsSearch")
+  .value.toLocaleLowerCase().trim();
+
+ filters.replaceChildren();
+
+ artistGenres.forEach(genre=>{
+  const button=document.createElement("button");
+  button.type="button";
+  button.textContent=
+   genre==="TOUS"?t.all:genre;
+
+  button.classList.toggle(
+   "active",
+   genre===selectedArtistGenre
+  );
+
+  button.onclick=()=>{
+   selectedArtistGenre=genre;
+   renderArtists();
+  };
+
+  filters.append(button);
+ });
+
+ const filtered=artists.filter(artist=>{
+  const matchesGenre=
+   selectedArtistGenre==="TOUS"||
+   (artist.genre||"").toUpperCase()===
+    selectedArtistGenre;
+
+  const searchable=[
+   artist.name,
+   artist.genre,
+   artist.country,
+   artist.bio
+  ].filter(Boolean).join(" ")
+   .toLocaleLowerCase();
+
+  return matchesGenre&&
+   searchable.includes(search);
+ });
+
+ document.getElementById("artistsCount")
+  .textContent=
+   filtered.length+" "+t.artistsCount;
+
+ grid.replaceChildren();
+
+ /*
+  Lè poko gen pwofil atis,
+  montre kategori yo sou paj la.
+ */
+ if(!filtered.length){
+  const visibleGenres=
+   selectedArtistGenre==="TOUS"
+    ?musicGenres
+    :[selectedArtistGenre];
+
+  visibleGenres.forEach(genre=>{
+   const card=document.createElement("article");
+   card.className="artist-placeholder";
+
+   const photo=document.createElement("div");
+   photo.className="artist-photo";
+   photo.textContent="♫";
+
+   const title=document.createElement("h3");
+   title.textContent=genre;
+
+   const description=document.createElement("p");
+   description.textContent=t.artistsPending;
+
+   card.append(photo,title,description);
+   grid.append(card);
+  });
+
+  return;
+ }
+
+ filtered.forEach(artist=>{
+  const card=document.createElement("article");
+  card.className="artist-card";
+
+  const photo=document.createElement("div");
+  photo.className="artist-photo";
+  photo.textContent="♫";
+
+  if(artist.photo){
+   const image=document.createElement("img");
+   image.src=artist.photo;
+   image.alt=artist.name||"Artist";
+   image.loading="lazy";
+
+   image.onerror=()=>{
+    image.remove();
+   };
+
+   photo.append(image);
+  }
+
+  const name=document.createElement("h3");
+  name.textContent=artist.name||"ARTIST";
+
+  const genre=document.createElement("p");
+  genre.textContent=artist.genre||"";
+
+  const country=document.createElement("p");
+  country.textContent=artist.country||"";
+
+  const bio=document.createElement("p");
+  bio.textContent=artist.bio||"";
+
+  const links=document.createElement("div");
+  links.className="artist-links";
+
+  const options=[
+   [t.artistWebsite,artist.website],
+   [t.artistYoutube,artist.youtube],
+   [t.artistSpotify,artist.spotify],
+   [t.artistInstagram,artist.instagram]
+  ];
+
+  options.forEach(([label,url])=>{
+   const link=createArtistLink(label,url);
+   if(link)links.append(link);
+  });
+
+  card.append(
+   photo,name,genre,country,bio,links
+  );
+
+  grid.append(card);
+ });
+}
+
+function refreshArtistsLanguage(){
+ const t=translations[currentLanguage];
+
+ document.getElementById("artistsTitle")
+  .textContent=t.artistsTitle;
+
+ document.getElementById("artistsIntro")
+  .textContent=t.artistsIntro;
+
+ document.getElementById("artistsSearch")
+  .placeholder=t.artistsSearch;
+
+ document.getElementById("artistsNoticeTitle")
+  .textContent=t.artistsNoticeTitle;
+
+ document.getElementById("artistsNoticeText")
+  .textContent=t.artistsNoticeText;
+
+ renderArtists();
+}
+
+/* LANGUAGES — TOUT MODIL YO */
 function setLanguage(lang){
  if(!translations[lang])return;
+
  currentLanguage=lang;
  const t=translations[lang];
  document.documentElement.lang=lang;
@@ -923,26 +1545,37 @@ function setLanguage(lang){
  ];
 
  fields.forEach(([id,key])=>{
-  document.getElementById(id).textContent=t[key];
+  document.getElementById(id)
+   .textContent=t[key];
  });
 
- document.getElementById("searchInput").placeholder=t.search;
- document.getElementById("podcastSearch").placeholder=t.podcastSearch;
- document.getElementById("musicSearch").placeholder=t.musicSearch;
+ document.getElementById("searchInput")
+  .placeholder=t.search;
 
- document.querySelectorAll(".languages button").forEach(b=>
-  b.classList.remove("active")
- );
+ document.getElementById("podcastSearch")
+  .placeholder=t.podcastSearch;
+
+ document.getElementById("musicSearch")
+  .placeholder=t.musicSearch;
+
+ document.querySelectorAll(
+  ".languages button"
+ ).forEach(button=>{
+  button.classList.remove("active");
+ });
 
  document.getElementById(
   {fr:"frBtn",en:"enBtn",ht:"htBtn"}[lang]
  ).classList.add("active");
 
  if(!podcastPlayer.getAttribute("src")){
-  document.getElementById("podcastStatus").textContent=t.podcastNone;
+  document.getElementById("podcastStatus")
+   .textContent=t.podcastNone;
  }
+
  if(!musicPlayer.getAttribute("src")){
-  document.getElementById("musicStatus").textContent=t.musicNone;
+  document.getElementById("musicStatus")
+   .textContent=t.musicNone;
  }
 
  renderFilters();
@@ -951,9 +1584,14 @@ function setLanguage(lang){
  refreshLive();
  renderPodcasts();
  renderMusic();
+
+ /* NOUVO MODIL ARTISTS */
+ refreshArtistsLanguage();
 }
 
+/* INITIALISATION */
 setLanguage("fr");
+
 </script>
 </body>
 </html>
