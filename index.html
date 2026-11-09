@@ -258,7 +258,7 @@ footer{
 }
 
 /* ==================================================
-   ARTISTS — NOUVO CSS
+   ARTISTS — CSS KONSÈVE
    ================================================== */
 .artists-section{
  background:radial-gradient(
@@ -407,14 +407,189 @@ footer{
  text-align:left;
  line-height:1.7;
 }
+
+/* ==================================================
+   VIDEO — NOUVO CSS SÈLMAN
+   ================================================== */
+.video-section{
+ background:radial-gradient(
+  ellipse at top,#3b1b06,#080808 78%
+ );
+ border:2px solid var(--orange);
+ border-radius:20px;
+ padding:28px 18px;
+ margin:35px 0;
+ text-align:center;
+}
+.video-section h2{
+ color:var(--orange);
+ font-size:clamp(25px,4vw,34px);
+ margin:8px 0 18px;
+}
+.video-intro{
+ max-width:850px;
+ margin:0 auto 22px;
+ line-height:1.8;
+}
+.video-search{
+ display:block;
+ width:min(100%,650px);
+ margin:22px auto;
+ padding:15px;
+ background:#130c07;
+ color:var(--apricot);
+ border:2px solid var(--orange);
+ border-radius:10px;
+}
+.video-filters{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:9px;
+ margin:24px 0;
+}
+.video-filters button{
+ background:#160c04;
+ color:var(--orange);
+ border:1px solid var(--orange);
+ padding:10px 13px;
+ border-radius:9px;
+ font-weight:bold;
+}
+.video-filters button.active{
+ background:var(--orange);
+ color:#000;
+}
+.video-count{
+ margin:18px 0;
+ font-weight:bold;
+}
+.video-player-shell{
+ max-width:900px;
+ margin:20px auto 28px;
+ padding:18px;
+ border:1px solid #a95700;
+ border-radius:16px;
+ background:linear-gradient(145deg,#261306,#080808);
+}
+.video-player-shell video{
+ display:block;
+ width:100%;
+ max-height:520px;
+ background:#000;
+ border:1px solid var(--orange);
+ border-radius:12px;
+}
+.video-status{
+ margin:14px 0;
+ font-weight:bold;
+}
+.video-player-actions{
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ gap:10px;
+}
+.video-player-actions button{
+ padding:11px 17px;
+ border:1px solid var(--orange);
+ border-radius:9px;
+ background:var(--orange);
+ color:#000;
+ font-weight:bold;
+}
+.video-grid{
+ display:grid;
+ grid-template-columns:repeat(
+  auto-fit,minmax(260px,1fr)
+ );
+ gap:20px;
+}
+.video-card{
+ background:linear-gradient(145deg,#301806,#080808);
+ border:1px solid #a95700;
+ border-radius:16px;
+ padding:18px;
+ text-align:left;
+ overflow:hidden;
+}
+.video-card h3{
+ color:var(--orange);
+ margin:15px 0 10px;
+}
+.video-card p{
+ font-size:14px;
+ line-height:1.6;
+}
+.video-thumbnail{
+ width:100%;
+ aspect-ratio:16/9;
+ display:grid;
+ place-items:center;
+ background:radial-gradient(circle,#482105,#080808);
+ border:1px solid var(--orange);
+ border-radius:12px;
+ color:var(--orange);
+ font-size:48px;
+ font-weight:900;
+ overflow:hidden;
+}
+.video-thumbnail img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+.video-card-actions{
+ display:flex;
+ flex-wrap:wrap;
+ gap:9px;
+ margin-top:16px;
+}
+.video-card-actions button,
+.video-card-actions a{
+ display:inline-block;
+ background:var(--orange);
+ color:#000;
+ border:1px solid var(--orange);
+ border-radius:9px;
+ padding:10px 13px;
+ font-size:13px;
+ font-weight:bold;
+ text-decoration:none;
+ cursor:pointer;
+}
+.video-placeholder{
+ background:linear-gradient(145deg,#251307,#080808);
+ border:1px dashed #a95700;
+ border-radius:15px;
+ padding:18px;
+ text-align:center;
+}
+.video-placeholder h3{color:var(--orange)}
+.video-placeholder p{
+ font-size:13px;
+ line-height:1.6;
+}
+.video-notice{
+ margin:25px auto 0;
+ max-width:850px;
+ border-left:4px solid var(--orange);
+ background:#180d05;
+ border-radius:9px;
+ padding:16px;
+ text-align:left;
+ line-height:1.7;
+}
 @media(max-width:600px){
  .container{padding:15px}
- .grid,.audio-grid,.artists-grid{
+ .grid,.audio-grid,.artists-grid,.video-grid{
   grid-template-columns:1fr;
  }
- .live-shell,.audio-section,.artists-section{
+ .live-shell,.audio-section,
+ .artists-section,.video-section{
   padding:18px 12px;
  }
+ .video-player-shell{padding:12px}
 }
 </style>
 </head>
@@ -446,7 +621,7 @@ footer{
  <a href="#podcasts">PODCASTS</a>
  <a href="#music">MUSIC</a>
  <a href="#artists">ARTISTS</a>
- <a href="pages/video.html">VIDEO</a>
+ <a href="#video">VIDEO</a>
  <a href="pages/events.html">EVENTS</a>
  <a href="#contact">CONTACT</a>
 </nav>
@@ -573,37 +748,28 @@ footer{
       id="musicGrid"></div>
 </section>
 
-<!-- ==================================================
-     ARTISTS — NOUVO BLOK
-     ================================================== -->
+<!-- ARTISTS — KONSÈVE -->
 <section id="artists" class="artists-section">
-
  <h2 id="artistsTitle">
   PRO-MAX FM — ARTISTS
  </h2>
-
  <p class="artists-intro" id="artistsIntro">
   Découvrez les artistes, les groupes
   et les talents musicaux d'Haïti,
   de la Caraïbe et de la diaspora.
  </p>
-
  <input
   id="artistsSearch"
   class="artists-search"
   type="search"
   placeholder="Rechercher un artiste ou un groupe..."
   oninput="renderArtists()">
-
  <div id="artistsFilters"
       class="artists-filters"></div>
-
  <p id="artistsCount"
     class="artists-count"></p>
-
  <div id="artistsGrid"
       class="artists-grid"></div>
-
  <div class="artists-notice">
   <strong id="artistsNoticeTitle">
    PRO-MAX FM — ARTIST DIRECTORY
@@ -612,6 +778,70 @@ footer{
    Les profils officiels seront ajoutés
    avec les photos, biographies,
    styles musicaux et liens vérifiés.
+  </p>
+ </div>
+</section>
+
+<!-- ==================================================
+     VIDEO — NOUVO BLOK SÈLMAN
+     ================================================== -->
+<section id="video" class="video-section">
+
+ <h2 id="videoTitle">
+  PRO-MAX FM — VIDEO
+ </h2>
+
+ <p class="video-intro" id="videoIntro">
+  Découvrez les vidéos, les interviews,
+  les émissions, les reportages
+  et les productions de PRO-MAX FM.
+ </p>
+
+ <div class="video-player-shell">
+  <div class="video-status" id="videoStatus">
+   AUCUNE VIDÉO SÉLECTIONNÉE
+  </div>
+
+  <video
+   id="videoPlayer"
+   controls
+   playsinline
+   preload="none">
+  </video>
+
+  <div class="video-player-actions">
+   <button id="stopVideoButton"
+           type="button"
+           onclick="stopVideo()">
+    ■ ARRÊTER
+   </button>
+  </div>
+ </div>
+
+ <input
+  id="videoSearch"
+  class="video-search"
+  type="search"
+  placeholder="Rechercher une vidéo..."
+  oninput="renderVideos()">
+
+ <div id="videoFilters"
+      class="video-filters"></div>
+
+ <p id="videoCount"
+    class="video-count"></p>
+
+ <div id="videoGrid"
+      class="video-grid"></div>
+
+ <div class="video-notice">
+  <strong id="videoNoticeTitle">
+   PRO-MAX FM — VIDÉOTHÈQUE
+  </strong>
+  <p id="videoNoticeText">
+   Les vidéos officielles seront ajoutées
+   avec leurs titres, descriptions,
+   catégories et liens vérifiés.
   </p>
  </div>
 
@@ -759,7 +989,22 @@ const translations={
   artistWebsite:"SITE OFFICIEL",
   artistYoutube:"YOUTUBE",
   artistSpotify:"SPOTIFY",
-  artistInstagram:"INSTAGRAM"
+  artistInstagram:"INSTAGRAM",
+
+  videoTitle:"PRO-MAX FM — VIDEO",
+  videoIntro:"Découvrez les vidéos, interviews, émissions, reportages et productions de PRO-MAX FM.",
+  videoSearch:"Rechercher une vidéo...",
+  videoCount:"vidéos disponibles",
+  videoNone:"AUCUNE VIDÉO SÉLECTIONNÉE",
+  videoReady:"VIDÉO PRÊTE",
+  videoPlaying:"LECTURE VIDÉO EN COURS",
+  videoError:"LECTURE VIDÉO IMPOSSIBLE",
+  videoPending:"Vidéos à ajouter",
+  videoPlay:"▶ REGARDER",
+  videoStop:"■ ARRÊTER",
+  videoExternal:"OUVRIR LA VIDÉO",
+  videoNoticeTitle:"PRO-MAX FM — VIDÉOTHÈQUE",
+  videoNoticeText:"Les vidéos officielles seront ajoutées avec leurs titres, descriptions, catégories et liens vérifiés."
  },
  en:{
   home:"HOME",hero:"WORLD NEWS",
@@ -811,7 +1056,22 @@ const translations={
   artistWebsite:"OFFICIAL WEBSITE",
   artistYoutube:"YOUTUBE",
   artistSpotify:"SPOTIFY",
-  artistInstagram:"INSTAGRAM"
+  artistInstagram:"INSTAGRAM",
+
+  videoTitle:"PRO-MAX FM — VIDEO",
+  videoIntro:"Explore videos, interviews, shows, reports and productions from PRO-MAX FM.",
+  videoSearch:"Search videos...",
+  videoCount:"available videos",
+  videoNone:"NO VIDEO SELECTED",
+  videoReady:"VIDEO READY",
+  videoPlaying:"VIDEO PLAYING",
+  videoError:"UNABLE TO PLAY VIDEO",
+  videoPending:"Videos to be added",
+  videoPlay:"▶ WATCH",
+  videoStop:"■ STOP",
+  videoExternal:"OPEN VIDEO",
+  videoNoticeTitle:"PRO-MAX FM — VIDEO LIBRARY",
+  videoNoticeText:"Official videos will be added with titles, descriptions, categories and verified links."
  },
  ht:{
   home:"AKÈY",hero:"NOUVÈL MONDYAL",
@@ -863,7 +1123,22 @@ const translations={
   artistWebsite:"SIT OFISYÈL",
   artistYoutube:"YOUTUBE",
   artistSpotify:"SPOTIFY",
-  artistInstagram:"INSTAGRAM"
+  artistInstagram:"INSTAGRAM",
+
+  videoTitle:"PRO-MAX FM — VIDEO",
+  videoIntro:"Dekouvri videyo, entèvyou, emisyon, repòtaj ak pwodiksyon PRO-MAX FM yo.",
+  videoSearch:"Chèche yon videyo...",
+  videoCount:"videyo disponib",
+  videoNone:"OKEN VIDEYO PA CHWAZI",
+  videoReady:"VIDEYO A PARE",
+  videoPlaying:"VIDEYO A AP JWE",
+  videoError:"PA KA JWE VIDEYO A",
+  videoPending:"Videyo pou ajoute",
+  videoPlay:"▶ GADE",
+  videoStop:"■ KANPE",
+  videoExternal:"OUVRI VIDEYO A",
+  videoNoticeTitle:"PRO-MAX FM — BIBLIYOTÈK VIDEYO",
+  videoNoticeText:"N ap ajoute videyo ofisyèl yo ak tit, deskripsyon, kategori ak lyen ki verifye."
  }
 };
 
@@ -1292,30 +1567,7 @@ function renderMusic(){
  });
 }
 
-/* ==================================================
-   ARTISTS — NOUVO JAVASCRIPT
-   ==================================================
-
-   Ajoute pwofil atis reyèl yo isit la.
-
-   Egzanp estrikti sèlman:
-
-   {
-    id:"artist-001",
-    name:"NON ATIS",
-    genre:"KOMPA",
-    country:"HAITI",
-    photo:"artists/foto-atis.jpg",
-    bio:"Biyografi atis la",
-    website:"",
-    youtube:"",
-    spotify:"",
-    instagram:""
-   }
-
-   Pa gen fo atis ni fo lyen.
-*/
-
+/* ARTISTS — KONSÈVE */
 const artists=[];
 
 const artistGenres=[
@@ -1412,10 +1664,6 @@ function renderArtists(){
 
  grid.replaceChildren();
 
- /*
-  Lè poko gen pwofil atis,
-  montre kategori yo sou paj la.
- */
  if(!filtered.length){
   const visibleGenres=
    selectedArtistGenre==="TOUS"
@@ -1520,6 +1768,337 @@ function refreshArtistsLanguage(){
  renderArtists();
 }
 
+/* ==================================================
+   VIDEO — NOUVO JAVASCRIPT SÈLMAN
+   ==================================================
+
+   Ajoute videyo reyèl nan tablo sa a.
+
+   MP4 lokal:
+   {
+    id:"video-001",
+    title:"Tit videyo",
+    category:"SHOWS",
+    description:"Deskripsyon",
+    video:"videos/non-video.mp4",
+    thumbnail:"videos/afich.jpg",
+    url:""
+   }
+
+   YouTube oswa lòt paj ofisyèl:
+   {
+    id:"video-002",
+    title:"Tit videyo",
+    category:"INTERVIEWS",
+    description:"Deskripsyon",
+    video:"",
+    thumbnail:"",
+    url:"https://..."
+   }
+
+   URL YouTube òdinè yo louvri
+   nan yon lòt onglet.
+   Pa mete URL paj YouTube kòm MP4.
+*/
+
+const videoLibrary=[];
+
+const videoCategories=[
+ "TOUS",
+ "SHOWS",
+ "INTERVIEWS",
+ "NEWS",
+ "REPORTAGES",
+ "MUSIC VIDEOS",
+ "DOCUMENTARIES",
+ "EVENTS",
+ "COMMUNITY",
+ "ARCHIVES"
+];
+
+let selectedVideoCategory="TOUS";
+let activeVideoId=null;
+let videoPlaybackError=false;
+
+const videoPlayer=document.getElementById("videoPlayer");
+
+function safeVideoUrl(url){
+ if(typeof url!=="string"||!url.trim()){
+  return null;
+ }
+
+ try{
+  const parsed=new URL(
+   url,
+   window.location.href
+  );
+
+  if(
+   parsed.protocol==="http:"||
+   parsed.protocol==="https:"
+  ){
+   return parsed.href;
+  }
+ }catch(e){}
+
+ return null;
+}
+
+function refreshVideoStatus(){
+ const t=translations[currentLanguage];
+ const item=videoLibrary.find(
+  x=>x.id===activeVideoId
+ );
+
+ document.getElementById("stopVideoButton")
+  .textContent=t.videoStop;
+
+ const status=document.getElementById("videoStatus");
+
+ if(videoPlaybackError){
+  status.textContent=t.videoError;
+  return;
+ }
+
+ if(!item){
+  status.textContent=t.videoNone;
+  return;
+ }
+
+ if(!videoPlayer.paused){
+  status.textContent=
+   t.videoPlaying+" — "+item.title;
+ }else{
+  status.textContent=
+   t.videoReady+" — "+item.title;
+ }
+}
+
+function renderVideos(){
+ const t=translations[currentLanguage];
+ const filters=document.getElementById("videoFilters");
+ const grid=document.getElementById("videoGrid");
+
+ filters.replaceChildren();
+
+ videoCategories.forEach(category=>{
+  const button=document.createElement("button");
+  button.type="button";
+  button.textContent=
+   category==="TOUS"?t.all:category;
+
+  button.classList.toggle(
+   "active",
+   category===selectedVideoCategory
+  );
+
+  button.onclick=()=>{
+   selectedVideoCategory=category;
+   renderVideos();
+  };
+
+  filters.append(button);
+ });
+
+ const q=document.getElementById("videoSearch")
+  .value.toLocaleLowerCase().trim();
+
+ const filtered=videoLibrary.filter(item=>{
+  const matchesCategory=
+   selectedVideoCategory==="TOUS"||
+   (item.category||"").toUpperCase()===
+    selectedVideoCategory;
+
+  const searchable=[
+   item.title,
+   item.description,
+   item.category
+  ].filter(Boolean).join(" ")
+   .toLocaleLowerCase();
+
+  return matchesCategory&&searchable.includes(q);
+ });
+
+ document.getElementById("videoCount")
+  .textContent=
+   filtered.length+" "+t.videoCount;
+
+ grid.replaceChildren();
+
+ if(!filtered.length){
+  const visibleCategories=
+   selectedVideoCategory==="TOUS"
+    ?videoCategories.filter(x=>x!=="TOUS")
+    :[selectedVideoCategory];
+
+  visibleCategories.forEach(category=>{
+   const card=document.createElement("article");
+   card.className="video-placeholder";
+
+   const thumbnail=document.createElement("div");
+   thumbnail.className="video-thumbnail";
+   thumbnail.textContent="▶";
+
+   const heading=document.createElement("h3");
+   heading.textContent=category;
+
+   const p=document.createElement("p");
+   p.textContent=t.videoPending;
+
+   card.append(thumbnail,heading,p);
+   grid.append(card);
+  });
+
+  return;
+ }
+
+ filtered.forEach(item=>{
+  const card=document.createElement("article");
+  card.className="video-card";
+
+  const thumbnail=document.createElement("div");
+  thumbnail.className="video-thumbnail";
+  thumbnail.textContent="▶";
+
+  if(item.thumbnail){
+   const image=document.createElement("img");
+   image.src=item.thumbnail;
+   image.alt=item.title||"Video";
+   image.loading="lazy";
+   image.onerror=()=>image.remove();
+   thumbnail.append(image);
+  }
+
+  const heading=document.createElement("h3");
+  heading.textContent=item.title||"VIDEO";
+
+  const category=document.createElement("p");
+  category.textContent=item.category||"";
+
+  const description=document.createElement("p");
+  description.textContent=item.description||"";
+
+  const actions=document.createElement("div");
+  actions.className="video-card-actions";
+
+  if(item.video){
+   const play=document.createElement("button");
+   play.type="button";
+   play.textContent=t.videoPlay;
+   play.onclick=()=>playVideo(item.id);
+   actions.append(play);
+  }
+
+  if(item.url){
+   const safeUrl=safeVideoUrl(item.url);
+
+   if(safeUrl){
+    const link=document.createElement("a");
+    link.href=safeUrl;
+    link.target="_blank";
+    link.rel="noopener noreferrer";
+    link.textContent=t.videoExternal;
+    actions.append(link);
+   }
+  }
+
+  card.append(
+   thumbnail,
+   heading,
+   category,
+   description,
+   actions
+  );
+
+  grid.append(card);
+ });
+}
+
+async function playVideo(id){
+ const item=videoLibrary.find(
+  x=>x.id===id
+ );
+
+ if(!item||!item.video)return;
+
+ const safeUrl=safeVideoUrl(item.video);
+ if(!safeUrl)return;
+
+ radioPlayer.pause();
+ podcastPlayer.pause();
+ musicPlayer.pause();
+
+ videoPlayer.pause();
+ videoPlayer.src=safeUrl;
+ videoPlayer.load();
+
+ activeVideoId=id;
+ videoPlaybackError=false;
+
+ refreshVideoStatus();
+
+ document.getElementById("video")
+  .scrollIntoView({
+   behavior:"smooth",
+   block:"start"
+  });
+
+ try{
+  await videoPlayer.play();
+  refreshVideoStatus();
+ }catch(e){
+  videoPlaybackError=true;
+  refreshVideoStatus();
+ }
+}
+
+function stopVideo(){
+ videoPlayer.pause();
+ videoPlayer.removeAttribute("src");
+ videoPlayer.load();
+
+ activeVideoId=null;
+ videoPlaybackError=false;
+ refreshVideoStatus();
+}
+
+videoPlayer.addEventListener(
+ "play",refreshVideoStatus
+);
+
+videoPlayer.addEventListener(
+ "pause",refreshVideoStatus
+);
+
+videoPlayer.addEventListener("error",()=>{
+ if(activeVideoId!==null){
+  videoPlaybackError=true;
+  refreshVideoStatus();
+ }
+});
+
+function refreshVideoLanguage(){
+ const t=translations[currentLanguage];
+
+ document.getElementById("videoTitle")
+  .textContent=t.videoTitle;
+
+ document.getElementById("videoIntro")
+  .textContent=t.videoIntro;
+
+ document.getElementById("videoSearch")
+  .placeholder=t.videoSearch;
+
+ document.getElementById("videoNoticeTitle")
+  .textContent=t.videoNoticeTitle;
+
+ document.getElementById("videoNoticeText")
+  .textContent=t.videoNoticeText;
+
+ renderVideos();
+ refreshVideoStatus();
+}
+
 /* LANGUAGES — TOUT MODIL YO */
 function setLanguage(lang){
  if(!translations[lang])return;
@@ -1585,8 +2164,11 @@ function setLanguage(lang){
  renderPodcasts();
  renderMusic();
 
- /* NOUVO MODIL ARTISTS */
+ /* ARTISTS — KONSÈVE */
  refreshArtistsLanguage();
+
+ /* VIDEO — NOUVO */
+ refreshVideoLanguage();
 }
 
 /* INITIALISATION */
