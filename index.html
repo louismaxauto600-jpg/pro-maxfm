@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080808">
-<title>PRO-MAX FM | LA FORCE DU SON</title>
+<title>PRO-MAX FM | SHOWS — PROGRAMMATION</title>
 
 <style>
 :root{
@@ -23,8 +23,7 @@ body{
  color:var(--apricot);
 }
 a{color:inherit}
-button,input{font:inherit}
-button{cursor:pointer}
+button{font:inherit;cursor:pointer}
 header{
  text-align:center;
  padding:30px 15px;
@@ -33,7 +32,7 @@ header{
 }
 .official-logo{
  display:block;
- width:min(280px,80vw);
+ width:min(240px,75vw);
  margin:0 auto 15px;
  border-radius:50%;
  border:3px solid var(--orange);
@@ -43,17 +42,22 @@ header{
  font-weight:900;
  color:var(--orange);
 }
-header h1{color:var(--orange)}
-.languages button,.filters button{
+header h1{
+ color:var(--orange);
+ font-size:clamp(24px,4vw,36px);
+}
+.languages button,
+.filters button{
  background:#160c04;
  border:1px solid var(--orange);
  color:var(--orange);
- padding:10px 14px;
+ padding:11px 15px;
  margin:4px;
  border-radius:8px;
  font-weight:bold;
 }
-.languages button.active,.filters button.active{
+.languages button.active,
+.filters button.active{
  background:var(--orange);
  color:#000;
 }
@@ -61,8 +65,8 @@ nav{
  display:flex;
  justify-content:center;
  flex-wrap:wrap;
- gap:8px;
- padding:15px;
+ gap:10px;
+ padding:16px;
  background:#100a05;
  border-bottom:1px solid var(--orange);
 }
@@ -70,106 +74,121 @@ nav a{
  color:var(--orange);
  text-decoration:none;
  font-weight:bold;
- padding:9px;
+ padding:10px;
+}
+nav a:hover,
+nav a:focus-visible{
+ text-decoration:underline;
 }
 .hero{
  text-align:center;
- padding:48px 20px;
+ padding:55px 20px;
  background:radial-gradient(circle,#432000,#080808 75%);
 }
-.hero h2{color:var(--orange)}
+.hero h2{
+ color:var(--orange);
+ font-size:clamp(25px,5vw,40px);
+}
 .hero p{
- max-width:760px;
- margin:auto;
+ max-width:800px;
+ margin:15px auto;
  line-height:1.8;
 }
 .container{
  max-width:1250px;
  margin:auto;
- padding:25px 18px;
+ padding:30px 18px;
 }
 .section-title{
  color:var(--orange);
  text-align:center;
- font-size:27px;
- margin:32px 0 20px;
+ font-size:clamp(24px,4vw,32px);
+ margin:25px 0;
 }
 .section-description{
  text-align:center;
- line-height:1.7;
  max-width:850px;
- margin:0 auto 25px;
+ margin:0 auto 28px;
+ line-height:1.8;
 }
-.search-box{text-align:center;margin:25px 0}
-.search-box input,.audio-search{
- width:min(100%,650px);
- padding:15px;
- background:#130c07;
- border:2px solid var(--orange);
- border-radius:10px;
- color:var(--apricot);
-}
-.filters{text-align:center;margin:22px 0}
-.source-count{text-align:center;margin:20px}
-.grid,.audio-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:18px;
-}
-.card,.audio-item{
- background:linear-gradient(145deg,#201207,#080808);
- border:1px solid #a95700;
- border-radius:16px;
- padding:20px;
-}
-.card h3,.audio-item h3{color:var(--orange)}
-.media-heading{
- display:flex;
- align-items:center;
- gap:14px;
-}
-.media-mark{
- width:76px;
- height:76px;
- flex-shrink:0;
- display:grid;
- place-items:center;
- background:#170e08;
- border:1px solid var(--orange);
- border-radius:12px;
- color:var(--orange);
- font-weight:900;
- overflow:hidden;
-}
-.media-mark img{
- width:100%;
- height:100%;
- object-fit:contain;
-}
-.category{font-size:12px}
-.media-actions{
+.filters{
  display:flex;
  flex-wrap:wrap;
+ justify-content:center;
  gap:8px;
- margin-top:15px;
+ margin:25px 0;
 }
-.media-link,.main-link{
+.program-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+ gap:20px;
+}
+.program-card{
+ background:linear-gradient(145deg,#301806,#080808);
+ border:1px solid #a95700;
+ border-radius:16px;
+ padding:25px;
+}
+.program-card h3{
+ color:var(--orange);
+ font-size:23px;
+ margin:15px 0;
+}
+.program-card p{
+ line-height:1.7;
+}
+.program-icon{
+ width:75px;
+ height:75px;
+ display:grid;
+ place-items:center;
+ font-size:38px;
+ background:#170e08;
+ border:2px solid var(--orange);
+ border-radius:15px;
+}
+.program-time{
  display:inline-block;
  padding:10px 13px;
  border:1px solid var(--orange);
- border-radius:9px;
+ background:#180d05;
  color:var(--orange);
- text-decoration:none;
+ border-radius:9px;
  font-weight:bold;
+ margin:10px 0;
 }
-.main-link{
- background:var(--orange);
- color:#000;
+.program-day{
+ font-weight:bold;
+ color:var(--apricot);
 }
-.media-contact{
- margin-top:12px;
- font-size:14px;
- line-height:1.7;
+.program-status{
+ margin-top:15px;
+ padding:12px;
+ border-left:4px solid var(--orange);
+ background:#160c04;
+ border-radius:6px;
+ font-size:13px;
+}
+.schedule-table{
+ width:100%;
+ border-collapse:collapse;
+ margin:25px auto;
+ background:#130c07;
+}
+.schedule-table th,
+.schedule-table td{
+ border:1px solid #a95700;
+ padding:15px;
+ text-align:left;
+ line-height:1.6;
+}
+.schedule-table th{
+ background:#301806;
+ color:var(--orange);
+}
+.table-wrapper{
+ width:100%;
+ overflow-x:auto;
 }
 .info-panel{
  background:linear-gradient(120deg,#251307,#090909);
@@ -179,160 +198,24 @@ nav a{
  border-radius:10px;
  line-height:1.8;
 }
-.live-shell,.audio-section{
- background:radial-gradient(ellipse at top,#3b1c06,#080808 75%);
- border:2px solid var(--orange);
- border-radius:20px;
+.info-panel h3{
+ color:var(--orange);
+}
+.main-link{
+ display:inline-block;
+ padding:13px 20px;
+ border:1px solid var(--orange);
+ border-radius:9px;
+ background:var(--orange);
+ color:#000;
+ text-decoration:none;
+ font-weight:bold;
+ margin-top:15px;
+}
+.back-section{
+ text-align:center;
  padding:25px;
- margin:35px 0;
- text-align:center;
 }
-.live-orb{
- width:130px;
- height:130px;
- border:3px solid var(--orange);
- border-radius:50%;
- margin:10px auto;
- display:grid;
- place-items:center;
- overflow:hidden;
- font-size:36px;
- font-weight:900;
- color:var(--orange);
-}
-.live-orb img{
- width:100%;
- height:100%;
- object-fit:cover;
-}
-.live-status,.audio-status{
- color:var(--apricot);
- font-weight:bold;
- margin:15px 0;
-}
-audio{
- display:block;
- width:100%;
- margin:18px auto;
- accent-color:var(--orange);
-}
-.action-button,.audio-item button{
- background:var(--orange);
- color:#000;
- border:0;
- border-radius:9px;
- padding:12px 18px;
- font-weight:bold;
- margin:5px;
-}
-button:disabled{
- opacity:.5;
- cursor:not-allowed;
-}
-.audio-filters{
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:8px;
- margin:22px 0;
-}
-.audio-filters button{
- background:#160c04;
- color:var(--orange);
- border:1px solid var(--orange);
- border-radius:9px;
- padding:10px 13px;
- font-weight:bold;
-}
-.audio-filters button.active{
- background:var(--orange);
- color:#000;
-}
-.audio-search{
- display:block;
- margin:20px auto;
-}
-.audio-item{text-align:left}
-.audio-item p{line-height:1.6}
-.genre-card{
- border:1px solid #a95700;
- border-radius:13px;
- padding:22px;
- background:linear-gradient(145deg,#301806,#080808);
- text-align:center;
-}
-.genre-card h3{color:var(--orange)}
-.genre-card p{font-size:13px}
-
-/* SOCIAL — KONEKTE 10 REZO */
-.social-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
- gap:14px;
-}
-.social-item{
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
- min-height:155px;
- text-align:center;
- border:1px solid #a95700;
- background:#130c07;
- padding:18px 8px;
- border-radius:12px;
- text-decoration:none;
- transition:transform .2s,border-color .2s;
-}
-.social-item:hover,
-.social-item:focus-visible{
- transform:translateY(-4px);
- border-color:var(--orange);
- outline:2px solid var(--orange);
- outline-offset:2px;
-}
-.social-icon{
- font-size:34px;
- font-weight:900;
- margin-bottom:10px;
-}
-.social-item strong,
-.social-item small{display:block}
-.social-item small{
- font-size:11px;
- margin-top:8px;
- color:var(--apricot);
-}
-.social-item svg{
- width:36px;
- height:36px;
- fill:currentColor;
-}
-.social-item .social-icon{
- display:grid;
- place-items:center;
- min-height:40px;
-}
-
-.contacts{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:20px;
-}
-.contact-card{
- background:var(--panel);
- border:1px solid var(--orange);
- border-radius:14px;
- padding:23px;
-}
-.contact-card h3{color:var(--orange)}
-.contact-card a{
- display:block;
- color:var(--apricot);
- text-decoration:none;
- margin:13px 0;
-}
-.platform{text-align:center}
 footer{
  background:#080808;
  border-top:2px solid var(--orange);
@@ -341,463 +224,15 @@ footer{
  margin-top:40px;
  color:var(--orange);
 }
-
-/* ARTISTS — KONSÈVE */
-.artists-section{
- background:radial-gradient(ellipse at top,#402008,#080808 78%);
- border:2px solid var(--orange);
- border-radius:20px;
- padding:28px 18px;
- margin:35px 0;
- text-align:center;
-}
-.artists-section h2{
- color:var(--orange);
- font-size:clamp(25px,4vw,34px);
- margin:8px 0 18px;
-}
-.artists-intro{
- max-width:800px;
- margin:0 auto 22px;
- line-height:1.8;
-}
-.artists-search{
- display:block;
- width:min(100%,650px);
- margin:22px auto;
- padding:15px;
- background:#130c07;
- color:var(--apricot);
- border:2px solid var(--orange);
- border-radius:10px;
-}
-.artists-filters{
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:9px;
- margin:24px 0;
-}
-.artists-filters button{
- background:#160c04;
- color:var(--orange);
- border:1px solid var(--orange);
- padding:10px 13px;
- border-radius:9px;
- font-weight:bold;
-}
-.artists-filters button.active{
- background:var(--orange);
- color:#000;
-}
-.artists-count{
- color:var(--apricot);
- margin:18px 0;
- font-weight:bold;
-}
-.artists-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
- gap:20px;
-}
-.artist-card{
- background:linear-gradient(145deg,#301806,#080808);
- border:1px solid #a95700;
- border-radius:16px;
- padding:20px;
- text-align:center;
- overflow:hidden;
-}
-.artist-photo{
- width:145px;
- height:145px;
- border:3px solid var(--orange);
- border-radius:50%;
- background:radial-gradient(circle,#542807,#090909);
- margin:0 auto 17px;
- display:grid;
- place-items:center;
- overflow:hidden;
- font-size:46px;
- font-weight:900;
- color:var(--orange);
-}
-.artist-photo img{
- width:100%;
- height:100%;
- object-fit:cover;
-}
-.artist-card h3{
- color:var(--orange);
- margin:12px 0;
-}
-.artist-card p{
- line-height:1.6;
- font-size:14px;
-}
-.artist-links{
- display:flex;
- flex-wrap:wrap;
- justify-content:center;
- gap:9px;
- margin-top:17px;
-}
-.artist-links a{
- border:1px solid var(--orange);
- border-radius:8px;
- padding:10px 12px;
- color:var(--orange);
- text-decoration:none;
- font-size:13px;
- font-weight:bold;
-}
-.artist-placeholder{
- border:1px dashed #a95700;
- border-radius:15px;
- background:linear-gradient(145deg,#251307,#080808);
- padding:24px 15px;
- text-align:center;
-}
-.artist-placeholder .artist-photo{
- width:110px;
- height:110px;
- font-size:36px;
-}
-.artist-placeholder h3{color:var(--orange)}
-.artist-placeholder p{
- font-size:13px;
- line-height:1.6;
-}
-.artists-notice{
- margin:25px auto 0;
- max-width:850px;
- border-left:4px solid var(--orange);
- background:#180d05;
- border-radius:9px;
- padding:16px;
- text-align:left;
- line-height:1.7;
-}
-
-/* VIDEO — KONSÈVE */
-.video-section{
- background:radial-gradient(ellipse at top,#3b1b06,#080808 78%);
- border:2px solid var(--orange);
- border-radius:20px;
- padding:28px 18px;
- margin:35px 0;
- text-align:center;
-}
-.video-section h2{
- color:var(--orange);
- font-size:clamp(25px,4vw,34px);
- margin:8px 0 18px;
-}
-.video-intro{
- max-width:850px;
- margin:0 auto 22px;
- line-height:1.8;
-}
-.video-search{
- display:block;
- width:min(100%,650px);
- margin:22px auto;
- padding:15px;
- background:#130c07;
- color:var(--apricot);
- border:2px solid var(--orange);
- border-radius:10px;
-}
-.video-filters{
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:9px;
- margin:24px 0;
-}
-.video-filters button{
- background:#160c04;
- color:var(--orange);
- border:1px solid var(--orange);
- padding:10px 13px;
- border-radius:9px;
- font-weight:bold;
-}
-.video-filters button.active{
- background:var(--orange);
- color:#000;
-}
-.video-count{
- margin:18px 0;
- font-weight:bold;
-}
-.video-player-shell{
- max-width:900px;
- margin:20px auto 28px;
- padding:18px;
- border:1px solid #a95700;
- border-radius:16px;
- background:linear-gradient(145deg,#261306,#080808);
-}
-.video-player-shell video{
- display:block;
- width:100%;
- max-height:520px;
- background:#000;
- border:1px solid var(--orange);
- border-radius:12px;
-}
-.video-status{
- margin:14px 0;
- font-weight:bold;
-}
-.video-player-actions{
- display:flex;
- flex-wrap:wrap;
- justify-content:center;
- gap:10px;
-}
-.video-player-actions button{
- padding:11px 17px;
- border:1px solid var(--orange);
- border-radius:9px;
- background:var(--orange);
- color:#000;
- font-weight:bold;
-}
-.video-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:20px;
-}
-.video-card{
- background:linear-gradient(145deg,#301806,#080808);
- border:1px solid #a95700;
- border-radius:16px;
- padding:18px;
- text-align:left;
- overflow:hidden;
-}
-.video-card h3{
- color:var(--orange);
- margin:15px 0 10px;
-}
-.video-card p{
- font-size:14px;
- line-height:1.6;
-}
-.video-thumbnail{
- width:100%;
- aspect-ratio:16/9;
- display:grid;
- place-items:center;
- background:radial-gradient(circle,#482105,#080808);
- border:1px solid var(--orange);
- border-radius:12px;
- color:var(--orange);
- font-size:48px;
- font-weight:900;
- overflow:hidden;
-}
-.video-thumbnail img{
- width:100%;
- height:100%;
- object-fit:cover;
-}
-.video-card-actions{
- display:flex;
- flex-wrap:wrap;
- gap:9px;
- margin-top:16px;
-}
-.video-card-actions button,
-.video-card-actions a{
- display:inline-block;
- background:var(--orange);
- color:#000;
- border:1px solid var(--orange);
- border-radius:9px;
- padding:10px 13px;
- font-size:13px;
- font-weight:bold;
- text-decoration:none;
- cursor:pointer;
-}
-.video-placeholder{
- background:linear-gradient(145deg,#251307,#080808);
- border:1px dashed #a95700;
- border-radius:15px;
- padding:18px;
- text-align:center;
-}
-.video-placeholder h3{color:var(--orange)}
-.video-placeholder p{
- font-size:13px;
- line-height:1.6;
-}
-.video-notice{
- margin:25px auto 0;
- max-width:850px;
- border-left:4px solid var(--orange);
- background:#180d05;
- border-radius:9px;
- padding:16px;
- text-align:left;
- line-height:1.7;
-}
-
-/* EVENTS — KONSÈVE */
-.events-section{
- background:radial-gradient(ellipse at top,#402008,#080808 78%);
- border:2px solid var(--orange);
- border-radius:20px;
- padding:28px 18px;
- margin:35px 0;
- text-align:center;
-}
-.events-section h2{
- color:var(--orange);
- font-size:clamp(25px,4vw,34px);
- margin:8px 0 18px;
-}
-.events-intro{
- max-width:850px;
- margin:0 auto 22px;
- line-height:1.8;
-}
-.events-search{
- display:block;
- width:min(100%,650px);
- margin:22px auto;
- padding:15px;
- background:#130c07;
- color:var(--apricot);
- border:2px solid var(--orange);
- border-radius:10px;
-}
-.events-filters{
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:9px;
- margin:24px 0;
-}
-.events-filters button{
- background:#160c04;
- color:var(--orange);
- border:1px solid var(--orange);
- padding:10px 13px;
- border-radius:9px;
- font-weight:bold;
-}
-.events-filters button.active{
- background:var(--orange);
- color:#000;
-}
-.events-count{
- margin:18px 0;
- font-weight:bold;
-}
-.events-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:20px;
-}
-.event-card{
- background:linear-gradient(145deg,#301806,#080808);
- border:1px solid #a95700;
- border-radius:16px;
- padding:18px;
- text-align:left;
- overflow:hidden;
-}
-.event-card h3{
- color:var(--orange);
- margin:15px 0 10px;
-}
-.event-card p{
- font-size:14px;
- line-height:1.7;
-}
-.event-poster{
- width:100%;
- aspect-ratio:16/9;
- display:grid;
- place-items:center;
- background:radial-gradient(circle,#482105,#080808);
- border:1px solid var(--orange);
- border-radius:12px;
- color:var(--orange);
- font-size:46px;
- font-weight:900;
- overflow:hidden;
-}
-.event-poster img{
- width:100%;
- height:100%;
- object-fit:cover;
-}
-.event-date{
- display:inline-block;
- padding:9px 12px;
- border-radius:8px;
- background:#180d05;
- border:1px solid var(--orange);
- color:var(--orange);
- font-weight:bold;
- margin-top:14px;
-}
-.event-card-actions{
- display:flex;
- flex-wrap:wrap;
- gap:9px;
- margin-top:16px;
-}
-.event-card-actions a{
- display:inline-block;
- background:var(--orange);
- color:#000;
- border:1px solid var(--orange);
- border-radius:9px;
- padding:10px 13px;
- font-size:13px;
- font-weight:bold;
- text-decoration:none;
-}
-.event-placeholder{
- background:linear-gradient(145deg,#251307,#080808);
- border:1px dashed #a95700;
- border-radius:15px;
- padding:20px;
- text-align:center;
-}
-.event-placeholder h3{color:var(--orange)}
-.event-placeholder p{
- font-size:13px;
- line-height:1.6;
-}
-.events-notice{
- margin:25px auto 0;
- max-width:850px;
- border-left:4px solid var(--orange);
- background:#180d05;
- border-radius:9px;
- padding:16px;
- text-align:left;
- line-height:1.7;
-}
 @media(max-width:600px){
- .container{padding:15px}
- .grid,.audio-grid,.artists-grid,
- .video-grid,.events-grid{
-  grid-template-columns:1fr;
+ .container{padding:20px 12px}
+ .program-grid{grid-template-columns:1fr}
+ .program-card{padding:20px}
+ .schedule-table th,
+ .schedule-table td{
+  padding:11px;
+  font-size:13px;
  }
- .live-shell,.audio-section,
- .artists-section,.video-section,
- .events-section{
-  padding:18px 12px;
- }
- .video-player-shell{padding:12px}
 }
 </style>
 </head>
@@ -805,339 +240,134 @@ footer{
 <body>
 
 <header>
- <img src="pro-max-fm.jpg"
-      alt="PRO-MAX FM"
-      class="official-logo">
+ <img
+  src="../pro-max-fm.jpg"
+  alt="PRO-MAX FM"
+  class="official-logo">
+
  <div class="brand-name">PRO-MAX FM</div>
- <h1>NEWS CENTER</h1>
+
+ <h1 id="pageTitle">
+  SHOWS — PROGRAMMATION
+ </h1>
+
  <p>LA FORCE DU SON</p>
+
  <div class="languages">
-  <button id="frBtn" onclick="setLanguage('fr')">FR</button>
-  <button id="enBtn" onclick="setLanguage('en')">ENG</button>
-  <button id="htBtn" onclick="setLanguage('ht')">KRE</button>
+  <button id="frBtn"
+   onclick="setLanguage('fr')">FR</button>
+
+  <button id="enBtn"
+   onclick="setLanguage('en')">ENG</button>
+
+  <button id="htBtn"
+   onclick="setLanguage('ht')">KRE</button>
  </div>
 </header>
 
 <nav>
- <a href="index.html" id="homeLink">ACCUEIL</a>
- <a href="#live">LIVE</a>
- <a href="#news">NEWS</a>
- <a href="pages/shows.html">SHOWS</a>
- <a href="#podcasts">PODCASTS</a>
- <a href="#music">MUSIC</a>
- <a href="#artists">ARTISTS</a>
- <a href="#video">VIDEO</a>
- <a href="#events">EVENTS</a>
- <a href="#contact">CONTACT</a>
+ <a href="../index.html" id="homeLink">
+  ACCUEIL
+ </a>
+ <a href="../index.html#live">LIVE</a>
+ <a href="../index.html#news">NEWS</a>
+ <a href="shows.html">SHOWS</a>
+ <a href="../index.html#podcasts">PODCASTS</a>
+ <a href="../index.html#music">MUSIC</a>
+ <a href="../index.html#artists">ARTISTS</a>
+ <a href="../index.html#video">VIDEO</a>
+ <a href="../index.html#events">EVENTS</a>
+ <a href="../index.html#contact">CONTACT</a>
 </nav>
 
 <section class="hero">
- <h2 id="heroTitle">ACTUALITÉS DU MONDE</h2>
+ <h2 id="heroTitle">
+  NOS ÉMISSIONS
+ </h2>
+
  <p id="heroDescription">
-  Retrouvez les médias haïtiens,
-  internationaux et communautaires
-  sur PRO-MAX FM.
+  Découvrez la programmation de PRO-MAX FM :
+  musique, divertissement et émissions
+  pour notre communauté.
+ </p>
+
+ <p id="timezone">
+  Horaires de Floride — Heure de l'Est.
  </p>
 </section>
 
 <main class="container">
 
-<!-- LIVE — KONSÈVE -->
-<section id="live">
- <h2 class="section-title" id="liveTitle">
-  PRO-MAX FM — EN DIRECT
+<section id="programs">
+
+ <h2 class="section-title" id="programsTitle">
+  GRILLE DES PROGRAMMES
  </h2>
- <p class="section-description"
-    id="liveDescription">LA FORCE DU SON</p>
- <div class="live-shell">
-  <div class="live-orb">
-   <img src="pro-max-fm.jpg" alt="PRO-MAX FM">
-  </div>
-  <h2>PRO-MAX FM</h2>
-  <p>LA FORCE DU SON</p>
-  <div class="live-status" id="liveStatus">
-   STREAMING NON CONFIGURÉ
-  </div>
-  <audio id="radioPlayer"
-         controls preload="none"></audio>
-  <button class="action-button"
-          id="playLive"
-          onclick="playRadio()">▶ ÉCOUTER</button>
-  <button class="action-button"
-          id="stopLive"
-          onclick="stopRadio()">■ ARRÊTER</button>
-  <p id="liveNotice">
-   Ajoutez votre URL RadioKing
-   pour activer la diffusion.
-  </p>
- </div>
+
+ <p class="section-description" id="programsIntro">
+  Consultez nos émissions programmées
+  du lundi au dimanche.
+ </p>
+
+ <div class="filters" id="programFilters"></div>
+
+ <div class="program-grid" id="programGrid"></div>
+
 </section>
 
-<!-- NEWS — KONSÈVE -->
-<section id="news">
- <h2 class="section-title" id="sourcesTitle">
-  NOS SOURCES D'INFORMATION
+<section id="schedule">
+
+ <h2 class="section-title" id="scheduleTitle">
+  PROGRAMMATION HEBDOMADAIRE
  </h2>
- <p class="section-description"
-    id="sourcesDescription">
-  Médias haïtiens, internationaux
-  et communautaires.
- </p>
- <div class="search-box">
-  <input id="searchInput"
-   type="search"
-   placeholder="Rechercher un média..."
-   oninput="renderSources()">
+
+ <div class="table-wrapper">
+  <table class="schedule-table">
+   <thead>
+    <tr>
+     <th id="tableShow">ÉMISSION</th>
+     <th id="tableDays">JOURS</th>
+     <th id="tableTime">HORAIRES</th>
+    </tr>
+   </thead>
+   <tbody id="scheduleBody"></tbody>
+  </table>
  </div>
- <div class="filters" id="filters"></div>
- <p class="source-count" id="sourceCount"></p>
- <div class="grid" id="newsGrid"></div>
+
 </section>
 
 <div class="info-panel">
- <h2 id="flashTitle">
-  🎙️ PRO-MAX FM FLASH INFO
- </h2>
- <p id="flashDescription">
-  Les informations doivent être vérifiées
-  avant toute diffusion.
+ <h3 id="noticeTitle">
+  INFORMATIONS SUR LA DIFFUSION
+ </h3>
+
+ <p id="noticeText">
+  Cette grille présente la programmation
+  prévue de PRO-MAX FM. Le lancement
+  de la diffusion musicale attend
+  la disponibilité des fichiers audio.
+  Les horaires peuvent être ajustés
+  avant le lancement officiel.
  </p>
 </div>
 
-<!-- PODCASTS — KONSÈVE -->
-<section id="podcasts" class="audio-section">
- <h2>PRO-MAX FM — PODCASTS & REPLAYS</h2>
- <p id="podcastsIntro">
-  Émissions enregistrées, entretiens
-  et archives audio.
- </p>
- <div class="audio-status" id="podcastStatus">
-  AUCUN ÉPISODE SÉLECTIONNÉ
- </div>
- <audio id="podcastPlayer"
-        controls preload="none"></audio>
- <input class="audio-search"
-        id="podcastSearch"
-        type="search"
-        placeholder="Rechercher un podcast..."
-        oninput="renderPodcasts()">
- <div class="audio-filters"
-      id="podcastFilters"></div>
- <p id="podcastCount"></p>
- <div class="audio-grid"
-      id="podcastGrid"></div>
-</section>
+<div class="back-section">
+ <a href="../index.html"
+    class="main-link"
+    id="backButton">
+  RETOUR À PRO-MAX FM
+ </a>
+</div>
 
-<!-- MUSIC — KONSÈVE -->
-<section id="music" class="audio-section">
- <h2>PRO-MAX FM — MUSIC</h2>
- <p id="musicIntro">
-  Kompa • Reggae • Rap Kreyòl •
-  Rabòday • Rara • Kompa Love •
-  Hip-Hop • Reggaeton •
-  Reggae for Lovers • Ansyèn Mizik •
-  Tropicana • Septen • Racine
- </p>
- <div class="audio-status" id="musicStatus">
-  AUCUNE MUSIQUE SÉLECTIONNÉE
- </div>
- <audio id="musicPlayer"
-        controls preload="none"></audio>
- <input class="audio-search"
-        id="musicSearch"
-        type="search"
-        placeholder="Rechercher une musique ou un artiste..."
-        oninput="renderMusic()">
- <div class="audio-filters"
-      id="musicFilters"></div>
- <p id="musicCount"></p>
- <div class="audio-grid"
-      id="musicGrid"></div>
-</section>
-
-<!-- ARTISTS — KONSÈVE -->
-<section id="artists" class="artists-section">
- <h2 id="artistsTitle">
-  PRO-MAX FM — ARTISTS
- </h2>
- <p class="artists-intro" id="artistsIntro">
-  Découvrez les artistes, les groupes
-  et les talents musicaux d'Haïti,
-  de la Caraïbe et de la diaspora.
- </p>
- <input
-  id="artistsSearch"
-  class="artists-search"
-  type="search"
-  placeholder="Rechercher un artiste ou un groupe..."
-  oninput="renderArtists()">
- <div id="artistsFilters"
-      class="artists-filters"></div>
- <p id="artistsCount"
-    class="artists-count"></p>
- <div id="artistsGrid"
-      class="artists-grid"></div>
- <div class="artists-notice">
-  <strong id="artistsNoticeTitle">
-   PRO-MAX FM — ARTIST DIRECTORY
-  </strong>
-  <p id="artistsNoticeText">
-   Les profils officiels seront ajoutés
-   avec les photos, biographies,
-   styles musicaux et liens vérifiés.
-  </p>
- </div>
-</section>
-
-<!-- VIDEO — KONSÈVE -->
-<section id="video" class="video-section">
- <h2 id="videoTitle">
-  PRO-MAX FM — VIDEO
- </h2>
-
- <p class="video-intro" id="videoIntro">
-  Découvrez les vidéos, les interviews,
-  les émissions, les reportages
-  et les productions de PRO-MAX FM.
- </p>
-
- <div class="video-player-shell">
-  <div class="video-status" id="videoStatus">
-   AUCUNE VIDÉO SÉLECTIONNÉE
-  </div>
-
-  <video
-   id="videoPlayer"
-   controls
-   playsinline
-   preload="none">
-  </video>
-
-  <div class="video-player-actions">
-   <button id="stopVideoButton"
-           type="button"
-           onclick="stopVideo()">
-    ■ ARRÊTER
-   </button>
-  </div>
- </div>
-
- <input
-  id="videoSearch"
-  class="video-search"
-  type="search"
-  placeholder="Rechercher une vidéo..."
-  oninput="renderVideos()">
-
- <div id="videoFilters"
-      class="video-filters"></div>
-
- <p id="videoCount"
-    class="video-count"></p>
-
- <div id="videoGrid"
-      class="video-grid"></div>
-
- <div class="video-notice">
-  <strong id="videoNoticeTitle">
-   PRO-MAX FM — VIDÉOTHÈQUE
-  </strong>
-  <p id="videoNoticeText">
-   Les vidéos officielles seront ajoutées
-   avec leurs titres, descriptions,
-   catégories et liens vérifiés.
-  </p>
- </div>
-</section>
-
-<!-- EVENTS — KONSÈVE -->
-<section id="events" class="events-section">
- <h2 id="eventsTitle">
-  PRO-MAX FM — EVENTS
- </h2>
-
- <p class="events-intro" id="eventsIntro">
-  Découvrez les concerts, festivals,
-  événements communautaires,
-  émissions spéciales et activités
-  de PRO-MAX FM.
- </p>
-
- <input
-  id="eventsSearch"
-  class="events-search"
-  type="search"
-  placeholder="Rechercher un événement..."
-  oninput="renderEvents()">
-
- <div id="eventsFilters"
-      class="events-filters"></div>
-
- <p id="eventsCount"
-    class="events-count"></p>
-
- <div id="eventsGrid"
-      class="events-grid"></div>
-
- <div class="events-notice">
-  <strong id="eventsNoticeTitle">
-   PRO-MAX FM — AGENDA DES ÉVÉNEMENTS
-  </strong>
-  <p id="eventsNoticeText">
-   Les événements officiels seront publiés
-   avec les dates, lieux, affiches,
-   organisateurs et liens de réservation
-   ou d'inscription vérifiés.
-  </p>
- </div>
-</section>
-
-<!-- SOCIAL — 10 REZO KONEKTE -->
-<section id="social">
- <h2 class="section-title" id="socialTitle">
-  RÉSEAUX SOCIAUX
- </h2>
- <div class="social-grid" id="socialGrid"></div>
-</section>
-
-<!-- CONTACT — KONSÈVE -->
-<section id="contact">
- <h2 class="section-title" id="contactTitle">
-  CONTACT
- </h2>
- <div class="contacts">
-  <div class="contact-card">
-   <h3>🇺🇸 USA — FLORIDA</h3>
-   <a href="tel:+14076405166">
-    ☎ (407) 640-5166
-   </a>
-   <a href="tel:+13175381150">
-    ☎ (317) 538-1150
-   </a>
-  </div>
-  <div class="contact-card">
-   <h3>🇭🇹 HAITI</h3>
-   <a href="tel:+50942544447">
-    ☎ +509 4254 4447
-   </a>
-   <a href="tel:+50944829869">
-    ☎ +509 4482 9869
-   </a>
-   <a href="tel:+50943437488">
-    ☎ +509 4343 7488
-   </a>
-  </div>
- </div>
-</section>
-
-<div class="info-panel platform">
- <h2>BSS1815 PRO-MAX DMP</h2>
+<div class="info-panel" style="text-align:center">
+ <h3>BSS1815 PRO-MAX DMP</h3>
  <p>DIGITAL MANAGEMENT PLATFORM</p>
+
  <a class="main-link"
-    id="platformLink"
-    href="https://bss1815promaxdmp.com"
-    target="_blank"
-    rel="noopener noreferrer">
+  href="https://bss1815promaxdmp.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  id="platformLink">
   VISITER NOTRE PLATEFORME
  </a>
 </div>
@@ -1155,1555 +385,333 @@ footer{
 
 <script>
 
-/* NEWS CENTER — 23 SOUS MEDYA */
-const sources=[
- {name:"Radio Télé Éclair",category:"haiti",url:"https://www.radioteleclair.com",domain:"radioteleclair.com",mark:"RTÉ",phone:"+509 44 54 8812"},
- {name:"Radio Télévision Caraïbes",category:"haiti",url:"https://www.radiotelevisioncaraibes.com",domain:"radiotelevisioncaraibes.com",mark:"RTVC"},
- {name:"Radio Vision 2000",category:"haiti",logo:"media-logos/radio-vision-2000.png",mark:"V2000",phone:"+509 2813 1875",email:"info@radiovision2000haiti.net"},
- {name:"Le Nouvelliste",category:"haiti",url:"https://lenouvelliste.com",domain:"lenouvelliste.com",mark:"LN"},
- {name:"Radio Télé 6 Univers",category:"haiti",logo:"media-logos/radio-tele-6-univers.png",mark:"6U"},
- {name:"ZOOM HAITI TV",category:"digital",logo:"media-logos/zoom-haiti-tv.png",mark:"ZH"},
- {name:"Tripotay Bò Lakay",category:"digital",logo:"media-logos/tripotay-bo-lakay.png",mark:"TBL"},
- {name:"EnfoFyab TV",category:"digital",logo:"media-logos/enfofyab-tv.png",mark:"EF"},
- {name:"Info Media / MRJEAN",category:"digital",logo:"media-logos/info-media-mrjean.png",mark:"IM"},
- {name:"CNN",category:"world",url:"https://www.cnn.com",domain:"cnn.com",mark:"CNN"},
- {name:"BBC News",category:"world",url:"https://www.bbc.com/news",domain:"bbc.com",mark:"BBC"},
- {name:"France 24",category:"world",url:"https://www.france24.com",domain:"france24.com",mark:"F24"},
- {name:"RFI",category:"world",url:"https://www.rfi.fr",domain:"rfi.fr",mark:"RFI"},
- {name:"Reuters",category:"world",url:"https://www.reuters.com",domain:"reuters.com",mark:"R"},
- {name:"Associated Press",category:"world",url:"https://apnews.com",domain:"apnews.com",mark:"AP"},
- {name:"Axios",category:"world",url:"https://www.axios.com",domain:"axios.com",mark:"AX"},
- {name:"Miami Herald",category:"diaspora",url:"https://www.miamiherald.com",domain:"miamiherald.com",mark:"MH"},
- {name:"The Haitian Times",category:"diaspora",url:"https://haitiantimes.com",domain:"haitiantimes.com",mark:"HT"},
- {name:"PAP Times",category:"diaspora",logo:"media-logos/pap-times.png",mark:"PAP"},
- {name:"AyiboPost",category:"independent",url:"https://ayibopost.com",domain:"ayibopost.com",mark:"AY"},
- {name:"Loop Haiti",category:"independent",logo:"media-logos/loop-haiti.png",mark:"LOOP"},
- {name:"Tabou Network",category:"independent",logo:"media-logos/tabou-network.png",mark:"TN"},
- {name:"LÉOGÂNE INFO",category:"community",logo:"pro-max-fm.jpg",mark:"LI"}
+/* ==========================================
+   PRO-MAX FM — SHOWS PROGRAMMATION
+   HORAIRES DE FLORIDE
+   ========================================== */
+
+const programs=[
+ {
+  id:"matin-force",
+  title:"MATIN FORCE",
+  icon:"☀️",
+  day:"weekday",
+  start:"06:00",
+  end:"10:00",
+  descriptions:{
+   fr:"Une programmation matinale pour commencer la journée avec énergie, musique et bonne humeur.",
+   en:"Morning programming to start your day with energy, music and a positive atmosphere.",
+   ht:"Yon pwogram maten pou kòmanse jounen an ak enèji, mizik ak bon anbyans."
+  }
+ },
+ {
+  id:"hit-non-stop",
+  title:"HIT NON STOP",
+  icon:"🎵",
+  day:"weekday",
+  start:"10:00",
+  end:"15:00",
+  descriptions:{
+   fr:"Une sélection musicale continue avec les rythmes d'Haïti, de la Caraïbe et du monde.",
+   en:"Continuous music selections featuring rhythms from Haiti, the Caribbean and around the world.",
+   ht:"Yon seleksyon mizik san rete ak ritm Ayiti, Karayib la ak lòt peyi."
+  }
+ },
+ {
+  id:"drive-time",
+  title:"DRIVE TIME",
+  icon:"🚗",
+  day:"weekday",
+  start:"15:00",
+  end:"19:00",
+  descriptions:{
+   fr:"Une ambiance musicale dynamique pour accompagner vos déplacements et votre fin de journée.",
+   en:"Dynamic music programming for your commute and the end of your day.",
+   ht:"Yon bèl anbyans mizikal pou akonpaye w sou wout ak nan fen jounen an."
+  }
+ },
+ {
+  id:"party-mix",
+  title:"PARTY MIX",
+  icon:"🎉",
+  day:"weekend",
+  start:"",
+  end:"",
+  descriptions:{
+   fr:"Une programmation festive pour le week-end : Kompa, Rabòday, Reggae, Rara, Hip-Hop et plus encore.",
+   en:"Weekend party programming featuring Kompa, Rabòday, Reggae, Rara, Hip-Hop and more.",
+   ht:"Yon pwogram fèt pou wikenn nan ak Kompa, Rabòday, Reggae, Rara, Hip-Hop ak plis ankò."
+  }
+ }
 ];
 
-/* TRADIKSYON — FR / ENG / KRE */
+/* ==========================================
+   TRADUCTIONS — FR / ENG / KRE
+   ========================================== */
+
 const translations={
  fr:{
-  home:"ACCUEIL",hero:"ACTUALITÉS DU MONDE",
-  description:"Retrouvez les médias haïtiens, internationaux et communautaires sur PRO-MAX FM.",
-  sources:"NOS SOURCES D'INFORMATION",
-  sourcesDescription:"Identité visuelle, sites internet, réseaux sociaux et coordonnées disponibles pour chaque média.",
-  search:"Rechercher un média...",
-  all:"TOUS",haiti:"RADIOS & MÉDIAS HAÏTIENS",
-  digital:"MÉDIAS DIGITAUX",world:"INTERNATIONAL",
-  diaspora:"FLORIDE & DIASPORA",
-  independent:"INDÉPENDANTS",community:"COMMUNAUTÉ",
-  visit:"🌐 SITE WEB",pending:"PROFIL À CONNECTER",
-  empty:"Aucun média trouvé.",count:"médias",
-  flash:"🎙️ PRO-MAX FM FLASH INFO",
-  flashText:"Notre centre d'information rassemble différentes sources médiatiques. Les informations doivent être vérifiées avant toute diffusion.",
-  social:"RÉSEAUX SOCIAUX",contact:"CONTACT",
+  pageTitle:"SHOWS — PROGRAMMATION",
+  home:"ACCUEIL",
+  heroTitle:"NOS ÉMISSIONS",
+  heroDescription:
+   "Découvrez la programmation de PRO-MAX FM : musique, divertissement et émissions pour notre communauté.",
+  timezone:"Horaires de Floride — Heure de l'Est.",
+  programsTitle:"GRILLE DES PROGRAMMES",
+  programsIntro:
+   "Consultez nos émissions programmées du lundi au dimanche.",
+  all:"TOUS",
+  weekday:"LUNDI — VENDREDI",
+  weekend:"WEEK-END",
+  scheduleTitle:"PROGRAMMATION HEBDOMADAIRE",
+  tableShow:"ÉMISSION",
+  tableDays:"JOURS",
+  tableTime:"HORAIRES",
+  timePending:"HORAIRE À CONFIRMER",
+  planned:"PROGRAMMATION PRÉVUE",
+  noticeTitle:"INFORMATIONS SUR LA DIFFUSION",
+  noticeText:
+   "Cette grille présente la programmation prévue de PRO-MAX FM. Le lancement de la diffusion musicale attend la disponibilité des fichiers audio. Les horaires peuvent être ajustés avant le lancement officiel.",
+  backButton:"RETOUR À PRO-MAX FM",
   platform:"VISITER NOTRE PLATEFORME",
-  footer:"La radio de tous, partout et toujours.",
-  liveTitle:"PRO-MAX FM — EN DIRECT",
-  liveDescription:"LA FORCE DU SON • La radio de tous, partout et toujours.",
-  liveOffline:"STREAMING NON CONFIGURÉ",
-  liveReady:"PRÊT À ÉCOUTER",
-  livePlaying:"DIFFUSION EN COURS",
-  liveError:"IMPOSSIBLE DE LIRE LE FLUX",
-  livePlay:"▶ ÉCOUTER",liveStop:"■ ARRÊTER",
-  liveNotice:"Ajoutez l'URL directe RadioKing dans STREAM_URL pour activer la diffusion.",
-  podcastIntro:"Émissions enregistrées, entretiens et archives audio.",
-  musicIntro:"Découvrez les catégories musicales de PRO-MAX FM.",
-  podcastSearch:"Rechercher un podcast...",
-  musicSearch:"Rechercher une musique ou un artiste...",
-  noEpisodes:"Aucun épisode disponible pour le moment.",
-  noTracks:"Aucun fichier MP3 disponible pour le moment.",
-  episodes:"épisodes disponibles",
-  tracks:"morceaux disponibles",
-  listen:"▶ ÉCOUTER",
-  error:"LECTURE IMPOSSIBLE",
-  podcastNone:"AUCUN ÉPISODE SÉLECTIONNÉ",
-  musicNone:"AUCUNE MUSIQUE SÉLECTIONNÉE",
-  genrePending:"Fichiers MP3 à ajouter",
-
-  artistsTitle:"PRO-MAX FM — ARTISTS",
-  artistsIntro:"Découvrez les artistes, les groupes et les talents musicaux d'Haïti, de la Caraïbe et de la diaspora.",
-  artistsSearch:"Rechercher un artiste ou un groupe...",
-  artistsCount:"artistes enregistrés",
-  artistsPending:"Profils d'artistes à ajouter",
-  artistsNoticeTitle:"PRO-MAX FM — RÉPERTOIRE DES ARTISTES",
-  artistsNoticeText:"Les profils officiels seront ajoutés avec les photos, biographies, styles musicaux et liens vérifiés.",
-  artistProfile:"VOIR LE PROFIL",
-  artistWebsite:"SITE OFFICIEL",
-  artistYoutube:"YOUTUBE",
-  artistSpotify:"SPOTIFY",
-  artistInstagram:"INSTAGRAM",
-
-  videoTitle:"PRO-MAX FM — VIDEO",
-  videoIntro:"Découvrez les vidéos, interviews, émissions, reportages et productions de PRO-MAX FM.",
-  videoSearch:"Rechercher une vidéo...",
-  videoCount:"vidéos disponibles",
-  videoNone:"AUCUNE VIDÉO SÉLECTIONNÉE",
-  videoReady:"VIDÉO PRÊTE",
-  videoPlaying:"LECTURE VIDÉO EN COURS",
-  videoError:"LECTURE VIDÉO IMPOSSIBLE",
-  videoPending:"Vidéos à ajouter",
-  videoPlay:"▶ REGARDER",
-  videoStop:"■ ARRÊTER",
-  videoExternal:"OUVRIR LA VIDÉO",
-  videoNoticeTitle:"PRO-MAX FM — VIDÉOTHÈQUE",
-  videoNoticeText:"Les vidéos officielles seront ajoutées avec leurs titres, descriptions, catégories et liens vérifiés.",
-
-  eventsTitle:"PRO-MAX FM — EVENTS",
-  eventsIntro:"Découvrez les concerts, festivals, événements communautaires, émissions spéciales et activités de PRO-MAX FM.",
-  eventsSearch:"Rechercher un événement...",
-  eventsCount:"événements disponibles",
-  eventsPending:"Événements à annoncer",
-  eventsDate:"DATE",
-  eventsTime:"HEURE",
-  eventsLocation:"LIEU",
-  eventsOrganizer:"ORGANISATEUR",
-  eventsDetails:"DÉTAILS",
-  eventsRegister:"RÉSERVER / S'INSCRIRE",
-  eventsNoticeTitle:"PRO-MAX FM — AGENDA DES ÉVÉNEMENTS",
-  eventsNoticeText:"Les événements officiels seront publiés avec les dates, lieux, affiches, organisateurs et liens de réservation ou d'inscription vérifiés.",
-
-  socialVisit:"OUVRIR LE PROFIL"
+  footer:"La radio de tous, partout et toujours."
  },
  en:{
-  home:"HOME",hero:"WORLD NEWS",
-  description:"Explore Haitian, international and community news sources on PRO-MAX FM.",
-  sources:"OUR MEDIA & INFORMATION SOURCES",
-  sourcesDescription:"Visual identity, websites, social media and contact information available for each outlet.",
-  search:"Search for a media outlet...",
-  all:"ALL",haiti:"HAITIAN RADIO & MEDIA",
-  digital:"DIGITAL MEDIA",world:"INTERNATIONAL",
-  diaspora:"FLORIDA & DIASPORA",
-  independent:"INDEPENDENT",community:"COMMUNITY",
-  visit:"🌐 WEBSITE",pending:"PROFILE NOT CONNECTED",
-  empty:"No media sources found.",count:"media",
-  flash:"🎙️ PRO-MAX FM NEWS FLASH",
-  flashText:"Our news center brings together different media sources. Information must be verified before broadcasting.",
-  social:"SOCIAL NETWORKS",contact:"CONTACT",
+  pageTitle:"SHOWS — PROGRAMMING",
+  home:"HOME",
+  heroTitle:"OUR SHOWS",
+  heroDescription:
+   "Explore PRO-MAX FM programming: music, entertainment and shows for our community.",
+  timezone:"Florida schedule — Eastern Time.",
+  programsTitle:"PROGRAM SCHEDULE",
+  programsIntro:
+   "Explore our scheduled shows from Monday through Sunday.",
+  all:"ALL",
+  weekday:"MONDAY — FRIDAY",
+  weekend:"WEEKEND",
+  scheduleTitle:"WEEKLY PROGRAMMING",
+  tableShow:"SHOW",
+  tableDays:"DAYS",
+  tableTime:"TIME",
+  timePending:"TIME TO BE CONFIRMED",
+  planned:"PLANNED PROGRAMMING",
+  noticeTitle:"BROADCAST INFORMATION",
+  noticeText:
+   "This schedule shows the planned PRO-MAX FM programming. The music broadcast launch is awaiting the audio files. Times may be adjusted before the official launch.",
+  backButton:"BACK TO PRO-MAX FM",
   platform:"VISIT OUR MAIN PLATFORM",
-  footer:"The radio for everyone, everywhere, always.",
-  liveTitle:"PRO-MAX FM — LIVE",
-  liveDescription:"LA FORCE DU SON • The radio for everyone, everywhere, always.",
-  liveOffline:"STREAM NOT CONFIGURED",
-  liveReady:"READY TO LISTEN",
-  livePlaying:"STREAM PLAYING",
-  liveError:"UNABLE TO PLAY STREAM",
-  livePlay:"▶ LISTEN",liveStop:"■ STOP",
-  liveNotice:"Add the direct RadioKing streaming URL to STREAM_URL.",
-  podcastIntro:"Recorded shows, interviews and audio archives.",
-  musicIntro:"Explore the music genres of PRO-MAX FM.",
-  podcastSearch:"Search podcasts...",
-  musicSearch:"Search music or artists...",
-  noEpisodes:"No episodes available yet.",
-  noTracks:"No MP3 files available yet.",
-  episodes:"available episodes",
-  tracks:"available tracks",
-  listen:"▶ LISTEN",
-  error:"PLAYBACK FAILED",
-  podcastNone:"NO EPISODE SELECTED",
-  musicNone:"NO MUSIC SELECTED",
-  genrePending:"MP3 files to be added",
-
-  artistsTitle:"PRO-MAX FM — ARTISTS",
-  artistsIntro:"Discover artists, bands and musical talent from Haiti, the Caribbean and the diaspora.",
-  artistsSearch:"Search for an artist or band...",
-  artistsCount:"registered artists",
-  artistsPending:"Artist profiles to be added",
-  artistsNoticeTitle:"PRO-MAX FM — ARTIST DIRECTORY",
-  artistsNoticeText:"Official profiles will include photos, biographies, music genres and verified links.",
-  artistProfile:"VIEW PROFILE",
-  artistWebsite:"OFFICIAL WEBSITE",
-  artistYoutube:"YOUTUBE",
-  artistSpotify:"SPOTIFY",
-  artistInstagram:"INSTAGRAM",
-
-  videoTitle:"PRO-MAX FM — VIDEO",
-  videoIntro:"Explore videos, interviews, shows, reports and productions from PRO-MAX FM.",
-  videoSearch:"Search videos...",
-  videoCount:"available videos",
-  videoNone:"NO VIDEO SELECTED",
-  videoReady:"VIDEO READY",
-  videoPlaying:"VIDEO PLAYING",
-  videoError:"UNABLE TO PLAY VIDEO",
-  videoPending:"Videos to be added",
-  videoPlay:"▶ WATCH",
-  videoStop:"■ STOP",
-  videoExternal:"OPEN VIDEO",
-  videoNoticeTitle:"PRO-MAX FM — VIDEO LIBRARY",
-  videoNoticeText:"Official videos will be added with titles, descriptions, categories and verified links.",
-
-  eventsTitle:"PRO-MAX FM — EVENTS",
-  eventsIntro:"Discover concerts, festivals, community events, special broadcasts and PRO-MAX FM activities.",
-  eventsSearch:"Search events...",
-  eventsCount:"available events",
-  eventsPending:"Events to be announced",
-  eventsDate:"DATE",
-  eventsTime:"TIME",
-  eventsLocation:"LOCATION",
-  eventsOrganizer:"ORGANIZER",
-  eventsDetails:"DETAILS",
-  eventsRegister:"BOOK / REGISTER",
-  eventsNoticeTitle:"PRO-MAX FM — EVENTS CALENDAR",
-  eventsNoticeText:"Official events will be published with dates, locations, posters, organizers and verified booking or registration links.",
-
-  socialVisit:"OPEN PROFILE"
+  footer:"The radio for everyone, everywhere, always."
  },
  ht:{
-  home:"AKÈY",hero:"NOUVÈL MONDYAL",
-  description:"Dekouvri sous nouvèl ayisyen, entènasyonal ak kominotè sou PRO-MAX FM.",
-  sources:"SOUS MEDYA AK ENFÒMASYON NOU YO",
-  sourcesDescription:"Idantite vizyèl, sit entènèt, rezo sosyal ak enfòmasyon kontak pou chak medya.",
-  search:"Chèche yon medya...",
-  all:"TOUT",haiti:"RADYO AK MEDYA AYISYEN",
-  digital:"MEDYA DIJITAL",world:"ENTÈNASYONAL",
-  diaspora:"FLORIDA & DYASPORA",
-  independent:"ENDEPANDAN",community:"KOMINOTE",
-  visit:"🌐 SIT ENTÈNÈT",pending:"PWOFIL POKO KONEKTE",
-  empty:"Nou pa jwenn okenn medya.",count:"medya",
-  flash:"🎙️ PRO-MAX FM FLASH INFO",
-  flashText:"Sant nouvèl nou an rasanble plizyè sous medya. Nou dwe verifye enfòmasyon yo anvan nou difize yo.",
-  social:"REZO SOSYAL",contact:"KONTAK",
+  pageTitle:"SHOWS — PWOGRAMASYON",
+  home:"AKÈY",
+  heroTitle:"EMISYON NOU YO",
+  heroDescription:
+   "Dekouvri pwogramasyon PRO-MAX FM: mizik, amizman ak emisyon pou kominote nou an.",
+  timezone:"Orè Florid — Lè lès Etazini.",
+  programsTitle:"ORÈ PWOGRAM YO",
+  programsIntro:
+   "Gade emisyon nou pwograme soti lendi rive dimanch.",
+  all:"TOUT",
+  weekday:"LENDI — VANDREDI",
+  weekend:"WIKENN",
+  scheduleTitle:"PWOGRAMASYON CHAK SEMÈN",
+  tableShow:"EMISYON",
+  tableDays:"JOU",
+  tableTime:"LÈ",
+  timePending:"LÈ POU KONFIME",
+  planned:"PWOGRAMASYON KI PREVWA",
+  noticeTitle:"ENFÒMASYON SOU DIFIZYON",
+  noticeText:
+   "Tablo sa a montre pwogramasyon PRO-MAX FM ki prevwa. Nou ap tann fichye mizik yo pou lanse difizyon mizikal la. Orè yo ka ajiste anvan lansman ofisyèl la.",
+  backButton:"TOUNEN SOU PRO-MAX FM",
   platform:"VIZITE PLATFÒM NOU AN",
-  footer:"Radyo pou tout moun, tout kote, tout tan.",
-  liveTitle:"PRO-MAX FM — AN DIRÈK",
-  liveDescription:"LA FORCE DU SON • Radyo pou tout moun, tout kote, tout tan.",
-  liveOffline:"STREAMING POKO KONFIGIRE",
-  liveReady:"PARE POU KOUTE",
-  livePlaying:"RADYO A AP JWE",
-  liveError:"PA KA JWE STREAM LAN",
-  livePlay:"▶ KOUTE",liveStop:"■ KANPE",
-  liveNotice:"Mete lyen streaming RadioKing la nan STREAM_URL.",
-  podcastIntro:"Emisyon anrejistre, entèvyou ak achiv odyo.",
-  musicIntro:"Dekouvri tout kategori mizik PRO-MAX FM yo.",
-  podcastSearch:"Chèche podcast...",
-  musicSearch:"Chèche mizik oswa atis...",
-  noEpisodes:"Poko gen epizòd.",
-  noTracks:"Poko gen fichye MP3.",
-  episodes:"epizòd disponib",
-  tracks:"mizik disponib",
-  listen:"▶ KOUTE",
-  error:"PA KA JWE",
-  podcastNone:"OKEN EPIZÒD PA CHWAZI",
-  musicNone:"OKEN MIZIK PA CHWAZI",
-  genrePending:"Fichye MP3 pou ajoute",
-
-  artistsTitle:"PRO-MAX FM — ATIS",
-  artistsIntro:"Dekouvri atis, gwoup mizikal ak talan Ayiti, Karayib la ak dyaspora a.",
-  artistsSearch:"Chèche yon atis oswa yon gwoup...",
-  artistsCount:"atis anrejistre",
-  artistsPending:"Pwofil atis pou ajoute",
-  artistsNoticeTitle:"PRO-MAX FM — REPÈTWA ATIS",
-  artistsNoticeText:"N ap ajoute pwofil ofisyèl yo ak foto, biyografi, kategori mizik ak lyen ki verifye.",
-  artistProfile:"WÈ PWOFIL",
-  artistWebsite:"SIT OFISYÈL",
-  artistYoutube:"YOUTUBE",
-  artistSpotify:"SPOTIFY",
-  artistInstagram:"INSTAGRAM",
-
-  videoTitle:"PRO-MAX FM — VIDEO",
-  videoIntro:"Dekouvri videyo, entèvyou, emisyon, repòtaj ak pwodiksyon PRO-MAX FM yo.",
-  videoSearch:"Chèche yon videyo...",
-  videoCount:"videyo disponib",
-  videoNone:"OKEN VIDEYO PA CHWAZI",
-  videoReady:"VIDEYO A PARE",
-  videoPlaying:"VIDEYO A AP JWE",
-  videoError:"PA KA JWE VIDEYO A",
-  videoPending:"Videyo pou ajoute",
-  videoPlay:"▶ GADE",
-  videoStop:"■ KANPE",
-  videoExternal:"OUVRI VIDEYO A",
-  videoNoticeTitle:"PRO-MAX FM — BIBLIYOTÈK VIDEYO",
-  videoNoticeText:"N ap ajoute videyo ofisyèl yo ak tit, deskripsyon, kategori ak lyen ki verifye.",
-
-  eventsTitle:"PRO-MAX FM — EVÈNMAN",
-  eventsIntro:"Dekouvri konsè, festival, aktivite kominotè, emisyon espesyal ak evènman PRO-MAX FM yo.",
-  eventsSearch:"Chèche yon evènman...",
-  eventsCount:"evènman disponib",
-  eventsPending:"Evènman pou anonse",
-  eventsDate:"DAT",
-  eventsTime:"LÈ",
-  eventsLocation:"KOTE",
-  eventsOrganizer:"ÒGANIZATÈ",
-  eventsDetails:"DETAY",
-  eventsRegister:"REZÈVE / ENSKRI",
-  eventsNoticeTitle:"PRO-MAX FM — KALANDRIYE EVÈNMAN",
-  eventsNoticeText:"N ap pibliye evènman ofisyèl yo ak dat, kote, afich, òganizatè ak lyen rezèvasyon oswa enskripsyon ki verifye.",
-
-  socialVisit:"OUVRI PWOFIL LA"
+  footer:"Radyo pou tout moun, tout kote, tout tan."
  }
 };
 
-/* NEWS CENTER — KONSÈVE */
-const categories=[
- "all","haiti","digital","world",
- "diaspora","independent","community"
-];
-
 let currentLanguage="fr";
-let currentCategory="all";
+let currentFilter="all";
+
+/* ==========================================
+   FORMAT ORÈ
+   ========================================== */
+
+function formatTime(time){
+ if(!time)return "";
+
+ const [hour,minute]=time.split(":").map(Number);
+ const period=hour>=12?"PM":"AM";
+ const displayHour=hour%12||12;
+
+ return displayHour+
+  (minute?":"+String(minute).padStart(2,"0"):"")+
+  " "+period;
+}
+
+function getProgramTime(program){
+ const t=translations[currentLanguage];
+
+ if(!program.start||!program.end){
+  return t.timePending;
+ }
+
+ return formatTime(program.start)+
+  " – "+
+  formatTime(program.end);
+}
+
+/* ==========================================
+   FILTRES DES PROGRAMMES
+   ========================================== */
 
 function renderFilters(){
- const box=document.getElementById("filters");
+ const t=translations[currentLanguage];
+ const box=document.getElementById("programFilters");
+
  box.replaceChildren();
 
- categories.forEach(category=>{
+ ["all","weekday","weekend"].forEach(filter=>{
   const button=document.createElement("button");
-  button.textContent=
-   translations[currentLanguage][category];
+  button.type="button";
+  button.textContent=t[filter];
 
   button.classList.toggle(
-   "active",currentCategory===category
+   "active",
+   currentFilter===filter
+  );
+
+  button.setAttribute(
+   "aria-pressed",
+   String(currentFilter===filter)
   );
 
   button.onclick=()=>{
-   currentCategory=category;
+   currentFilter=filter;
    renderFilters();
-   renderSources();
+   renderPrograms();
   };
 
   box.append(button);
  });
 }
 
-function renderSources(){
- const grid=document.getElementById("newsGrid");
- const t=translations[currentLanguage];
- const q=document.getElementById("searchInput")
-  .value.toLowerCase();
+/* ==========================================
+   KAT EMISYON YO
+   ========================================== */
 
- const filtered=sources.filter(s=>
-  (currentCategory==="all"||
-   s.category===currentCategory)&&
-  s.name.toLowerCase().includes(q)
+function renderPrograms(){
+ const t=translations[currentLanguage];
+ const grid=document.getElementById("programGrid");
+
+ grid.replaceChildren();
+
+ const filtered=programs.filter(program=>
+  currentFilter==="all"||
+  program.day===currentFilter
  );
 
- document.getElementById("sourceCount").textContent=
-  filtered.length+" "+t.count;
-
- grid.replaceChildren();
-
- if(!filtered.length){
-  const p=document.createElement("p");
-  p.textContent=t.empty;
-  grid.append(p);
-  return;
- }
-
- filtered.forEach(s=>{
+ filtered.forEach(program=>{
   const card=document.createElement("article");
-  card.className="card";
-
-  const heading=document.createElement("div");
-  heading.className="media-heading";
-
-  const mark=document.createElement("div");
-  mark.className="media-mark";
-  mark.textContent=s.mark;
-
-  const logo=s.logo||
-   (s.domain
-    ?"https://www.google.com/s2/favicons?domain="+
-     encodeURIComponent(s.domain)+"&sz=128"
-    :null);
-
-  if(logo){
-   const img=document.createElement("img");
-   img.src=logo;
-   img.alt=s.name;
-   img.onerror=()=>img.remove();
-   mark.append(img);
-  }
-
-  const details=document.createElement("div");
-  const title=document.createElement("h3");
-  title.textContent=s.name;
-
-  const category=document.createElement("small");
-  category.textContent=t[s.category];
-
-  details.append(title,category);
-  heading.append(mark,details);
-  card.append(heading);
-
-  if(s.url){
-   const actions=document.createElement("div");
-   actions.className="media-actions";
-
-   const a=document.createElement("a");
-   a.href=s.url;
-   a.target="_blank";
-   a.rel="noopener noreferrer";
-   a.className="media-link";
-   a.textContent=t.visit;
-
-   actions.append(a);
-   card.append(actions);
-  }
-
-  if(s.phone||s.email){
-   const contact=document.createElement("div");
-   contact.className="media-contact";
-
-   if(s.phone){
-    const p=document.createElement("p");
-    p.textContent="TEL.: "+s.phone;
-    contact.append(p);
-   }
-
-   if(s.email){
-    const a=document.createElement("a");
-    a.href="mailto:"+s.email;
-    a.textContent=s.email;
-    contact.append(a);
-   }
-
-   card.append(contact);
-  }
-
-  grid.append(card);
- });
-}
-
-/* ==================================================
-   SOCIAL — 10 URL REZO SOSYAL
-   ================================================== */
-
-const socialNetworks=[
- {
-  name:"Facebook",
-  color:"#1877f2",
-  symbol:"f",
-  url:"https://www.facebook.com/share/1By3KvYRrM/"
- },
- {
-  name:"WhatsApp",
-  color:"#25d366",
-  symbol:"◉",
-  url:"https://wa.me/50943437488"
- },
- {
-  name:"TikTok",
-  color:"#fe2c55",
-  symbol:"♪",
-  url:"https://www.tiktok.com/@maximax1960"
- },
- {
-  name:"Instagram",
-  color:"#e4405f",
-  symbol:"◎",
-  url:"https://www.instagram.com/lebaron072/"
- },
- {
-  name:"Telegram",
-  color:"#229ed9",
-  symbol:"➤",
-  url:"https://t.me/bss1815dmp"
- },
- {
-  name:"YouTube",
-  color:"#ff0033",
-  symbol:"▶",
-  url:"https://www.youtube.com/@BSS1815PROMAXDMP"
- },
- {
-  name:"Spotify",
-  color:"#1db954",
-  symbol:"≋",
-  url:"https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"
- },
- {
-  name:"X / Twitter",
-  color:"#bcbcbc",
-  symbol:"𝕏",
-  url:"https://x.com/w05g2m"
- },
- {
-  name:"Truth Social",
-  color:"#448aff",
-  symbol:"T",
-  url:"https://truthsocial.com/@briyant_soley_1815"
- },
- {
-  name:"LinkedIn",
-  color:"#0a66c2",
-  symbol:"in",
-  url:"https://www.linkedin.com/in/maximax-multi-services-075ba2314"
- }
-];
-
-function renderSocial(){
- const grid=document.getElementById("socialGrid");
- grid.replaceChildren();
-
- socialNetworks.forEach(s=>{
-  const card=document.createElement("a");
-  card.className="social-item";
-
-  card.href=s.url;
-  card.target="_blank";
-  card.rel="noopener noreferrer";
-  card.setAttribute(
-   "aria-label",
-   s.name+" — PRO-MAX FM"
-  );
+  card.className="program-card";
 
   const icon=document.createElement("div");
-  icon.className="social-icon";
-  icon.style.color=s.color;
-  icon.textContent=s.symbol;
-
-  const name=document.createElement("strong");
-  name.textContent=s.name;
-
-  const status=document.createElement("small");
-  status.textContent=
-   translations[currentLanguage].socialVisit;
-
-  card.append(icon,name,status);
-  grid.append(card);
- });
-}
-
-/* LIVE — KONSÈVE */
-const STREAM_URL="";
-const radioPlayer=document.getElementById("radioPlayer");
-const podcastPlayer=document.getElementById("podcastPlayer");
-const musicPlayer=document.getElementById("musicPlayer");
-
-function refreshLive(){
- const t=translations[currentLanguage];
-
- document.getElementById("liveTitle").textContent=
-  t.liveTitle;
- document.getElementById("liveDescription").textContent=
-  t.liveDescription;
- document.getElementById("playLive").textContent=
-  t.livePlay;
- document.getElementById("stopLive").textContent=
-  t.liveStop;
- document.getElementById("liveNotice").textContent=
-  t.liveNotice;
-
- document.getElementById("playLive").disabled=
-  !STREAM_URL;
-
- document.getElementById("liveStatus").textContent=
-  !STREAM_URL?t.liveOffline:
-  radioPlayer.paused?t.liveReady:t.livePlaying;
-}
-
-async function playRadio(){
- if(!STREAM_URL)return;
-
- podcastPlayer.pause();
- musicPlayer.pause();
- radioPlayer.src=STREAM_URL;
-
- try{
-  await radioPlayer.play();
-  refreshLive();
- }catch(e){
-  document.getElementById("liveStatus").textContent=
-   translations[currentLanguage].liveError;
- }
-}
-
-function stopRadio(){
- radioPlayer.pause();
- radioPlayer.removeAttribute("src");
- radioPlayer.load();
- refreshLive();
-}
-
-/* PODCASTS — KONSÈVE */
-const podcastEpisodes=[];
-
-const podcastGenres=[
- "TOUS","NEWS","INTERVIEWS","CULTURE",
- "COMMUNITY","SHOWS","ARCHIVES"
-];
-
-let selectedPodcastGenre="TOUS";
-
-function renderPodcasts(){
- const t=translations[currentLanguage];
- const filters=document.getElementById("podcastFilters");
- const grid=document.getElementById("podcastGrid");
-
- filters.replaceChildren();
-
- podcastGenres.forEach(genre=>{
-  const button=document.createElement("button");
-  button.textContent=genre==="TOUS"?t.all:genre;
-  button.classList.toggle(
-   "active",genre===selectedPodcastGenre
-  );
-
-  button.onclick=()=>{
-   selectedPodcastGenre=genre;
-   renderPodcasts();
-  };
-
-  filters.append(button);
- });
-
- const q=document.getElementById("podcastSearch")
-  .value.toLowerCase();
-
- const entries=podcastEpisodes.filter(x=>
-  (selectedPodcastGenre==="TOUS"||
-   (x.category||"").toUpperCase()===
-    selectedPodcastGenre)&&
-  (x.title+" "+(x.description||""))
-   .toLowerCase().includes(q)
- );
-
- grid.replaceChildren();
-
- document.getElementById("podcastCount").textContent=
-  entries.filter(x=>x.audio).length+
-  " "+t.episodes;
-
- if(!entries.length){
-  const p=document.createElement("p");
-  p.textContent=t.noEpisodes;
-  grid.append(p);
- }
-
- entries.forEach(x=>{
-  const card=document.createElement("article");
-  card.className="audio-item";
-
-  const h=document.createElement("h3");
-  h.textContent=x.title;
-
-  const p=document.createElement("p");
-  p.textContent=x.description||"";
-
-  const b=document.createElement("button");
-  b.textContent=t.listen;
-  b.disabled=!x.audio;
-
-  b.onclick=async()=>{
-   radioPlayer.pause();
-   musicPlayer.pause();
-   podcastPlayer.src=x.audio;
-
-   try{
-    await podcastPlayer.play();
-    document.getElementById("podcastStatus")
-     .textContent=x.title;
-   }catch(e){
-    document.getElementById("podcastStatus")
-     .textContent=t.error;
-   }
-  };
-
-  card.append(h,p,b);
-  grid.append(card);
- });
-}
-
-/* MUSIC — KONSÈVE */
-const musicTracks=[];
-
-const musicGenres=[
- "KOMPA",
- "REGGAE",
- "RAP KREYÒL",
- "RABÒDAY",
- "RARA",
- "KOMPA LOVE",
- "HIP-HOP",
- "REGGAETON",
- "REGGAE FOR LOVERS",
- "ANSYÈN MIZIK",
- "TROPICANA",
- "SEPTEN",
- "RACINE"
-];
-
-let selectedMusicGenre="TOUS";
-
-function renderMusic(){
- const t=translations[currentLanguage];
- const filters=document.getElementById("musicFilters");
- const grid=document.getElementById("musicGrid");
-
- filters.replaceChildren();
-
- ["TOUS",...musicGenres].forEach(genre=>{
-  const button=document.createElement("button");
-  button.textContent=genre==="TOUS"?t.all:genre;
-  button.classList.toggle(
-   "active",genre===selectedMusicGenre
-  );
-
-  button.onclick=()=>{
-   selectedMusicGenre=genre;
-   renderMusic();
-  };
-
-  filters.append(button);
- });
-
- const q=document.getElementById("musicSearch")
-  .value.toLowerCase();
-
- const tracks=musicTracks.filter(x=>
-  (selectedMusicGenre==="TOUS"||
-   (x.genre||"").toUpperCase()===
-    selectedMusicGenre)&&
-  (x.title+" "+(x.artist||""))
-   .toLowerCase().includes(q)
- );
-
- document.getElementById("musicCount").textContent=
-  tracks.filter(x=>x.audio).length+
-  " "+t.tracks;
-
- grid.replaceChildren();
-
- if(!tracks.length){
-  const visibleGenres=
-   selectedMusicGenre==="TOUS"
-    ?musicGenres
-    :[selectedMusicGenre];
-
-  visibleGenres.forEach(genre=>{
-   const card=document.createElement("article");
-   card.className="genre-card";
-
-   const h=document.createElement("h3");
-   h.textContent="🎵 "+genre;
-
-   const p=document.createElement("p");
-   p.textContent=t.genrePending;
-
-   card.append(h,p);
-   grid.append(card);
-  });
-
-  return;
- }
-
- tracks.forEach(x=>{
-  const card=document.createElement("article");
-  card.className="audio-item";
-
-  const h=document.createElement("h3");
-  h.textContent=x.title;
-
-  const p=document.createElement("p");
-  p.textContent=
-   (x.artist||"")+" • "+(x.genre||"");
-
-  const button=document.createElement("button");
-  button.textContent=t.listen;
-  button.disabled=!x.audio;
-
-  button.onclick=async()=>{
-   radioPlayer.pause();
-   podcastPlayer.pause();
-   musicPlayer.src=x.audio;
-
-   try{
-    await musicPlayer.play();
-    document.getElementById("musicStatus")
-     .textContent=
-      x.title+" — "+(x.artist||"");
-   }catch(e){
-    document.getElementById("musicStatus")
-     .textContent=t.error;
-   }
-  };
-
-  card.append(h,p,button);
-  grid.append(card);
- });
-}
-
-/* ARTISTS — KONSÈVE */
-const artists=[];
-
-const artistGenres=[
- "TOUS",
- ...musicGenres
-];
-
-let selectedArtistGenre="TOUS";
-
-function safeArtistLink(url){
- if(typeof url!=="string"||!url.trim()){
-  return null;
- }
-
- try{
-  const parsed=new URL(
-   url,
-   window.location.href
-  );
-
-  if(
-   parsed.protocol==="https:"||
-   parsed.protocol==="http:"
-  ){
-   return parsed.href;
-  }
- }catch(e){}
-
- return null;
-}
-
-function createArtistLink(label,url){
- const safeUrl=safeArtistLink(url);
- if(!safeUrl)return null;
-
- const link=document.createElement("a");
- link.href=safeUrl;
- link.target="_blank";
- link.rel="noopener noreferrer";
- link.textContent=label;
-
- return link;
-}
-
-function renderArtists(){
- const t=translations[currentLanguage];
- const filters=document.getElementById("artistsFilters");
- const grid=document.getElementById("artistsGrid");
- const search=document.getElementById("artistsSearch")
-  .value.toLocaleLowerCase().trim();
-
- filters.replaceChildren();
-
- artistGenres.forEach(genre=>{
-  const button=document.createElement("button");
-  button.type="button";
-  button.textContent=
-   genre==="TOUS"?t.all:genre;
-
-  button.classList.toggle(
-   "active",
-   genre===selectedArtistGenre
-  );
-
-  button.onclick=()=>{
-   selectedArtistGenre=genre;
-   renderArtists();
-  };
-
-  filters.append(button);
- });
-
- const filtered=artists.filter(artist=>{
-  const matchesGenre=
-   selectedArtistGenre==="TOUS"||
-   (artist.genre||"").toUpperCase()===
-    selectedArtistGenre;
-
-  const searchable=[
-   artist.name,
-   artist.genre,
-   artist.country,
-   artist.bio
-  ].filter(Boolean).join(" ")
-   .toLocaleLowerCase();
-
-  return matchesGenre&&
-   searchable.includes(search);
- });
-
- document.getElementById("artistsCount")
-  .textContent=
-   filtered.length+" "+t.artistsCount;
-
- grid.replaceChildren();
-
- if(!filtered.length){
-  const visibleGenres=
-   selectedArtistGenre==="TOUS"
-    ?musicGenres
-    :[selectedArtistGenre];
-
-  visibleGenres.forEach(genre=>{
-   const card=document.createElement("article");
-   card.className="artist-placeholder";
-
-   const photo=document.createElement("div");
-   photo.className="artist-photo";
-   photo.textContent="♫";
-
-   const title=document.createElement("h3");
-   title.textContent=genre;
-
-   const description=document.createElement("p");
-   description.textContent=t.artistsPending;
-
-   card.append(photo,title,description);
-   grid.append(card);
-  });
-
-  return;
- }
-
- filtered.forEach(artist=>{
-  const card=document.createElement("article");
-  card.className="artist-card";
-
-  const photo=document.createElement("div");
-  photo.className="artist-photo";
-  photo.textContent="♫";
-
-  if(artist.photo){
-   const image=document.createElement("img");
-   image.src=artist.photo;
-   image.alt=artist.name||"Artist";
-   image.loading="lazy";
-
-   image.onerror=()=>{
-    image.remove();
-   };
-
-   photo.append(image);
-  }
-
-  const name=document.createElement("h3");
-  name.textContent=artist.name||"ARTIST";
-
-  const genre=document.createElement("p");
-  genre.textContent=artist.genre||"";
-
-  const country=document.createElement("p");
-  country.textContent=artist.country||"";
-
-  const bio=document.createElement("p");
-  bio.textContent=artist.bio||"";
-
-  const links=document.createElement("div");
-  links.className="artist-links";
-
-  const options=[
-   [t.artistWebsite,artist.website],
-   [t.artistYoutube,artist.youtube],
-   [t.artistSpotify,artist.spotify],
-   [t.artistInstagram,artist.instagram]
-  ];
-
-  options.forEach(([label,url])=>{
-   const link=createArtistLink(label,url);
-   if(link)links.append(link);
-  });
-
-  card.append(
-   photo,name,genre,country,bio,links
-  );
-
-  grid.append(card);
- });
-}
-
-function refreshArtistsLanguage(){
- const t=translations[currentLanguage];
-
- document.getElementById("artistsTitle")
-  .textContent=t.artistsTitle;
-
- document.getElementById("artistsIntro")
-  .textContent=t.artistsIntro;
-
- document.getElementById("artistsSearch")
-  .placeholder=t.artistsSearch;
-
- document.getElementById("artistsNoticeTitle")
-  .textContent=t.artistsNoticeTitle;
-
- document.getElementById("artistsNoticeText")
-  .textContent=t.artistsNoticeText;
-
- renderArtists();
-}
-
-/* VIDEO — KONSÈVE
-
- MP4 lokal:
- {
-  id:"video-001",
-  title:"Tit videyo",
-  category:"SHOWS",
-  description:"Deskripsyon",
-  video:"videos/non-video.mp4",
-  thumbnail:"videos/afich.jpg",
-  url:""
- }
-
- YouTube oswa lòt paj ofisyèl:
- {
-  id:"video-002",
-  title:"Tit videyo",
-  category:"INTERVIEWS",
-  description:"Deskripsyon",
-  video:"",
-  thumbnail:"",
-  url:"https://..."
- }
-
- Pa mete URL paj YouTube kòm MP4.
-*/
-
-const videoLibrary=[];
-
-const videoCategories=[
- "TOUS",
- "SHOWS",
- "INTERVIEWS",
- "NEWS",
- "REPORTAGES",
- "MUSIC VIDEOS",
- "DOCUMENTARIES",
- "EVENTS",
- "COMMUNITY",
- "ARCHIVES"
-];
-
-let selectedVideoCategory="TOUS";
-let activeVideoId=null;
-let videoPlaybackError=false;
-
-const videoPlayer=document.getElementById("videoPlayer");
-
-function safeVideoUrl(url){
- if(typeof url!=="string"||!url.trim()){
-  return null;
- }
-
- try{
-  const parsed=new URL(
-   url,
-   window.location.href
-  );
-
-  if(
-   parsed.protocol==="http:"||
-   parsed.protocol==="https:"
-  ){
-   return parsed.href;
-  }
- }catch(e){}
-
- return null;
-}
-
-function refreshVideoStatus(){
- const t=translations[currentLanguage];
- const item=videoLibrary.find(
-  x=>x.id===activeVideoId
- );
-
- document.getElementById("stopVideoButton")
-  .textContent=t.videoStop;
-
- const status=document.getElementById("videoStatus");
-
- if(videoPlaybackError){
-  status.textContent=t.videoError;
-  return;
- }
-
- if(!item){
-  status.textContent=t.videoNone;
-  return;
- }
-
- if(!videoPlayer.paused){
-  status.textContent=
-   t.videoPlaying+" — "+item.title;
- }else{
-  status.textContent=
-   t.videoReady+" — "+item.title;
- }
-}
-
-function renderVideos(){
- const t=translations[currentLanguage];
- const filters=document.getElementById("videoFilters");
- const grid=document.getElementById("videoGrid");
-
- filters.replaceChildren();
-
- videoCategories.forEach(category=>{
-  const button=document.createElement("button");
-  button.type="button";
-  button.textContent=
-   category==="TOUS"?t.all:category;
-
-  button.classList.toggle(
-   "active",
-   category===selectedVideoCategory
-  );
-
-  button.onclick=()=>{
-   selectedVideoCategory=category;
-   renderVideos();
-  };
-
-  filters.append(button);
- });
-
- const q=document.getElementById("videoSearch")
-  .value.toLocaleLowerCase().trim();
-
- const filtered=videoLibrary.filter(item=>{
-  const matchesCategory=
-   selectedVideoCategory==="TOUS"||
-   (item.category||"").toUpperCase()===
-    selectedVideoCategory;
-
-  const searchable=[
-   item.title,
-   item.description,
-   item.category
-  ].filter(Boolean).join(" ")
-   .toLocaleLowerCase();
-
-  return matchesCategory&&searchable.includes(q);
- });
-
- document.getElementById("videoCount")
-  .textContent=
-   filtered.length+" "+t.videoCount;
-
- grid.replaceChildren();
-
- if(!filtered.length){
-  const visibleCategories=
-   selectedVideoCategory==="TOUS"
-    ?videoCategories.filter(x=>x!=="TOUS")
-    :[selectedVideoCategory];
-
-  visibleCategories.forEach(category=>{
-   const card=document.createElement("article");
-   card.className="video-placeholder";
-
-   const thumbnail=document.createElement("div");
-   thumbnail.className="video-thumbnail";
-   thumbnail.textContent="▶";
-
-   const heading=document.createElement("h3");
-   heading.textContent=category;
-
-   const p=document.createElement("p");
-   p.textContent=t.videoPending;
-
-   card.append(thumbnail,heading,p);
-   grid.append(card);
-  });
-
-  return;
- }
-
- filtered.forEach(item=>{
-  const card=document.createElement("article");
-  card.className="video-card";
-
-  const thumbnail=document.createElement("div");
-  thumbnail.className="video-thumbnail";
-  thumbnail.textContent="▶";
-
-  if(item.thumbnail){
-   const image=document.createElement("img");
-   image.src=item.thumbnail;
-   image.alt=item.title||"Video";
-   image.loading="lazy";
-   image.onerror=()=>image.remove();
-   thumbnail.append(image);
-  }
-
-  const heading=document.createElement("h3");
-  heading.textContent=item.title||"VIDEO";
-
-  const category=document.createElement("p");
-  category.textContent=item.category||"";
+  icon.className="program-icon";
+  icon.textContent=program.icon;
+
+  const title=document.createElement("h3");
+  title.textContent=program.title;
+
+  const day=document.createElement("p");
+  day.className="program-day";
+  day.textContent=t[program.day];
+
+  const time=document.createElement("div");
+  time.className="program-time";
+  time.textContent=getProgramTime(program);
 
   const description=document.createElement("p");
-  description.textContent=item.description||"";
+  description.textContent=
+   program.descriptions[currentLanguage];
 
-  const actions=document.createElement("div");
-  actions.className="video-card-actions";
-
-  if(item.video){
-   const play=document.createElement("button");
-   play.type="button";
-   play.textContent=t.videoPlay;
-   play.onclick=()=>playVideo(item.id);
-   actions.append(play);
-  }
-
-  if(item.url){
-   const safeUrl=safeVideoUrl(item.url);
-
-   if(safeUrl){
-    const link=document.createElement("a");
-    link.href=safeUrl;
-    link.target="_blank";
-    link.rel="noopener noreferrer";
-    link.textContent=t.videoExternal;
-    actions.append(link);
-   }
-  }
+  const status=document.createElement("div");
+  status.className="program-status";
+  status.textContent=t.planned;
 
   card.append(
-   thumbnail,
-   heading,
-   category,
+   icon,
+   title,
+   day,
+   time,
    description,
-   actions
+   status
   );
 
   grid.append(card);
  });
 }
 
-async function playVideo(id){
- const item=videoLibrary.find(
-  x=>x.id===id
- );
+/* ==========================================
+   TABLO PWOGRAMASYON
+   ========================================== */
 
- if(!item||!item.video)return;
-
- const safeUrl=safeVideoUrl(item.video);
- if(!safeUrl)return;
-
- radioPlayer.pause();
- podcastPlayer.pause();
- musicPlayer.pause();
-
- videoPlayer.pause();
- videoPlayer.src=safeUrl;
- videoPlayer.load();
-
- activeVideoId=id;
- videoPlaybackError=false;
-
- refreshVideoStatus();
-
- document.getElementById("video")
-  .scrollIntoView({
-   behavior:"smooth",
-   block:"start"
-  });
-
- try{
-  await videoPlayer.play();
-  refreshVideoStatus();
- }catch(e){
-  videoPlaybackError=true;
-  refreshVideoStatus();
- }
-}
-
-function stopVideo(){
- videoPlayer.pause();
- videoPlayer.removeAttribute("src");
- videoPlayer.load();
-
- activeVideoId=null;
- videoPlaybackError=false;
- refreshVideoStatus();
-}
-
-videoPlayer.addEventListener(
- "play",refreshVideoStatus
-);
-
-videoPlayer.addEventListener(
- "pause",refreshVideoStatus
-);
-
-videoPlayer.addEventListener("error",()=>{
- if(activeVideoId!==null){
-  videoPlaybackError=true;
-  refreshVideoStatus();
- }
-});
-
-function refreshVideoLanguage(){
+function renderSchedule(){
  const t=translations[currentLanguage];
+ const body=document.getElementById("scheduleBody");
 
- document.getElementById("videoTitle")
-  .textContent=t.videoTitle;
+ body.replaceChildren();
 
- document.getElementById("videoIntro")
-  .textContent=t.videoIntro;
+ programs.forEach(program=>{
+  const row=document.createElement("tr");
 
- document.getElementById("videoSearch")
-  .placeholder=t.videoSearch;
+  const name=document.createElement("td");
+  name.textContent=program.title;
 
- document.getElementById("videoNoticeTitle")
-  .textContent=t.videoNoticeTitle;
+  const days=document.createElement("td");
+  days.textContent=t[program.day];
 
- document.getElementById("videoNoticeText")
-  .textContent=t.videoNoticeText;
+  const time=document.createElement("td");
+  time.textContent=getProgramTime(program);
 
- renderVideos();
- refreshVideoStatus();
-}
-
-/* EVENTS — KONSÈVE
-
- Ajoute evènman reyèl nan tablo sa a:
-
- {
-  id:"event-001",
-  title:"Non evènman an",
-  category:"CONCERTS",
-  date:"2026-12-20",
-  time:"19:00",
-  location:"Orlando, Florida",
-  organizer:"PRO-MAX FM",
-  description:"Deskripsyon evènman an",
-  poster:"events/afich.jpg",
-  url:"https://...",
-  registration:"https://..."
- }
-
- Dat, lokal ak lyen yo dwe reyèl.
-*/
-
-const eventsLibrary=[];
-
-const eventCategories=[
- "TOUS",
- "CONCERTS",
- "FESTIVALS",
- "COMMUNITY",
- "LIVE SHOWS",
- "CULTURE",
- "EDUCATION",
- "SPECIAL EVENTS",
- "ARCHIVES"
-];
-
-let selectedEventCategory="TOUS";
-
-function renderEvents(){
- const t=translations[currentLanguage];
- const filters=document.getElementById("eventsFilters");
- const grid=document.getElementById("eventsGrid");
-
- filters.replaceChildren();
-
- eventCategories.forEach(category=>{
-  const button=document.createElement("button");
-  button.type="button";
-  button.textContent=
-   category==="TOUS"?t.all:category;
-
-  button.classList.toggle(
-   "active",
-   category===selectedEventCategory
-  );
-
-  button.onclick=()=>{
-   selectedEventCategory=category;
-   renderEvents();
-  };
-
-  filters.append(button);
- });
-
- const q=document.getElementById("eventsSearch")
-  .value.toLocaleLowerCase().trim();
-
- const filtered=eventsLibrary.filter(item=>{
-  const matchesCategory=
-   selectedEventCategory==="TOUS"||
-   (item.category||"").toUpperCase()===
-    selectedEventCategory;
-
-  const searchable=[
-   item.title,
-   item.category,
-   item.location,
-   item.organizer,
-   item.description,
-   item.date
-  ].filter(Boolean).join(" ")
-   .toLocaleLowerCase();
-
-  return matchesCategory&&searchable.includes(q);
- });
-
- document.getElementById("eventsCount")
-  .textContent=
-   filtered.length+" "+t.eventsCount;
-
- grid.replaceChildren();
-
- if(!filtered.length){
-  const visibleCategories=
-   selectedEventCategory==="TOUS"
-    ?eventCategories.filter(x=>x!=="TOUS")
-    :[selectedEventCategory];
-
-  visibleCategories.forEach(category=>{
-   const card=document.createElement("article");
-   card.className="event-placeholder";
-
-   const poster=document.createElement("div");
-   poster.className="event-poster";
-   poster.textContent="📅";
-
-   const heading=document.createElement("h3");
-   heading.textContent=category;
-
-   const p=document.createElement("p");
-   p.textContent=t.eventsPending;
-
-   card.append(poster,heading,p);
-   grid.append(card);
-  });
-
-  return;
- }
-
- filtered.forEach(item=>{
-  const card=document.createElement("article");
-  card.className="event-card";
-
-  const poster=document.createElement("div");
-  poster.className="event-poster";
-  poster.textContent="📅";
-
-  if(item.poster){
-   const image=document.createElement("img");
-   image.src=item.poster;
-   image.alt=item.title||"Event";
-   image.loading="lazy";
-   image.onerror=()=>image.remove();
-   poster.append(image);
-  }
-
-  const heading=document.createElement("h3");
-  heading.textContent=item.title||"EVENT";
-
-  const category=document.createElement("p");
-  category.textContent=item.category||"";
-
-  const date=document.createElement("div");
-  date.className="event-date";
-  date.textContent=
-   t.eventsDate+": "+(item.date||"—");
-
-  const details=document.createElement("div");
-
-  [
-   [t.eventsTime,item.time],
-   [t.eventsLocation,item.location],
-   [t.eventsOrganizer,item.organizer]
-  ].forEach(([label,value])=>{
-   if(!value)return;
-
-   const p=document.createElement("p");
-   p.textContent=label+": "+value;
-   details.append(p);
-  });
-
-  const description=document.createElement("p");
-  description.textContent=item.description||"";
-
-  const actions=document.createElement("div");
-  actions.className="event-card-actions";
-
-  [
-   [t.eventsDetails,item.url],
-   [t.eventsRegister,item.registration]
-  ].forEach(([label,url])=>{
-   const safeUrl=safeVideoUrl(url);
-   if(!safeUrl)return;
-
-   const link=document.createElement("a");
-   link.href=safeUrl;
-   link.target="_blank";
-   link.rel="noopener noreferrer";
-   link.textContent=label;
-   actions.append(link);
-  });
-
-  card.append(
-   poster,
-   heading,
-   category,
-   date,
-   details,
-   description,
-   actions
-  );
-
-  grid.append(card);
+  row.append(name,days,time);
+  body.append(row);
  });
 }
 
-function refreshEventsLanguage(){
- const t=translations[currentLanguage];
+/* ==========================================
+   LANGUAGES — FR / ENG / KRE
+   ========================================== */
 
- document.getElementById("eventsTitle")
-  .textContent=t.eventsTitle;
-
- document.getElementById("eventsIntro")
-  .textContent=t.eventsIntro;
-
- document.getElementById("eventsSearch")
-  .placeholder=t.eventsSearch;
-
- document.getElementById("eventsNoticeTitle")
-  .textContent=t.eventsNoticeTitle;
-
- document.getElementById("eventsNoticeText")
-  .textContent=t.eventsNoticeText;
-
- renderEvents();
-}
-
-/* LANGUAGES — TOUT MODIL YO */
 function setLanguage(lang){
  if(!translations[lang])return;
 
  currentLanguage=lang;
- const t=translations[lang];
  document.documentElement.lang=lang;
 
+ const t=translations[lang];
+
  const fields=[
+  ["pageTitle","pageTitle"],
   ["homeLink","home"],
-  ["heroTitle","hero"],
-  ["heroDescription","description"],
-  ["sourcesTitle","sources"],
-  ["sourcesDescription","sourcesDescription"],
-  ["flashTitle","flash"],
-  ["flashDescription","flashText"],
-  ["socialTitle","social"],
-  ["contactTitle","contact"],
+  ["heroTitle","heroTitle"],
+  ["heroDescription","heroDescription"],
+  ["timezone","timezone"],
+  ["programsTitle","programsTitle"],
+  ["programsIntro","programsIntro"],
+  ["scheduleTitle","scheduleTitle"],
+  ["tableShow","tableShow"],
+  ["tableDays","tableDays"],
+  ["tableTime","tableTime"],
+  ["noticeTitle","noticeTitle"],
+  ["noticeText","noticeText"],
+  ["backButton","backButton"],
   ["platformLink","platform"],
-  ["footerText","footer"],
-  ["podcastsIntro","podcastIntro"],
-  ["musicIntro","musicIntro"]
+  ["footerText","footer"]
  ];
 
  fields.forEach(([id,key])=>{
-  document.getElementById(id)
-   .textContent=t[key];
+  document.getElementById(id).textContent=t[key];
  });
-
- document.getElementById("searchInput")
-  .placeholder=t.search;
-
- document.getElementById("podcastSearch")
-  .placeholder=t.podcastSearch;
-
- document.getElementById("musicSearch")
-  .placeholder=t.musicSearch;
 
  document.querySelectorAll(
   ".languages button"
@@ -2711,41 +719,24 @@ function setLanguage(lang){
   button.classList.remove("active");
  });
 
- document.getElementById(
-  {fr:"frBtn",en:"enBtn",ht:"htBtn"}[lang]
- ).classList.add("active");
+ const activeButton={
+  fr:"frBtn",
+  en:"enBtn",
+  ht:"htBtn"
+ }[lang];
 
- if(!podcastPlayer.getAttribute("src")){
-  document.getElementById("podcastStatus")
-   .textContent=t.podcastNone;
- }
-
- if(!musicPlayer.getAttribute("src")){
-  document.getElementById("musicStatus")
-   .textContent=t.musicNone;
- }
+ document.getElementById(activeButton)
+  .classList.add("active");
 
  renderFilters();
- renderSources();
-
- /* SOCIAL — 10 LYEN KONEKTE */
- renderSocial();
-
- refreshLive();
- renderPodcasts();
- renderMusic();
-
- /* ARTISTS — KONSÈVE */
- refreshArtistsLanguage();
-
- /* VIDEO — KONSÈVE */
- refreshVideoLanguage();
-
- /* EVENTS — KONSÈVE */
- refreshEventsLanguage();
+ renderPrograms();
+ renderSchedule();
 }
 
-/* INITIALISATION */
+/* ==========================================
+   INITIALISATION
+   ========================================== */
+
 setLanguage("fr");
 
 </script>
