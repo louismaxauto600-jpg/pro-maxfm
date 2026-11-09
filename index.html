@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#080808">
-<title>PRO-MAX FM | NEWS CENTER</title>
+<title>PRO-MAX FM | NEWS CENTER + LIVE</title>
 
 <style>
 :root{
@@ -27,7 +27,6 @@ body{
 a{color:inherit}
 button,input{font:inherit}
 button{cursor:pointer}
-
 header{
  text-align:center;
  padding:30px 15px;
@@ -188,9 +187,7 @@ nav a:hover{color:var(--apricot)}
  object-fit:contain;
  background:#18100a;
 }
-.media-heading-text{
- min-width:0;
-}
+.media-heading-text{min-width:0}
 .card h3{
  color:var(--orange);
  font-size:21px;
@@ -322,6 +319,75 @@ footer{
  color:var(--orange);
 }
 footer p{line-height:1.7}
+
+/* SECTION 02 — LIVE */
+.live-shell{
+ background:radial-gradient(ellipse at top,#3b1c06,#080808 70%);
+ border:2px solid var(--orange);
+ border-radius:22px;
+ padding:30px 22px;
+ text-align:center;
+ box-shadow:0 0 35px #ff8c0025;
+}
+.live-orb{
+ width:130px;
+ height:130px;
+ border-radius:50%;
+ margin:10px auto 22px;
+ border:3px solid var(--orange);
+ background:radial-gradient(circle,#482408,#080808);
+ display:grid;
+ place-items:center;
+ color:var(--orange);
+ font-size:34px;
+ font-weight:900;
+ box-shadow:0 0 25px #ff8c0044;
+}
+.live-shell h3{
+ font-size:clamp(23px,4vw,34px);
+ color:var(--orange);
+ margin:10px 0;
+}
+.live-status{
+ display:inline-block;
+ border:1px solid #a95700;
+ border-radius:30px;
+ padding:9px 18px;
+ font-weight:bold;
+ color:var(--apricot);
+ margin:12px 0;
+}
+.live-player{
+ width:min(100%,680px);
+ display:block;
+ margin:20px auto;
+ accent-color:var(--orange);
+}
+.live-buttons{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:12px;
+}
+.live-buttons button{
+ border:1px solid var(--orange);
+ border-radius:10px;
+ background:var(--orange);
+ color:#080808;
+ padding:12px 20px;
+ font-weight:900;
+}
+.live-buttons button:disabled{
+ opacity:.5;
+ cursor:not-allowed;
+}
+.live-notice{
+ font-size:14px;
+ line-height:1.7;
+ max-width:680px;
+ margin:16px auto;
+ color:var(--apricot);
+}
 @media(max-width:600px){
  .hero{padding:32px 15px}
  .container{padding:15px}
@@ -330,6 +396,7 @@ footer p{line-height:1.7}
  .card{padding:18px}
  .media-mark{width:75px;height:75px}
  .card h3{font-size:19px}
+ .live-shell{padding:22px 12px}
 }
 </style>
 </head>
@@ -337,11 +404,9 @@ footer p{line-height:1.7}
 <body>
 
 <header>
- <img
-  src="pro-max-fm.jpg"
-  alt="PRO-MAX FM Logo Officiel"
-  class="official-logo"
- >
+ <img src="pro-max-fm.jpg"
+      alt="PRO-MAX FM Logo Officiel"
+      class="official-logo">
  <div class="brand-name">PRO-MAX FM</div>
  <h1>NEWS CENTER</h1>
  <p>LA FORCE DU SON</p>
@@ -354,7 +419,7 @@ footer p{line-height:1.7}
 
 <nav>
  <a href="index.html" id="homeLink">ACCUEIL</a>
- <a href="pages/live.html">LIVE</a>
+ <a href="#live" id="liveNav">LIVE</a>
  <a href="#news">NEWS</a>
  <a href="pages/shows.html">SHOWS</a>
  <a href="pages/podcasts.html">PODCASTS</a>
@@ -375,6 +440,53 @@ footer p{line-height:1.7}
 
 <main class="container">
 
+<!-- SECTION 02: LIVE -->
+<section id="live" aria-labelledby="liveTitle">
+ <h2 class="section-title" id="liveTitle">
+  PRO-MAX FM — EN DIRECT
+ </h2>
+ <p class="section-description" id="liveDescription">
+  LA FORCE DU SON • La radio de tous,
+  partout et toujours.
+ </p>
+
+ <div class="live-shell">
+  <div class="live-orb" aria-hidden="true">FM</div>
+  <h3>PRO-MAX FM</h3>
+  <p>LA FORCE DU SON</p>
+
+  <div class="live-status" id="liveStatus" role="status">
+   STREAMING NON CONFIGURÉ
+  </div>
+
+  <audio
+   id="radioPlayer"
+   class="live-player"
+   controls
+   preload="none"
+   aria-label="PRO-MAX FM live player">
+  </audio>
+
+  <div class="live-buttons">
+   <button id="playLive" type="button"
+           onclick="playRadio()">
+    ▶ ÉCOUTER
+   </button>
+   <button id="stopLive" type="button"
+           onclick="stopRadio()">
+    ■ ARRÊTER
+   </button>
+  </div>
+
+  <p class="live-notice" id="liveNotice">
+   Le lecteur est prêt. Ajoutez l’URL directe
+   du flux RadioKing dans STREAM_URL
+   pour activer la diffusion.
+  </p>
+ </div>
+</section>
+
+<!-- NEWS CENTER CONSERVÉ -->
 <section id="news">
  <h2 class="section-title" id="sourcesTitle">
   NOS SOURCES D'INFORMATION
@@ -385,13 +497,11 @@ footer p{line-height:1.7}
  </p>
 
  <div class="search-box">
-  <input
-   type="search"
-   id="searchInput"
-   placeholder="Rechercher un média..."
-   aria-label="Rechercher un média"
-   oninput="renderSources()"
-  >
+  <input type="search"
+         id="searchInput"
+         placeholder="Rechercher un média..."
+         aria-label="Rechercher un média"
+         oninput="renderSources()">
  </div>
 
  <div class="filters" id="filters"></div>
@@ -422,24 +532,14 @@ footer p{line-height:1.7}
  <div class="contacts">
   <div class="contact-card">
    <h3>🇺🇸 USA — FLORIDA</h3>
-   <a href="tel:+14076405166">
-    ☎ (407) 640-5166
-   </a>
-   <a href="tel:+13175381150">
-    ☎ (317) 538-1150
-   </a>
+   <a href="tel:+14076405166">☎ (407) 640-5166</a>
+   <a href="tel:+13175381150">☎ (317) 538-1150</a>
   </div>
   <div class="contact-card">
    <h3>🇭🇹 HAITI</h3>
-   <a href="tel:+50942544447">
-    ☎ +509 4254 4447
-   </a>
-   <a href="tel:+50944829869">
-    ☎ +509 4482 9869
-   </a>
-   <a href="tel:+50943437488">
-    ☎ +509 4343 7488
-   </a>
+   <a href="tel:+50942544447">☎ +509 4254 4447</a>
+   <a href="tel:+50944829869">☎ +509 4482 9869</a>
+   <a href="tel:+50943437488">☎ +509 4343 7488</a>
   </div>
  </div>
 </section>
@@ -447,13 +547,11 @@ footer p{line-height:1.7}
 <div class="info-panel platform">
  <h2>BSS1815 PRO-MAX DMP</h2>
  <p>DIGITAL MANAGEMENT PLATFORM</p>
- <a
-  class="main-link"
-  href="https://bss1815promaxdmp.com"
-  target="_blank"
-  rel="noopener noreferrer"
-  id="platformLink"
- >
+ <a class="main-link"
+    href="https://bss1815promaxdmp.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    id="platformLink">
   VISITER NOTRE PLATEFORME
  </a>
 </div>
@@ -471,10 +569,8 @@ footer p{line-height:1.7}
 
 <script>
 /*
- PRO-MAX FM NEWS CENTER
+ PRO-MAX FM NEWS CENTER + LIVE
  23 MEDIA SOURCES
- Site icons + optional local logos
- Links only where confirmed
 */
 
 const sources=[
@@ -656,9 +752,6 @@ const sources=[
  }
 ];
 
-/*
- LANGUAGE SYSTEM
-*/
 const translations={
  fr:{
   home:"ACCUEIL",
@@ -687,7 +780,16 @@ const translations={
   footer:"La radio de tous, partout et toujours.",
   empty:"Aucun média trouvé.",
   pending:"PROFIL À CONNECTER",
-  count:"médias"
+  count:"médias",
+  liveTitle:"PRO-MAX FM — EN DIRECT",
+  liveDescription:"LA FORCE DU SON • La radio de tous, partout et toujours.",
+  liveOffline:"STREAMING NON CONFIGURÉ",
+  liveReady:"PRÊT À ÉCOUTER",
+  livePlaying:"DIFFUSION EN COURS",
+  liveError:"IMPOSSIBLE DE LIRE LE FLUX",
+  livePlay:"▶ ÉCOUTER",
+  liveStop:"■ ARRÊTER",
+  liveNotice:"Le lecteur est prêt. Ajoutez l’URL directe du flux RadioKing dans STREAM_URL pour activer la diffusion."
  },
  en:{
   home:"HOME",
@@ -716,7 +818,16 @@ const translations={
   footer:"The radio for everyone, everywhere, always.",
   empty:"No media sources found.",
   pending:"PROFILE NOT CONNECTED",
-  count:"media"
+  count:"media",
+  liveTitle:"PRO-MAX FM — LIVE",
+  liveDescription:"LA FORCE DU SON • The radio for everyone, everywhere, always.",
+  liveOffline:"STREAM NOT CONFIGURED",
+  liveReady:"READY TO LISTEN",
+  livePlaying:"STREAM PLAYING",
+  liveError:"UNABLE TO PLAY STREAM",
+  livePlay:"▶ LISTEN",
+  liveStop:"■ STOP",
+  liveNotice:"The player is ready. Add the direct RadioKing streaming URL to STREAM_URL to enable broadcasting."
  },
  ht:{
   home:"AKÈY",
@@ -745,26 +856,27 @@ const translations={
   footer:"Radyo pou tout moun, tout kote, tout tan.",
   empty:"Nou pa jwenn okenn medya.",
   pending:"PWOFIL POKO KONEKTE",
-  count:"medya"
+  count:"medya",
+  liveTitle:"PRO-MAX FM — AN DIRÈK",
+  liveDescription:"LA FORCE DU SON • Radyo pou tout moun, tout kote, tout tan.",
+  liveOffline:"STREAMING POKO KONFIGIRE",
+  liveReady:"PARE POU KOUTE",
+  livePlaying:"RADYO A AP JWE",
+  liveError:"PA KA JWE STREAM LAN",
+  livePlay:"▶ KOUTE",
+  liveStop:"■ KANPE",
+  liveNotice:"Player la pare. Mete lyen streaming dirèk RadioKing la nan STREAM_URL pou aktive difizyon an."
  }
 };
 
 const categories=[
- "all",
- "haiti",
- "digital",
- "world",
- "diaspora",
- "independent",
- "community"
+ "all","haiti","digital","world",
+ "diaspora","independent","community"
 ];
 
 let currentLanguage="fr";
 let currentCategory="all";
 
-/*
- PRO-MAX FM SOCIAL NETWORKS
-*/
 const socialNetworks=[
  {name:"Facebook",color:"#1877f2",symbol:"f"},
  {name:"WhatsApp",color:"#25d366",symbol:"◉"},
@@ -777,9 +889,6 @@ const socialNetworks=[
  {name:"Truth Social",color:"#448aff",symbol:"T"}
 ];
 
-/*
- SOCIAL NETWORK RENDERING
-*/
 function renderSocial(){
  const grid=document.getElementById("socialGrid");
  grid.replaceChildren();
@@ -804,9 +913,6 @@ function renderSocial(){
  });
 }
 
-/*
- FILTERS
-*/
 function renderFilters(){
  const box=document.getElementById("filters");
  box.replaceChildren();
@@ -815,8 +921,7 @@ function renderFilters(){
   const button=document.createElement("button");
   button.textContent=translations[currentLanguage][category];
   button.classList.toggle(
-   "active",
-   currentCategory===category
+   "active",currentCategory===category
   );
 
   button.onclick=()=>{
@@ -829,11 +934,6 @@ function renderFilters(){
  });
 }
 
-/*
- SAFE LOGO LOADING
- LOCAL LOGO FIRST, SITE ICON SECOND
- FALLBACK TO INITIALS
-*/
 function loadMediaLogo(source,mark){
  const urls=[];
 
@@ -848,7 +948,7 @@ function loadMediaLogo(source,mark){
   );
  }
 
- if(!urls.length) return;
+ if(!urls.length)return;
 
  let index=0;
  const img=document.createElement("img");
@@ -864,22 +964,16 @@ function loadMediaLogo(source,mark){
  }
 
  img.onerror=tryNext;
-
  img.onload=()=>{
-  if(img.naturalWidth<2){
-   tryNext();
-  }
+  if(img.naturalWidth<2)tryNext();
  };
 
  mark.append(img);
  tryNext();
 }
 
-/*
- ADD VERIFIED MEDIA ACTION BUTTON
-*/
 function addMediaButton(container,label,url){
- if(!url) return;
+ if(!url)return;
 
  const a=document.createElement("a");
  a.className="media-link";
@@ -887,19 +981,13 @@ function addMediaButton(container,label,url){
  a.target="_blank";
  a.rel="noopener noreferrer";
  a.textContent=label;
-
  container.append(a);
 }
 
-/*
- MEDIA CONTACT DETAILS
-*/
 function renderMediaContact(source,card){
  const t=translations[currentLanguage];
-
  const details=document.createElement("div");
  details.className="media-contact";
-
  let hasContact=false;
 
  if(source.phone){
@@ -916,17 +1004,22 @@ function renderMediaContact(source,card){
   const a=document.createElement("a");
   a.href="mailto:"+source.email;
   a.textContent=source.email;
-
   emailRow.append(a);
+
   details.append(emailRow);
   hasContact=true;
  }
 
  if(hasContact){
   card.append(details);
- }else if(!source.url && !source.live &&
-          !source.facebook && !source.youtube &&
-          !source.instagram && !source.x){
+ }else if(
+  !source.url &&
+  !source.live &&
+  !source.facebook &&
+  !source.youtube &&
+  !source.instagram &&
+  !source.x
+ ){
   const pending=document.createElement("p");
   pending.className="media-pending";
   pending.textContent=t.pendingMedia;
@@ -934,15 +1027,10 @@ function renderMediaContact(source,card){
  }
 }
 
-/*
- RENDER ALL 23 MEDIA SOURCES
-*/
 function renderSources(){
  const grid=document.getElementById("newsGrid");
-
  const search=document.getElementById("searchInput")
   .value.toLocaleLowerCase().trim();
-
  const t=translations[currentLanguage];
 
  const filtered=sources.filter(s=>
@@ -1010,20 +1098,91 @@ function renderSources(){
   }
 
   renderMediaContact(s,card);
-
   grid.append(card);
  });
 }
 
 /*
- LANGUAGE TOGGLE
+ SECTION 02 — RADIOKING LIVE
+ Mete URL dirèk streaming lan ant
+ de gimè yo lè li disponib.
+*/
+const STREAM_URL="";
+
+const radioPlayer=document.getElementById("radioPlayer");
+
+function refreshLive(){
+ const t=translations[currentLanguage];
+
+ document.getElementById("liveTitle").textContent=
+  t.liveTitle;
+ document.getElementById("liveDescription").textContent=
+  t.liveDescription;
+ document.getElementById("playLive").textContent=
+  t.livePlay;
+ document.getElementById("stopLive").textContent=
+  t.liveStop;
+ document.getElementById("liveNotice").textContent=
+  t.liveNotice;
+
+ document.getElementById("playLive").disabled=
+  !STREAM_URL;
+
+ document.getElementById("liveStatus").textContent=
+  !STREAM_URL
+   ? t.liveOffline
+   : radioPlayer.paused
+    ? t.liveReady
+    : t.livePlaying;
+
+ if(STREAM_URL&&!radioPlayer.getAttribute("src")){
+  radioPlayer.src=STREAM_URL;
+ }
+}
+
+async function playRadio(){
+ if(!STREAM_URL)return;
+
+ try{
+  if(!radioPlayer.getAttribute("src")){
+   radioPlayer.src=STREAM_URL;
+  }
+  await radioPlayer.play();
+  refreshLive();
+ }catch(error){
+  document.getElementById("liveStatus").textContent=
+   translations[currentLanguage].liveError;
+ }
+}
+
+function stopRadio(){
+ radioPlayer.pause();
+
+ if(STREAM_URL){
+  radioPlayer.removeAttribute("src");
+  radioPlayer.load();
+ }
+
+ refreshLive();
+}
+
+radioPlayer.addEventListener("play",refreshLive);
+radioPlayer.addEventListener("pause",refreshLive);
+radioPlayer.addEventListener("error",()=>{
+ if(STREAM_URL){
+  document.getElementById("liveStatus").textContent=
+   translations[currentLanguage].liveError;
+ }
+});
+
+/*
+ FR / ENG / KRE
 */
 function setLanguage(lang){
- if(!translations[lang]) return;
+ if(!translations[lang])return;
 
  currentLanguage=lang;
  const t=translations[lang];
-
  document.documentElement.lang=lang;
 
  const fields=[
@@ -1044,7 +1203,8 @@ function setLanguage(lang){
   document.getElementById(id).textContent=t[key];
  });
 
- document.getElementById("searchInput").placeholder=t.search;
+ document.getElementById("searchInput").placeholder=
+  t.search;
 
  document.querySelectorAll(".languages button")
   .forEach(button=>{
@@ -1058,11 +1218,9 @@ function setLanguage(lang){
  renderFilters();
  renderSources();
  renderSocial();
+ refreshLive();
 }
 
-/*
- INITIALIZE NEWS CENTER
-*/
 setLanguage("fr");
 </script>
 
