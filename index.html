@@ -1,551 +1,128 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#080808">
 <meta name="description" content="PRO-MAX FM — LA FORCE DU SON">
 <title>PRO-MAX FM | LA FORCE DU SON</title>
 <style>
-:root{
- --orange:#ff8c00;
- --apricot:#ffb347;
- --black:#080808;
- --panel:#211207;
- --border:#a95700;
- --text:#ffcb89;
-}
+:root{ --orange:#ff8c00; --apricot:#ffb347; --black:#080808; --panel:#211207; --border:#a95700; --text:#ffcb89; }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
- margin:0;
- font-family:Arial,sans-serif;
- background:linear-gradient(135deg,#000,#201005,#080808);
- color:var(--text);
-}
+body{ margin:0; font-family:Arial,sans-serif; background:linear-gradient(135deg,#000,#201005,#080808); color:var(--text); }
 button,input{font:inherit}
 button{cursor:pointer}
 a{color:inherit}
-header{
- text-align:center;
- padding:30px 16px;
- background:radial-gradient(ellipse at top,#512505,#080808 78%);
- border-bottom:3px solid var(--orange);
-}
-.logo{
- width:min(220px,65vw);
- aspect-ratio:1;
- object-fit:contain;
- border:3px solid var(--orange);
- border-radius:50%;
- background:#000;
-}
-.brand{
- color:var(--orange);
- font-size:clamp(30px,6vw,52px);
- font-weight:900;
- margin:15px 0;
-}
-.slogan{
- color:var(--apricot);
- font-size:25px;
- font-weight:900;
- letter-spacing:2px;
-}
-.language-switch,.filters,.player-controls{
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:10px;
- margin:20px 0;
-}
-button{
- padding:11px 17px;
- border:1px solid var(--orange);
- border-radius:9px;
- background:#160b04;
- color:var(--orange);
- font-weight:bold;
-}
-button.active,button:hover{
- background:var(--orange);
- color:#000;
-}
-nav{
- position:sticky;
- top:0;
- z-index:20;
- display:flex;
- justify-content:center;
- flex-wrap:wrap;
- gap:5px;
- padding:12px;
- background:#100904;
- border-bottom:1px solid var(--orange);
-}
-nav a{
- color:var(--orange);
- text-decoration:none;
- font-size:13px;
- font-weight:900;
- padding:10px;
-}
+header{ text-align:center; padding:30px 16px; background:radial-gradient(ellipse at top,#512505,#080808 78%); border-bottom:3px solid var(--orange); }
+.logo{ width:min(220px,65vw); aspect-ratio:1; object-fit:contain; border:3px solid var(--orange); border-radius:50%; background:#000; }
+.brand{ color:var(--orange); font-size:clamp(30px,6vw,52px); font-weight:900; margin:15px 0; }
+.slogan{ color:var(--apricot); font-size:25px; font-weight:900; letter-spacing:2px; }
+.language-switch,.filters,.player-controls{ display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin:20px 0; }
+button{ padding:11px 17px; border:1px solid var(--orange); border-radius:9px; background:#160b04; color:var(--orange); font-weight:bold; }
+button.active,button:hover{ background:var(--orange); color:#000; }
+nav{ position:sticky; top:0; z-index:20; display:flex; justify-content:center; flex-wrap:wrap; gap:5px; padding:12px; background:#100904; border-bottom:1px solid var(--orange); }
+nav a{ color:var(--orange); text-decoration:none; font-size:13px; font-weight:900; padding:10px; }
 nav a:hover{background:#3b1b06}
-.hero{
- padding:65px 18px;
- text-align:center;
- background:radial-gradient(ellipse,#482006,#080808 75%);
-}
-.hero h1{
- color:var(--orange);
- font-size:clamp(30px,5vw,48px);
-}
-.hero p{
- max-width:800px;
- margin:20px auto;
- line-height:1.8;
-}
-.btn{
- display:inline-block;
- margin:5px;
- padding:13px 20px;
- background:var(--orange);
- color:#000;
- text-decoration:none;
- border-radius:9px;
- font-weight:900;
-}
-.btn.secondary{
- background:transparent;
- color:var(--orange);
- border:1px solid var(--orange);
-}
-main{
- max-width:1250px;
- margin:auto;
- padding:20px 18px;
-}
-section.module{
- padding:35px 0;
- border-bottom:1px solid #60320b;
- scroll-margin-top:100px;
-}
-.section-title{
- text-align:center;
- color:var(--orange);
- font-size:clamp(25px,4vw,36px);
-}
-.section-intro{
- max-width:850px;
- margin:15px auto 25px;
- text-align:center;
- line-height:1.8;
-}
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
- gap:18px;
-}
-.card{
- min-width:0;
- padding:22px;
- border:1px solid var(--border);
- border-radius:15px;
- background:linear-gradient(145deg,#291505,#080808);
-}
-.card h3{
- color:var(--orange);
- margin:0 0 12px;
-}
+.hero{ padding:65px 18px; text-align:center; background:radial-gradient(ellipse,#482006,#080808 75%); }
+.hero h1{ color:var(--orange); font-size:clamp(30px,5vw,48px); }
+.hero p{ max-width:800px; margin:20px auto; line-height:1.8; }
+.btn{ display:inline-block; margin:5px; padding:13px 20px; background:var(--orange); color:#000; text-decoration:none; border-radius:9px; font-weight:900; }
+.btn.secondary{ background:transparent; color:var(--orange); border:1px solid var(--orange); }
+main{ max-width:1250px; margin:auto; padding:20px 18px; }
+section.module{ padding:35px 0; border-bottom:1px solid #60320b; scroll-margin-top:100px; }
+.section-title{ text-align:center; color:var(--orange); font-size:clamp(25px,4vw,36px); }
+.section-intro{ max-width:850px; margin:15px auto 25px; text-align:center; line-height:1.8; }
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; }
+.card{ min-width:0; padding:22px; border:1px solid var(--border); border-radius:15px; background:linear-gradient(145deg,#291505,#080808); }
+.card h3{ color:var(--orange); margin:0 0 12px; }
 .card p{line-height:1.7}
-.card img{
- width:100%;
- border-radius:10px;
-}
-.card a{
- display:inline-block;
- margin-top:10px;
- padding:10px 13px;
- border:1px solid var(--orange);
- border-radius:8px;
- color:var(--orange);
- text-decoration:none;
- font-weight:bold;
-}
-.live-panel,.banner{
- max-width:1000px;
- margin:20px auto;
- padding:28px 20px;
- border:2px solid var(--orange);
- border-radius:18px;
- background:radial-gradient(circle at top,#482006,#080808 80%);
- text-align:center;
-}
-.live-logo{
- width:130px;
- height:130px;
- border:2px solid var(--orange);
- border-radius:50%;
- object-fit:contain;
- background:#000;
-}
-.on-air,.tag{
- display:inline-block;
- padding:8px 14px;
- margin:10px;
- border:1px solid var(--orange);
- border-radius:25px;
- color:var(--orange);
- font-weight:900;
-}
-audio{
- display:block;
- width:min(100%,600px);
- margin:20px auto;
-}
-.search{
- display:block;
- width:min(100%,650px);
- margin:22px auto;
- padding:15px;
- border:2px solid var(--orange);
- border-radius:10px;
- background:#140b05;
- color:var(--apricot);
-}
-.notice{
- padding:23px;
- margin:25px 0;
- border-left:5px solid var(--orange);
- border-radius:10px;
- background:linear-gradient(90deg,#291505,#080808);
- line-height:1.8;
-}
+.card img{ width:100%; border-radius:10px; }
+.card a{ display:inline-block; margin-top:10px; padding:10px 13px; border:1px solid var(--orange); border-radius:8px; color:var(--orange); text-decoration:none; font-weight:bold; }
+.live-panel,.banner{ max-width:1000px; margin:20px auto; padding:28px 20px; border:2px solid var(--orange); border-radius:18px; background:radial-gradient(circle at top,#482006,#080808 80%); text-align:center; }
+.live-logo{ width:130px; height:130px; border:2px solid var(--orange); border-radius:50%; object-fit:contain; background:#000; }
+.on-air,.tag{ display:inline-block; padding:8px 14px; margin:10px; border:1px solid var(--orange); border-radius:25px; color:var(--orange); font-weight:900; }
+audio{ display:block; width:min(100%,600px); margin:20px auto; }
+.search{ display:block; width:min(100%,650px); margin:22px auto; padding:15px; border:2px solid var(--orange); border-radius:10px; background:#140b05; color:var(--apricot); }
+.notice{ padding:23px; margin:25px 0; border-left:5px solid var(--orange); border-radius:10px; background:linear-gradient(90deg,#291505,#080808); line-height:1.8; }
 .notice h3{color:var(--orange)}
-.subtitle{
- text-align:center;
- color:var(--orange);
- margin:35px 0 18px;
-}
-.stats{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
- gap:14px;
- margin:25px 0;
-}
-.stat{
- padding:20px;
- text-align:center;
- border:1px solid var(--border);
- border-radius:12px;
- background:#170c04;
-}
-.stat strong{
- display:block;
- font-size:30px;
- color:var(--orange);
-}
+.subtitle{ text-align:center; color:var(--orange); margin:35px 0 18px; }
+.stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin:25px 0; }
+.stat{ padding:20px; text-align:center; border:1px solid var(--border); border-radius:12px; background:#170c04; }
+.stat strong{ display:block; font-size:30px; color:var(--orange); }
 .stat span{font-size:13px}
 .counter{text-align:center;font-weight:bold}
-table{
- width:100%;
- border-collapse:collapse;
-}
-th,td{
- padding:13px;
- border:1px solid var(--border);
- text-align:left;
-}
-th{
- background:#512505;
- color:var(--orange);
-}
+table{ width:100%; border-collapse:collapse; }
+th,td{ padding:13px; border:1px solid var(--border); text-align:left; }
+th{ background:#512505; color:var(--orange); }
 td{background:#160c05}
 .table-wrap{overflow-x:auto}
-.news-badge{
- display:inline-block;
- padding:6px 12px;
- background:var(--orange);
- color:#000;
- font-size:12px;
- font-weight:900;
- border-radius:6px;
-}
-.news-meta{
- color:var(--apricot);
- font-size:13px;
-}
+.news-badge{ display:inline-block; padding:6px 12px; background:var(--orange); color:#000; font-size:12px; font-weight:900; border-radius:6px; }
+.news-meta{ color:var(--apricot); font-size:13px; }
 .featured{border:2px solid var(--orange)}
 .podcast-card{border-top:4px solid var(--orange)}
-.media-status{
- display:inline-block;
- padding:8px;
- margin-top:10px;
- border:1px dashed var(--border);
- border-radius:8px;
- font-size:13px;
-}
-.social-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
- gap:12px;
-}
-.social-grid a{
- display:flex;
- flex-direction:column;
- justify-content:center;
- align-items:center;
- gap:10px;
- min-height:105px;
- padding:12px;
- border:1px solid var(--border);
- border-radius:12px;
- background:#150c05;
- text-decoration:none;
- font-weight:bold;
-}
-.social-symbol{
- font-size:30px;
- font-weight:900;
-}
-.contact-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
- gap:20px;
-}
-.contact-grid a{
- display:block;
- margin:13px 0;
- color:var(--apricot);
- text-decoration:none;
- font-size:18px;
-}
-/* AJOUTE — MAIN NUMBER HAITI */
-.main-number-label{
- margin:14px 0 2px;
- color:var(--orange);
- font-size:12px;
- font-weight:900;
- letter-spacing:1.5px;
-}
-.contact-grid a.main-number{
- display:block;
- margin:4px 0 14px;
- padding:14px 12px;
- background:var(--orange);
- color:#000 !important;
- border:1px solid var(--orange);
- border-radius:10px;
- font-size:24px;
- font-weight:900;
- text-align:center;
- letter-spacing:0.5px;
-}
-/* BLOCK 🚫 — SÈL AJOUTE — HAITI 3 NIMEWO NAN MENM LIY */
-.haiti-numbers{
- display:flex;
- gap:8px;
- margin-top:6px;
-}
-.haiti-numbers a{
- flex:1 1 0;
- min-width:0;
- display:flex !important;
- align-items:center;
- justify-content:center;
- height:48px;
- margin:0 !important;
- padding:0 6px !important;
- font-size:14px;
- font-weight:800;
- white-space:nowrap;
- text-align:center;
-}
-.haiti-numbers a.main-number{
- margin:0 !important;
- padding:0 6px !important;
- font-size:14px;
- text-align:center;
-}
-footer{
- padding:35px 15px;
- margin-top:40px;
- text-align:center;
- background:#000;
- border-top:3px solid var(--orange);
- color:var(--orange);
-}
-/* ARTISTS CENTER */
-.artist-banner{
- max-width:1000px;
- margin:25px auto;
- padding:28px 20px;
- text-align:center;
- border:2px solid var(--orange);
- border-radius:18px;
- background:linear-gradient(120deg,#512505,#080808);
-}
-.artist-banner h3{
- color:var(--orange);
- font-size:clamp(24px,4vw,34px);
-}
+.media-status{ display:inline-block; padding:8px; margin-top:10px; border:1px dashed var(--border); border-radius:8px; font-size:13px; }
+.social-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; }
+.social-grid a{ display:flex; flex-direction:column; justify-content:center; align-items:center; gap:10px; min-height:105px; padding:12px; border:1px solid var(--border); border-radius:12px; background:#150c05; text-decoration:none; font-weight:bold; }
+.social-symbol{ font-size:30px; font-weight:900; }
+.contact-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:20px; }
+.contact-grid a{ display:block; margin:13px 0; color:var(--apricot); text-decoration:none; font-size:18px; }
+.main-number-label{ margin:14px 0 2px; color:var(--orange); font-size:12px; font-weight:900; letter-spacing:1.5px; }
+.contact-grid a.main-number{ display:block; margin:4px 0 14px; padding:14px 12px; background:var(--orange); color:#000 !important; border:1px solid var(--orange); border-radius:10px; font-size:24px; font-weight:900; text-align:center; letter-spacing:0.5px; }
+/* BLOCK - HAITI 3 NIMEWO NAN MENM LIY - SEL AJOUTE */
+.haiti-numbers{ display:flex; gap:8px; margin-top:6px; }
+.haiti-numbers a{ flex:1 1 0; min-width:0; display:flex !important; align-items:center; justify-content:center; height:48px; margin:0 !important; padding:0 6px !important; font-size:14px; font-weight:800; white-space:nowrap; text-align:center; }
+.haiti-numbers a.main-number{ margin:0 !important; padding:0 6px !important; font-size:14px; }
+footer{ padding:35px 15px; margin-top:40px; text-align:center; background:#000; border-top:3px solid var(--orange); color:var(--orange); }
+.artist-banner{ max-width:1000px; margin:25px auto; padding:28px 20px; text-align:center; border:2px solid var(--orange); border-radius:18px; background:linear-gradient(120deg,#512505,#080808); }
+.artist-banner h3{ color:var(--orange); font-size:clamp(24px,4vw,34px); }
 .artist-banner p{line-height:1.8}
-.artist-card{
- border-top:4px solid var(--orange);
- display:flex;
- flex-direction:column;
-}
-.artist-photo{
- width:100%;
- height:260px;
- object-fit:cover;
- border-radius:10px;
-}
-.artist-placeholder{
- display:grid;
- place-items:center;
- height:200px;
- border:1px dashed var(--orange);
- border-radius:10px;
- color:var(--orange);
- font-size:50px;
-}
-.artist-genre{
- display:inline-block;
- margin:5px 5px 5px 0;
- padding:7px 12px;
- border:1px solid var(--orange);
- border-radius:20px;
- color:var(--apricot);
- font-size:13px;
-}
-.artist-links{
- display:flex;
- flex-wrap:wrap;
- gap:8px;
-}
+.artist-card{ border-top:4px solid var(--orange); display:flex; flex-direction:column; }
+.artist-photo{ width:100%; height:260px; object-fit:cover; border-radius:10px; }
+.artist-placeholder{ display:grid; place-items:center; height:200px; border:1px dashed var(--orange); border-radius:10px; color:var(--orange); font-size:50px; }
+.artist-genre{ display:inline-block; margin:5px 5px 5px 0; padding:7px 12px; border:1px solid var(--orange); border-radius:20px; color:var(--apricot); font-size:13px; }
+.artist-links{ display:flex; flex-wrap:wrap; gap:8px; }
 .artist-links a{margin-top:8px}
-/* FAZ 08 — EVENTS CENTER */
-.event-banner{
- max-width:1000px;
- margin:25px auto;
- padding:28px 20px;
- text-align:center;
- border:2px solid var(--orange);
- border-radius:18px;
- background:linear-gradient(120deg,#512505,#080808);
-}
-.event-banner h3{
- color:var(--orange);
- font-size:clamp(24px,4vw,34px);
-}
+.event-banner{ max-width:1000px; margin:25px auto; padding:28px 20px; text-align:center; border:2px solid var(--orange); border-radius:18px; background:linear-gradient(120deg,#512505,#080808); }
+.event-banner h3{ color:var(--orange); font-size:clamp(24px,4vw,34px); }
 .event-banner p{line-height:1.8}
-.event-card{
- border-top:4px solid var(--orange);
-}
-.event-card img{
- width:100%;
- max-height:260px;
- object-fit:cover;
-}
-.event-meta{
- color:var(--apricot);
- line-height:1.8;
-}
-.event-calendar{
- display:grid;
- grid-template-columns:repeat(7,minmax(0,1fr));
- gap:5px;
- max-width:750px;
- margin:20px auto;
-}
-.event-calendar div{
- padding:12px 3px;
- text-align:center;
- border:1px solid #60320b;
- border-radius:7px;
- font-size:13px;
-}
-.event-calendar .event-day{
- color:var(--orange);
- font-weight:bold;
-}
-.event-calendar .has-event{
- border:2px solid var(--orange);
- background:#512505;
- font-weight:bold;
-}
-.event-calendar .event-empty{
- border-color:transparent;
-}
-.event-calendar-controls{
- display:flex;
- justify-content:center;
- align-items:center;
- gap:12px;
- flex-wrap:wrap;
-}
-.event-calendar-controls strong{
- color:var(--orange);
- min-width:170px;
- text-align:center;
-}
-.event-calendar .has-event button{
- padding:5px;
- width:100%;
- border:0;
- background:transparent;
- color:var(--apricot);
-}
-.event-calendar .has-event button:hover{
- background:var(--orange);
- color:#000;
-}
-.event-selected{
- max-width:750px;
- margin:18px auto;
-}
-.event-status{
- display:inline-block;
- margin:8px 0;
- padding:7px 12px;
- border:1px solid var(--orange);
- border-radius:20px;
- color:var(--orange);
- font-size:12px;
- font-weight:bold;
-}
-.event-date-input{
- display:block;
- width:min(100%,300px);
- margin:15px auto;
- padding:12px;
- border:1px solid var(--orange);
- border-radius:8px;
- background:#140b05;
- color:var(--apricot);
- color-scheme:dark;
-}
-@media(max-width:650px){
- main{padding:12px}
- .grid{grid-template-columns:1fr}
- nav{position:relative}
- .card{padding:18px}
- th,td{padding:9px;font-size:13px}
- .event-calendar div{
-  padding:9px 2px;
-  font-size:11px;
- }
- .event-calendar .has-event button{
-  font-size:11px;
-  padding:3px;
- }
- .contact-grid a.main-number{font-size:21px}
- .haiti-numbers a, .haiti-numbers a.main-number{
-  font-size:12px;
-  padding:0 4px !important;
- }
-}
+.event-card{ border-top:4px solid var(--orange); }
+.event-card img{ width:100%; max-height:260px; object-fit:cover; }
+.event-meta{ color:var(--apricot); line-height:1.8; }
+.event-calendar{ display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:5px; max-width:750px; margin:20px auto; }
+.event-calendar div{ padding:12px 3px; text-align:center; border:1px solid #60320b; border-radius:7px; font-size:13px; }
+.event-calendar .event-day{ color:var(--orange); font-weight:bold; }
+.event-calendar .has-event{ border:2px solid var(--orange); background:#512505; font-weight:bold; }
+.event-calendar .event-empty{ border-color:transparent; }
+.event-calendar-controls{ display:flex; justify-content:center; align-items:center; gap:12px; flex-wrap:wrap; }
+.event-calendar-controls strong{ color:var(--orange); min-width:170px; text-align:center; }
+.event-calendar .has-event button{ padding:5px; width:100%; border:0; background:transparent; color:var(--apricot); }
+.event-calendar .has-event button:hover{ background:var(--orange); color:#000; }
+.event-selected{ max-width:750px; margin:18px auto; }
+.event-status{ display:inline-block; margin:8px 0; padding:7px 12px; border:1px solid var(--orange); border-radius:20px; color:var(--orange); font-size:12px; font-weight:bold; }
+.event-date-input{ display:block; width:min(100%,300px); margin:15px auto; padding:12px; border:1px solid var(--orange); border-radius:8px; background:#140b05; color:var(--apricot); color-scheme:dark; }
+@media(max-width:650px){ main{padding:12px} .grid{grid-template-columns:1fr} nav{position:relative} .card{padding:18px} th,td{padding:9px;font-size:13px} .event-calendar div{ padding:9px 2px; font-size:11px; } .event-calendar .has-event button{ font-size:11px; padding:3px; } .contact-grid a.main-number{font-size:21px} .haiti-numbers a, .haiti-numbers a.main-number{ font-size:12px; padding:0 4px !important; } }
 </style>
 </head>
 <body>
@@ -755,7 +332,7 @@ footer{
 <p data-i18n="videoNotice">Les vidéos seront affichées après configuration.</p>
 </div>
 </section>
-<!-- 08 EVENTS CENTER — FAZ 08 -->
+<!-- 08 EVENTS CENTER -->
 <section class="module" id="events">
 <h2 class="section-title">08 — EVENTS CENTER</h2>
 <p class="section-intro" data-i18n="eventsIntro">Événements culturels, communautaires et musicaux.</p>
@@ -789,29 +366,28 @@ footer{
 <p id="eventNoticeText">Les événements approuvés seront publiés ici.</p>
 </div>
 </section>
-<!-- 09 CONTACT CENTER — AJOUTE -->
+<!-- 09 CONTACT CENTER -->
 <section class="module" id="contact">
-  <h2 class="section-title">09 — CONTACT CENTER</h2>
-  <p class="section-intro" data-i18n="contactIntro">Contactez notre équipe et retrouvez-nous sur les réseaux sociaux.</p>
-  <div class="contact-grid">
-    <div class="card">
-      <h3>USA — FLORIDA</h3>
-      <a href="tel:+14076405166">(407) 640-5166</a>
-      <a href="tel:+13175381150">(317) 538-1150</a>
-    </div>
-    <!-- BLOCK 🚫 — SÈL AJOUTE -->
-    <div class="card">
-      <h3>HAÏTI</h3>
-      <p class="main-number-label">MAIN NUMBER — HAÏTI</p>
-      <div class="haiti-numbers">
-        <a class="main-number" href="tel:+50944829869">+509 4482 9869</a>
-        <a href="tel:+50942544447">+509 4254 4447</a>
-        <a href="tel:+50943437488">+509 4343 7488</a>
-      </div>
-    </div>
-  </div>
-  <h3 class="subtitle" data-i18n="socialTitle">RÉSEAUX SOCIAUX</h3>
-  <div class="social-grid" id="socialGrid"></div>
+<h2 class="section-title">09 — CONTACT CENTER</h2>
+<p class="section-intro" data-i18n="contactIntro">Contactez notre équipe et retrouvez-nous sur les réseaux sociaux.</p>
+<div class="contact-grid">
+<div class="card">
+<h3>USA — FLORIDA</h3>
+<a href="tel:+14076405166">(407) 640-5166</a>
+<a href="tel:+13175381150">(317) 538-1150</a>
+</div>
+<div class="card">
+<h3>HAÏTI</h3>
+<p class="main-number-label">MAIN NUMBER — HAÏTI</p>
+<div class="haiti-numbers">
+<a class="main-number" href="tel:+50944829869">+509 4482 9869</a>
+<a href="tel:+50942544447">+509 4254 4447</a>
+<a href="tel:+50943437488">+509 4343 7488</a>
+</div>
+</div>
+</div>
+<h3 class="subtitle" data-i18n="socialTitle">RÉSEAUX SOCIAUX</h3>
+<div class="social-grid" id="socialGrid"></div>
 </section>
 <div class="banner">
 <h2>BSS1815 PRO-MAX DMP</h2>
@@ -831,5 +407,49 @@ const RADIO_STREAM="https://listen.radioking.com/radio/952371/stream/1024056";
 const radioPlayer=document.getElementById("radioPlayer");
 let currentLanguage="fr";
 let radioState="ready";
-const translations={
-fr:{home:"ACCUEIL",tagline:"La radio de tous, partout et toujours.",hero:"Information, nouvelles, divertissement, musique, artistes, podcasts et émissions pour notre communauté.",listen:"● ÉCOUTER EN DIRECT",explore:"EXPLORER LES ACTUALITÉS",liveIntro:"Écoutez PRO-MAX FM en direct.",play:"▶ ÉCOUTER",stop:"■ ARRÊTER",ready:"PRÊT À ÉCOUTER",connecting:"CONNEXION EN COURS...",playing:"DIFFUSION EN COURS",stopped:"LECTURE ARRÊTÉE",error:"LECTURE IMPOSSIBLE — VÉRIFIEZ RADIOKING",streamNotice:"La diffusion dépend de la disponibilité du flux RadioKing.",programTitle:"PROGRAMMATION",newsIntro:"Actualités d'Haïti, de Floride, de la diaspora et du monde.",newsroomTitle:"CENTRE DE RÉDACTION",newsroomDescription:"Les informations sont vérifiées avant publication.",flashTitle:"● FLASH INFO",featuredTitle:"À LA UNE",publishedTitle:"ACTUALITÉS PUBLIÉES",searchArticles:"Rechercher un article...",leoganeDescription:"Un pont entre la Floride et Léogâne.",mediaDirectoryTitle:"RÉPERTOIRE DES SOURCES MÉDIATIQUES",editorialPolicyTitle:"POLITIQUE ÉDITORIALE",editorialPolicy:"Aucune information non vérifiée ne doit être présentée comme un fait confirmé.",searchNews:"Rechercher un média...",showsIntro:"Découvrez les émissions et la programmation.",showsBannerTitle:"NOS ÉMISSIONS — NOTRE PROGRAMMATION",showsBannerDescription:"Retrouvez les horaires, présentateurs et replays.",showsTotalLabel:"ÉMISSIONS",showsDailyLabel:"LUNDI–VENDREDI",showsWeekendLabel:"WEEKEND",showsDirectoryTitle:"RÉPERTOIRE DES ÉMISSIONS",searchShows:"Rechercher une émission...",showsScheduleTitle:"GRILLE DES PROGRAMMES",showsDayLabel:"JOURS",showsTimeLabel:"HORAIRES",showsProgramLabel:"ÉMISSIONS",showsTimezone:"Heure de Floride (America/New_York).",showsHostTitle:"PRÉSENTATEURS & ANIMATEURS",showsReplayTitle:"REPLAY — ÉMISSIONS ENREGISTRÉES",podcastIntro:"Émissions enregistrées, entretiens, archives audio et replays.",podcastBannerTitle:"NOS PODCASTS — NOS VOIX",podcastBannerDescription:"Retrouvez les épisodes et les émissions enregistrées.",podcastTotalLabel:"ÉPISODES",podcastCategoriesLabel:"CATÉGORIES",podcastReplayLabel:"REPLAYS",podcastFeaturedTitle:"PODCASTS À LA UNE",podcastDirectoryTitle:"BIBLIOTHÈQUE DES PODCASTS",podcastReplayTitle:"REPLAY — ÉMISSIONS ENREGISTRÉES",searchPodcasts:"Rechercher un podcast...",podcastNotice:"Les épisodes seront accessibles lorsque leurs fichiers audio auront été ajoutés.",musicIntro:"Découvrez les genres musicaux de PRO-MAX FM.",searchMusic:"Rechercher une musique ou un genre...",autoDJNotice:"La programmation automatique est gérée dans RadioKing.",artistsIntro:"Artistes, groupes, musiciens et DJs.",searchArtists:"Rechercher un artiste...",artistNotice:"Les profils seront publiés avec photos, biographies et liens officiels.",videoIntro:"Vidéos, entrevues, reportages et émissions.",searchVideos:"Rechercher une vidéo...",videoNotice:"Les vidéos seront affichées après configuration.",eventsIntro:"Événements culturels, communautaires et musicaux.",contactIntro:"Contactez notre équipe et retrouvez-nous sur les réseaux sociaux.",socialTitle:"RÉSEAUX SOCIAUX",platform:"VISITER LA PLATEFORME",all:"TOUS",daily:"LUNDI–VENDREDI",weekend:"WEEKEND",haiti:"HAÏTI",world:"INTERNATIONAL",diaspora:"DIASPORA",digital:"DIGITAL",independent:"INDÉPENDANT",community:"COMMUNAUTÉ",music:"MUSIQUE",news:"ACTUALITÉS",culture:"CULTURE",interview:"ENTRETIENS",special:"SPÉCIAL",visit:"VISITER",none:"Aucun résultat trouvé.",noAudio:"Aucun fichier audio ajouté.",noVideo:"Aucune vidéo ajoutée.",noArtists:"Aucun profil d'artiste ajouté.",
+const translations={fr:{home:"ACCUEIL",tagline:"La radio de tous, partout et toujours."},en:{home:"HOME"},ht:{home:"AKÈY"}};
+function tr(key){return translations[currentLanguage][key]||key;}
+function node(tag,text,className){const el=document.createElement(tag);if(text!==undefined&&text!==null){el.textContent=text;}if(className)el.className=className;return el;}
+function clear(id){const el=document.getElementById(id);el.replaceChildren();return el;}
+function addLink(parent,label,url){if(!url||!/^https?:\/\//i.test(url))return;const a=node("a",label);a.href=url;a.target="_blank";a.rel="noopener noreferrer";parent.append(a);}
+function emptyCard(message){const card=node("article",null,"card");card.append(node("p",message));return card;}
+function makeCard(title,description,url){const card=node("article",null,"card");card.append(node("h3",title));if(description)card.append(node("p",description));if(url)addLink(card,tr("visit"),url);return card;}
+function searchMatch(value,query){return String(value||"").toLocaleLowerCase().includes(query.toLocaleLowerCase());}
+function localizedValue(value){if(typeof value==="string")return value;if(!value||typeof value!=="object")return "";return value[currentLanguage]||value.fr||value.en||value.ht||"";}
+function renderFilterButtons(id,categories,current,callback){const root=clear(id);categories.forEach(category=>{const button=node("button",tr(category));button.type="button";button.classList.toggle("active",current===category);button.addEventListener("click",()=>callback(category));root.append(button);});}
+function addAudio(parent,src){if(!src)return;const audio=node("audio");audio.controls=true;audio.preload="none";audio.src=src;parent.append(audio);}
+function addImage(parent,src,alt){if(!src)return;const img=node("img");img.src=src;img.alt=alt||"";img.loading="lazy";img.addEventListener("error",()=>img.remove());parent.append(img);}
+function setLanguage(lang){if(!translations[lang])return;currentLanguage=lang;document.documentElement.lang=lang;document.querySelectorAll("[data-i18n]").forEach(el=>{el.textContent=tr(el.dataset.i18n);});document.querySelectorAll("[data-placeholder]").forEach(el=>{el.placeholder=tr(el.dataset.placeholder);});["fr","en","ht"].forEach(code=>{document.getElementById("lang-"+code).classList.toggle("active",code===lang);});renderAll();updateRadioStatus();}
+async function playRadio(){radioState="connecting";updateRadioStatus();if(!radioPlayer.getAttribute("src")){radioPlayer.src=RADIO_STREAM;}try{await radioPlayer.play();radioState="playing";}catch(error){radioState="error";}updateRadioStatus();}
+function stopRadio(){radioPlayer.pause();radioPlayer.removeAttribute("src");radioPlayer.load();radioState="stopped";updateRadioStatus();}
+function updateRadioStatus(){document.getElementById("radioStatus").textContent=tr(radioState);}
+radioPlayer.addEventListener("playing",()=>{radioState="playing";updateRadioStatus();});
+radioPlayer.addEventListener("error",()=>{radioState="error";updateRadioStatus();});
+const newsSources=[];
+const editorialNews=[];
+let newsCategory="all"; let publishedNewsCategory="all";
+function renderNews(){}
+function approvedArticles(){return [];}
+function makeNewsArticle(item){return node("article",null,"card");}
+function renderNewsCollection(id,items,emptyKey){}
+function renderEditorialNews(){}
+const shows=[]; const showHosts=[]; const showReplays=[]; let showCategory="all";
+function renderShows(){}
+const podcasts=[]; let podcastCategory="all";
+function renderPodcasts(){}
+const genres=["Kompa","Kompa Love","Reggae","Reggae for Lovers","Rap Kreyòl","Rabòday","Rara","Racine","Hip-Hop","Reggaeton","Ansyèn Mizik","Tropicana","Septen","Konpa Direct","Zouk","Afrobeat","Jazz","Gospel"];
+const tracks=[];
+function renderMusic(){}
+const artists=[]; let artistCategory="all";
+function renderArtists(){}
+const videos=[]; let videoCategory="all";
+function renderVideos(){}
+const events=[]; let eventCategory="all";
+function renderEvents(){}
+const socialNetworks=[{name:"Facebook",symbol:"f",color:"#1877f2",url:"https://www.facebook.com/share/1By3KvYRrM/"},{name:"WhatsApp",symbol:"◉",color:"#25d366",url:"https://wa.me/50943437488"},{name:"TikTok",symbol:"♪",color:"#fe2c55",url:"https://www.tiktok.com/@maximax1960"},{name:"Instagram",symbol:"◎",color:"#e4405f",url:"https://www.instagram.com/lebaron072/"},{name:"Telegram",symbol:"➤",color:"#229ed9",url:"https://t.me/bss1815dmp"},{name:"YouTube",symbol:"▶",color:"#ff0033",url:"https://www.youtube.com/@BSS1815PROMAXDMP"},{name:"Spotify",symbol:"≋",color:"#1db954",url:"https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"},{name:"X",symbol:"𝕏",color:"#bcbcbc",url:"https://x.com/w05g2m"},{name:"Truth Social",symbol:"T",color:"#448aff",url:"https://truthsocial.com/@briyant_soley_1815"},{name:"LinkedIn",symbol:"in",color:"#0a66c2",url:"https://www.linkedin.com/in/maximax-multi-services-075ba2314"}];
+function renderSocial(){const root=clear("socialGrid");socialNetworks.forEach(item=>{const a=node("a");a.href=item.url;a.target="_blank";a.rel="noopener noreferrer";a.setAttribute("aria-label",item.name);const symbol=node("span",item.symbol,"social-symbol");symbol.style.color=item.color;a.append(symbol,node("strong",item.name));root.append(a);});}
+function renderAll(){renderNews();renderEditorialNews();renderShows();renderPodcasts();renderMusic();renderArtists();renderVideos();renderEvents();renderSocial();}
+setLanguage("fr");
+</script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
+</html>
