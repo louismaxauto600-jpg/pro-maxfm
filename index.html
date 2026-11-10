@@ -341,6 +341,32 @@ td{background:#160c05}
  text-align:center;
  letter-spacing:0.5px;
 }
+/* BLOCK 🚫 — HAITI 3 NIMEWO NAN MENM LIY — AJOUTE SÈLMAN */
+.haiti-numbers{
+ display:flex;
+ gap:8px;
+ margin-top:6px;
+}
+.haiti-numbers a{
+ flex:1 1 0;
+ min-width:0;
+ display:flex !important;
+ align-items:center;
+ justify-content:center;
+ height:48px;
+ margin:0 !important;
+ padding:0 6px !important;
+ font-size:14px;
+ font-weight:800;
+ white-space:nowrap;
+ text-align:center;
+}
+.haiti-numbers a.main-number{
+ margin:0 !important;
+ padding:0 6px !important;
+ font-size:14px;
+ text-align:center;
+}
 footer{
  padding:35px 15px;
  margin-top:40px;
@@ -515,6 +541,10 @@ footer{
   padding:3px;
  }
  .contact-grid a.main-number{font-size:21px}
+ .haiti-numbers a, .haiti-numbers a.main-number{
+  font-size:12px;
+  padding:0 4px !important;
+ }
 }
 </style>
 </head>
@@ -769,13 +799,17 @@ footer{
       <a href="tel:+14076405166">(407) 640-5166</a>
       <a href="tel:+13175381150">(317) 538-1150</a>
     </div>
+    <!-- BLOCK 🚫 — HAITI — 3 NIMEWO NAN MENM LIY -->
     <div class="card">
       <h3>HAÏTI</h3>
       <p class="main-number-label">MAIN NUMBER — HAÏTI</p>
-      <a class="main-number" href="tel:+50944829869">+509 4482 9869</a>
-      <a href="tel:+50942544447">+509 4254 4447</a>
-      <a href="tel:+50943437488">+509 4343 7488</a>
+      <div class="haiti-numbers">
+        <a class="main-number" href="tel:+50944829869">+509 4482 9869</a>
+        <a href="tel:+50942544447">+509 4254 4447</a>
+        <a href="tel:+50943437488">+509 4343 7488</a>
+      </div>
     </div>
+    <!-- FIN BLOCK 🚫 -->
   </div>
   <h3 class="subtitle" data-i18n="socialTitle">RÉSEAUX SOCIAUX</h3>
   <div class="social-grid" id="socialGrid"></div>
@@ -851,7 +885,7 @@ function artistText(key){return (artistTranslations[currentLanguage]||artistTran
 function approvedArtists(){return artists.filter(item=>item&&item.approved===true&&typeof item.name==="string"&&item.name.trim());}
 function artistGenreList(item){if(Array.isArray(item.genres)){return item.genres.filter(Boolean);}return item.category?[item.category]:[];}
 function artistMatchesFilter(item){if(artistCategory==="all")return true;if(item.type===artistCategory)return true;return artistGenreList(item).some(genre=>String(genre).toLowerCase().includes(artistCategory));}
-function makeArtistCard(item,isFeatured=false){const card=node("article",null,isFeatured?"card artist-card featured":"card artist-card");if(item.photo){const img=node("img");img.src=item.photo;img.alt=item.name;img.loading="lazy";img.className="artist-photo";img.addEventListener("error",()=>{img.replaceWith(node("div","♫","artist-placeholder"));});card.append(img);}else{card.append(node("div","♫","artist-placeholder"));}card.append(node("h3",item.name));const details=[artistText(item.type||"solo"),item.country||""].filter(Boolean).join(" — ");if(details){card.append(node("p",details,"news-meta"));}const genresBox=node("div");artistGenreList(item).forEach(genre=>{genresBox.append(node("span",genre,"artist-genre"));});card.append(genresBox);const biography=localizedValue(item.biography)||localizedValue(item.description);if(biography){card.append(node("p",biography));}const linksBox=node("div",null,"artist-links");const platforms={youtube:"YouTube",【entity-spotify¦canonical_name=Spotify】:"【entity-Spotify¦canonical_name=Spotify】",【entity-facebook¦canonical_name=Facebook】:"【entity-Facebook¦canonical_name=Facebook】",【entity-instagram¦canonical_name=Instagram】:"【entity-Instagram¦canonical_name=Instagram】",website:"Website"};Object.entries(platforms).forEach(([key,label])=>{const url=(item.links||{})[key];if(typeof url==="string"){addLink(linksBox,label,url);}});if(item.url){addLink(linksBox,artistText("links"),item.url);}if(linksBox.children.length){card.append(node("h4",artistText("links")),linksBox);}return card;}
+function makeArtistCard(item,isFeatured=false){const card=node("article",null,isFeatured?"card artist-card featured":"card artist-card");if(item.photo){const img=node("img");img.src=item.photo;img.alt=item.name;img.loading="lazy";img.className="artist-photo";img.addEventListener("error",()=>{img.replaceWith(node("div","♫","artist-placeholder"));});card.append(img);}else{card.append(node("div","♫","artist-placeholder"));}card.append(node("h3",item.name));const details=[artistText(item.type||"solo"),item.country||""].filter(Boolean).join(" — ");if(details){card.append(node("p",details,"news-meta"));}const genresBox=node("div");artistGenreList(item).forEach(genre=>{genresBox.append(node("span",genre,"artist-genre"));});card.append(genresBox);const biography=localizedValue(item.biography)||localizedValue(item.description);if(biography){card.append(node("p",biography));}const linksBox=node("div",null,"artist-links");const platforms={youtube:"YouTube",spotify:"Spotify",facebook:"Facebook",instagram:"Instagram",website:"Website"};Object.entries(platforms).forEach(([key,label])=>{const url=(item.links||{})[key];if(typeof url==="string"){addLink(linksBox,label,url);}});if(item.url){addLink(linksBox,artistText("links"),item.url);}if(linksBox.children.length){card.append(node("h4",artistText("links")),linksBox);}return card;}
 function renderArtists(){const approved=approvedArtists();const groups=approved.filter(item=>item.type==="group");const featured=approved.filter(item=>item.featured===true);document.getElementById("artistTotal").textContent=approved.length;document.getElementById("artistGroupTotal").textContent=groups.length;document.getElementById("artistFeaturedTotal").textContent=featured.length;const labels={artistBannerTitle:artistText("banner"),artistBannerDescription:artistText("description"),artistTotalLabel:artistText("total"),artistGroupLabel:artistText("groups"),artistFeaturedLabel:artistText("featured"),artistFeaturedTitle:artistText("featuredTitle"),artistDirectoryTitle:artistText("directory")};Object.entries(labels).forEach(([id,value])=>{document.getElementById(id).textContent=value;});const featuredRoot=clear("artistFeaturedGrid");featured.forEach(item=>{featuredRoot.append(makeArtistCard(item,true));});if(!featured.length){featuredRoot.append(emptyCard(artistText("noFeatured")));}const filterRoot=clear("artistFilters");artistFilterList.forEach(category=>{const label=category==="all"?tr("all"):artistText(category);const button=node("button",label);button.type="button";button.classList.toggle("active",artistCategory===category);button.addEventListener("click",()=>{artistCategory=category;renderArtists();});filterRoot.append(button);});const query=document.getElementById("artistSearch").value.trim();const filtered=approved.filter(item=>{const searchable=[item.name,item.type,item.category,item.country,...artistGenreList(item),localizedValue(item.biography),localizedValue(item.description)].filter(Boolean).join(" ");return artistMatchesFilter(item)&&searchMatch(searchable,query);});document.getElementById("artistCount").textContent=filtered.length+" "+artistText("total");const root=clear("artistGrid");filtered.forEach(item=>{root.append(makeArtistCard(item));});if(!filtered.length){root.append(emptyCard(approved.length?tr("none"):artistText("empty")));}}
 const videos=[];
 let videoCategory="all";
@@ -880,9 +914,4 @@ document.getElementById("eventNextMonth").addEventListener("click",()=>{eventCal
 document.getElementById("eventSearch").addEventListener("input",renderEvents);
 const socialNetworks=[{name:"Facebook",symbol:"f",color:"#1877f2",url:"https://www.facebook.com/share/1By3KvYRrM/"},{name:"WhatsApp",symbol:"◉",color:"#25d366",url:"https://wa.me/50943437488"},{name:"TikTok",symbol:"♪",color:"#fe2c55",url:"https://www.tiktok.com/@maximax1960"},{name:"Instagram",symbol:"◎",color:"#e4405f",url:"https://www.instagram.com/lebaron072/"},{name:"Telegram",symbol:"➤",color:"#229ed9",url:"https://t.me/bss1815dmp"},{name:"YouTube",symbol:"▶",color:"#ff0033",url:"https://www.youtube.com/@BSS1815PROMAXDMP"},{name:"Spotify",symbol:"≋",color:"#1db954",url:"https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"},{name:"X",symbol:"𝕏",color:"#bcbcbc",url:"https://x.com/w05g2m"},{name:"Truth Social",symbol:"T",color:"#448aff",url:"https://truthsocial.com/@briyant_soley_1815"},{name:"LinkedIn",symbol:"in",color:"#0a66c2",url:"https://www.linkedin.com/in/maximax-multi-services-075ba2314"}];
 function renderSocial(){const root=clear("socialGrid");socialNetworks.forEach(item=>{const a=node("a");a.href=item.url;a.target="_blank";a.rel="noopener noreferrer";a.setAttribute("aria-label",item.name);const symbol=node("span",item.symbol,"social-symbol");symbol.style.color=item.color;a.append(symbol,node("strong",item.name));root.append(a);});}
-function renderAll(){renderNews();renderEditorialNews();renderShows();renderPodcasts();renderMusic();renderArtists();renderVideos();renderEvents();renderSocial();}
-[["newsSearch",renderNews],["publishedNewsSearch",renderEditorialNews],["showsSearch",renderShows],["podcastSearch",renderPodcasts],["musicSearch",renderMusic],["artistSearch",renderArtists],["videoSearch",renderVideos]].forEach(([id,fn])=>{document.getElementById(id).addEventListener("input",fn);});
-setLanguage("fr");
-</script>
-</body>
-</html>
+function renderAll(){renderNews();renderEditor
