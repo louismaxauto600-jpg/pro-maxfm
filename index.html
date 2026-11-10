@@ -382,12 +382,121 @@ footer{
 }
 .artist-links a{margin-top:8px}
 
+/* FAZ 08 — EVENTS CENTER */
+.event-banner{
+ max-width:1000px;
+ margin:25px auto;
+ padding:28px 20px;
+ text-align:center;
+ border:2px solid var(--orange);
+ border-radius:18px;
+ background:linear-gradient(120deg,#512505,#080808);
+}
+.event-banner h3{
+ color:var(--orange);
+ font-size:clamp(24px,4vw,34px);
+}
+.event-banner p{line-height:1.8}
+.event-card{
+ border-top:4px solid var(--orange);
+}
+.event-card img{
+ width:100%;
+ max-height:260px;
+ object-fit:cover;
+}
+.event-meta{
+ color:var(--apricot);
+ line-height:1.8;
+}
+.event-calendar{
+ display:grid;
+ grid-template-columns:repeat(7,minmax(0,1fr));
+ gap:5px;
+ max-width:750px;
+ margin:20px auto;
+}
+.event-calendar div{
+ padding:12px 3px;
+ text-align:center;
+ border:1px solid #60320b;
+ border-radius:7px;
+ font-size:13px;
+}
+.event-calendar .event-day{
+ color:var(--orange);
+ font-weight:bold;
+}
+.event-calendar .has-event{
+ border:2px solid var(--orange);
+ background:#512505;
+ font-weight:bold;
+}
+.event-calendar .event-empty{
+ border-color:transparent;
+}
+.event-calendar-controls{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ gap:12px;
+ flex-wrap:wrap;
+}
+.event-calendar-controls strong{
+ color:var(--orange);
+ min-width:170px;
+ text-align:center;
+}
+.event-calendar .has-event button{
+ padding:5px;
+ width:100%;
+ border:0;
+ background:transparent;
+ color:var(--apricot);
+}
+.event-calendar .has-event button:hover{
+ background:var(--orange);
+ color:#000;
+}
+.event-selected{
+ max-width:750px;
+ margin:18px auto;
+}
+.event-status{
+ display:inline-block;
+ margin:8px 0;
+ padding:7px 12px;
+ border:1px solid var(--orange);
+ border-radius:20px;
+ color:var(--orange);
+ font-size:12px;
+ font-weight:bold;
+}
+.event-date-input{
+ display:block;
+ width:min(100%,300px);
+ margin:15px auto;
+ padding:12px;
+ border:1px solid var(--orange);
+ border-radius:8px;
+ background:#140b05;
+ color:var(--apricot);
+ color-scheme:dark;
+}
 @media(max-width:650px){
  main{padding:12px}
  .grid{grid-template-columns:1fr}
  nav{position:relative}
  .card{padding:18px}
  th,td{padding:9px;font-size:13px}
+ .event-calendar div{
+  padding:9px 2px;
+  font-size:11px;
+ }
+ .event-calendar .has-event button{
+  font-size:11px;
+  padding:3px;
+ }
 }
 </style>
 </head>
@@ -759,14 +868,86 @@ Les vidéos seront affichées après configuration.
 </div>
 </section>
 
-<!-- 08 EVENTS -->
+<!-- 08 EVENTS CENTER — FAZ 08 -->
 <section class="module" id="events">
+
 <h2 class="section-title">08 — EVENTS CENTER</h2>
+
 <p class="section-intro" data-i18n="eventsIntro">
 Événements culturels, communautaires et musicaux.
 </p>
+
+<div class="event-banner">
+<span class="tag">PRO-MAX FM — EVENTS CENTER</span>
+<h3 id="eventBannerTitle">NOS ÉVÉNEMENTS</h3>
+<p id="eventBannerDescription">
+Découvrez les événements culturels,
+musicaux et communautaires.
+</p>
+</div>
+
+<div class="stats">
+<div class="stat">
+<strong id="eventTotal">0</strong>
+<span id="eventTotalLabel">ÉVÉNEMENTS</span>
+</div>
+<div class="stat">
+<strong id="eventUpcomingTotal">0</strong>
+<span id="eventUpcomingLabel">À VENIR</span>
+</div>
+<div class="stat">
+<strong id="eventFeaturedTotal">0</strong>
+<span id="eventFeaturedLabel">À LA UNE</span>
+</div>
+</div>
+
+<h3 class="subtitle" id="eventFeaturedTitle">
+ÉVÉNEMENTS À LA UNE
+</h3>
+<div class="grid" id="eventFeaturedGrid"></div>
+
+<h3 class="subtitle" id="eventCalendarTitle">
+CALENDRIER DES ÉVÉNEMENTS
+</h3>
+
+<div class="event-calendar-controls">
+<button type="button" id="eventPrevMonth"
+ aria-label="Mois précédent">◀</button>
+<strong id="eventCalendarMonth"></strong>
+<button type="button" id="eventNextMonth"
+ aria-label="Mois suivant">▶</button>
+</div>
+
+<div class="event-calendar"
+ id="eventCalendar"
+ aria-label="Calendrier des événements"></div>
+
+<div class="event-selected" id="eventSelectedDay"
+ aria-live="polite"></div>
+
+<h3 class="subtitle" id="eventDirectoryTitle">
+RÉPERTOIRE DES ÉVÉNEMENTS
+</h3>
+
+<input class="search"
+ id="eventSearch"
+ type="search"
+ placeholder="Rechercher un événement..."
+ aria-label="Rechercher un événement">
+
 <div class="filters" id="eventsFilters"></div>
+
+<p class="counter" id="eventCount"></p>
+
 <div class="grid" id="eventsGrid"></div>
+
+<div class="notice">
+<h3>PRO-MAX FM — EVENTS PRODUCTIONS</h3>
+<p id="eventNoticeText">
+Les événements approuvés seront publiés ici.
+</p>
+</div>
+
 </section>
 
 <!-- 09 CONTACT -->
@@ -2030,43 +2211,497 @@ function renderVideos(){
  }
 }
 
-/* EVENTS */
+/* FAZ 08 — EVENTS CENTER */
+
+/*
+ AJOUTE EVÈNMAN REYÈL NAN LIS SA A.
+
+ EGZANP ESTRIKTI:
+
+ {
+  title:{
+   fr:"Nom de l'événement",
+   en:"Event name",
+   ht:"Non evènman an"
+  },
+  description:{
+   fr:"Description officielle.",
+   en:"Official description.",
+   ht:"Deskripsyon ofisyèl."
+  },
+  date:"2026-12-15",
+  time:"18:00",
+  location:{
+   fr:"Orlando, Floride",
+   en:"Orlando, Florida",
+   ht:"Orlando, Florid"
+  },
+  organizer:"PRO-MAX FM",
+  category:"music",
+  image:"events/affiche.jpg",
+  url:"",
+  featured:true,
+  approved:true
+ }
+
+ PA GEN EVÈNMAN ENVANTE.
+*/
+
 const events=[];
 let eventCategory="all";
 
-function renderEvents(){
- renderFilterButtons(
-  "eventsFilters",
-  ["all","music","culture","community","special"],
-  eventCategory,
-  c=>{
-   eventCategory=c;
-   renderEvents();
-  }
+const eventCategories=[
+ "all","music","culture","community","special"
+];
+
+const eventLanguages={
+fr:{
+ banner:"NOS ÉVÉNEMENTS — NOTRE COMMUNAUTÉ",
+ description:"Découvrez les événements culturels, musicaux et communautaires.",
+ total:"ÉVÉNEMENTS",
+ upcoming:"À VENIR",
+ featured:"À LA UNE",
+ featuredTitle:"ÉVÉNEMENTS À LA UNE",
+ calendar:"CALENDRIER DES ÉVÉNEMENTS",
+ directory:"RÉPERTOIRE DES ÉVÉNEMENTS",
+ search:"Rechercher un événement...",
+ empty:"Aucun événement approuvé pour le moment.",
+ noFeatured:"Aucun événement à la une.",
+ notice:"Les événements approuvés seront publiés ici.",
+ location:"LIEU",
+ organizer:"ORGANISATEUR",
+ date:"DATE",
+ time:"HEURE",
+ details:"DÉTAILS OFFICIELS",
+ selected:"ÉVÉNEMENTS DU",
+ noSelected:"Aucun événement prévu pour cette date.",
+ expired:"TERMINÉ",
+ upcomingStatus:"À VENIR"
+},
+en:{
+ banner:"OUR EVENTS — OUR COMMUNITY",
+ description:"Discover cultural, music and community events.",
+ total:"EVENTS",
+ upcoming:"UPCOMING",
+ featured:"FEATURED",
+ featuredTitle:"FEATURED EVENTS",
+ calendar:"EVENT CALENDAR",
+ directory:"EVENT DIRECTORY",
+ search:"Search events...",
+ empty:"No approved events yet.",
+ noFeatured:"No featured events.",
+ notice:"Approved events will be published here.",
+ location:"LOCATION",
+ organizer:"ORGANIZER",
+ date:"DATE",
+ time:"TIME",
+ details:"OFFICIAL DETAILS",
+ selected:"EVENTS ON",
+ noSelected:"No events scheduled for this date.",
+ expired:"PAST EVENT",
+ upcomingStatus:"UPCOMING"
+},
+ht:{
+ banner:"EVÈNMAN NOU YO — KOMINOTE NOU",
+ description:"Dekouvri evènman kiltirèl, mizikal ak kominotè.",
+ total:"EVÈNMAN",
+ upcoming:"K AP VINI",
+ featured:"AN VEDET",
+ featuredTitle:"EVÈNMAN AN VEDET",
+ calendar:"KALANDRIYE EVÈNMAN",
+ directory:"LIS EVÈNMAN YO",
+ search:"Chèche yon evènman...",
+ empty:"Pa gen evènman ki apwouve pou kounye a.",
+ noFeatured:"Pa gen evènman an vedèt.",
+ notice:"Evènman ki apwouve yo ap parèt isit la.",
+ location:"KOTE",
+ organizer:"ÒGANIZATÈ",
+ date:"DAT",
+ time:"LÈ",
+ details:"DETAY OFISYÈL",
+ selected:"EVÈNMAN POU",
+ noSelected:"Pa gen evènman ki pwograme pou dat sa a.",
+ expired:"EVÈNMAN PASE",
+ upcomingStatus:"K AP VINI"
+}
+};
+
+function eventText(key){
+ return (eventLanguages[currentLanguage]||
+  eventLanguages.fr)[key]||key;
+}
+
+/* VALID DATE: YYYY-MM-DD */
+function validEventDate(value){
+ if(typeof value!=="string")return false;
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;
+
+ const parts=value.split("-").map(Number);
+ const date=new Date(
+  parts[0],parts[1]-1,parts[2]
  );
 
- const root=clear("eventsGrid");
- const filtered=events.filter(item=>
-  eventCategory==="all"||
-  item.category===eventCategory
+ return date.getFullYear()===parts[0]&&
+  date.getMonth()===parts[1]-1&&
+  date.getDate()===parts[2];
+}
+
+function localDateKey(date){
+ return [
+  date.getFullYear(),
+  String(date.getMonth()+1).padStart(2,"0"),
+  String(date.getDate()).padStart(2,"0")
+ ].join("-");
+}
+
+function approvedEvents(){
+ return events.filter(item=>
+  item&&item.approved===true&&
+  localizedValue(item.title).trim()&&
+  validEventDate(item.date)
+ ).sort((a,b)=>a.date.localeCompare(b.date));
+}
+
+function eventIsUpcoming(item){
+ return item.date>=localDateKey(new Date());
+}
+
+function eventMatchesCategory(item){
+ return eventCategory==="all"||
+  item.category===eventCategory;
+}
+
+function makeEventCard(item,featured=false){
+ const card=node(
+  "article",null,
+  featured?"card event-card featured":"card event-card"
  );
+
+ addImage(
+  card,
+  item.image||item.photo,
+  localizedValue(item.title)
+ );
+
+ card.append(
+  node("span",tr(item.category||"special"),"tag"),
+  node("h3",localizedValue(item.title))
+ );
+
+ const status=eventIsUpcoming(item)?
+  eventText("upcomingStatus"):
+  eventText("expired");
+
+ card.append(
+  node("span",status,"event-status")
+ );
+
+ const description=localizedValue(item.description);
+ if(description){
+  card.append(node("p",description));
+ }
+
+ const details=[
+  [eventText("date"),item.date],
+  [eventText("time"),item.time],
+  [eventText("location"),localizedValue(item.location)],
+  [eventText("organizer"),item.organizer]
+ ];
+
+ details.forEach(([label,value])=>{
+  if(value){
+   card.append(
+    node("p",label+": "+value,"event-meta")
+   );
+  }
+ });
+
+ if(item.url){
+  addLink(card,eventText("details"),item.url);
+ }
+
+ return card;
+}
+
+/* CALENDAR */
+let eventCalendarDate=new Date();
+eventCalendarDate.setDate(1);
+
+let selectedEventDate="";
+
+function eventLocale(){
+ return {
+  fr:"fr-FR",
+  en:"en-US",
+  ht:"fr-HT"
+ }[currentLanguage]||"fr-FR";
+}
+
+function formatEventDate(dateKey){
+ if(!validEventDate(dateKey))return dateKey;
+
+ const [year,month,day]=dateKey.split("-").map(Number);
+ const date=new Date(year,month-1,day);
+
+ return new Intl.DateTimeFormat(eventLocale(),{
+  day:"numeric",
+  month:"long",
+  year:"numeric"
+ }).format(date);
+}
+
+function showEventsForDay(dateKey){
+ selectedEventDate=dateKey;
+
+ const root=clear("eventSelectedDay");
+ const matches=approvedEvents().filter(item=>
+  item.date===dateKey
+ );
+
+ root.append(
+  node("h3",
+   eventText("selected")+" "+formatEventDate(dateKey),
+   "subtitle")
+ );
+
+ if(!matches.length){
+  root.append(emptyCard(eventText("noSelected")));
+  return;
+ }
+
+ const grid=node("div",null,"grid");
+ matches.forEach(item=>{
+  grid.append(makeEventCard(item));
+ });
+ root.append(grid);
+}
+
+function renderEventCalendar(approved){
+ const root=clear("eventCalendar");
+
+ const year=eventCalendarDate.getFullYear();
+ const month=eventCalendarDate.getMonth();
+
+ document.getElementById("eventCalendarMonth")
+  .textContent=new Intl.DateTimeFormat(
+   eventLocale(),{
+    month:"long",
+    year:"numeric"
+   }
+  ).format(eventCalendarDate);
+
+ const weekdays={
+  fr:["L","M","M","J","V","S","D"],
+  en:["M","T","W","T","F","S","S"],
+  ht:["L","M","M","J","V","S","D"]
+ }[currentLanguage];
+
+ weekdays.forEach(day=>{
+  root.append(node("div",day,"event-day"));
+ });
+
+ const firstDay=
+  (new Date(year,month,1).getDay()+6)%7;
+
+ const daysInMonth=
+  new Date(year,month+1,0).getDate();
+
+ for(let i=0;i<firstDay;i++){
+  root.append(node("div","","event-empty"));
+ }
+
+ for(let day=1;day<=daysInMonth;day++){
+  const dateKey=[
+   year,
+   String(month+1).padStart(2,"0"),
+   String(day).padStart(2,"0")
+  ].join("-");
+
+  const matches=approved.filter(item=>
+   item.date===dateKey
+  );
+
+  const cell=node(
+   "div",
+   null,
+   matches.length?"has-event":""
+  );
+
+  if(matches.length){
+   const button=node("button",String(day));
+   button.type="button";
+   button.title=matches.map(item=>
+    localizedValue(item.title)
+   ).join(" | ");
+
+   button.setAttribute(
+    "aria-label",
+    formatEventDate(dateKey)+
+    " — "+matches.length+" "+eventText("total")
+   );
+
+   button.addEventListener("click",()=>{
+    showEventsForDay(dateKey);
+   });
+
+   cell.append(button);
+  }else{
+   cell.textContent=String(day);
+  }
+
+  root.append(cell);
+ }
+
+ if(selectedEventDate){
+  showEventsForDay(selectedEventDate);
+ }
+}
+
+/* EVENT FILTERS */
+function renderEventFilters(){
+ const root=clear("eventsFilters");
+
+ eventCategories.forEach(category=>{
+  const button=node("button",tr(category));
+  button.type="button";
+
+  button.classList.toggle(
+   "active",eventCategory===category
+  );
+
+  button.addEventListener("click",()=>{
+   eventCategory=category;
+   renderEvents();
+  });
+
+  root.append(button);
+ });
+}
+
+/* EVENTS CENTER MAIN RENDER */
+function renderEvents(){
+ const approved=approvedEvents();
+
+ const upcoming=approved.filter(eventIsUpcoming);
+
+ const featured=approved.filter(item=>
+  item.featured===true
+ );
+
+ const labels={
+  eventBannerTitle:eventText("banner"),
+  eventBannerDescription:eventText("description"),
+  eventTotalLabel:eventText("total"),
+  eventUpcomingLabel:eventText("upcoming"),
+  eventFeaturedLabel:eventText("featured"),
+  eventFeaturedTitle:eventText("featuredTitle"),
+  eventCalendarTitle:eventText("calendar"),
+  eventDirectoryTitle:eventText("directory"),
+  eventNoticeText:eventText("notice")
+ };
+
+ Object.entries(labels).forEach(([id,value])=>{
+  document.getElementById(id).textContent=value;
+ });
+
+ document.getElementById("eventSearch")
+  .placeholder=eventText("search");
+
+ document.getElementById("eventTotal").textContent=
+  approved.length;
+
+ document.getElementById("eventUpcomingTotal").textContent=
+  upcoming.length;
+
+ document.getElementById("eventFeaturedTotal").textContent=
+  featured.length;
+
+ /* FEATURED EVENTS */
+ const featuredRoot=clear("eventFeaturedGrid");
+
+ featured.forEach(item=>{
+  featuredRoot.append(
+   makeEventCard(item,true)
+  );
+ });
+
+ if(!featured.length){
+  featuredRoot.append(
+   emptyCard(eventText("noFeatured"))
+  );
+ }
+
+ /* CATEGORY FILTERS */
+ renderEventFilters();
+
+ /* SEARCH */
+ const query=document.getElementById("eventSearch")
+  .value.trim();
+
+ const filtered=approved.filter(item=>{
+  const searchable=[
+   localizedValue(item.title),
+   localizedValue(item.description),
+   localizedValue(item.location),
+   item.organizer,
+   item.category,
+   item.date,
+   item.time
+  ].filter(Boolean).join(" ");
+
+  return eventMatchesCategory(item)&&
+   searchMatch(searchable,query);
+ });
+
+ document.getElementById("eventCount").textContent=
+  filtered.length+" "+eventText("total");
+
+ /* EVENT DIRECTORY */
+ const root=clear("eventsGrid");
 
  filtered.forEach(item=>{
-  const card=makeCard(
-   item.title,item.description
-  );
-  card.append(
-   node("p",item.date||tr("noDate"))
-  );
-  root.append(card);
+  root.append(makeEventCard(item));
  });
 
  if(!filtered.length){
-  root.append(emptyCard(
-   events.length?tr("none"):tr("upcoming")
-  ));
+  root.append(
+   emptyCard(
+    approved.length?
+    tr("none"):
+    eventText("empty")
+   )
+  );
  }
+
+ /* CALENDAR */
+ renderEventCalendar(approved);
 }
+
+/* MONTH NAVIGATION */
+document.getElementById("eventPrevMonth")
+ .addEventListener("click",()=>{
+  eventCalendarDate.setDate(1);
+  eventCalendarDate.setMonth(
+   eventCalendarDate.getMonth()-1
+  );
+  selectedEventDate="";
+  clear("eventSelectedDay");
+  renderEventCalendar(approvedEvents());
+ });
+
+document.getElementById("eventNextMonth")
+ .addEventListener("click",()=>{
+  eventCalendarDate.setDate(1);
+  eventCalendarDate.setMonth(
+   eventCalendarDate.getMonth()+1
+  );
+  selectedEventDate="";
+  clear("eventSelectedDay");
+  renderEventCalendar(approvedEvents());
+ });
+
+document.getElementById("eventSearch")
+ .addEventListener("input",renderEvents);
 
 /* SOCIAL NETWORKS */
 const socialNetworks=[
@@ -2181,6 +2816,7 @@ function renderAll(){
 });
 
 setLanguage("fr");
+
 </script>
 </body>
 </html>
