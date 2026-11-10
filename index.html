@@ -357,6 +357,111 @@ footer a{
  color:var(--apricot);
  text-decoration:none;
 }
+
+/* ============================================
+   NEWS CENTER — EDITORIAL EXTENSION
+   ============================================ */
+.news-banner{
+ background:linear-gradient(115deg,#4b2106,#100904);
+ border:2px solid var(--orange);
+ border-radius:16px;
+ padding:24px;
+ text-align:center;
+ margin:24px 0;
+}
+.news-banner h3{
+ color:var(--orange);
+ font-size:26px;
+ margin:0 0 12px;
+}
+.news-banner p{
+ line-height:1.8;
+}
+.news-badge{
+ display:inline-block;
+ color:#000;
+ background:var(--orange);
+ padding:6px 12px;
+ border-radius:6px;
+ font-size:12px;
+ font-weight:900;
+ letter-spacing:1px;
+}
+.news-meta{
+ font-size:13px;
+ color:var(--apricot);
+ line-height:1.6;
+}
+.news-story{
+ border-top:4px solid var(--orange);
+}
+.news-story h3{
+ margin-top:14px;
+}
+.news-story img{
+ width:100%;
+ max-height:260px;
+ object-fit:cover;
+}
+.news-story .news-summary{
+ line-height:1.8;
+}
+.news-editorial{
+ border:1px solid var(--border);
+ border-radius:14px;
+ padding:22px;
+ margin:22px 0;
+ background:linear-gradient(135deg,#211207,#080808);
+}
+.news-editorial h3{
+ color:var(--orange);
+}
+.news-editorial p{
+ line-height:1.8;
+}
+.news-divider{
+ border:0;
+ border-top:1px solid #80400a;
+ margin:30px 0;
+}
+.news-leogane{
+ background:linear-gradient(130deg,#482006,#080808);
+ border:2px solid var(--orange);
+ border-radius:16px;
+ padding:25px;
+ margin:25px 0;
+}
+.news-leogane h3{
+ color:var(--orange);
+ font-size:25px;
+ margin-top:0;
+}
+.news-leogane p{
+ line-height:1.8;
+}
+.news-source-title{
+ text-align:center;
+ color:var(--orange);
+ font-size:25px;
+ margin:35px 0 10px;
+}
+.news-empty{
+ text-align:center;
+ padding:28px;
+ border:1px dashed var(--orange);
+ border-radius:12px;
+ color:var(--apricot);
+}
+.news-featured{
+ border:2px solid var(--orange);
+ background:linear-gradient(145deg,#482006,#080808);
+}
+.news-featured h3{
+ font-size:clamp(22px,3vw,30px);
+}
+.news-featured .news-summary{
+ font-size:17px;
+}
 @media(max-width:650px){
  main{padding:12px}
  .grid{grid-template-columns:1fr}
@@ -364,6 +469,7 @@ footer a{
  .card{padding:18px}
  .logo{height:auto;aspect-ratio:1}
  nav{position:relative}
+ .news-banner,.news-leogane{padding:18px}
 }
 </style>
 </head>
@@ -425,7 +531,7 @@ EXPLORER LES ACTUALITÉS
 
 <main>
 
-<!-- 01 LIVE -->
+<!-- 01 LIVE — PRESERVED -->
 <section class="module" id="live">
 <h2 class="section-title">
 01 — LIVE RADIO
@@ -478,13 +584,91 @@ OUVRIR RADIOKING
 </div>
 </section>
 
-<!-- 02 NEWS -->
+<!-- ============================================
+     02 NEWS CENTER — EDITORIAL NEWSROOM
+     ============================================ -->
 <section class="module" id="news">
+
 <h2 class="section-title">02 — NEWS CENTER</h2>
 
 <p class="section-intro" data-i18n="newsIntro">
 Actualités d'Haïti, de Floride,
 de la diaspora et du monde.
+</p>
+
+<div class="news-banner">
+<span class="news-badge">PRO-MAX FM NEWS</span>
+<h3 data-i18n="newsroomTitle">
+CENTRE DE RÉDACTION
+</h3>
+<p data-i18n="newsroomDescription">
+Les informations sont sélectionnées,
+vérifiées et approuvées par l'équipe
+éditoriale de PRO-MAX FM avant publication.
+</p>
+</div>
+
+<!-- FLASH INFO -->
+<div class="news-editorial">
+<h3 data-i18n="flashTitle">
+● FLASH INFO — DERNIÈRES NOUVELLES
+</h3>
+<p data-i18n="flashDescription">
+Les dernières informations approuvées
+par notre rédaction apparaissent ici.
+</p>
+<div id="flashNewsGrid" class="grid"></div>
+</div>
+
+<!-- FEATURED NEWS -->
+<h3 class="news-source-title" data-i18n="featuredTitle">
+À LA UNE
+</h3>
+<div id="featuredNewsGrid" class="grid"></div>
+
+<hr class="news-divider">
+
+<!-- PUBLISHED NEWS -->
+<h3 class="news-source-title" data-i18n="publishedTitle">
+ACTUALITÉS PUBLIÉES
+</h3>
+
+<input class="search"
+       id="publishedNewsSearch"
+       type="search"
+       data-placeholder="searchArticles"
+       placeholder="Rechercher un article...">
+
+<div class="filters" id="publishedNewsFilters"></div>
+
+<p class="counter" id="publishedNewsCount"></p>
+
+<div class="grid" id="publishedNewsGrid"></div>
+
+<!-- LEOGANE INFO -->
+<div class="news-leogane">
+<span class="news-badge">LÉOGÂNE INFO</span>
+<h3>LÉOGÂNE INFO</h3>
+<p data-i18n="leoganeDescription">
+Un pont entre la Floride et notre communauté
+de Léogâne. Actualités locales, culture,
+développement et vie communautaire.
+</p>
+<div id="leoganeNewsGrid" class="grid"></div>
+</div>
+
+<hr class="news-divider">
+
+<!-- EXISTING MEDIA DIRECTORY -->
+<h3 class="news-source-title" data-i18n="mediaDirectoryTitle">
+RÉPERTOIRE DES SOURCES MÉDIATIQUES
+</h3>
+
+<p class="section-intro" data-i18n="mediaDirectoryDescription">
+Consultez les médias de référence.
+Leur présence dans ce répertoire
+ne signifie pas que leurs contenus
+sont automatiquement publiés.
 </p>
 
 <input class="search"
@@ -505,9 +689,23 @@ avant leur diffusion. Les liens ci-dessus
 mènent aux médias externes.
 </p>
 </div>
+
+<div class="news-editorial">
+<h3 data-i18n="editorialPolicyTitle">
+POLITIQUE ÉDITORIALE
+</h3>
+<p data-i18n="editorialPolicy">
+Aucune information non vérifiée ne doit
+être présentée comme un fait confirmé.
+Chaque article publié doit comporter
+un titre, une date, une source et une
+validation de la rédaction.
+</p>
+</div>
+
 </section>
 
-<!-- 03 SHOWS -->
+<!-- 03 SHOWS — PRESERVED -->
 <section class="module" id="shows">
 <h2 class="section-title">03 — SHOWS CENTER</h2>
 
@@ -520,7 +718,7 @@ de PRO-MAX FM.
 <div class="grid" id="showsGrid"></div>
 </section>
 
-<!-- 04 PODCASTS -->
+<!-- 04 PODCASTS — PRESERVED -->
 <section class="module" id="podcasts">
 <h2 class="section-title">04 — PODCASTS CENTER</h2>
 
@@ -546,7 +744,7 @@ lorsque leurs fichiers audio auront été ajoutés.
 </div>
 </section>
 
-<!-- 05 MUSIC -->
+<!-- 05 MUSIC — PRESERVED -->
 <section class="module" id="music">
 <h2 class="section-title">05 — MUSIC CENTER</h2>
 
@@ -576,7 +774,7 @@ importables dans Auto DJ.
 <div class="grid" id="trackGrid"></div>
 </section>
 
-<!-- 06 ARTISTS -->
+<!-- 06 ARTISTS — PRESERVED -->
 <section class="module" id="artists">
 <h2 class="section-title">06 — ARTISTS CENTER</h2>
 
@@ -603,7 +801,7 @@ photos, biographies et liens officiels.
 </div>
 </section>
 
-<!-- 07 VIDEO -->
+<!-- 07 VIDEO — PRESERVED -->
 <section class="module" id="video">
 <h2 class="section-title">07 — VIDEO CENTER</h2>
 
@@ -630,7 +828,7 @@ leurs fichiers ou liens officiels sont configurés.
 </div>
 </section>
 
-<!-- 08 EVENTS -->
+<!-- 08 EVENTS — PRESERVED -->
 <section class="module" id="events">
 <h2 class="section-title">08 — EVENTS CENTER</h2>
 
@@ -643,7 +841,7 @@ musicaux et émissions spéciales.
 <div class="grid" id="eventsGrid"></div>
 </section>
 
-<!-- 09 CONTACT -->
+<!-- 09 CONTACT — PRESERVED -->
 <section class="module" id="contact">
 <h2 class="section-title">09 — CONTACT CENTER</h2>
 
@@ -701,14 +899,9 @@ La radio de tous, partout et toujours.
 
 /* ============================================
    PRO-MAX FM — CONFIGURATION CENTRALE
+   LIVE RADIOKING PRESERVED
    ============================================ */
 
-/*
-   RADIOKING DIRECT AUDIO STREAM
-   LIVE player uses the stream endpoint.
-   The separate "OUVRIR RADIOKING" button
-   keeps the original listening-page URL.
-*/
 const RADIO_STREAM =
  "https://listen.radioking.com/radio/952371/stream/1024056";
 
@@ -716,6 +909,7 @@ const radioPlayer=document.getElementById("radioPlayer");
 
 let currentLanguage="fr";
 let newsCategory="all";
+let publishedNewsCategory="all";
 let artistCategory="all";
 let videoCategory="all";
 let showCategory="all";
@@ -782,7 +976,29 @@ fr:{
  noDate:"Date à confirmer",
  noAudio:"Aucun fichier audio ajouté.",
  noVideo:"Aucune vidéo ajoutée.",
- noArtists:"Aucun profil d'artiste ajouté."
+ noArtists:"Aucun profil d'artiste ajouté.",
+
+ newsroomTitle:"CENTRE DE RÉDACTION",
+ newsroomDescription:"Les informations sont sélectionnées, vérifiées et approuvées par l'équipe éditoriale de PRO-MAX FM avant publication.",
+ flashTitle:"● FLASH INFO — DERNIÈRES NOUVELLES",
+ flashDescription:"Les dernières informations approuvées par notre rédaction apparaissent ici.",
+ featuredTitle:"À LA UNE",
+ publishedTitle:"ACTUALITÉS PUBLIÉES",
+ searchArticles:"Rechercher un article...",
+ leoganeDescription:"Un pont entre la Floride et notre communauté de Léogâne. Actualités locales, culture, développement et vie communautaire.",
+ mediaDirectoryTitle:"RÉPERTOIRE DES SOURCES MÉDIATIQUES",
+ mediaDirectoryDescription:"Consultez les médias de référence. Leur présence dans ce répertoire ne signifie pas que leurs contenus sont automatiquement publiés.",
+ editorialPolicyTitle:"POLITIQUE ÉDITORIALE",
+ editorialPolicy:"Aucune information non vérifiée ne doit être présentée comme un fait confirmé. Chaque article publié doit comporter un titre, une date, une source et une validation de la rédaction.",
+ noPublishedNews:"Aucune nouvelle approuvée n'a encore été publiée.",
+ noFlashNews:"Aucun flash info approuvé pour le moment.",
+ noFeaturedNews:"Aucun article à la une pour le moment.",
+ noLeoganeNews:"Aucune nouvelle de Léogâne publiée pour le moment.",
+ sourceLabel:"SOURCE",
+ publishedLabel:"PUBLIÉ",
+ readArticle:"LIRE L'ARTICLE",
+ articlesLabel:"ARTICLES",
+ approvedLabel:"VÉRIFIÉ PAR LA RÉDACTION"
 },
 en:{
  home:"HOME",
@@ -840,7 +1056,29 @@ en:{
  noDate:"Date to be confirmed",
  noAudio:"No audio files added.",
  noVideo:"No videos added.",
- noArtists:"No artist profiles added."
+ noArtists:"No artist profiles added.",
+
+ newsroomTitle:"EDITORIAL NEWSROOM",
+ newsroomDescription:"News is selected, verified and approved by the PRO-MAX FM editorial team before publication.",
+ flashTitle:"● BREAKING NEWS — LATEST UPDATES",
+ flashDescription:"The latest approved updates from our newsroom appear here.",
+ featuredTitle:"TOP STORIES",
+ publishedTitle:"PUBLISHED NEWS",
+ searchArticles:"Search articles...",
+ leoganeDescription:"A bridge between Florida and our Léogâne community. Local news, culture, development and community life.",
+ mediaDirectoryTitle:"MEDIA SOURCE DIRECTORY",
+ mediaDirectoryDescription:"Browse reference media outlets. Listing a source does not mean its content is automatically published.",
+ editorialPolicyTitle:"EDITORIAL POLICY",
+ editorialPolicy:"Unverified information must never be presented as confirmed fact. Every published article must have a title, date, source and editorial approval.",
+ noPublishedNews:"No approved news has been published yet.",
+ noFlashNews:"No approved breaking news at this time.",
+ noFeaturedNews:"No featured articles yet.",
+ noLeoganeNews:"No Léogâne news has been published yet.",
+ sourceLabel:"SOURCE",
+ publishedLabel:"PUBLISHED",
+ readArticle:"READ ARTICLE",
+ articlesLabel:"ARTICLES",
+ approvedLabel:"EDITORIALLY VERIFIED"
 },
 ht:{
  home:"AKÈY",
@@ -898,7 +1136,29 @@ ht:{
  noDate:"Dat pou konfime",
  noAudio:"Pa gen fichye odyo ki ajoute.",
  noVideo:"Pa gen videyo ki ajoute.",
- noArtists:"Pa gen pwofil atis ki ajoute."
+ noArtists:"Pa gen pwofil atis ki ajoute.",
+
+ newsroomTitle:"SAL REDAKSYON",
+ newsroomDescription:"Ekip editoryal PRO-MAX FM chwazi, verifye epi apwouve nouvèl yo anvan piblikasyon.",
+ flashTitle:"● FLASH INFO — DÈNYE NOUVÈL",
+ flashDescription:"Dènye enfòmasyon redaksyon an apwouve yo ap parèt isit la.",
+ featuredTitle:"GWO TIT NOUVÈL YO",
+ publishedTitle:"NOUVÈL KI PIBLIYE",
+ searchArticles:"Chèche yon atik...",
+ leoganeDescription:"Yon pon ant Florid ak kominote Léogâne. Nouvèl lokal, kilti, devlopman ak lavi kominotè.",
+ mediaDirectoryTitle:"LIS SOUS MEDYA YO",
+ mediaDirectoryDescription:"Konsilte medya referans yo. Lefètke yon medya nan lis la pa vle di nouvèl li pibliye otomatikman.",
+ editorialPolicyTitle:"RÈG REDAKSYON AN",
+ editorialPolicy:"Nou pa dwe prezante enfòmasyon ki pa verifye kòm verite konfime. Chak atik dwe gen tit, dat, sous ak apwobasyon redaksyon an.",
+ noPublishedNews:"Pa gen nouvèl redaksyon an apwouve ki pibliye ankò.",
+ noFlashNews:"Pa gen flash info ki apwouve pou kounye a.",
+ noFeaturedNews:"Pa gen gwo atik pou kounye a.",
+ noLeoganeNews:"Pa gen nouvèl Léogâne ki pibliye pou kounye a.",
+ sourceLabel:"SOUS",
+ publishedLabel:"PIBLIYE",
+ readArticle:"LI ATIK LA",
+ articlesLabel:"ATIK",
+ approvedLabel:"REDAKSYON AN VERIFYE L"
 }
 };
 
@@ -929,7 +1189,7 @@ function setLanguage(lang){
 }
 
 /* ============================================
-   RADIOKING LIVE PLAYER
+   RADIOKING LIVE PLAYER — PRESERVED
    ============================================ */
 
 let radioState="ready";
@@ -983,7 +1243,8 @@ radioPlayer.addEventListener("error",()=>{
 });
 
 /* ============================================
-   NEWS CENTER — MEDIA SOURCES
+   NEWS CENTER — EXISTING MEDIA SOURCES
+   PRESERVED
    ============================================ */
 
 const newsSources=[
@@ -1010,6 +1271,53 @@ const newsSources=[
 {name:"Loop Haiti",category:"independent"},
 {name:"Tabou Network",category:"independent"},
 {name:"LÉOGÂNE INFO",category:"community"}
+];
+
+/* ============================================
+   PRO-MAX FM — EDITORIAL NEWS REGISTRY
+
+   PUBLICATION RULES:
+   1. Verify facts and sources.
+   2. Obtain editorial approval.
+   3. Set approved:true.
+   4. Set status:"published".
+   5. Provide title, summary, date and source.
+   6. Add a real article URL if available.
+   7. Deploy the updated index.html.
+
+   Drafts and unapproved items are hidden.
+   No article is fabricated or auto-imported.
+
+   EXAMPLE FORMAT — COMMENT ONLY:
+
+   {
+    id:"news-001",
+    title:{
+     fr:"Titre vérifié",
+     en:"Verified headline",
+     ht:"Tit verifye"
+    },
+    summary:{
+     fr:"Résumé vérifié",
+     en:"Verified summary",
+     ht:"Rezime verifye"
+    },
+    category:"haiti",
+    date:"2026-11-09T12:00:00-05:00",
+    source:"Nom de la source",
+    url:"https://example.com/verified-article",
+    image:"",
+    approved:true,
+    status:"published",
+    flash:false,
+    featured:true,
+    leogane:false
+   }
+
+   ============================================ */
+
+const editorialNews=[
+ // Published articles approved by the newsroom
 ];
 
 /* ============================================
@@ -1064,8 +1372,7 @@ const shows=[
 ];
 
 /* ============================================
-   PODCASTS — CONTENT REGISTRY
-   Add actual audio entries here.
+   PODCASTS — EXISTING CONTENT REGISTRY
    ============================================ */
 
 const podcasts=[
@@ -1080,7 +1387,7 @@ const podcasts=[
 ];
 
 /* ============================================
-   MUSIC CENTER — GENRES
+   MUSIC CENTER — EXISTING GENRES
    ============================================ */
 
 const genres=[
@@ -1116,8 +1423,7 @@ const tracks=[
 ];
 
 /* ============================================
-   ARTISTS CENTER — DIRECTORY
-   Add verified artist profiles here.
+   ARTISTS CENTER — EXISTING REGISTRY
    ============================================ */
 
 const artists=[
@@ -1133,7 +1439,7 @@ const artists=[
 ];
 
 /* ============================================
-   VIDEO CENTER — VIDEO REGISTRY
+   VIDEO CENTER — EXISTING REGISTRY
    ============================================ */
 
 const videos=[
@@ -1148,7 +1454,7 @@ const videos=[
 ];
 
 /* ============================================
-   EVENTS CENTER — EVENTS REGISTRY
+   EVENTS CENTER — EXISTING REGISTRY
    ============================================ */
 
 const events=[
@@ -1163,7 +1469,7 @@ const events=[
 ];
 
 /* ============================================
-   SOCIAL NETWORKS
+   SOCIAL NETWORKS — PRESERVED
    ============================================ */
 
 const socialNetworks=[
@@ -1180,7 +1486,7 @@ const socialNetworks=[
 ];
 
 /* ============================================
-   SAFE DOM HELPERS
+   SAFE DOM HELPERS — PRESERVED
    ============================================ */
 
 function node(tag,text,className){
@@ -1238,7 +1544,7 @@ function searchMatch(value,query){
 }
 
 /* ============================================
-   NEWS RENDERING
+   NEWS — EXISTING MEDIA DIRECTORY
    ============================================ */
 
 function renderNews(){
@@ -1273,7 +1579,199 @@ function renderNews(){
 }
 
 /* ============================================
-   SHOWS RENDERING
+   NEWS — EDITORIAL PUBLICATION ENGINE
+   ============================================ */
+
+function localizedValue(value){
+ if(typeof value==="string")return value;
+ if(!value||typeof value!=="object")return "";
+ return value[currentLanguage]||
+        value.fr||
+        value.en||
+        value.ht||
+        "";
+}
+
+function approvedArticles(){
+ return editorialNews
+  .filter(item=>
+   item &&
+   item.approved===true &&
+   item.status==="published" &&
+   item.title &&
+   localizedValue(item.title).trim() &&
+   item.summary &&
+   localizedValue(item.summary).trim() &&
+   item.date &&
+   !Number.isNaN(Date.parse(item.date)) &&
+   item.source &&
+   String(item.source).trim()
+  )
+  .sort((a,b)=>Date.parse(b.date)-Date.parse(a.date));
+}
+
+function formatNewsDate(value){
+ const date=new Date(value);
+
+ if(Number.isNaN(date.getTime())){
+  return tr("noDate");
+ }
+
+ const locale={
+  fr:"fr-FR",
+  en:"en-US",
+  ht:"fr-HT"
+ }[currentLanguage]||"fr-FR";
+
+ return new Intl.DateTimeFormat(locale,{
+  year:"numeric",
+  month:"long",
+  day:"numeric",
+  hour:"2-digit",
+  minute:"2-digit",
+  timeZone:"America/New_York"
+ }).format(date);
+}
+
+function makeNewsArticle(item,featured=false){
+ const card=node(
+  "article",
+  null,
+  featured?"card news-story news-featured":"card news-story"
+ );
+
+ if(item.image){
+  const img=node("img");
+  img.src=item.image;
+  img.alt=localizedValue(item.title);
+  img.loading="lazy";
+  img.addEventListener("error",()=>img.remove());
+  card.append(img);
+ }
+
+ const category=node(
+  "span",
+  tr(item.category||"news"),
+  "news-badge"
+ );
+ card.append(category);
+
+ card.append(
+  node("h3",localizedValue(item.title))
+ );
+
+ card.append(
+  node(
+   "p",
+   localizedValue(item.summary),
+   "news-summary"
+  )
+ );
+
+ const meta=node("p",null,"news-meta");
+ meta.append(
+  node("strong",tr("publishedLabel")+": "),
+  document.createTextNode(formatNewsDate(item.date)),
+  node("span","  |  "),
+  node("strong",tr("sourceLabel")+": "),
+  document.createTextNode(item.source)
+ );
+ card.append(meta);
+
+ card.append(
+  node("p","✓ "+tr("approvedLabel"),"news-meta")
+ );
+
+ if(item.url){
+  const link=node("a",tr("readArticle"));
+  link.href=item.url;
+  link.target="_blank";
+  link.rel="noopener noreferrer";
+  card.append(link);
+ }
+
+ return card;
+}
+
+function renderNewsCollection(id,items,emptyMessage,featured=false){
+ const root=clear(id);
+
+ if(!items.length){
+  root.append(emptyCard(tr(emptyMessage)));
+  return;
+ }
+
+ items.forEach(item=>{
+  root.append(makeNewsArticle(item,featured));
+ });
+}
+
+function renderEditorialNews(){
+ const approved=approvedArticles();
+
+ renderNewsCollection(
+  "flashNewsGrid",
+  approved.filter(item=>item.flash===true).slice(0,5),
+  "noFlashNews"
+ );
+
+ renderNewsCollection(
+  "featuredNewsGrid",
+  approved.filter(item=>item.featured===true).slice(0,4),
+  "noFeaturedNews",
+  true
+ );
+
+ renderNewsCollection(
+  "leoganeNewsGrid",
+  approved.filter(item=>
+   item.leogane===true ||
+   item.category==="community"
+  ).slice(0,6),
+  "noLeoganeNews"
+ );
+
+ renderFilterButtons(
+  "publishedNewsFilters",
+  ["all","haiti","world","diaspora","digital","independent","community"],
+  publishedNewsCategory,
+  category=>{
+   publishedNewsCategory=category;
+   renderEditorialNews();
+  }
+ );
+
+ const query=document
+  .getElementById("publishedNewsSearch")
+  .value.trim();
+
+ const filtered=approved.filter(item=>{
+  const categoryMatch=
+   publishedNewsCategory==="all" ||
+   item.category===publishedNewsCategory;
+
+  const searchable=[
+   localizedValue(item.title),
+   localizedValue(item.summary),
+   item.source,
+   tr(item.category||"news")
+  ].join(" ");
+
+  return categoryMatch&&searchMatch(searchable,query);
+ });
+
+ document.getElementById("publishedNewsCount")
+  .textContent=filtered.length+" "+tr("articlesLabel");
+
+ renderNewsCollection(
+  "publishedNewsGrid",
+  filtered,
+  approved.length?"none":"noPublishedNews"
+ );
+}
+
+/* ============================================
+   SHOWS RENDERING — PRESERVED
    ============================================ */
 
 function renderShows(){
@@ -1311,7 +1809,7 @@ function renderShows(){
 }
 
 /* ============================================
-   PODCAST RENDERING
+   PODCAST RENDERING — PRESERVED
    ============================================ */
 
 function renderPodcasts(){
@@ -1342,7 +1840,7 @@ function renderPodcasts(){
 }
 
 /* ============================================
-   MUSIC RENDERING
+   MUSIC RENDERING — PRESERVED
    ============================================ */
 
 function renderMusic(){
@@ -1387,7 +1885,7 @@ function renderMusic(){
 }
 
 /* ============================================
-   ARTISTS RENDERING
+   ARTISTS RENDERING — PRESERVED
    ============================================ */
 
 function renderArtists(){
@@ -1431,7 +1929,7 @@ function renderArtists(){
 }
 
 /* ============================================
-   VIDEO RENDERING
+   VIDEO RENDERING — PRESERVED
    ============================================ */
 
 function renderVideos(){
@@ -1479,7 +1977,7 @@ function renderVideos(){
 }
 
 /* ============================================
-   EVENTS RENDERING
+   EVENTS RENDERING — PRESERVED
    ============================================ */
 
 function renderEvents(){
@@ -1513,7 +2011,7 @@ function renderEvents(){
 }
 
 /* ============================================
-   SOCIAL RENDERING
+   SOCIAL RENDERING — PRESERVED
    ============================================ */
 
 function renderSocial(){
@@ -1535,11 +2033,12 @@ function renderSocial(){
 }
 
 /* ============================================
-   INITIALIZATION
+   INITIALIZATION — ALL NINE MODULES
    ============================================ */
 
 function renderAll(){
  renderNews();
+ renderEditorialNews();
  renderShows();
  renderPodcasts();
  renderMusic();
@@ -1551,6 +2050,9 @@ function renderAll(){
 
 document.getElementById("newsSearch")
  .addEventListener("input",renderNews);
+
+document.getElementById("publishedNewsSearch")
+ .addEventListener("input",renderEditorialNews);
 
 document.getElementById("podcastSearch")
  .addEventListener("input",renderPodcasts);
