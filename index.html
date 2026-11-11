@@ -7,6 +7,7 @@
 <meta name="theme-color" content="#080808">
 <meta name="description" content="PRO-MAX FM — LA FORCE DU SON">
 <title>PRO-MAX FM | LA FORCE DU SON</title>
+
 <style>
 :root{
  --orange:#ff8c00;
@@ -422,6 +423,13 @@ footer{
  color:var(--apricot);
  font-size:13px;
 }
+.translation-status{
+ display:block;
+ margin:8px 0;
+ color:var(--apricot);
+ font-size:12px;
+}
+[hidden]{display:none!important}
 @media(max-width:650px){
  main{padding:12px}
  .grid{grid-template-columns:1fr}
@@ -436,6 +444,7 @@ footer{
 }
 </style>
 </head>
+
 <body>
 
 <header id="home">
@@ -1271,6 +1280,7 @@ const translations = {
 };
 
 /* COMMON HELPERS */
+
 function tr(key){
  return translations[currentLanguage][key]||key;
 }
@@ -1367,6 +1377,7 @@ function setLanguage(lang){
 /* ==========================================
    01 — LIVE RADIO
    ========================================== */
+
 async function playRadio(){
  radioState="connecting";
  updateRadioStatus();
@@ -1405,6 +1416,7 @@ radioPlayer.addEventListener("error",()=>{
 /* ==========================================
    02 — NEWS CENTER
    ========================================== */
+
 const newsSources=[
  {name:"Radio Télé Éclair",category:"haiti",url:""},
  {name:"Radio Télévision Caraïbes",category:"haiti",url:"https://www.radiotelevisioncaraibes.com"},
@@ -1455,6 +1467,7 @@ function renderNews(){
 }
 
 /* APPROVED EDITORIAL ARTICLES */
+
 function approvedArticles(){
  return editorialNews.filter(item=>
   item&&item.approved===true&&
@@ -1517,16 +1530,19 @@ const RSS_FEEDS=[
  {
   name:"HAÏTI",
   category:"haiti",
+  language:"fr",
   url:"https://news.google.com/rss/search?q=Haiti&hl=fr&gl=FR&ceid=FR:fr"
  },
  {
   name:"FLORIDE / DIASPORA",
   category:"diaspora",
+  language:"en",
   url:"https://news.google.com/rss/search?q=Haiti+Florida&hl=en-US&gl=US&ceid=US:en"
  },
  {
   name:"INTERNATIONAL",
   category:"world",
+  language:"en",
   url:"https://feeds.bbci.co.uk/news/world/rss.xml"
  }
 ];
@@ -1609,6 +1625,7 @@ async function loadRSS(feed){
    source:(data.feed&&data.feed.title)||
     feed.name,
    category:feed.category,
+   language:feed.language,
    date:rssDate(item.pubDate||item.published),
    image:rssValidURL(item.thumbnail)?
     item.thumbnail:""
@@ -1618,8 +1635,232 @@ async function loadRSS(feed){
  }
 }
 
+/* ==========================================
+   NEW ADDITION — AUTOMATIC NEWS TRANSLATION
+   FR / ENG / KRE
+   Original RSS titles and summaries preserved.
+   External translation service: MyMemory.
+   ========================================== */
+
+const NEWS_TRANSLATION_API =
+ "https://api.mymemory.translated.net/get";
+
+const newsTranslationCache=new Map();
+const newsTranslationPending=new Map();
+
+let newsTranslationGeneration=0;
+
+function translationTarget(){
+ return currentLanguage==="ht"?"ht":
+  currentLanguage==="en"?"en":"fr";
+}
+
+function translationNotice(key){
+ const messages={
+  translating:{
+   fr:"Traduction en cours...",
+   en:"Translating...",
+   ht:"Tradiksyon ap fèt..."
+  },
+  translated:{
+   fr:"Traduction automatique",
+   en:"Automatic translation",
+   ht:"Tradiksyon otomatik"
+  },
+  original:{
+   fr:"Texte original — traduction indisponible",
+   en:"Original text — translation unavailable",
+   ht:"Tèks orijinal — tradiksyon pa disponib"
+  }
+ };
+ return messages[key][currentLanguage];
+}
+
+function translationCacheKey(text,source,target){
+ return source+"|"+target+"|"+text;
+}
+
+async function translateNewsText(text,source,target){
+ const original=String(text||"").trim();
+
+ if(!original||source===target){
+  return {text:original,translated:false,failed:false};
+ }
+
+ const key=translationCacheKey(original,source,target);
+
+ if(newsTranslationCache.has(key)){
+  return {
+   text:newsTranslationCache.get(key),
+   translated:true,
+   failed:false
+  };
+ }
+
+ if(newsTranslationPending.has(key)){
+  return newsTranslationPending.get(key);
+ }
+
+ const request=(async()=>{
+  try{
+   const url=new URL(NEWS_TRANSLATION_API);
+
+   url.searchParams.set("q",original.slice(0,450));
+   url.searchParams.set("langpair",source+"|"+target);
+
+   const response=await fetch(url.toString());
+
+   if(!response.ok){
+    throw new Error("Translation HTTP "+response.status);
+   }
+
+   const data=await response.json();
+
+   if(
+    Number(data.responseStatus)!==200||
+    !data.responseData||
+    !data.responseData.translatedText
+   ){
+    throw new Error("Translation unavailable");
+   }
+
+   const translated=rssPlainText(
+    data.responseData.translatedText
+   ).trim();
+
+   if(!translated){
+    throw new Error("Empty translation");
+   }
+
+   newsTranslationCache.set(key,translated);
+
+   return {
+    text:translated,
+    translated:true,
+    failed:false
+   };
+  }catch(error){
+   console.warn("PRO-MAX FM translation:",error);
+
+   return {
+    text:original,
+    translated:false,
+    failed:true
+   };
+  }finally{
+   newsTranslationPending.delete(key);
+  }
+ })();
+
+ newsTranslationPending.set(key,request);
+
+ return request;
+}
+
+/*
+ Translation is applied to each RSS item only once
+ per language. Cards reuse the same translated data
+ in FLASH INFO, À LA UNE and PUBLISHED NEWS.
+*/
+
+async function prepareNewsTranslation(item,target){
+ const source=item.language||"en";
+
+ if(source===target){
+  return {
+   title:item.title,
+   summary:item.summary,
+   translated:false,
+   failed:false
+  };
+ }
+
+ const [titleResult,summaryResult]=await Promise.all([
+  translateNewsText(item.title,source,target),
+  item.summary?
+   translateNewsText(item.summary,source,target):
+   Promise.resolve({
+    text:"",
+    translated:false,
+    failed:false
+   })
+ ]);
+
+ return {
+  title:titleResult.text,
+  summary:summaryResult.text,
+  translated:titleResult.translated||
+   summaryResult.translated,
+  failed:titleResult.failed||summaryResult.failed
+ };
+}
+
+function translatedNewsValue(item,language){
+ if(!item.translations){
+  item.translations={};
+ }
+
+ if(item.translations[language]){
+  return item.translations[language];
+ }
+
+ return {
+  title:item.title,
+  summary:item.summary,
+  translated:false,
+  failed:false,
+  pending:language!==item.language
+ };
+}
+
+async function translateVisibleNews(){
+ const generation=++newsTranslationGeneration;
+ const language=translationTarget();
+
+ const items=externalArticles.filter(
+  item=>item.language!==language&&
+  !(item.translations&&item.translations[language])
+ );
+
+ /*
+  Limit simultaneous translation requests.
+  This helps avoid flooding the public API.
+ */
+ const batchSize=2;
+
+ for(let i=0;i<items.length;i+=batchSize){
+  if(generation!==newsTranslationGeneration)return;
+
+  const batch=items.slice(i,i+batchSize);
+
+  await Promise.all(batch.map(async item=>{
+   const result=await prepareNewsTranslation(
+    item,language
+   );
+
+   if(!item.translations){
+    item.translations={};
+   }
+
+   item.translations[language]=result;
+  }));
+
+  if(generation!==newsTranslationGeneration)return;
+
+  renderEditorialNews();
+ }
+
+ if(generation===newsTranslationGeneration){
+  renderEditorialNews();
+ }
+}
+
 function makeExternalNewsCard(item){
  const card=node("article",null,"card");
+
+ const localized=translatedNewsValue(
+  item,currentLanguage
+ );
 
  card.append(
   node("span",
@@ -1629,11 +1870,11 @@ function makeExternalNewsCard(item){
     "SOUS EKSTÈN"
    ),
    "news-badge"),
-  node("h3",item.title)
+  node("h3",localized.title)
  );
 
- if(item.summary){
-  card.append(node("p",item.summary));
+ if(localized.summary){
+  card.append(node("p",localized.summary));
  }
 
  const dateText=item.date?
@@ -1649,6 +1890,24 @@ function makeExternalNewsCard(item){
    item.source+" | "+dateText,
    "news-meta")
  );
+
+ if(item.language!==currentLanguage){
+  let status="";
+
+  if(localized.pending){
+   status=translationNotice("translating");
+  }else if(localized.failed){
+   status=translationNotice("original");
+  }else if(localized.translated){
+   status=translationNotice("translated");
+  }
+
+  if(status){
+   card.append(
+    node("small",status,"translation-status")
+   );
+  }
+ }
 
  addLink(
   card,
@@ -1733,15 +1992,21 @@ function renderEditorialNews(){
   )
  );
 
- const filteredExternal=externalArticles.filter(item=>
-  (publishedNewsCategory==="all"||
-   item.category===publishedNewsCategory)&&
-  searchMatch(
+ const filteredExternal=externalArticles.filter(item=>{
+  const localized=translatedNewsValue(
+   item,currentLanguage
+  );
+
+  return (
+   publishedNewsCategory==="all"||
+   item.category===publishedNewsCategory
+  )&&searchMatch(
+   localized.title+" "+localized.summary+" "+
    item.title+" "+item.summary+" "+
    item.source,
    query
-  )
- );
+  );
+ });
 
  document.getElementById(
   "publishedNewsCount"
@@ -1840,6 +2105,10 @@ async function refreshFlashInfo(){
   if(fresh.length){
    const seen=new Set();
 
+   const previous=new Map(
+    externalArticles.map(item=>[item.url,item])
+   );
+
    externalArticles=fresh.filter(item=>{
     if(!item.title||
        !rssValidURL(item.url)||
@@ -1851,7 +2120,17 @@ async function refreshFlashInfo(){
    }).sort((a,b)=>
     (b.date?b.date.getTime():0)-
     (a.date?a.date.getTime():0)
-   ).slice(0,45);
+   ).slice(0,45).map(item=>{
+    const old=previous.get(item.url);
+
+    if(old&&old.title===item.title){
+     item.translations=old.translations||{};
+    }else{
+     item.translations={};
+    }
+
+    return item;
+   });
 
    rssLastSuccess=new Date();
    flashLastUpdated=rssLastSuccess;
@@ -1866,6 +2145,10 @@ async function refreshFlashInfo(){
 
   renderEditorialNews();
   updateFlashStatus();
+
+  if(externalArticles.length){
+   translateVisibleNews();
+  }
 
  }catch(error){
   flashDataState="error";
@@ -1900,6 +2183,7 @@ function startFlashInfoUpdates(){
 /* ==========================================
    03 — SHOWS CENTER
    ========================================== */
+
 const shows=[
  {
   title:"MATIN FORCE",
@@ -2099,6 +2383,7 @@ function renderShows(){
 /* ==========================================
    04 — PODCASTS CENTER
    ========================================== */
+
 const podcasts=[];
 let podcastCategory="all";
 
@@ -2249,6 +2534,7 @@ function renderPodcasts(){
 /* ==========================================
    05 — MUSIC CENTER
    ========================================== */
+
 const genres=[
  "Kompa","Kompa Love","Reggae",
  "Reggae for Lovers","Rap Kreyòl",
@@ -2305,6 +2591,7 @@ function renderMusic(){
 /* ==========================================
    06 — ARTISTS CENTER
    ========================================== */
+
 const artists=[
  /*
  {
@@ -2649,6 +2936,7 @@ function renderArtists(){
 /* ==========================================
    07 — VIDEO CENTER
    ========================================== */
+
 const videos=[];
 let videoCategory="all";
 
@@ -2939,6 +3227,7 @@ function makeEventCard(item,featured=false){
 }
 
 /* EVENTS CALENDAR */
+
 let eventCalendarDate=new Date();
 eventCalendarDate.setDate(1);
 
@@ -3244,6 +3533,7 @@ document.getElementById("eventSearch")
 /* ==========================================
    09 — CONTACT / SOCIAL NETWORKS
    ========================================== */
+
 const socialNetworks=[
  {
   name:"Facebook",
@@ -3335,6 +3625,7 @@ function renderSocial(){
 /* ==========================================
    INITIALIZE ALL NINE MODULES
    ========================================== */
+
 function renderAll(){
  renderNews();
  renderEditorialNews();
@@ -3359,6 +3650,27 @@ function renderAll(){
  document.getElementById(id)
   .addEventListener("input",fn);
 });
+
+/*
+ Language switching also refreshes translated RSS.
+ This does not change the original article links.
+*/
+
+const originalSetLanguage=setLanguage;
+
+setLanguage=function(lang){
+ if(!translations[lang])return;
+
+ newsTranslationGeneration++;
+
+ originalSetLanguage(lang);
+
+ if(externalArticles.length){
+  translateVisibleNews();
+ }
+};
+
+/* START PLATFORM */
 
 setLanguage("fr");
 startFlashInfoUpdates();
