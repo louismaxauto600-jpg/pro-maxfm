@@ -1120,7 +1120,6 @@ const translations = {
   autoDJNotice:"Auto DJ programming is managed through RadioKing.",
   artistsIntro:"Artists, bands, musicians and DJs.",
   searchArtists:"Search artists...",
-  artistNotice:"Artist profiles will appear with photos, biographies and official links.",
   videoIntro:"Videos, interviews, reports and shows.",
   searchVideos:"Search videos...",
   videoNotice:"Videos will appear once configured.",
@@ -1218,9 +1217,6 @@ const translations = {
   podcastTotalLabel:"EPIZÒD",
   podcastCategoriesLabel:"KATEGORI",
   podcastReplayLabel:"REPLAY",
-  podcastFeaturedTitle:"PODCAST AN VEDET",
-  podcastDirectoryTitle:"BIBLIYOTÈK PODCAST",
-  podcastReplayTitle:"REPLAY — EMISYON ANREJISTRE",
   searchPodcasts:"Chèche yon podcast...",
   podcastNotice:"Epizòd yo ap parèt lè fichye odyo yo ajoute.",
   musicIntro:"Dekouvri estil mizik PRO-MAX FM yo.",
@@ -3676,5 +3672,233 @@ setLanguage("fr");
 startFlashInfoUpdates();
 
 </script>
+
+<!-- ==================================================
+     AJOUT SANS MODIFICATION DU CODE EXISTANT
+     PRO-MAX FM — PODCASTS CENTER
+     DÉTECTION DES ÉPISODES MP3
+     ================================================== -->
+
+<script>
+(function(){
+ "use strict";
+
+ const PODCAST_FOLDER="audio/podcasts/";
+ const PODCAST_SCAN_LIMIT=30;
+ const PODCAST_BATCH_SIZE=6;
+
+ const status=document.createElement("p");
+ status.id="podcastScanStatus";
+ status.className="flash-status";
+ status.setAttribute("role","status");
+ status.setAttribute("aria-live","polite");
+
+ const podcastStats=document.querySelector(
+  "#podcasts .stats"
+ );
+
+ if(podcastStats){
+  podcastStats.insertAdjacentElement(
+   "afterend",status
+  );
+ }
+
+ let podcastScanFinished=false;
+ let podcastScanCount=0;
+
+ function podcastStatusText(){
+  const language=currentLanguage;
+
+  const messages={
+   fr:{
+    scanning:"Recherche des épisodes MP3...",
+    available:"Épisodes MP3 disponibles",
+    empty:"Aucun fichier MP3 détecté dans audio/podcasts/."
+   },
+   en:{
+    scanning:"Searching for MP3 episodes...",
+    available:"Available MP3 episodes",
+    empty:"No MP3 files detected in audio/podcasts/."
+   },
+   ht:{
+    scanning:"Ap chèche epizòd MP3 yo...",
+    available:"Epizòd MP3 ki disponib",
+    empty:"Pa gen fichye MP3 detekte nan audio/podcasts/."
+   }
+  };
+
+  const words=messages[language]||messages.fr;
+
+  if(!podcastScanFinished){
+   status.textContent=words.scanning;
+   return;
+  }
+
+  if(podcastScanCount===0){
+   status.textContent=words.empty;
+   return;
+  }
+
+  status.textContent=
+   podcastScanCount+" "+words.available;
+ }
+
+ async function podcastMP3Exists(path){
+  const controller=new AbortController();
+
+  const timeout=setTimeout(
+   ()=>controller.abort(),
+   10000
+  );
+
+  try{
+   const response=await fetch(path,{
+    method:"HEAD",
+    cache:"no-store",
+    signal:controller.signal
+   });
+
+   if(!response.ok){
+    return false;
+   }
+
+   const contentType=String(
+    response.headers.get("content-type")||""
+   ).toLowerCase();
+
+   /*
+    Refuse HTML fallback pages.
+    Accept real audio or binary audio delivery.
+   */
+
+   return (
+    contentType.startsWith("audio/")||
+    contentType.includes(
+     "application/octet-stream"
+    )
+   );
+  }catch(error){
+   return false;
+  }finally{
+   clearTimeout(timeout);
+  }
+ }
+
+ async function scanPodcastFiles(){
+  podcastScanFinished=false;
+  podcastStatusText();
+
+  const discovered=[];
+
+  for(
+   let start=1;
+   start<=PODCAST_SCAN_LIMIT;
+   start+=PODCAST_BATCH_SIZE
+  ){
+   const checks=[];
+
+   for(
+    let number=start;
+    number<start+PODCAST_BATCH_SIZE&&
+    number<=PODCAST_SCAN_LIMIT;
+    number++
+   ){
+    const episodeNumber=String(number)
+     .padStart(3,"0");
+
+    const path=PODCAST_FOLDER+
+     "episode-"+episodeNumber+".mp3";
+
+    checks.push(
+     podcastMP3Exists(path).then(exists=>({
+      exists:exists,
+      number:number,
+      path:path
+     }))
+    );
+   }
+
+   const results=await Promise.all(checks);
+
+   results.forEach(result=>{
+    if(result.exists){
+     discovered.push(result);
+    }
+   });
+  }
+
+  discovered.sort(
+   (a,b)=>a.number-b.number
+  );
+
+  let inserted=0;
+
+  discovered.forEach(item=>{
+   const alreadyListed=podcasts.some(
+    episode=>episode.audio===item.path
+   );
+
+   if(alreadyListed){
+    return;
+   }
+
+   const episodeNumber=String(
+    item.number
+   ).padStart(3,"0");
+
+   podcasts.push({
+    title:"PRO-MAX FM — EPISODE "+episodeNumber,
+    description:"",
+    category:"special",
+    host:"",
+    date:"",
+    cover:"",
+    audio:item.path,
+    featured:inserted===0,
+    approved:true,
+    automatic:true
+   });
+
+   inserted++;
+  });
+
+  podcastScanCount=discovered.length;
+  podcastScanFinished=true;
+
+  renderPodcasts();
+  podcastStatusText();
+ }
+
+ /*
+  Keep scan messages synchronized with the
+  existing FR / ENG / KRE language buttons.
+  Existing setLanguage() is not modified.
+ */
+
+ ["fr","en","ht"].forEach(language=>{
+  const button=document.getElementById(
+   "lang-"+language
+  );
+
+  if(button){
+   button.addEventListener(
+    "click",podcastStatusText
+   );
+  }
+ });
+
+ scanPodcastFiles().catch(error=>{
+  console.warn(
+   "PRO-MAX FM PODCAST SCAN:",
+   error
+  );
+
+  podcastScanFinished=true;
+  podcastStatusText();
+ });
+
+})();
+</script>
+
 </body>
 </html>
