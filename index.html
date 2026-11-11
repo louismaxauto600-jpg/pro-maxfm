@@ -925,6 +925,10 @@ La radio de tous, partout et toujours.
 <script>
 "use strict";
 
+/* ==========================================
+   PRO-MAX FM — COMPLETE JAVASCRIPT
+   ========================================== */
+
 const RADIO_STREAM =
  "https://listen.radioking.com/radio/952371/stream/1024056";
 
@@ -1266,6 +1270,7 @@ const translations = {
  }
 };
 
+/* COMMON HELPERS */
 function tr(key){
  return translations[currentLanguage][key]||key;
 }
@@ -1359,7 +1364,9 @@ function setLanguage(lang){
  updateFlashStatus();
 }
 
-/* 01 — LIVE RADIO */
+/* ==========================================
+   01 — LIVE RADIO
+   ========================================== */
 async function playRadio(){
  radioState="connecting";
  updateRadioStatus();
@@ -1395,7 +1402,9 @@ radioPlayer.addEventListener("error",()=>{
  updateRadioStatus();
 });
 
-/* 02 — NEWS CENTER */
+/* ==========================================
+   02 — NEWS CENTER
+   ========================================== */
 const newsSources=[
  {name:"Radio Télé Éclair",category:"haiti",url:""},
  {name:"Radio Télévision Caraïbes",category:"haiti",url:"https://www.radiotelevisioncaraibes.com"},
@@ -1418,12 +1427,15 @@ let newsCategory="all";
 let publishedNewsCategory="all";
 
 function renderNews(){
- renderFilterButtons("newsFilters",
- ["all","haiti","world","diaspora","digital","independent","community"],
- newsCategory,c=>{
-  newsCategory=c;
-  renderNews();
- });
+ renderFilterButtons(
+  "newsFilters",
+  ["all","haiti","world","diaspora","digital","independent","community"],
+  newsCategory,
+  c=>{
+   newsCategory=c;
+   renderNews();
+  }
+ );
  const query=document.getElementById("newsSearch").value.trim();
  const filtered=newsSources.filter(item=>
   (newsCategory==="all"||item.category===newsCategory)&&
@@ -1442,6 +1454,7 @@ function renderNews(){
  if(!filtered.length)root.append(emptyCard(tr("none")));
 }
 
+/* APPROVED EDITORIAL ARTICLES */
 function approvedArticles(){
  return editorialNews.filter(item=>
   item&&item.approved===true&&
@@ -1454,7 +1467,6 @@ function approvedArticles(){
   /^https?:\/\//i.test(item.url)
  ).sort((a,b)=>Date.parse(b.date)-Date.parse(a.date));
 }
-
 function makeNewsArticle(item){
  const card=node("article",null,"card");
  addImage(card,item.image,localizedValue(item.title));
@@ -1471,7 +1483,6 @@ function makeNewsArticle(item){
  addLink(card,tr("readArticle"),item.url);
  return card;
 }
-
 function formatNewsDate(value){
  const date=new Date(value);
  if(Number.isNaN(date.getTime()))return String(value);
@@ -1484,7 +1495,6 @@ function formatNewsDate(value){
   }
  ).format(date);
 }
-
 function renderNewsCollection(id,items,emptyKey){
  const root=clear(id);
  if(!items.length){
@@ -1494,101 +1504,86 @@ function renderNewsCollection(id,items,emptyKey){
  items.forEach(item=>root.append(makeNewsArticle(item)));
 }
 
-function renderEditorialNews(){
- const approved=approvedArticles();
+/* ==========================================
+   FLASH INFO — AUTOMATIC RSS NEWS
+   RSS service: rss2json
+   Polling interval: 5 minutes
+   External news is NOT editorially verified.
+   ========================================== */
 
- renderNewsCollection(
-  "flashNewsGrid",
-  approved.filter(x=>x.flash===true).slice(0,5),
-  "noFlashNews"
- );
+const RSS_API="https://api.rss2json.com/v1/api.json";
 
- renderNewsCollection(
-  "featuredNewsGrid",
-  approved.filter(x=>x.featured===true).slice(0,4),
-  "noFeaturedNews"
- );
-
- renderNewsCollection(
-  "leoganeNewsGrid",
-  approved.filter(x=>
-   x.leogane===true||x.category==="community"
-  ).slice(0,6),
-  "noLeoganeNews"
- );
-
- renderFilterButtons(
-  "publishedNewsFilters",
-  ["all","haiti","world","diaspora","digital","independent","community"],
-  publishedNewsCategory,
-  c=>{
-   publishedNewsCategory=c;
-   renderEditorialNews();
-  }
- );
-
- const query=document.getElementById("publishedNewsSearch")
-  .value.trim();
-
- const filtered=approved.filter(item=>
-  (publishedNewsCategory==="all"||
-   item.category===publishedNewsCategory)&&
-  searchMatch(
-   localizedValue(item.title)+" "+
-   localizedValue(item.summary)+" "+item.source,
-   query
-  )
- );
-
- document.getElementById("publishedNewsCount").textContent=
-  filtered.length+" "+tr("articlesLabel");
-
- renderNewsCollection(
-  "publishedNewsGrid",
-  filtered,
-  approved.length?"none":"noPublishedNews"
- );
-}
-
-/* FLASH INFO — AUTO REFRESH */
-function updateFlashStatus(){
- const root=document.getElementById("flashUpdateStatus");
- if(!root)return;
-
- if(flashDataState==="error"){
-  root.textContent=
-   tr("flashUnavailable")+" "+tr("flashRefresh");
-  return;
+const RSS_FEEDS=[
+ {
+  name:"HAÏTI",
+  category:"haiti",
+  url:"https://news.google.com/rss/search?q=Haiti&hl=fr&gl=FR&ceid=FR:fr"
+ },
+ {
+  name:"FLORIDE / DIASPORA",
+  category:"diaspora",
+  url:"https://news.google.com/rss/search?q=Haiti+Florida&hl=en-US&gl=US&ceid=US:en"
+ },
+ {
+  name:"INTERNATIONAL",
+  category:"world",
+  url:"https://feeds.bbci.co.uk/news/world/rss.xml"
  }
+];
 
- if(flashLastUpdated){
-  root.textContent=
-   tr("flashUpdated")+": "+
-   new Intl.DateTimeFormat(
-    {fr:"fr-FR",en:"en-US",ht:"fr-HT"}[currentLanguage],
-    {
-     dateStyle:"short",
-     timeStyle:"medium",
-     timeZone:"America/New_York"
-    }
-   ).format(flashLastUpdated)+
-   " — "+tr("flashRefresh");
-  return;
- }
+let externalArticles=[];
+let rssLastSuccess=null;
+let rssErrors=[];
+let rssBusy=false;
 
- root.textContent=
-  tr("flashWaiting")+" "+tr("flashRefresh");
+function rssMessage(fr,en,ht){
+ return currentLanguage==="en"?en:
+  currentLanguage==="ht"?ht:fr;
 }
-
-async function refreshFlashInfo(){
+function rssValidURL(value){
  try{
-  const response=await fetch(
-   FLASH_DATA_URL+"?t="+Date.now(),
-   {
-    cache:"no-store",
-    headers:{Accept:"application/json"}
-   }
-  );
+  const url=new URL(value);
+  return url.protocol==="https:"||
+   url.protocol==="http:";
+ }catch(error){
+  return false;
+ }
+}
+function rssPlainText(value){
+ const doc=new DOMParser().parseFromString(
+  String(value||""),"text/html"
+ );
+ doc.querySelectorAll(
+  "script,style,iframe,object,embed"
+ ).forEach(el=>el.remove());
+ return (doc.body.textContent||"")
+  .replace(/\s+/g," ")
+  .trim();
+}
+function rssDate(value){
+ if(!value)return null;
+ const date=new Date(
+  String(value).replace(" ","T")
+ );
+ return Number.isNaN(date.getTime())?
+  null:date;
+}
+
+async function loadRSS(feed){
+ const controller=new AbortController();
+ const timeout=setTimeout(
+  ()=>controller.abort(),12000
+ );
+
+ try{
+  const url=RSS_API+"?rss_url="+
+   encodeURIComponent(feed.url)+
+   "&count=15";
+
+  const response=await fetch(url,{
+   cache:"no-store",
+   signal:controller.signal
+  });
 
   if(!response.ok){
    throw new Error("HTTP "+response.status);
@@ -1596,44 +1591,315 @@ async function refreshFlashInfo(){
 
   const data=await response.json();
 
-  const articles=Array.isArray(data)?
-   data:
-   (data&&Array.isArray(data.articles)?data.articles:null);
-
-  if(!articles){
-   throw new Error("Invalid news data");
+  if(data.status!=="ok"||
+     !Array.isArray(data.items)){
+   throw new Error(
+    data.message||"Invalid RSS response"
+   );
   }
 
-  // Only editorially approved articles are displayed.
-  editorialNews=articles.filter(item=>
-   item&&item.approved===true&&
-   item.status==="published"
+  return data.items.filter(item=>
+   item.title&&rssValidURL(item.link)
+  ).map(item=>({
+   title:rssPlainText(item.title),
+   summary:rssPlainText(
+    item.description||item.content
+   ).slice(0,260),
+   url:item.link,
+   source:(data.feed&&data.feed.title)||
+    feed.name,
+   category:feed.category,
+   date:rssDate(item.pubDate||item.published),
+   image:rssValidURL(item.thumbnail)?
+    item.thumbnail:""
+  }));
+ }finally{
+  clearTimeout(timeout);
+ }
+}
+
+function makeExternalNewsCard(item){
+ const card=node("article",null,"card");
+
+ card.append(
+  node("span",
+   rssMessage(
+    "SOURCE EXTERNE",
+    "EXTERNAL SOURCE",
+    "SOUS EKSTÈN"
+   ),
+   "news-badge"),
+  node("h3",item.title)
+ );
+
+ if(item.summary){
+  card.append(node("p",item.summary));
+ }
+
+ const dateText=item.date?
+  formatNewsDate(item.date):
+  rssMessage(
+   "Date non disponible",
+   "Date unavailable",
+   "Dat pa disponib"
   );
 
-  flashLastUpdated=new Date();
-  flashDataState="ready";
+ card.append(
+  node("p",
+   item.source+" | "+dateText,
+   "news-meta")
+ );
+
+ addLink(
+  card,
+  rssMessage(
+   "LIRE À LA SOURCE",
+   "READ ORIGINAL ARTICLE",
+   "LI ATIK ORIJINAL LA"
+  ),
+  item.url
+ );
+
+ return card;
+}
+
+function renderExternalCollection(
+ id,editorial,external,emptyKey
+){
+ const root=clear(id);
+
+ editorial.forEach(item=>
+  root.append(makeNewsArticle(item))
+ );
+
+ external.forEach(item=>
+  root.append(makeExternalNewsCard(item))
+ );
+
+ if(!root.children.length){
+  root.append(emptyCard(tr(emptyKey)));
+ }
+}
+
+function renderEditorialNews(){
+ const approved=approvedArticles();
+
+ renderExternalCollection(
+  "flashNewsGrid",
+  approved.filter(x=>x.flash===true).slice(0,5),
+  externalArticles.slice(0,5),
+  "noFlashNews"
+ );
+
+ renderExternalCollection(
+  "featuredNewsGrid",
+  approved.filter(x=>x.featured===true).slice(0,4),
+  externalArticles.slice(0,4),
+  "noFeaturedNews"
+ );
+
+ renderNewsCollection(
+  "leoganeNewsGrid",
+  approved.filter(x=>
+   x.leogane===true||
+   x.category==="community"
+  ).slice(0,6),
+  "noLeoganeNews"
+ );
+
+ renderFilterButtons(
+  "publishedNewsFilters",
+  ["all","haiti","world","diaspora",
+   "digital","independent","community"],
+  publishedNewsCategory,
+  c=>{
+   publishedNewsCategory=c;
+   renderEditorialNews();
+  }
+ );
+
+ const query=document.getElementById(
+  "publishedNewsSearch"
+ ).value.trim();
+
+ const filteredEditorial=approved.filter(item=>
+  (publishedNewsCategory==="all"||
+   item.category===publishedNewsCategory)&&
+  searchMatch(
+   localizedValue(item.title)+" "+
+   localizedValue(item.summary)+" "+
+   item.source,
+   query
+  )
+ );
+
+ const filteredExternal=externalArticles.filter(item=>
+  (publishedNewsCategory==="all"||
+   item.category===publishedNewsCategory)&&
+  searchMatch(
+   item.title+" "+item.summary+" "+
+   item.source,
+   query
+  )
+ );
+
+ document.getElementById(
+  "publishedNewsCount"
+ ).textContent=
+  (filteredEditorial.length+
+   filteredExternal.length)+" "+
+  tr("articlesLabel");
+
+ renderExternalCollection(
+  "publishedNewsGrid",
+  filteredEditorial,
+  filteredExternal,
+  approved.length||externalArticles.length?
+   "none":"noPublishedNews"
+ );
+}
+
+function updateFlashStatus(){
+ const root=document.getElementById(
+  "flashUpdateStatus"
+ );
+ if(!root)return;
+
+ if(rssLastSuccess){
+  const time=new Intl.DateTimeFormat(
+   currentLanguage==="en"?"en-US":"fr-FR",
+   {
+    dateStyle:"short",
+    timeStyle:"medium",
+    timeZone:"America/New_York"
+   }
+  ).format(rssLastSuccess);
+
+  root.textContent=rssMessage(
+   "Dernière connexion réussie : ",
+   "Last successful connection: ",
+   "Dènye koneksyon ki reyisi: "
+  )+time+" — "+externalArticles.length+
+  rssMessage(
+   " articles reçus. Vérification toutes les 5 minutes.",
+   " articles received. Checking every 5 minutes.",
+   " atik resevwa. Verifikasyon chak 5 minit."
+  );
+
+  if(rssErrors.length){
+   root.textContent+=rssMessage(
+    " Certaines sources sont indisponibles.",
+    " Some sources are unavailable.",
+    " Gen kèk sous ki pa disponib."
+   );
+  }
+  return;
+ }
+
+ if(flashDataState==="error"){
+  root.textContent=rssMessage(
+   "Connexion RSS indisponible. Aucun article automatique reçu.",
+   "RSS unavailable. No automatic articles received.",
+   "Koneksyon RSS pa disponib. Pa gen atik otomatik."
+  );
+  return;
+ }
+
+ root.textContent=rssMessage(
+  "Connexion aux sources d'actualités...",
+  "Connecting to news sources...",
+  "Ap konekte ak sous nouvèl yo..."
+ );
+}
+
+async function refreshFlashInfo(){
+ if(rssBusy)return;
+ rssBusy=true;
+
+ try{
+  const results=await Promise.allSettled(
+   RSS_FEEDS.map(loadRSS)
+  );
+
+  const fresh=[];
+  const errors=[];
+
+  results.forEach((result,index)=>{
+   if(result.status==="fulfilled"){
+    fresh.push(...result.value);
+   }else{
+    errors.push(
+     RSS_FEEDS[index].name+": "+
+     String(result.reason)
+    );
+   }
+  });
+
+  rssErrors=errors;
+
+  if(fresh.length){
+   const seen=new Set();
+
+   externalArticles=fresh.filter(item=>{
+    if(!item.title||
+       !rssValidURL(item.url)||
+       seen.has(item.url)){
+     return false;
+    }
+    seen.add(item.url);
+    return true;
+   }).sort((a,b)=>
+    (b.date?b.date.getTime():0)-
+    (a.date?a.date.getTime():0)
+   ).slice(0,45);
+
+   rssLastSuccess=new Date();
+   flashLastUpdated=rssLastSuccess;
+   flashDataState="ready";
+  }else{
+   flashDataState="error";
+   console.warn(
+    "FLASH INFO RSS:",
+    errors.join("; ")
+   );
+  }
 
   renderEditorialNews();
   updateFlashStatus();
 
  }catch(error){
   flashDataState="error";
-  console.warn("FLASH INFO:",error.message);
-
-  // Previously approved news remains visible.
+  console.warn("FLASH INFO:",error);
   updateFlashStatus();
+ }finally{
+  rssBusy=false;
  }
 }
 
 function startFlashInfoUpdates(){
  refreshFlashInfo();
+
  window.setInterval(
   refreshFlashInfo,
   FLASH_REFRESH_MS
  );
+
+ document.addEventListener(
+  "visibilitychange",
+  ()=>{
+   if(!document.hidden&&
+      (!rssLastSuccess||
+       Date.now()-rssLastSuccess.getTime()>=
+       FLASH_REFRESH_MS)){
+    refreshFlashInfo();
+   }
+  }
+ );
 }
 
-/* 03 — SHOWS CENTER */
+/* ==========================================
+   03 — SHOWS CENTER
+   ========================================== */
 const shows=[
  {
   title:"MATIN FORCE",
@@ -1704,54 +1970,78 @@ function renderShows(){
   }
  );
 
- const query=document.getElementById("showsSearch").value.trim();
+ const query=document.getElementById(
+  "showsSearch"
+ ).value.trim();
 
  const filtered=shows.filter(item=>
-  (showCategory==="all"||item.day===showCategory)&&
+  (showCategory==="all"||
+   item.day===showCategory)&&
   searchMatch(
    item.title+" "+item.time+" "+
-   localizedValue(item.description)+" "+item.host,
+   localizedValue(item.description)+" "+
+   item.host,
    query
   )
  );
 
- document.getElementById("showsTotal").textContent=shows.length;
- document.getElementById("showsDaily").textContent=
-  shows.filter(x=>x.day==="daily").length;
- document.getElementById("showsWeekend").textContent=
-  shows.filter(x=>x.day==="weekend").length;
- document.getElementById("showsCount").textContent=
-  filtered.length+" "+tr("showsCountLabel");
+ document.getElementById("showsTotal")
+  .textContent=shows.length;
+
+ document.getElementById("showsDaily")
+  .textContent=shows.filter(
+   x=>x.day==="daily"
+  ).length;
+
+ document.getElementById("showsWeekend")
+  .textContent=shows.filter(
+   x=>x.day==="weekend"
+  ).length;
+
+ document.getElementById("showsCount")
+  .textContent=filtered.length+" "+
+   tr("showsCountLabel");
 
  const root=clear("showsGrid");
 
  filtered.forEach(item=>{
   const card=node("article",null,"card");
+
   card.append(
    node("span",tr(item.day),"tag"),
    node("h3",item.title),
    node("p",item.time),
    node("p",localizedValue(item.description)),
-   node("p",item.host||tr("showsHostPending"))
+   node("p",item.host||
+    tr("showsHostPending"))
   );
 
   const a=node("a",tr("listen"));
   a.href="#live";
   card.append(a);
 
-  if(item.replay)addAudio(card,item.replay);
-  else card.append(node("p",tr("showsReplayPending")));
+  if(item.replay){
+   addAudio(card,item.replay);
+  }else{
+   card.append(
+    node("p",tr("showsReplayPending"))
+   );
+  }
 
   root.append(card);
  });
 
- if(!filtered.length)root.append(emptyCard(tr("none")));
+ if(!filtered.length){
+  root.append(emptyCard(tr("none")));
+ }
 
  const schedule=clear("scheduleGrid");
  const table=clear("showsScheduleBody");
 
  shows.forEach(item=>{
-  schedule.append(makeCard(item.title,item.time));
+  schedule.append(
+   makeCard(item.title,item.time)
+  );
 
   const row=node("tr");
   row.append(
@@ -1763,6 +2053,7 @@ function renderShows(){
  });
 
  const hostsRoot=clear("showsHostsGrid");
+
  const approvedHosts=showHosts.filter(x=>
   x.approved===true&&x.name&&x.show
  );
@@ -1770,17 +2061,21 @@ function renderShows(){
  approvedHosts.forEach(item=>{
   const card=makeCard(
    item.name,
-   item.show+" — "+localizedValue(item.biography)
+   item.show+" — "+
+   localizedValue(item.biography)
   );
   addImage(card,item.photo,item.name);
   hostsRoot.append(card);
  });
 
  if(!approvedHosts.length){
-  hostsRoot.append(emptyCard(tr("showsNoHosts")));
+  hostsRoot.append(
+   emptyCard(tr("showsNoHosts"))
+  );
  }
 
  const replayRoot=clear("showsReplayGrid");
+
  const approvedReplays=showReplays.filter(x=>
   x.approved===true&&x.title&&x.audio
  );
@@ -1795,11 +2090,15 @@ function renderShows(){
  });
 
  if(!approvedReplays.length){
-  replayRoot.append(emptyCard(tr("showsNoReplay")));
+  replayRoot.append(
+   emptyCard(tr("showsNoReplay"))
+  );
  }
 }
 
-/* 04 — PODCASTS CENTER */
+/* ==========================================
+   04 — PODCASTS CENTER
+   ========================================== */
 const podcasts=[];
 let podcastCategory="all";
 
@@ -1819,7 +2118,9 @@ function approvedPodcasts(){
 function makePodcastCard(item,featured=false){
  const card=node(
   "article",null,
-  featured?"card podcast-card featured":"card podcast-card"
+  featured?
+   "card podcast-card featured":
+   "card podcast-card"
  );
 
  addImage(card,item.cover,item.title);
@@ -1829,11 +2130,20 @@ function makePodcastCard(item,featured=false){
   node("h3",item.title)
  );
 
- const description=localizedValue(item.description);
- if(description)card.append(node("p",description));
+ const description=localizedValue(
+  item.description
+ );
 
- const meta=[item.date,item.host].filter(Boolean).join(" | ");
- if(meta)card.append(node("p",meta,"news-meta"));
+ if(description){
+  card.append(node("p",description));
+ }
+
+ const meta=[item.date,item.host]
+  .filter(Boolean).join(" | ");
+
+ if(meta){
+  card.append(node("p",meta,"news-meta"));
+ }
 
  addAudio(card,item.audio);
  return card;
@@ -1841,21 +2151,29 @@ function makePodcastCard(item,featured=false){
 
 function renderPodcasts(){
  const approved=approvedPodcasts();
+
  const replays=showReplays.filter(x=>
   x.approved===true&&x.title&&x.audio
  );
 
- document.getElementById("podcastTotal").textContent=
-  approved.length;
+ document.getElementById("podcastTotal")
+  .textContent=approved.length;
 
- document.getElementById("podcastCategoriesTotal").textContent=
-  new Set(approved.map(x=>x.category||"special")).size;
+ document.getElementById(
+  "podcastCategoriesTotal"
+ ).textContent=new Set(
+  approved.map(x=>x.category||"special")
+ ).size;
 
- document.getElementById("podcastReplayTotal").textContent=
-  replays.length;
+ document.getElementById(
+  "podcastReplayTotal"
+ ).textContent=replays.length;
 
  const featured=clear("podcastFeaturedGrid");
- const featuredItems=approved.filter(x=>x.featured===true);
+
+ const featuredItems=approved.filter(
+  x=>x.featured===true
+ );
 
  featuredItems.forEach(x=>
   featured.append(makePodcastCard(x,true))
@@ -1875,65 +2193,84 @@ function renderPodcasts(){
   }
  );
 
- const query=document.getElementById("podcastSearch")
-  .value.trim();
+ const query=document.getElementById(
+  "podcastSearch"
+ ).value.trim();
 
  const filtered=approved.filter(item=>
   (podcastCategory==="all"||
-   (item.category||"special")===podcastCategory)&&
+   (item.category||"special")===
+   podcastCategory)&&
   searchMatch(
-   item.title+" "+localizedValue(item.description)+" "+
+   item.title+" "+
+   localizedValue(item.description)+" "+
    (item.host||""),
    query
   )
  );
 
- document.getElementById("podcastCount").textContent=
-  filtered.length+" "+tr("podcastTotalLabel");
+ document.getElementById("podcastCount")
+  .textContent=filtered.length+" "+
+   tr("podcastTotalLabel");
 
  const root=clear("podcastGrid");
- filtered.forEach(item=>root.append(makePodcastCard(item)));
+
+ filtered.forEach(item=>
+  root.append(makePodcastCard(item))
+ );
 
  if(!filtered.length){
   root.append(emptyCard(
-   approved.length?tr("none"):tr("noAudio")
+   approved.length?
+    tr("none"):tr("noAudio")
   ));
  }
 
  const replayRoot=clear("podcastReplayGrid");
 
  replays.forEach(item=>{
-  const card=makeCard(item.title,item.show||"");
+  const card=makeCard(
+   item.title,item.show||""
+  );
   addAudio(card,item.audio);
   replayRoot.append(card);
  });
 
  if(!replays.length){
-  replayRoot.append(emptyCard(tr("showsNoReplay")));
+  replayRoot.append(
+   emptyCard(tr("showsNoReplay"))
+  );
  }
 
- document.getElementById("podcastNotice").hidden=
-  approved.length>0;
+ document.getElementById("podcastNotice")
+  .hidden=approved.length>0;
 }
 
-/* 05 — MUSIC CENTER */
+/* ==========================================
+   05 — MUSIC CENTER
+   ========================================== */
 const genres=[
- "Kompa","Kompa Love","Reggae","Reggae for Lovers",
- "Rap Kreyòl","Rabòday","Rara","Racine",
- "Hip-Hop","Reggaeton","Ansyèn Mizik","Tropicana",
- "Septen","Konpa Direct","Zouk","Afrobeat",
- "Jazz","Gospel"
+ "Kompa","Kompa Love","Reggae",
+ "Reggae for Lovers","Rap Kreyòl",
+ "Rabòday","Rara","Racine",
+ "Hip-Hop","Reggaeton","Ansyèn Mizik",
+ "Tropicana","Septen","Konpa Direct",
+ "Zouk","Afrobeat","Jazz","Gospel"
 ];
 
 const tracks=[];
 
 function renderMusic(){
- const query=document.getElementById("musicSearch").value.trim();
+ const query=document.getElementById(
+  "musicSearch"
+ ).value.trim();
+
  const root=clear("genreGrid");
 
- genres.filter(x=>searchMatch(x,query)).forEach(genre=>{
-  root.append(makeCard(genre,""));
- });
+ genres.filter(x=>searchMatch(x,query))
+  .forEach(genre=>{
+   root.append(makeCard(genre,""));
+  });
 
  if(!root.children.length){
   root.append(emptyCard(tr("none")));
@@ -1943,7 +2280,8 @@ function renderMusic(){
 
  const filtered=tracks.filter(item=>
   searchMatch(
-   item.title+" "+item.artist+" "+item.genre,
+   item.title+" "+item.artist+" "+
+   item.genre,
    query
   )
  );
@@ -1964,7 +2302,9 @@ function renderMusic(){
  }
 }
 
-/* 06 — ARTISTS CENTER */
+/* ==========================================
+   06 — ARTISTS CENTER
+   ========================================== */
 const artists=[
  /*
  {
@@ -1997,7 +2337,8 @@ let artistCategory="all";
 const artistFilterList=[
  "all","solo","group","dj",
  "kompa","rara","racine","reggae",
- "rap","raboday","tropicana","septen","other"
+ "rap","raboday","tropicana",
+ "septen","other"
 ];
 
 const artistTranslations={
@@ -2083,7 +2424,8 @@ function artistText(key){
 function approvedArtists(){
  return artists.filter(item=>
   item&&item.approved===true&&
-  typeof item.name==="string"&&item.name.trim()
+  typeof item.name==="string"&&
+  item.name.trim()
  );
 }
 
@@ -2099,14 +2441,17 @@ function artistMatchesFilter(item){
  if(item.type===artistCategory)return true;
 
  return artistGenreList(item).some(genre=>
-  String(genre).toLowerCase().includes(artistCategory)
+  String(genre).toLowerCase()
+   .includes(artistCategory)
  );
 }
 
 function makeArtistCard(item,isFeatured=false){
  const card=node(
   "article",null,
-  isFeatured?"card artist-card featured":"card artist-card"
+  isFeatured?
+   "card artist-card featured":
+   "card artist-card"
  );
 
  if(item.photo){
@@ -2124,7 +2469,9 @@ function makeArtistCard(item,isFeatured=false){
 
   card.append(img);
  }else{
-  card.append(node("div","♫","artist-placeholder"));
+  card.append(
+   node("div","♫","artist-placeholder")
+  );
  }
 
  card.append(node("h3",item.name));
@@ -2174,7 +2521,9 @@ function makeArtistCard(item,isFeatured=false){
  });
 
  if(item.url){
-  addLink(linksBox,artistText("links"),item.url);
+  addLink(
+   linksBox,artistText("links"),item.url
+  );
  }
 
  if(linksBox.children.length){
@@ -2189,17 +2538,23 @@ function makeArtistCard(item,isFeatured=false){
 
 function renderArtists(){
  const approved=approvedArtists();
- const groups=approved.filter(item=>item.type==="group");
- const featured=approved.filter(item=>item.featured===true);
 
- document.getElementById("artistTotal").textContent=
-  approved.length;
+ const groups=approved.filter(
+  item=>item.type==="group"
+ );
 
- document.getElementById("artistGroupTotal").textContent=
-  groups.length;
+ const featured=approved.filter(
+  item=>item.featured===true
+ );
 
- document.getElementById("artistFeaturedTotal").textContent=
-  featured.length;
+ document.getElementById("artistTotal")
+  .textContent=approved.length;
+
+ document.getElementById("artistGroupTotal")
+  .textContent=groups.length;
+
+ document.getElementById("artistFeaturedTotal")
+  .textContent=featured.length;
 
  const labels={
   artistBannerTitle:artistText("banner"),
@@ -2215,10 +2570,14 @@ function renderArtists(){
   document.getElementById(id).textContent=value;
  });
 
- const featuredRoot=clear("artistFeaturedGrid");
+ const featuredRoot=clear(
+  "artistFeaturedGrid"
+ );
 
  featured.forEach(item=>{
-  featuredRoot.append(makeArtistCard(item,true));
+  featuredRoot.append(
+   makeArtistCard(item,true)
+  );
  });
 
  if(!featured.length){
@@ -2248,8 +2607,9 @@ function renderArtists(){
   filterRoot.append(button);
  });
 
- const query=document.getElementById("artistSearch")
-  .value.trim();
+ const query=document.getElementById(
+  "artistSearch"
+ ).value.trim();
 
  const filtered=approved.filter(item=>{
   const searchable=[
@@ -2266,8 +2626,9 @@ function renderArtists(){
    searchMatch(searchable,query);
  });
 
- document.getElementById("artistCount").textContent=
-  filtered.length+" "+artistText("total");
+ document.getElementById("artistCount")
+  .textContent=filtered.length+" "+
+   artistText("total");
 
  const root=clear("artistGrid");
 
@@ -2278,13 +2639,16 @@ function renderArtists(){
  if(!filtered.length){
   root.append(
    emptyCard(
-    approved.length?tr("none"):artistText("empty")
+    approved.length?
+     tr("none"):artistText("empty")
    )
   );
  }
 }
 
-/* 07 — VIDEO CENTER */
+/* ==========================================
+   07 — VIDEO CENTER
+   ========================================== */
 const videos=[];
 let videoCategory="all";
 
@@ -2299,8 +2663,9 @@ function renderVideos(){
   }
  );
 
- const query=document.getElementById("videoSearch")
-  .value.trim();
+ const query=document.getElementById(
+  "videoSearch"
+ ).value.trim();
 
  const filtered=videos.filter(item=>
   (videoCategory==="all"||
@@ -2334,7 +2699,10 @@ function renderVideos(){
  }
 }
 
-/* 08 — EVENTS CENTER */
+/* ==========================================
+   08 — EVENTS CENTER
+   ========================================== */
+
 /*
  Add only real, approved events.
 
@@ -2452,7 +2820,9 @@ function eventText(key){
 
 function validEventDate(value){
  if(typeof value!=="string")return false;
- if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(value)){
+  return false;
+ }
 
  const parts=value.split("-").map(Number);
  const date=new Date(
@@ -2473,17 +2843,20 @@ function localDateKey(date){
 }
 
 function floridaDateKey(){
- const parts=new Intl.DateTimeFormat("en-US",{
-  timeZone:"America/New_York",
-  year:"numeric",
-  month:"2-digit",
-  day:"2-digit"
- }).formatToParts(new Date());
+ const parts=new Intl.DateTimeFormat(
+  "en-US",{
+   timeZone:"America/New_York",
+   year:"numeric",
+   month:"2-digit",
+   day:"2-digit"
+  }
+ ).formatToParts(new Date());
 
  const get=type=>
   parts.find(part=>part.type===type).value;
 
- return get("year")+"-"+get("month")+"-"+get("day");
+ return get("year")+"-"+get("month")+
+  "-"+get("day");
 }
 
 function approvedEvents(){
@@ -2491,7 +2864,9 @@ function approvedEvents(){
   item&&item.approved===true&&
   localizedValue(item.title).trim()&&
   validEventDate(item.date)
- ).sort((a,b)=>a.date.localeCompare(b.date));
+ ).sort((a,b)=>
+  a.date.localeCompare(b.date)
+ );
 }
 
 function eventIsUpcoming(item){
@@ -2506,7 +2881,9 @@ function eventMatchesCategory(item){
 function makeEventCard(item,featured=false){
  const card=node(
   "article",null,
-  featured?"card event-card featured":"card event-card"
+  featured?
+   "card event-card featured":
+   "card event-card"
  );
 
  addImage(
@@ -2528,7 +2905,9 @@ function makeEventCard(item,featured=false){
   node("span",status,"event-status")
  );
 
- const description=localizedValue(item.description);
+ const description=localizedValue(
+  item.description
+ );
 
  if(description){
   card.append(node("p",description));
@@ -2537,7 +2916,8 @@ function makeEventCard(item,featured=false){
  const details=[
   [eventText("date"),item.date],
   [eventText("time"),item.time],
-  [eventText("location"),localizedValue(item.location)],
+  [eventText("location"),
+   localizedValue(item.location)],
   [eventText("organizer"),item.organizer]
  ];
 
@@ -2550,7 +2930,9 @@ function makeEventCard(item,featured=false){
  });
 
  if(item.url){
-  addLink(card,eventText("details"),item.url);
+  addLink(
+   card,eventText("details"),item.url
+  );
  }
 
  return card;
@@ -2571,34 +2953,48 @@ function eventLocale(){
 }
 
 function formatEventDate(dateKey){
- if(!validEventDate(dateKey))return dateKey;
+ if(!validEventDate(dateKey)){
+  return dateKey;
+ }
 
- const [year,month,day]=dateKey.split("-").map(Number);
- const date=new Date(year,month-1,day);
+ const [year,month,day]=dateKey
+  .split("-").map(Number);
 
- return new Intl.DateTimeFormat(eventLocale(),{
-  day:"numeric",
-  month:"long",
-  year:"numeric"
- }).format(date);
+ const date=new Date(
+  year,month-1,day
+ );
+
+ return new Intl.DateTimeFormat(
+  eventLocale(),{
+   day:"numeric",
+   month:"long",
+   year:"numeric"
+  }
+ ).format(date);
 }
 
 function showEventsForDay(dateKey){
  selectedEventDate=dateKey;
 
  const root=clear("eventSelectedDay");
- const matches=approvedEvents().filter(item=>
-  item.date===dateKey
+
+ const matches=approvedEvents().filter(
+  item=>item.date===dateKey
  );
 
  root.append(
-  node("h3",
-   eventText("selected")+" "+formatEventDate(dateKey),
-   "subtitle")
+  node(
+   "h3",
+   eventText("selected")+" "+
+   formatEventDate(dateKey),
+   "subtitle"
+  )
  );
 
  if(!matches.length){
-  root.append(emptyCard(eventText("noSelected")));
+  root.append(
+   emptyCard(eventText("noSelected"))
+  );
   return;
  }
 
@@ -2617,13 +3013,14 @@ function renderEventCalendar(approved){
  const year=eventCalendarDate.getFullYear();
  const month=eventCalendarDate.getMonth();
 
- document.getElementById("eventCalendarMonth")
-  .textContent=new Intl.DateTimeFormat(
-   eventLocale(),{
-    month:"long",
-    year:"numeric"
-   }
-  ).format(eventCalendarDate);
+ document.getElementById(
+  "eventCalendarMonth"
+ ).textContent=new Intl.DateTimeFormat(
+  eventLocale(),{
+   month:"long",
+   year:"numeric"
+  }
+ ).format(eventCalendarDate);
 
  const weekdays={
   fr:["L","M","M","J","V","S","D"],
@@ -2632,17 +3029,23 @@ function renderEventCalendar(approved){
  }[currentLanguage];
 
  weekdays.forEach(day=>{
-  root.append(node("div",day,"event-day"));
+  root.append(
+   node("div",day,"event-day")
+  );
  });
 
- const firstDay=
-  (new Date(year,month,1).getDay()+6)%7;
+ const firstDay=(
+  new Date(year,month,1).getDay()+6
+ )%7;
 
- const daysInMonth=
-  new Date(year,month+1,0).getDate();
+ const daysInMonth=new Date(
+  year,month+1,0
+ ).getDate();
 
  for(let i=0;i<firstDay;i++){
-  root.append(node("div","","event-empty"));
+  root.append(
+   node("div","","event-empty")
+  );
  }
 
  for(let day=1;day<=daysInMonth;day++){
@@ -2652,13 +3055,12 @@ function renderEventCalendar(approved){
    String(day).padStart(2,"0")
   ].join("-");
 
-  const matches=approved.filter(item=>
-   item.date===dateKey
+  const matches=approved.filter(
+   item=>item.date===dateKey
   );
 
   const cell=node(
-   "div",
-   null,
+   "div",null,
    matches.length?"has-event":""
   );
 
@@ -2666,14 +3068,14 @@ function renderEventCalendar(approved){
    const button=node("button",String(day));
    button.type="button";
 
-   button.title=matches.map(item=>
-    localizedValue(item.title)
+   button.title=matches.map(
+    item=>localizedValue(item.title)
    ).join(" | ");
 
    button.setAttribute(
     "aria-label",
-    formatEventDate(dateKey)+
-    " — "+matches.length+" "+eventText("total")
+    formatEventDate(dateKey)+" — "+
+    matches.length+" "+eventText("total")
    );
 
    button.addEventListener("click",()=>{
@@ -2715,9 +3117,13 @@ function renderEventFilters(){
 
 function renderEvents(){
  const approved=approvedEvents();
- const upcoming=approved.filter(eventIsUpcoming);
- const featured=approved.filter(item=>
-  item.featured===true
+
+ const upcoming=approved.filter(
+  eventIsUpcoming
+ );
+
+ const featured=approved.filter(
+  item=>item.featured===true
  );
 
  const labels={
@@ -2733,25 +3139,32 @@ function renderEvents(){
  };
 
  Object.entries(labels).forEach(([id,value])=>{
-  document.getElementById(id).textContent=value;
+  document.getElementById(id)
+   .textContent=value;
  });
 
  document.getElementById("eventSearch")
   .placeholder=eventText("search");
 
- document.getElementById("eventTotal").textContent=
-  approved.length;
+ document.getElementById("eventTotal")
+  .textContent=approved.length;
 
- document.getElementById("eventUpcomingTotal").textContent=
-  upcoming.length;
+ document.getElementById(
+  "eventUpcomingTotal"
+ ).textContent=upcoming.length;
 
- document.getElementById("eventFeaturedTotal").textContent=
-  featured.length;
+ document.getElementById(
+  "eventFeaturedTotal"
+ ).textContent=featured.length;
 
- const featuredRoot=clear("eventFeaturedGrid");
+ const featuredRoot=clear(
+  "eventFeaturedGrid"
+ );
 
  featured.forEach(item=>{
-  featuredRoot.append(makeEventCard(item,true));
+  featuredRoot.append(
+   makeEventCard(item,true)
+  );
  });
 
  if(!featured.length){
@@ -2762,8 +3175,9 @@ function renderEvents(){
 
  renderEventFilters();
 
- const query=document.getElementById("eventSearch")
-  .value.trim();
+ const query=document.getElementById(
+  "eventSearch"
+ ).value.trim();
 
  const filtered=approved.filter(item=>{
   const searchable=[
@@ -2780,8 +3194,9 @@ function renderEvents(){
    searchMatch(searchable,query);
  });
 
- document.getElementById("eventCount").textContent=
-  filtered.length+" "+eventText("total");
+ document.getElementById("eventCount")
+  .textContent=filtered.length+" "+
+   eventText("total");
 
  const root=clear("eventsGrid");
 
@@ -2793,8 +3208,7 @@ function renderEvents(){
   root.append(
    emptyCard(
     approved.length?
-    tr("none"):
-    eventText("empty")
+     tr("none"):eventText("empty")
    )
   );
  }
@@ -2827,7 +3241,9 @@ document.getElementById("eventNextMonth")
 document.getElementById("eventSearch")
  .addEventListener("input",renderEvents);
 
-/* 09 — CONTACT / SOCIAL NETWORKS */
+/* ==========================================
+   09 — CONTACT / SOCIAL NETWORKS
+   ========================================== */
 const socialNetworks=[
  {
   name:"Facebook",
@@ -2916,7 +3332,9 @@ function renderSocial(){
  });
 }
 
-/* INITIALIZE ALL NINE MODULES */
+/* ==========================================
+   INITIALIZE ALL NINE MODULES
+   ========================================== */
 function renderAll(){
  renderNews();
  renderEditorialNews();
