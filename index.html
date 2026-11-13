@@ -5,112 +5,367 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#080808">
-<meta name="description" content="PRO-MAX FM — LA FORCE DU SON | LIVE, NEWS, SHOWS, PODCASTS, MUSIC, ARTISTS, VIDEO, EVENTS, CONTACT">
+<meta name="description" content="PRO-MAX FM — La Force du Son">
 <title>PRO-MAX FM | LA FORCE DU SON</title>
-<link rel="icon" type="image/jpeg" href="pro-max-fm.jpg">
+<link rel="icon" href="pro-max-fm.jpg" type="image/jpeg">
 <style>
-:root{--orange:#ff8c00;--apricot:#ffb347;--text:#ffce94;--black:#080808;--border:#994b0b}
+:root{
+  --orange:#ff8c00;
+  --apricot:#ffb347;
+  --ink:#ffca8a;
+  --border:#87410a;
+}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;font-family:Arial,sans-serif;color:var(--text);background:linear-gradient(130deg,#000,#241104 45%,#080808)}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{
+  margin:0;
+  background:linear-gradient(135deg,#000,#271306 45%,#050505);
+  color:var(--ink);
+  font:16px Arial,sans-serif;
+}
+h1,h2,h3{color:var(--orange)}
 a{color:var(--orange)}
-button,input,select{font:inherit}
+button,input{font:inherit}
 button{cursor:pointer}
-button,.btn{border:1px solid var(--orange);border-radius:9px;padding:11px 16px;background:#170b04;color:var(--orange);font-weight:800;text-decoration:none;display:inline-block}
-button:hover,button.active,.btn:hover{background:var(--orange);color:#000}
-button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--apricot);outline-offset:3px}
-header{text-align:center;padding:28px 14px;background:radial-gradient(ellipse at top,#552904,#080808 78%);border-bottom:3px solid var(--orange)}
-.logo{width:150px;height:150px;border:3px solid var(--orange);border-radius:50%;object-fit:contain;background:#000}
-.brand{font-weight:900;color:var(--orange);font-size:clamp(35px,7vw,52px);margin:12px 0 4px}
-.slogan{font-weight:900;color:var(--apricot);font-size:22px;letter-spacing:2px}
-.languages,.actions,.filters{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:18px auto}
-nav{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;padding:12px;background:#100904;border-bottom:1px solid var(--orange);position:sticky;top:0;z-index:20}
-nav a{color:var(--orange);text-decoration:none;font-weight:900;font-size:13px;padding:9px}
-nav a:hover{background:#4b2305;border-radius:5px}
-.hero{text-align:center;padding:55px 16px;background:radial-gradient(ellipse at center,#422005,#080808 78%)}
-.hero h1{font-size:clamp(30px,6vw,48px);color:var(--orange)}
-.hero p{max-width:850px;line-height:1.8;margin:15px auto}
-.btn.primary{background:var(--orange);color:#000}
-main{max-width:1240px;margin:auto;padding:10px 18px}
-.module{border-bottom:1px solid #67330c;padding:40px 0;scroll-margin-top:80px}
-.section-title{text-align:center;color:var(--orange);font-size:clamp(25px,4vw,36px);margin:0 0 20px}
-.intro{text-align:center;max-width:860px;line-height:1.7;margin:0 auto 24px}
-.banner,.panel,.card,.notice{background:linear-gradient(140deg,#2d1706,#090705);border:1px solid var(--border);border-radius:15px;padding:22px}
-.banner{border:2px solid var(--orange);text-align:center;max-width:1000px;margin:20px auto}
-.banner h3,.card h3,.notice h3{color:var(--orange)}
-.notice{margin:24px auto;border-left:5px solid var(--orange)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-.card{min-width:0;overflow-wrap:anywhere}
-.card h3{margin:12px 0}
-.card p{line-height:1.65}
-.card a{margin-top:9px}
-.tag{display:inline-block;border:1px solid var(--orange);padding:6px 12px;border-radius:24px;font-size:12px;font-weight:900;margin:5px 4px 5px 0}
-.badge-image{width:58px;height:58px;object-fit:contain;border-radius:10px;background:#140a04;border:1px solid var(--border)}
-.brandmark{display:flex;align-items:center;gap:12px}
-.monogram{width:58px;height:58px;display:grid;place-items:center;border-radius:10px;color:#000;background:var(--orange);font-weight:900;font-size:22px;flex-shrink:0}
-.search{display:block;width:min(100%,700px);margin:20px auto;padding:14px;border:2px solid var(--orange);border-radius:9px;color:var(--apricot);background:#140b05}
-.counter,.status{text-align:center;line-height:1.6}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0}
-.stat{text-align:center;background:#1d1006;border:1px solid var(--border);border-radius:12px;padding:18px 6px}
-.stat strong{display:block;font-size:30px;color:var(--orange)}
-.stat span{font-size:12px;font-weight:900}
-.subhead{text-align:center;color:var(--orange);font-size:23px;margin:30px 0 18px}
-.live-panel{text-align:center;max-width:850px;margin:auto;border:2px solid var(--orange);border-radius:18px;padding:25px;background:radial-gradient(ellipse at top,#422005,#080808)}
-.live-panel .logo{width:120px;height:120px}
-.onair{color:var(--orange);font-weight:900;border:1px solid var(--orange);border-radius:20px;padding:7px 15px;display:inline-block;margin:13px}
-audio{display:block;width:min(100%,650px);margin:15px auto}
+button,.btn{
+  display:inline-block;
+  border:1px solid var(--orange);
+  border-radius:9px;
+  padding:11px 15px;
+  color:var(--orange);
+  background:#180d05;
+  text-decoration:none;
+  font-weight:800;
+}
+button:hover,button.active,.btn:hover{
+  background:var(--orange);
+  color:#000;
+}
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:3px solid var(--apricot);
+  outline-offset:3px;
+}
+header{
+  text-align:center;
+  background:radial-gradient(ellipse at top,#4c2205,#070707 79%);
+  padding:25px 15px;
+  border-bottom:3px solid var(--orange);
+}
+.main-logo{
+  width:145px;height:145px;
+  border:3px solid var(--orange);
+  border-radius:50%;
+  object-fit:contain;
+  background:#000;
+}
+.brand{
+  font-weight:900;
+  color:var(--orange);
+  font-size:clamp(34px,6vw,50px);
+  margin:10px 0;
+}
+.slogan{
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+.actions,.languages,.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  justify-content:center;
+  margin:18px auto;
+}
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:5px;
+  padding:12px;
+  background:#130a04;
+  border-bottom:1px solid var(--orange);
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+nav a{
+  padding:8px;
+  color:var(--orange);
+  font-size:13px;
+  font-weight:900;
+  text-decoration:none;
+}
+nav a:hover{
+  background:#502305;
+  border-radius:5px;
+}
+.hero{
+  text-align:center;
+  padding:55px 16px;
+  background:radial-gradient(ellipse,#422006,#080808 75%);
+}
+.hero h1{font-size:clamp(30px,5vw,45px)}
+.hero p{
+  max-width:800px;
+  margin:16px auto;
+  line-height:1.7;
+}
+main{
+  max-width:1240px;
+  margin:auto;
+  padding:12px 18px;
+}
+.module{
+  border-bottom:1px solid #623009;
+  padding:35px 0;
+  scroll-margin-top:85px;
+}
+.title{
+  text-align:center;
+  font-size:clamp(25px,4vw,35px);
+}
+.intro{
+  text-align:center;
+  max-width:850px;
+  margin:12px auto 24px;
+  line-height:1.7;
+}
+.sub{
+  text-align:center;
+  font-size:23px;
+  margin:30px 0 18px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(255px,1fr));
+  gap:16px;
+}
+.card,.banner,.notice{
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:linear-gradient(140deg,#2a1506,#090707);
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.banner{
+  max-width:980px;
+  text-align:center;
+  border:2px solid var(--orange);
+  margin:20px auto;
+}
+.notice{
+  border-left:5px solid var(--orange);
+  margin:22px 0;
+}
+.card p,.banner p,.notice p{line-height:1.7}
+.card h3{margin:10px 0}
+.tag{
+  display:inline-block;
+  color:var(--apricot);
+  border:1px solid var(--orange);
+  border-radius:20px;
+  padding:5px 10px;
+  font-size:12px;
+  font-weight:bold;
+  margin:5px 5px 5px 0;
+}
+.media-head{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.media-logo{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  border:1px solid var(--orange);
+  border-radius:10px;
+  background:#080808;
+  flex-shrink:0;
+}
+.initials{
+  display:grid;
+  place-items:center;
+  width:58px;
+  height:58px;
+  border-radius:10px;
+  background:var(--orange);
+  color:#000;
+  font-size:19px;
+  font-weight:900;
+  flex-shrink:0;
+}
+.search{
+  display:block;
+  width:min(100%,690px);
+  margin:18px auto;
+  padding:13px;
+  border:2px solid var(--orange);
+  border-radius:10px;
+  color:var(--apricot);
+  background:#100804;
+}
+.counter,.status{
+  text-align:center;
+  line-height:1.7;
+}
+.tiny{
+  font-size:13px;
+  color:var(--apricot);
+}
+.live-box{
+  text-align:center;
+  max-width:850px;
+  margin:auto;
+  padding:25px;
+  border:2px solid var(--orange);
+  border-radius:16px;
+  background:radial-gradient(ellipse at top,#4a2306,#080808);
+}
+.live-box .main-logo{
+  width:115px;
+  height:115px;
+}
+.on-air{
+  display:inline-block;
+  border:1px solid var(--orange);
+  border-radius:20px;
+  padding:7px 15px;
+  margin:15px;
+  color:var(--orange);
+  font-weight:900;
+}
+audio{
+  width:100%;
+  max-width:700px;
+  display:block;
+  margin:15px auto;
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin:20px 0;
+}
+.stat{
+  text-align:center;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:16px 7px;
+  background:#1a0d04;
+}
+.stat strong{
+  display:block;
+  color:var(--orange);
+  font-size:30px;
+}
+.stat span{
+  font-size:12px;
+  font-weight:900;
+}
 .table-scroll{overflow-x:auto}
-table{width:100%;border-collapse:collapse}
-th,td{padding:12px;border:1px solid var(--border);text-align:left}
-th{color:var(--orange);background:#3a1b07}
-.media-link{display:inline-block;padding:10px 12px;border:1px solid var(--orange);border-radius:8px;text-decoration:none;font-weight:900}
-.social-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.social-grid a{display:flex;align-items:center;gap:10px;padding:14px;background:#1b1007;border:1px solid var(--border);border-radius:10px;text-decoration:none;font-weight:900}
-.social-symbol{font-size:25px}
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-.contact-grid a{display:block;padding:6px 0}
-.calendar-head{display:flex;justify-content:center;align-items:center;gap:14px;margin:18px 0}
-.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;max-width:700px;margin:auto}
-.calendar div,.calendar button{border:1px solid var(--border);min-height:47px;padding:8px 1px;border-radius:6px;text-align:center}
-.calendar .day-name{color:var(--orange);font-weight:900;background:#241003}
-.calendar button.today{border:2px solid var(--orange)}
-.calendar button.selected{background:var(--orange);color:#000}
-.calendar .empty{background:transparent;border:none}
-.calendar button.has-event:after{content:' •';color:var(--orange)}
-.calendar button.has-event.selected:after{color:#000}
-.note{font-size:13px;color:var(--apricot)}
-footer{text-align:center;padding:35px 18px;background:#000;border-top:3px solid var(--orange)}
-footer strong{color:var(--orange)}
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+th,td{
+  padding:12px;
+  border:1px solid var(--border);
+  text-align:left;
+}
+th{
+  background:#3b1b07;
+  color:var(--orange);
+}
+.socials,.contacts{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:14px;
+}
+.socials a{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:13px;
+  background:#1b0e05;
+  border:1px solid var(--border);
+  border-radius:9px;
+  text-decoration:none;
+  font-weight:bold;
+}
+.contacts a{
+  display:block;
+  padding:5px 0;
+}
+.calendar-bar{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  margin:16px 0;
+}
+.calendar{
+  max-width:700px;
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:5px;
+  margin:auto;
+}
+.calendar div,.calendar button{
+  min-height:43px;
+  padding:9px 2px;
+  text-align:center;
+  border:1px solid var(--border);
+  border-radius:7px;
+}
+.calendar .weekday{
+  background:#361904;
+  color:var(--orange);
+  font-weight:bold;
+}
+.calendar .blank{border:0}
+.calendar .today{border:2px solid var(--orange)}
+.calendar .selected{
+  background:var(--orange);
+  color:#000;
+}
+footer{
+  text-align:center;
+  padding:34px 18px;
+  background:#000;
+  border-top:3px solid var(--orange);
+}
 [hidden]{display:none!important}
 @media(max-width:650px){
- main{padding:8px 12px}
- nav{position:relative}
- .grid{grid-template-columns:1fr}
- .card,.panel,.banner{padding:17px}
- .stats{gap:6px}
- .stat{padding:12px 3px}
- .stat strong{font-size:25px}
- .stat span{font-size:10px}
- th,td{padding:8px 5px;font-size:12px}
+  main{padding:10px}
+  nav{position:relative}
+  .grid{grid-template-columns:1fr}
+  .card,.banner,.notice{padding:16px}
+  .stats{gap:5px}
+  .stat{padding:13px 3px}
+  .stat strong{font-size:23px}
+  .stat span{font-size:10px}
+  th,td{font-size:12px;padding:8px 6px}
 }
 </style>
 </head>
 <body>
 
 <header id="home">
-  <img src="pro-max-fm.jpg" alt="Logo officiel PRO-MAX FM" class="logo">
+  <img src="pro-max-fm.jpg" class="main-logo" alt="Logo officiel PRO-MAX FM">
   <div class="brand">PRO-MAX FM</div>
   <div class="slogan">LA FORCE DU SON</div>
-  <p data-t="tagline">La radio de tous, partout et toujours.</p>
+  <p data-i18n="tagline">La radio de tous, partout et toujours.</p>
   <div class="languages">
-    <button id="fr" type="button">FR</button>
-    <button id="en" type="button">ENG</button>
-    <button id="ht" type="button">KRE</button>
+    <button id="lang-fr">FR</button>
+    <button id="lang-en">ENG</button>
+    <button id="lang-ht">KRE</button>
   </div>
 </header>
 
-<nav aria-label="PRO-MAX FM modules">
-  <a href="#home" data-t="home">ACCUEIL</a>
+<nav aria-label="PRO-MAX FM">
+  <a href="#home" data-i18n="home">ACCUEIL</a>
   <a href="#live">LIVE</a>
   <a href="#news">NEWS</a>
   <a href="#shows">SHOWS</a>
@@ -124,15 +379,15 @@ footer strong{color:var(--orange)}
 
 <div class="hero">
   <h1>PRO-MAX FM — LA FORCE DU SON</h1>
-  <p data-t="hero">
-    Information, nouvelles, musique, artistes,
-    émissions et communauté.
+  <p data-i18n="hero">
+    Information, nouvelles, divertissement, musique,
+    artistes et communauté.
   </p>
   <div class="actions">
-    <a href="#live" class="btn primary" data-t="listen">
+    <a class="btn" href="#live" data-i18n="listen">
       ● ÉCOUTER EN DIRECT
     </a>
-    <a href="#news" class="btn" data-t="discover">
+    <a class="btn" href="#news" data-i18n="explore">
       EXPLORER LES ACTUALITÉS
     </a>
   </div>
@@ -140,157 +395,135 @@ footer strong{color:var(--orange)}
 
 <main>
 
-<!-- 01 — LIVE -->
-
+<!-- MODULE 01 — LIVE -->
 <section class="module" id="live">
-  <h2 class="section-title">01 — LIVE RADIO</h2>
-  <p class="intro" data-t="liveIntro">
-    Écoutez PRO-MAX FM en direct avec RadioKing.
+  <h2 class="title">01 — LIVE RADIO</h2>
+  <p class="intro" data-i18n="liveIntro">
+    Écoutez la radio en direct sur RadioKing.
   </p>
-  <div class="live-panel">
-    <img
-      src="pro-max-fm.jpg"
-      alt="Logo PRO-MAX FM en direct"
-      class="logo"
-    >
-    <div>
-      <span class="onair">● ON AIR — PRO-MAX FM</span>
-    </div>
-    <p id="radioStatus" role="status" aria-live="polite"></p>
+  <div class="live-box">
+    <img src="pro-max-fm.jpg" class="main-logo" alt="PRO-MAX FM">
+    <div><span class="on-air">● ON AIR — PRO-MAX FM</span></div>
+    <p id="radioStatus" role="status"></p>
     <audio id="radioPlayer" controls preload="none"></audio>
     <div class="actions">
-      <button type="button" id="playRadio" data-t="play">
-        ▶ ÉCOUTER
-      </button>
-      <button type="button" id="stopRadio" data-t="stop">
-        ■ ARRÊTER
-      </button>
+      <button id="playBtn" data-i18n="play">▶ ÉCOUTER</button>
+      <button id="stopBtn" data-i18n="stop">■ ARRÊTER</button>
     </div>
-    <p class="note" data-t="streamNotice">
-      Le lecteur dépend du flux RadioKing;
-      ON AIR ne confirme pas à lui seul la diffusion.
-    </p>
-    <a
-      class="media-link"
-      href="https://link.radioking.com/modern-radio192"
-      target="_blank"
-      rel="noopener noreferrer">
-      RADIOKING — OUVRIR LA RADIO
+    <a class="btn"
+       href="https://link.radioking.com/modern-radio192"
+       target="_blank" rel="noopener noreferrer">
+      RADIOKING
     </a>
   </div>
 </section>
 
-<!-- 02 — NEWS CENTER -->
-
+<!-- MODULE 02 — NEWS CENTER RESTORED -->
 <section class="module" id="news">
-  <h2 class="section-title">02 — NEWS CENTER</h2>
-  <p class="intro" data-t="newsIntro">
-    Haïti, Floride, diaspora et monde — sources identifiées.
+  <h2 class="title">02 — NEWS CENTER</h2>
+  <p class="intro" data-i18n="newsIntro">
+    Actualités d'Haïti, de Floride, de la diaspora et du monde.
   </p>
 
+  <!-- FLASH INFO -->
   <div class="banner">
-    <img
-      src="pro-max-fm.jpg"
-      alt="PRO-MAX FM News"
-      class="badge-image"
-    >
-    <h3>PRO-MAX FM — FLASH INFO</h3>
-    <p id="flashStatus" role="status" aria-live="polite"></p>
-    <button type="button" id="refreshFlash" data-t="refresh">
+    <img class="media-logo" src="pro-max-fm.jpg" alt="PRO-MAX FM">
+    <h3>● PRO-MAX FM — FLASH INFO</h3>
+    <p id="flashStatus" class="status" role="status" aria-live="polite"></p>
+    <button id="refreshBtn" data-i18n="refresh">
       ACTUALISER LES NOUVELLES
     </button>
   </div>
+  <div id="flashGrid" class="grid"></div>
 
-  <div class="grid" id="flashGrid"></div>
+  <!-- À LA UNE -->
+  <h3 class="sub" data-i18n="featured">À LA UNE</h3>
+  <div id="featuredGrid" class="grid"></div>
 
-  <h3 class="subhead" data-t="published">
-    ACTUALITÉS PUBLIÉES
-  </h3>
-  <div class="grid" id="approvedGrid"></div>
+  <!-- ACTUALITÉS PUBLIÉES -->
+  <h3 class="sub" data-i18n="published">ACTUALITÉS PUBLIÉES</h3>
+  <input
+    id="articleSearch"
+    class="search"
+    type="search"
+    data-placeholder="searchArticle"
+    placeholder="Rechercher un article..."
+  >
+  <div id="articleFilters" class="filters"></div>
+  <p id="articleCount" class="counter"></p>
+  <div id="articleGrid" class="grid"></div>
 
+  <!-- LÉOGÂNE INFO -->
   <div class="banner">
-    <div class="brandmark" style="justify-content:center">
+    <div class="media-head" style="justify-content:center">
       <img
-        id="leoganeLogo"
         src="leogane-info-logo.png"
-        alt="Logo LÉOGÂNE INFO"
-        class="badge-image"
+        class="media-logo"
+        id="leoganeLogo"
+        alt="LÉOGÂNE INFO"
       >
       <h3>LÉOGÂNE INFO</h3>
     </div>
-    <p data-t="leoganeIntro">
+    <p data-i18n="leogane">
       Yon vwa ki rasanble nou — pon ant Florid ak Léogâne.
     </p>
-    <div class="grid" id="leoganeGrid"></div>
+    <div id="leoganeGrid" class="grid"></div>
   </div>
 
-  <h3 class="subhead" data-t="sources">
-    SOURCES MÉDIATIQUES
+  <!-- MEDIA DIRECTORY -->
+  <h3 class="sub" data-i18n="sources">
+    RÉPERTOIRE DES SOURCES MÉDIATIQUES
   </h3>
-
   <input
-    id="newsSearch"
-    type="search"
+    id="sourceSearch"
     class="search"
-    data-placeholder="searchNews"
+    type="search"
+    data-placeholder="searchSource"
     placeholder="Rechercher un média..."
   >
-  <div class="filters" id="newsFilters"></div>
-  <p id="newsCount" class="counter"></p>
-  <div class="grid" id="newsGrid"></div>
+  <div id="sourceFilters" class="filters"></div>
+  <p id="sourceCount" class="counter"></p>
+  <div id="sourceGrid" class="grid"></div>
 
   <div class="notice">
-    <h3 data-t="editorial">POLITIQUE ÉDITORIALE</h3>
-    <p data-t="verify">
-      Une source externe n'est pas automatiquement
-      une information vérifiée par PRO-MAX FM.
+    <h3 data-i18n="policyTitle">POLITIQUE ÉDITORIALE</h3>
+    <p data-i18n="policy">
+      Les informations provenant de médias externes sont identifiées
+      et ne sont pas automatiquement approuvées par PRO-MAX FM.
     </p>
   </div>
 </section>
 
-<!-- 03 — SHOWS CENTER -->
-
+<!-- MODULE 03 — SHOWS -->
 <section class="module" id="shows">
-  <h2 class="section-title">03 — SHOWS CENTER</h2>
-  <p class="intro" data-t="showsIntro">
-    Émissions et programmation à l'heure de Floride.
+  <h2 class="title">03 — SHOWS CENTER</h2>
+  <p class="intro" data-i18n="showsIntro">
+    Nos émissions et programmes à l'heure de Floride.
   </p>
-
-  <div class="grid" id="showsGrid"></div>
+  <div id="showsGrid" class="grid"></div>
 
   <div class="banner">
-    <div class="brandmark" style="justify-content:center">
-      <img
-        class="badge-image"
-        src="pro-max-fm.jpg"
-        alt="Briyant Solèy Signo 1815"
-      >
-      <h3>BRIYANT SOLÈY SIGNO 1815 — VIDEO</h3>
-    </div>
-    <p data-t="briyantShow">
-      Les vidéos BRIYANT peuvent accompagner SHOWS CENTER,
-      même sans fichier MP4 local.
+    <img src="pro-max-fm.jpg" alt="PRO-MAX FM" class="media-logo">
+    <h3>BRIYANT SOLÈY SIGNO 1815</h3>
+    <p data-i18n="videoShow">
+      La vidéo BRIYANT est accessible sur notre chaîne,
+      même sans MP4 local.
     </p>
-    <a
-      class="media-link"
-      href="https://www.youtube.com/@BSS1815PROMAXDMP"
-      target="_blank"
-      rel="noopener noreferrer">
-      ▶ BSS1815 — YOUTUBE
+    <a class="btn"
+       href="https://www.youtube.com/@BSS1815PROMAXDMP"
+       target="_blank" rel="noopener noreferrer">
+      ▶ BRIYANT — YOUTUBE
     </a>
   </div>
 
-  <h3 class="subhead" data-t="schedule">
-    GRILLE DES PROGRAMMES
-  </h3>
-
+  <h3 class="sub" data-i18n="schedule">GRILLE DES PROGRAMMES</h3>
   <div class="table-scroll">
     <table>
       <thead>
         <tr>
-          <th data-t="days">JOURS</th>
-          <th data-t="hours">HORAIRES</th>
-          <th data-t="show">ÉMISSION</th>
+          <th data-i18n="days">JOURS</th>
+          <th data-i18n="hours">HORAIRES</th>
+          <th data-i18n="show">ÉMISSION</th>
         </tr>
       </thead>
       <tbody id="showsTable"></tbody>
@@ -298,156 +531,122 @@ footer strong{color:var(--orange)}
   </div>
 </section>
 
-<!-- 04 — PODCASTS -->
-
+<!-- MODULE 04 — PODCASTS -->
 <section class="module" id="podcasts">
-  <h2 class="section-title">04 — PODCASTS CENTER</h2>
-  <p class="intro" data-t="podcastIntro">
-    Catalogue d'épisodes et replays.
-    Le lecteur apparaît uniquement si le MP3 existe.
+  <h2 class="title">04 — PODCASTS CENTER</h2>
+  <p class="intro" data-i18n="podcastIntro">
+    Épisodes et replays. Les fiches restent visibles sans MP3.
   </p>
-
   <div class="stats">
     <div class="stat">
-      <strong id="episodeTotal">15</strong>
-      <span data-t="episodes">ÉPISODES AU CATALOGUE</span>
+      <strong id="episodeCount">15</strong>
+      <span data-i18n="episodes">ÉPISODES</span>
     </div>
     <div class="stat">
-      <strong id="replayTotal">6</strong>
+      <strong id="replayCount">6</strong>
       <span>REPLAYS</span>
     </div>
     <div class="stat">
-      <strong id="audioTotal">0</strong>
-      <span data-t="audioAvailable">MP3 DISPONIBLES</span>
+      <strong id="audioCount">0</strong>
+      <span data-i18n="mp3">MP3 DISPONIBLES</span>
     </div>
   </div>
-
   <input
     id="podcastSearch"
-    type="search"
     class="search"
+    type="search"
     data-placeholder="searchPodcast"
     placeholder="Rechercher un podcast..."
   >
-
-  <div class="filters" id="podcastFilters"></div>
-  <div class="grid" id="podcastGrid"></div>
-
-  <h3 class="subhead">REPLAYS</h3>
-  <div class="grid" id="replayGrid"></div>
-
-  <p class="note" data-t="podcastNote">
-    Les fichiers sont attendus dans audio/podcasts/
-    (episode-001.mp3, replay-001.mp3, etc.).
-  </p>
+  <div id="podcastFilters" class="filters"></div>
+  <div id="podcastGrid" class="grid"></div>
+  <h3 class="sub">REPLAYS</h3>
+  <div id="replayGrid" class="grid"></div>
 </section>
 
-<!-- 05 — MUSIC -->
-
+<!-- MODULE 05 — MUSIC -->
 <section class="module" id="music">
-  <h2 class="section-title">05 — MUSIC CENTER</h2>
-  <p class="intro" data-t="musicIntro">
-    Genres musicaux, playlists et Auto DJ RadioKing.
+  <h2 class="title">05 — MUSIC CENTER</h2>
+  <p class="intro" data-i18n="musicIntro">
+    Musiques, catégories et Auto DJ.
   </p>
-
   <input
     id="musicSearch"
-    type="search"
     class="search"
+    type="search"
     data-placeholder="searchMusic"
     placeholder="Rechercher un genre..."
   >
-  <div class="grid" id="genreGrid"></div>
-
+  <div id="genreGrid" class="grid"></div>
   <div class="notice">
-    <h3>AUTO DJ — PRO-MAX FM</h3>
-    <p data-t="autoDJ">
-      La programmation Auto DJ et les fichiers musicaux
+    <h3>PRO-MAX FM — AUTO DJ</h3>
+    <p data-i18n="autoDJ">
+      La programmation Auto DJ et les fichiers audio
       sont gérés dans RadioKing.
     </p>
-    <div class="actions">
-      <a
-        class="btn"
-        href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"
-        target="_blank"
-        rel="noopener noreferrer">
-        SPOTIFY
-      </a>
-      <a class="btn" href="#live">LIVE RADIO</a>
-    </div>
+    <a class="btn"
+       href="https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"
+       target="_blank" rel="noopener noreferrer">
+      SPOTIFY
+    </a>
   </div>
 </section>
 
-<!-- 06 — ARTISTS -->
-
+<!-- MODULE 06 — ARTISTS -->
 <section class="module" id="artists">
-  <h2 class="section-title">06 — ARTISTS CENTER</h2>
-  <p class="intro" data-t="artistsIntro">
-    Répertoire de découverte d'artistes et groupes.
+  <h2 class="title">06 — ARTISTS CENTER</h2>
+  <p class="intro" data-i18n="artistsIntro">
+    Répertoire d'artistes et de groupes.
   </p>
-
   <input
     id="artistSearch"
-    type="search"
     class="search"
+    type="search"
     data-placeholder="searchArtist"
     placeholder="Rechercher un artiste..."
   >
-
-  <div class="filters" id="artistFilters"></div>
-  <p id="artistCount" class="counter"></p>
-  <div class="grid" id="artistGrid"></div>
+  <div id="artistFilters" class="filters"></div>
+  <div id="artistGrid" class="grid"></div>
 </section>
 
-<!-- 07 — VIDEO -->
-
+<!-- MODULE 07 — VIDEO -->
 <section class="module" id="video">
-  <h2 class="section-title">07 — VIDEO CENTER</h2>
-  <p class="intro" data-t="videoIntro">
-    Chaînes, reportages et contenus vidéo publics.
+  <h2 class="title">07 — VIDEO CENTER</h2>
+  <p class="intro" data-i18n="videosIntro">
+    Chaînes, reportages et contenus vidéo.
   </p>
-  <div class="grid" id="videoGrid"></div>
+  <div id="videoGrid" class="grid"></div>
 </section>
 
-<!-- 08 — EVENTS -->
-
+<!-- MODULE 08 — EVENTS -->
 <section class="module" id="events">
-  <h2 class="section-title">08 — EVENTS CENTER</h2>
-  <p class="intro" data-t="eventsIntro">
-    Calendrier interactif. Aucun événement ne sera inventé.
+  <h2 class="title">08 — EVENTS CENTER</h2>
+  <p class="intro" data-i18n="eventsIntro">
+    Calendrier des événements de la communauté.
   </p>
-
-  <div class="calendar-head">
-    <button id="prevMonth" type="button" aria-label="Previous month">◀</button>
-    <strong id="monthLabel"></strong>
-    <button id="nextMonth" type="button" aria-label="Next month">▶</button>
+  <div class="calendar-bar">
+    <button id="prevMonth">◀</button>
+    <strong id="monthName"></strong>
+    <button id="nextMonth">▶</button>
   </div>
-
   <div id="calendar" class="calendar"></div>
-  <p id="selectedDate" class="status" aria-live="polite"></p>
-
-  <h3 class="subhead" data-t="upcoming">
-    ÉVÉNEMENTS À VENIR
-  </h3>
-  <div class="grid" id="eventGrid"></div>
+  <p id="selectedDate" class="status"></p>
+  <h3 class="sub" data-i18n="upcoming">ÉVÉNEMENTS À VENIR</h3>
+  <div id="eventGrid" class="grid"></div>
 </section>
 
-<!-- 09 — CONTACT -->
-
+<!-- MODULE 09 — CONTACT -->
 <section class="module" id="contact">
-  <h2 class="section-title">09 — CONTACT CENTER</h2>
-
-  <div class="contact-grid">
+  <h2 class="title">09 — CONTACT CENTER</h2>
+  <div class="contacts">
     <article class="card">
-      <h3>🇺🇸 USA — FLORIDA</h3>
+      <h3>🇺🇸 FLORIDA</h3>
       <a href="tel:+14076405166">🇺🇸 (407) 640-5166</a>
     </article>
-
     <article class="card">
-      <h3>🇺🇸 USA — INDIANA</h3>
+      <h3>🇺🇸 INDIANA</h3>
       <a href="tel:+13175381150">🇺🇸 (317) 538-1150</a>
     </article>
-
     <article class="card">
       <h3>🇭🇹 HAÏTI</h3>
       <a href="tel:+50942544447">🇭🇹 +509 4254 4447</a>
@@ -455,19 +654,12 @@ footer strong{color:var(--orange)}
       <a href="tel:+50943437488">🇭🇹 +509 4343 7488</a>
     </article>
   </div>
-
-  <h3 class="subhead" data-t="social">
-    RÉSEAUX SOCIAUX
-  </h3>
-
-  <div class="social-grid" id="socialGrid"></div>
-
+  <h3 class="sub" data-i18n="social">RÉSEAUX SOCIAUX</h3>
+  <div id="socialGrid" class="socials"></div>
   <div class="actions">
-    <a
-      href="https://bss1815promaxdmp.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn">
+    <a class="btn"
+       href="https://bss1815promaxdmp.com"
+       target="_blank" rel="noopener noreferrer">
       BSS1815 PRO-MAX DMP
     </a>
   </div>
@@ -476,15 +668,17 @@ footer strong{color:var(--orange)}
 </main>
 
 <footer>
-  <strong>PRO-MAX FM — LA FORCE DU SON</strong>
-  <p data-t="tagline">
+  <h2>PRO-MAX FM</h2>
+  <p>LA FORCE DU SON</p>
+  <p data-i18n="tagline">
     La radio de tous, partout et toujours.
   </p>
-  <p>© 2026 PRO-MAX FM • BSS1815 PRO-MAX DMP</p>
+  <p>© 2026 PRO-MAX FM — BSS1815 PRO-MAX DMP</p>
 </footer>
 
 <script>
 "use strict";
+
 (() => {
 
 const $ = id => document.getElementById(id);
@@ -492,955 +686,829 @@ const $ = id => document.getElementById(id);
 const STREAM =
   "https://listen.radioking.com/radio/952371/stream/1024056";
 
+const NEWS_JSON = "news-articles.json";
+const RSS_API = "https://api.rss2json.com/v1/api.json";
 const AUDIO_ROOT = "audio/podcasts/";
-const NEWS_FILE = "news-articles.json";
-const REFRESH_MS = 300000;
 
-const L = {
-  fr:{
-    home:"ACCUEIL",
-    tagline:"La radio de tous, partout et toujours.",
-    hero:"Information, nouvelles, musique, artistes, émissions et communauté.",
-    listen:"● ÉCOUTER EN DIRECT",
-    discover:"EXPLORER LES ACTUALITÉS",
-    liveIntro:"Écoutez PRO-MAX FM en direct avec RadioKing.",
-    play:"▶ ÉCOUTER",
-    stop:"■ ARRÊTER",
-    streamNotice:"Le lecteur dépend du flux RadioKing; ON AIR ne confirme pas à lui seul la diffusion.",
-    ready:"PRÊT À ÉCOUTER",
-    connecting:"CONNEXION...",
-    playing:"DIFFUSION EN COURS",
-    stopped:"LECTURE ARRÊTÉE",
-    error:"LE FLUX N'A PAS PU ÊTRE LU",
-    newsIntro:"Haïti, Floride, diaspora et monde — sources identifiées.",
-    refresh:"ACTUALISER LES NOUVELLES",
-    published:"ACTUALITÉS PUBLIÉES",
-    leoganeIntro:"Une voix qui nous rassemble — un pont entre la Floride et Léogâne.",
-    sources:"SOURCES MÉDIATIQUES",
-    editorial:"POLITIQUE ÉDITORIALE",
-    verify:"Une source externe n'est pas automatiquement une information vérifiée par PRO-MAX FM.",
-    showsIntro:"Émissions et programmation à l'heure de Floride.",
-    schedule:"GRILLE DES PROGRAMMES",
-    days:"JOURS",
-    hours:"HORAIRES",
-    show:"ÉMISSION",
-    podcastIntro:"Catalogue d'épisodes et replays. Le lecteur apparaît uniquement si le MP3 existe.",
-    episodes:"ÉPISODES AU CATALOGUE",
-    audioAvailable:"MP3 DISPONIBLES",
-    podcastNote:"Les fichiers sont attendus dans audio/podcasts/ (episode-001.mp3, replay-001.mp3, etc.).",
-    musicIntro:"Genres musicaux, playlists et Auto DJ RadioKing.",
-    autoDJ:"La programmation Auto DJ et les fichiers musicaux sont gérés dans RadioKing.",
-    artistsIntro:"Répertoire de découverte d'artistes et groupes — sans prétendre à un partenariat.",
-    videoIntro:"Chaînes, reportages et contenus vidéo publics.",
-    eventsIntro:"Calendrier interactif. Aucun événement ne sera inventé.",
-    upcoming:"ÉVÉNEMENTS À VENIR",
-    social:"RÉSEAUX SOCIAUX",
-    searchNews:"Rechercher un média...",
-    searchPodcast:"Rechercher un podcast...",
-    searchMusic:"Rechercher un genre...",
-    searchArtist:"Rechercher un artiste...",
-    all:"TOUS",
-    haiti:"HAÏTI",
-    world:"MONDE",
-    diaspora:"DIASPORA",
-    digital:"DIGITAL",
-    independent:"INDÉPENDANT",
-    community:"COMMUNAUTÉ",
-    entertainment:"DIVERTISSEMENT",
-    news:"ACTUALITÉS",
-    music:"MUSIQUE",
-    culture:"CULTURE",
-    interview:"ENTRETIENS",
-    special:"SPÉCIAL",
-    group:"GROUPES",
-    solo:"ARTISTES",
-    roots:"RACINES",
-    visit:"VISITER LA SOURCE",
-    searchVideo:"CHERCHER LA VIDÉO",
-    pending:"AUDIO NON DISPONIBLE",
-    available:"ÉCOUTER",
-    noResult:"AUCUN RÉSULTAT",
-    noApproved:"Aucun article éditorial approuvé n'a été publié.",
-    noLeogane:"Aucune nouvelle LÉOGÂNE INFO approuvée pour le moment.",
-    noEvent:"Aucun événement confirmé pour cette date.",
-    noUpcoming:"Aucun événement futur confirmé.",
-    rssLoading:"Chargement des flux d'information...",
-    rssError:"Flux RSS momentanément indisponibles. Consultez les sources ci-dessous.",
-    rssSuccess:"Nouveaux titres externes reçus — vérifiez les articles à leur source.",
-    daily:"LUNDI–VENDREDI",
-    weekend:"WEEK-END",
-    saturday:"SAMEDI",
-    briyantShow:"Les vidéos BRIYANT peuvent accompagner SHOWS CENTER, même sans fichier MP4 local.",
-    toConfirm:"Horaire à confirmer"
-  },
-
-  en:{
-    home:"HOME",
-    tagline:"The radio for everyone, everywhere, always.",
-    hero:"Information, news, music, artists, shows and community.",
-    listen:"● LISTEN LIVE",
-    discover:"EXPLORE NEWS",
-    liveIntro:"Listen to PRO-MAX FM live via RadioKing.",
-    play:"▶ LISTEN",
-    stop:"■ STOP",
-    streamNotice:"Playback depends on the RadioKing stream; ON AIR alone does not confirm a broadcast.",
-    ready:"READY TO LISTEN",
-    connecting:"CONNECTING...",
-    playing:"STREAM PLAYING",
-    stopped:"PLAYBACK STOPPED",
-    error:"UNABLE TO PLAY STREAM",
-    newsIntro:"Haiti, Florida, diaspora and world — identified sources.",
-    refresh:"REFRESH NEWS",
-    published:"PUBLISHED NEWS",
-    leoganeIntro:"A voice that brings us together — bridging Florida and Léogâne.",
-    sources:"MEDIA SOURCES",
-    editorial:"EDITORIAL POLICY",
-    verify:"External reports are not automatically verified by PRO-MAX FM.",
-    showsIntro:"Shows and schedules in Florida time.",
-    schedule:"PROGRAM SCHEDULE",
-    days:"DAYS",
-    hours:"TIME",
-    show:"SHOW",
-    podcastIntro:"Episode and replay catalogue. Audio players appear only when MP3 files exist.",
-    episodes:"CATALOGUE EPISODES",
-    audioAvailable:"AVAILABLE MP3 FILES",
-    podcastNote:"Place files in audio/podcasts/ (episode-001.mp3, replay-001.mp3, etc.).",
-    musicIntro:"Music genres, playlists and RadioKing Auto DJ.",
-    autoDJ:"Auto DJ programming and music files are managed in RadioKing.",
-    artistsIntro:"Artist and band discovery directory — no partnership implied.",
-    videoIntro:"Public channels, reports and videos.",
-    eventsIntro:"Interactive calendar. No invented events.",
-    upcoming:"UPCOMING EVENTS",
-    social:"SOCIAL NETWORKS",
-    searchNews:"Search media...",
-    searchPodcast:"Search podcasts...",
-    searchMusic:"Search genres...",
-    searchArtist:"Search artists...",
-    all:"ALL",
-    haiti:"HAITI",
-    world:"WORLD",
-    diaspora:"DIASPORA",
-    digital:"DIGITAL",
-    independent:"INDEPENDENT",
-    community:"COMMUNITY",
-    entertainment:"ENTERTAINMENT",
-    news:"NEWS",
-    music:"MUSIC",
-    culture:"CULTURE",
-    interview:"INTERVIEWS",
-    special:"SPECIAL",
-    group:"BANDS",
-    solo:"ARTISTS",
-    roots:"ROOTS",
-    visit:"VISIT SOURCE",
-    searchVideo:"FIND VIDEO",
-    pending:"AUDIO NOT AVAILABLE",
-    available:"LISTEN",
-    noResult:"NO RESULTS",
-    noApproved:"No approved editorial articles have been published.",
-    noLeogane:"No approved LÉOGÂNE INFO articles yet.",
-    noEvent:"No confirmed events on this date.",
-    noUpcoming:"No confirmed future events.",
-    rssLoading:"Loading news feeds...",
-    rssError:"RSS feeds temporarily unavailable. See the source directory below.",
-    rssSuccess:"External headlines received — verify articles with their sources.",
-    daily:"MONDAY–FRIDAY",
-    weekend:"WEEKEND",
-    saturday:"SATURDAY",
-    briyantShow:"BRIYANT videos can accompany SHOWS CENTER even without a locally uploaded MP4 file.",
-    toConfirm:"Schedule to be confirmed"
-  },
-
-  ht:{
-    home:"AKÈY",
-    tagline:"Radyo pou tout moun, tout kote, tout tan.",
-    hero:"Enfòmasyon, nouvèl, mizik, atis, emisyon ak kominote.",
-    listen:"● KOUTE AN DIRÈK",
-    discover:"DEKOUVRI NOUVÈL YO",
-    liveIntro:"Koute PRO-MAX FM an dirèk sou RadioKing.",
-    play:"▶ KOUTE",
-    stop:"■ KANPE",
-    streamNotice:"Lektè a depann de stream RadioKing la; ON AIR pa garanti radyo a ap difize.",
-    ready:"PARE POU KOUTE",
-    connecting:"AP KONEKTE...",
-    playing:"RADYO A AP JWE",
-    stopped:"LEKTI KANPE",
-    error:"PA KA JWE STREAM NAN",
-    newsIntro:"Ayiti, Florid, dyaspora ak lemonn — sous ki idantifye.",
-    refresh:"RAFRECHI NOUVÈL YO",
-    published:"NOUVÈL KI PIBLIYE",
-    leoganeIntro:"Yon vwa ki rasanble nou — pon ant Florid ak Léogâne.",
-    sources:"SOUS MEDYA",
-    editorial:"POLITIK EDITORYAL",
-    verify:"Nouvèl ki sòti nan lòt medya pa otomatikman verifye pa PRO-MAX FM.",
-    showsIntro:"Emisyon ak orè pwogram yo selon lè Florid.",
-    schedule:"ORÈ PWOGRAM YO",
-    days:"JOU",
-    hours:"LÈ",
-    show:"EMISYON",
-    podcastIntro:"Katalòg epizòd ak replay. Lektè odyo parèt sèlman lè MP3 yo egziste.",
-    episodes:"EPIZÒD NAN KATALÒG",
-    audioAvailable:"MP3 KI DISPONIB",
-    podcastNote:"Mete fichye nan audio/podcasts/ (episode-001.mp3, replay-001.mp3, elatriye).",
-    musicIntro:"Kategori mizik, playlist ak Auto DJ RadioKing.",
-    autoDJ:"Se nan RadioKing yo jere Auto DJ ak fichye mizik yo.",
-    artistsIntro:"Anyè pou dekouvri atis ak gwoup — sa pa vle di gen patenarya.",
-    videoIntro:"Chèn piblik, repòtaj ak videyo.",
-    eventsIntro:"Kalandriye entèraktif. Nou pap envante evènman.",
-    upcoming:"EVÈNMAN K AP VINI",
-    social:"REZO SOSYAL",
-    searchNews:"Chèche yon medya...",
-    searchPodcast:"Chèche podcast...",
-    searchMusic:"Chèche yon kategori...",
-    searchArtist:"Chèche atis...",
-    all:"TOUT",
-    haiti:"AYITI",
-    world:"LEMONN",
-    diaspora:"DYASPORA",
-    digital:"DIJITAL",
-    independent:"ENDEPANDAN",
-    community:"KOMINOTE",
-    entertainment:"AMIZMAN",
-    news:"NOUVÈL",
-    music:"MIZIK",
-    culture:"KILTI",
-    interview:"ENTÈVYOU",
-    special:"ESPESYAL",
-    group:"GWOUP",
-    solo:"ATIS",
-    roots:"RASIN",
-    visit:"VIZITE SOUS LA",
-    searchVideo:"CHÈCHE VIDEYO A",
-    pending:"ODYO POKO DISPONIB",
-    available:"KOUTE",
-    noResult:"PA GEN REZILTA",
-    noApproved:"Pa gen atik editoryal apwouve ki pibliye.",
-    noLeogane:"Pa gen nouvèl LÉOGÂNE INFO apwouve pou kounye a.",
-    noEvent:"Pa gen evènman konfime pou dat sa a.",
-    noUpcoming:"Pa gen evènman konfime k ap vini.",
-    rssLoading:"Ap chaje nouvèl yo...",
-    rssError:"Flux RSS yo pa disponib pou kounye a. Konsilte sous ki anba yo.",
-    rssSuccess:"Nou resevwa tit nouvèl ekstèn — verifye yo nan sous yo.",
-    daily:"LENDI–VANDREDI",
-    weekend:"WIKENN",
-    saturday:"SAMDI",
-    briyantShow:"Videyo BRIYANT yo ka parèt nan SHOWS CENTER menm si nou poko mete yon fichye MP4 sou sit la.",
-    toConfirm:"Orè pou konfime"
-  }
+const T = {
+fr:{
+  home:"ACCUEIL",
+  tagline:"La radio de tous, partout et toujours.",
+  hero:"Information, nouvelles, divertissement, musique, artistes et communauté.",
+  listen:"● ÉCOUTER EN DIRECT",
+  explore:"EXPLORER LES ACTUALITÉS",
+  liveIntro:"Écoutez la radio en direct sur RadioKing.",
+  play:"▶ ÉCOUTER",
+  stop:"■ ARRÊTER",
+  ready:"PRÊT À ÉCOUTER",
+  connecting:"CONNEXION...",
+  playing:"DIFFUSION EN COURS",
+  stopped:"LECTURE ARRÊTÉE",
+  error:"IMPOSSIBLE DE LIRE LE FLUX",
+  newsIntro:"Actualités d'Haïti, de Floride, de la diaspora et du monde.",
+  refresh:"ACTUALISER LES NOUVELLES",
+  featured:"À LA UNE",
+  published:"ACTUALITÉS PUBLIÉES",
+  searchArticle:"Rechercher un article...",
+  searchSource:"Rechercher un média...",
+  sources:"RÉPERTOIRE DES SOURCES MÉDIATIQUES",
+  leogane:"Une voix qui nous rassemble — un pont entre la Floride et Léogâne.",
+  policyTitle:"POLITIQUE ÉDITORIALE",
+  policy:"Les informations provenant de médias externes sont identifiées et ne sont pas automatiquement approuvées par PRO-MAX FM.",
+  showsIntro:"Nos émissions et programmes à l'heure de Floride.",
+  videoShow:"La vidéo BRIYANT est accessible sur notre chaîne, même sans MP4 local.",
+  schedule:"GRILLE DES PROGRAMMES",
+  days:"JOURS",hours:"HORAIRES",show:"ÉMISSION",
+  daily:"LUNDI–VENDREDI",weekend:"WEEK-END",saturday:"SAMEDI",
+  confirm:"Horaire à confirmer",
+  podcastIntro:"Épisodes et replays. Les fiches restent visibles sans MP3.",
+  episodes:"ÉPISODES",mp3:"MP3 DISPONIBLES",
+  searchPodcast:"Rechercher un podcast...",
+  noAudio:"AUDIO NON DISPONIBLE",
+  musicIntro:"Musiques, catégories et Auto DJ.",
+  searchMusic:"Rechercher un genre...",
+  autoDJ:"La programmation Auto DJ et les fichiers audio sont gérés dans RadioKing.",
+  artistsIntro:"Répertoire d'artistes et de groupes.",
+  searchArtist:"Rechercher un artiste...",
+  videosIntro:"Chaînes, reportages et contenus vidéo.",
+  eventsIntro:"Calendrier des événements de la communauté.",
+  upcoming:"ÉVÉNEMENTS À VENIR",
+  social:"RÉSEAUX SOCIAUX",
+  all:"TOUS",haiti:"HAÏTI",digital:"DIGITAL",world:"MONDE",
+  diaspora:"DIASPORA",independent:"INDÉPENDANTS",
+  community:"COMMUNAUTÉ",entertainment:"DIVERTISSEMENT",
+  news:"ACTUALITÉS",music:"MUSIQUE",culture:"CULTURE",
+  interview:"ENTRETIENS",special:"SPÉCIAL",
+  group:"GROUPES",roots:"RACINES",
+  visit:"VISITER LA SOURCE",
+  read:"LIRE L'ARTICLE",
+  external:"SOURCE EXTERNE",
+  approved:"PUBLIÉ PAR LA RÉDACTION",
+  loading:"Chargement des informations...",
+  rssFail:"Les flux RSS sont indisponibles. Consultez les sources ci-dessous.",
+  rssReady:"Titres RSS reçus — vérifiez-les à la source.",
+  noNews:"Aucun article disponible actuellement.",
+  noLeogane:"Aucun article approuvé de LÉOGÂNE INFO.",
+  noEvent:"Aucun événement confirmé."
+},
+en:{
+  home:"HOME",
+  tagline:"The radio for everyone, everywhere, always.",
+  hero:"News, entertainment, music, artists and community.",
+  listen:"● LISTEN LIVE",explore:"EXPLORE NEWS",
+  liveIntro:"Listen live via RadioKing.",
+  play:"▶ LISTEN",stop:"■ STOP",
+  ready:"READY TO LISTEN",connecting:"CONNECTING...",
+  playing:"STREAM PLAYING",stopped:"PLAYBACK STOPPED",
+  error:"UNABLE TO PLAY STREAM",
+  newsIntro:"News from Haiti, Florida, the diaspora and the world.",
+  refresh:"REFRESH NEWS",featured:"FEATURED NEWS",
+  published:"PUBLISHED NEWS",
+  searchArticle:"Search articles...",
+  searchSource:"Search media...",
+  sources:"MEDIA SOURCE DIRECTORY",
+  leogane:"A voice that unites us — bridging Florida and Léogâne.",
+  policyTitle:"EDITORIAL POLICY",
+  policy:"External news is identified and is not automatically endorsed by PRO-MAX FM.",
+  showsIntro:"Our shows and schedule in Florida time.",
+  videoShow:"BRIYANT videos are accessible from our channel without a local MP4.",
+  schedule:"SHOW SCHEDULE",
+  days:"DAYS",hours:"TIME",show:"SHOW",
+  daily:"MONDAY–FRIDAY",weekend:"WEEKEND",saturday:"SATURDAY",
+  confirm:"Time to be confirmed",
+  podcastIntro:"Episodes and replays remain listed even without MP3 files.",
+  episodes:"EPISODES",mp3:"AVAILABLE MP3",
+  searchPodcast:"Search podcasts...",noAudio:"AUDIO NOT AVAILABLE",
+  musicIntro:"Genres and Auto DJ.",
+  searchMusic:"Search genres...",
+  autoDJ:"Auto DJ audio files are managed in RadioKing.",
+  artistsIntro:"Artist and band directory.",
+  searchArtist:"Search artists...",
+  videosIntro:"Public channels, news reports and videos.",
+  eventsIntro:"Community event calendar.",
+  upcoming:"UPCOMING EVENTS",social:"SOCIAL NETWORKS",
+  all:"ALL",haiti:"HAITI",digital:"DIGITAL",world:"WORLD",
+  diaspora:"DIASPORA",independent:"INDEPENDENT",
+  community:"COMMUNITY",entertainment:"ENTERTAINMENT",
+  news:"NEWS",music:"MUSIC",culture:"CULTURE",
+  interview:"INTERVIEWS",special:"SPECIAL",
+  group:"BANDS",roots:"ROOTS",visit:"VISIT SOURCE",
+  read:"READ ARTICLE",external:"EXTERNAL SOURCE",
+  approved:"PUBLISHED BY NEWSROOM",
+  loading:"Loading news feeds...",
+  rssFail:"RSS feeds unavailable. Visit the sources below.",
+  rssReady:"RSS headlines received — verify at the source.",
+  noNews:"No articles available yet.",
+  noLeogane:"No approved LÉOGÂNE INFO articles yet.",
+  noEvent:"No confirmed events."
+},
+ht:{
+  home:"AKÈY",
+  tagline:"Radyo pou tout moun, tout kote, tout tan.",
+  hero:"Nouvèl, amizman, mizik, atis ak kominote.",
+  listen:"● KOUTE AN DIRÈK",
+  explore:"DEKOUVRI NOUVÈL YO",
+  liveIntro:"Koute radyo a an dirèk sou RadioKing.",
+  play:"▶ KOUTE",stop:"■ KANPE",
+  ready:"PARE POU KOUTE",
+  connecting:"AP KONEKTE...",
+  playing:"RADYO A AP JWE",stopped:"LEKTI KANPE",
+  error:"PA KA JWE STREAM NAN",
+  newsIntro:"Nouvèl Ayiti, Florid, dyaspora ak lemonn.",
+  refresh:"RAFRECHI NOUVÈL YO",
+  featured:"AN VEDET",published:"NOUVÈL KI PIBLIYE",
+  searchArticle:"Chèche nouvèl...",
+  searchSource:"Chèche yon medya...",
+  sources:"ANYÈ SOUS MEDYA",
+  leogane:"Yon vwa ki rasanble nou — pon ant Florid ak Léogâne.",
+  policyTitle:"POLITIK EDITORYAL",
+  policy:"Nouvèl ki sòti nan lòt medya pa otomatikman verifye pa PRO-MAX FM.",
+  showsIntro:"Emisyon ak orè pwogram nou yo selon lè Florid.",
+  videoShow:"Videyo BRIYANT yo disponib sou chèn nou an menm san MP4 sou sit la.",
+  schedule:"ORÈ EMISYON YO",
+  days:"JOU",hours:"LÈ",show:"EMISYON",
+  daily:"LENDI–VANDREDI",weekend:"WIKENN",saturday:"SAMDI",
+  confirm:"Lè pou konfime",
+  podcastIntro:"Epizòd ak replays rete vizib menm si MP3 poko la.",
+  episodes:"EPIZÒD",mp3:"MP3 DISPONIB",
+  searchPodcast:"Chèche podcast...",
+  noAudio:"ODYO POKO DISPONIB",
+  musicIntro:"Kategori mizik ak Auto DJ.",
+  searchMusic:"Chèche kategori...",
+  autoDJ:"Se nan RadioKing yo jere fichye mizik Auto DJ yo.",
+  artistsIntro:"Anyè atis ak gwoup mizikal.",
+  searchArtist:"Chèche atis...",
+  videosIntro:"Chèn piblik, repòtaj ak videyo.",
+  eventsIntro:"Kalandriye evènman kominote a.",
+  upcoming:"EVÈNMAN K AP VINI",
+  social:"REZO SOSYAL",
+  all:"TOUT",haiti:"AYITI",digital:"DIJITAL",world:"LEMONN",
+  diaspora:"DYASPORA",independent:"ENDEPANDAN",
+  community:"KOMINOTE",entertainment:"AMIZMAN",
+  news:"NOUVÈL",music:"MIZIK",culture:"KILTI",
+  interview:"ENTÈVYOU",special:"ESPESYAL",
+  group:"GWOUP",roots:"RASIN",
+  visit:"VIZITE SOUS LA",read:"LI ATIK LA",
+  external:"SOUS EKSTÈN",
+  approved:"REDAKSYON AN PIBLIYE",
+  loading:"Ap chaje nouvèl yo...",
+  rssFail:"Flux RSS yo pa disponib. Konsilte sous ki anba yo.",
+  rssReady:"Tit nouvèl RSS yo rive — verifye yo nan sous la.",
+  noNews:"Pa gen atik ki disponib kounye a.",
+  noLeogane:"Pa gen atik LÉOGÂNE INFO ki apwouve.",
+  noEvent:"Pa gen evènman konfime."
+}
 };
 
-let lang="fr",
-    newsFilter="all",
-    podFilter="all",
-    artistFilter="all",
-    radioState="ready",
-    rssBusy=false,
-    externalNews=[],
-    editorialNews=[],
-    lastFeedSuccess=false;
+let lang="fr";
+let radioStatus="ready";
+let newsFilter="all";
+let articleFilter="all";
+let podFilter="all";
+let artistFilter="all";
+let rssBusy=false;
+let external=[];
+let editorial=[];
+let rssSuccess=false;
 
-const t = k => L[lang][k] || k;
-const loc = v =>
-  typeof v==="string" ? v :
-  (v && (v[lang]||v.fr||v.en||v.ht)) || "";
+const t=k=>T[lang][k]||k;
 
-function el(tag,value,cls){
-  const n=document.createElement(tag);
-  if(value!==undefined && value!==null){
-    n.textContent=String(value);
-  }
-  if(cls) n.className=cls;
-  return n;
+const localized=obj=>
+  typeof obj==="string"
+    ? obj
+    : (obj&&(obj[lang]||obj.fr||obj.en||obj.ht))||"";
+
+function n(tag,text,cls){
+  const e=document.createElement(tag);
+  if(text!==undefined&&text!==null)e.textContent=String(text);
+  if(cls)e.className=cls;
+  return e;
 }
 
 function clear(id){
-  const n=$(id);
-  n.replaceChildren();
-  return n;
+  const e=$(id);
+  e.replaceChildren();
+  return e;
 }
 
-function empty(message){
-  const c=el("article",null,"card");
-  c.append(el("p",message));
-  return c;
+function safe(url){
+  try{
+    return ["https:","http:"].includes(new URL(url).protocol);
+  }catch{return false}
+}
+
+function normalize(s){
+  return String(s||"").toLocaleLowerCase();
+}
+
+function match(s,q){
+  return normalize(s).includes(normalize(q));
+}
+
+function empty(msg){
+  const e=n("article",null,"card");
+  e.append(n("p",msg));
+  return e;
 }
 
 function link(label,url){
-  const a=el("a",label,"media-link");
-  a.href=url;
-  a.target="_blank";
-  a.rel="noopener noreferrer";
-  return a;
+  const e=n("a",label,"btn");
+  e.href=url;
+  e.target="_blank";
+  e.rel="noopener noreferrer";
+  return e;
 }
 
-function match(value,q){
-  return String(value||"")
-    .toLocaleLowerCase()
-    .includes(q.toLocaleLowerCase());
-}
-
-function filters(id,items,current,callback){
-  const root=clear(id);
-  items.forEach(k=>{
-    const b=el("button",t(k));
-    b.type="button";
-    b.classList.toggle("active",k===current);
-    b.setAttribute("aria-pressed",String(k===current));
-    b.onclick=()=>callback(k);
-    root.append(b);
-  });
-}
-
-function safeHttp(v){
-  try{
-    const u=new URL(v);
-    return u.protocol==="https:" || u.protocol==="http:";
-  }catch{
-    return false;
-  }
-}
-
-function imageFallback(parent,src,name){
-  const box=el(
-    "span",
-    (name||"?").split(/\s+/).slice(0,2)
-      .map(x=>x[0]||"").join("").toUpperCase(),
-    "monogram"
+function logo(parent,name,src){
+  const initials=n(
+    "div",
+    name.split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase(),
+    "initials"
   );
-  parent.append(box);
+  parent.append(initials);
+  if(!src)return;
 
-  if(src){
-    const img=el("img");
-    img.className="badge-image";
-    img.alt="Logo — "+name;
-    img.loading="lazy";
-    img.src=src;
-    img.onload=()=>box.replaceWith(img);
-  }
+  const image=n("img");
+  image.className="media-logo";
+  image.alt="Logo "+name;
+  image.src=src;
+  image.loading="lazy";
+  image.addEventListener("load",()=>initials.replaceWith(image));
 }
 
-function sourceLogo(url){
+function favicon(url){
   try{
-    const d=new URL(url).hostname;
     return "https://www.google.com/s2/favicons?domain="+
-      encodeURIComponent(d)+"&sz=128";
-  }catch{
-    return "";
+      encodeURIComponent(new URL(url).hostname)+"&sz=128";
+  }catch{return ""}
+}
+
+function card(title,description,url,category,img){
+  const e=n("article",null,"card");
+  const h=n("div",null,"media-head");
+  logo(h,title,img);
+  h.append(n("h3",title));
+  e.append(h);
+  if(category)e.append(n("span",t(category),"tag"));
+  if(description)e.append(n("p",description));
+  if(safe(url))e.append(link(t("visit"),url));
+  return e;
+}
+
+function filters(id,options,value,callback){
+  const root=clear(id);
+
+  for(const key of options){
+    const b=n("button",t(key));
+    b.type="button";
+    b.classList.toggle("active",key===value);
+    b.setAttribute("aria-pressed",String(key===value));
+    b.onclick=()=>callback(key);
+    root.append(b);
   }
 }
 
-function card(title,description,url,category,logo){
-  const c=el("article",null,"card");
-  const header=el("div",null,"brandmark");
-  imageFallback(header,logo,title);
-  header.append(el("h3",title));
-  c.append(header);
+function setLanguage(code){
+  if(!T[code])return;
+  lang=code;
+  document.documentElement.lang=code;
 
-  if(category){
-    c.append(el("span",t(category),"tag"));
-  }
-  if(description){
-    c.append(el("p",description));
-  }
-  if(safeHttp(url)){
-    c.append(link(t("visit"),url));
-  }
-  return c;
+  document.querySelectorAll("[data-i18n]").forEach(e=>
+    e.textContent=t(e.dataset.i18n)
+  );
+
+  document.querySelectorAll("[data-placeholder]").forEach(e=>{
+    e.placeholder=t(e.dataset.placeholder);
+    e.setAttribute("aria-label",t(e.dataset.placeholder));
+  });
+
+  ["fr","en","ht"].forEach(k=>
+    $("lang-"+k).classList.toggle("active",k===code)
+  );
+
+  $("radioStatus").textContent=t(radioStatus);
+  renderAll();
 }
 
-function setLanguage(next){
-  if(!L[next]) return;
-  lang=next;
-  document.documentElement.lang=next;
+["fr","en","ht"].forEach(k=>
+  $("lang-"+k).onclick=()=>setLanguage(k)
+);
 
-  document.querySelectorAll("[data-t]").forEach(n=>{
-    n.textContent=t(n.dataset.t);
-  });
-
-  document.querySelectorAll("[data-placeholder]").forEach(n=>{
-    n.placeholder=t(n.dataset.placeholder);
-    n.setAttribute("aria-label",t(n.dataset.placeholder));
-  });
-
-  ["fr","en","ht"].forEach(k=>{
-    $(k).classList.toggle("active",k===next);
-    $(k).setAttribute("aria-pressed",String(k===next));
-  });
-
-  updateRadio();
-  renderNews();
-  renderFlash();
-  renderShows();
-  renderPodcasts();
-  renderMusic();
-  renderArtists();
-  renderVideos();
-  renderEvents();
-}
-
-["fr","en","ht"].forEach(k=>{
-  $(k).addEventListener("click",()=>setLanguage(k));
-});
-
-/* 01 — RADIOKING LIVE */
-
+/* 01 — LIVE RADIO */
 const player=$("radioPlayer");
 
-function updateRadio(){
-  $("radioStatus").textContent=t(radioState);
-}
+$("playBtn").onclick=async()=>{
+  radioStatus="connecting";
+  $("radioStatus").textContent=t(radioStatus);
 
-$("playRadio").onclick=async()=>{
-  radioState="connecting";
-  updateRadio();
+  if(!player.getAttribute("src"))player.src=STREAM;
 
-  if(!player.getAttribute("src")){
-    player.src=STREAM;
-  }
   try{
     await player.play();
-  }catch(e){
-    radioState="error";
-    updateRadio();
+  }catch{
+    radioStatus="error";
+    $("radioStatus").textContent=t(radioStatus);
   }
 };
 
-$("stopRadio").onclick=()=>{
+$("stopBtn").onclick=()=>{
   player.pause();
   player.removeAttribute("src");
   player.load();
-  radioState="stopped";
-  updateRadio();
+  radioStatus="stopped";
+  $("radioStatus").textContent=t(radioStatus);
 };
 
 player.addEventListener("playing",()=>{
-  radioState="playing";
-  updateRadio();
+  radioStatus="playing";
+  $("radioStatus").textContent=t(radioStatus);
 });
 
 player.addEventListener("error",()=>{
-  radioState="error";
-  updateRadio();
+  radioStatus="error";
+  $("radioStatus").textContent=t(radioStatus);
 });
 
-/* 02 — NEWS CENTER */
+/* 02 — NEWS SOURCES */
+const NEWS=[
+["Radio Télé Éclair","haiti",
+ "https://www.youtube.com/channel/UCOvGbDh5biuOqjx6G3CdrQg",
+ "media-logos/radio-tele-eclair.png"],
 
-const NEWS_SOURCES=[
-  ["Radio Télé Éclair","haiti","https://www.youtube.com/channel/UCOvGbDh5biuOqjx6G3CdrQg"],
-  ["Radio Télévision Caraïbes","haiti","https://www.radiotelevisioncaraibes.com"],
-  ["Radio Vision 2000","haiti",null],
-  ["Le Nouvelliste","haiti","https://lenouvelliste.com"],
-  ["Radio Télé Métropole","haiti","https://metropole.ht"],
-  ["RT 6 Univers","haiti",null],
-  ["ZOOM HAITI TV","digital",null],
-  ["Ti Koze ak TT","digital","https://www.youtube.com/@tikozeaktt1"],
-  ["Tripotay Bò Lakay","digital",null],
-  ["EnfoFyab TV","digital",null],
-  ["CNN","world","https://www.cnn.com"],
-  ["BBC News","world","https://www.bbc.com/news"],
-  ["France 24","world","https://www.france24.com"],
-  ["RFI","world","https://www.rfi.fr"],
-  ["Reuters","world","https://www.reuters.com"],
-  ["Associated Press","world","https://apnews.com"],
-  ["Axios","world","https://www.axios.com"],
-  ["Miami Herald","diaspora","https://www.miamiherald.com"],
-  ["The Haitian Times","diaspora","https://haitiantimes.com"],
-  ["AyiboPost","independent","https://ayibopost.com"],
-  ["Access Hollywood","entertainment","https://www.youtube.com/channel/UCiKGMZZmZXK-RpbKJGXgH3Q"],
-  ["Scottish DNA Exposed","entertainment","https://www.youtube.com/results?search_query=Scottish+DNA+Reveals+a+Surprising+History+of+Ancient"],
-  ["PAP Times","diaspora",null],
-  ["Loop Haiti","independent",null],
-  ["Tabou Network","independent",null],
-  ["Info Media / MRJEAN","digital",null],
-  ["LÉOGÂNE INFO","community",null]
+["Radio Télévision Caraïbes","haiti",
+ "https://www.radiotelevisioncaraibes.com"],
+
+["Radio Vision 2000","haiti",null,
+ "media-logos/vision-2000.png"],
+
+["Le Nouvelliste","haiti","https://lenouvelliste.com"],
+["Radio Télé Métropole","haiti","https://metropole.ht"],
+
+["RT 6 Univers","haiti",null,"media-logos/rt-6-univers.png"],
+["ZOOM HAITI TV","digital",null,"media-logos/zoom-haiti-tv.png"],
+
+["Ti Koze ak TT","digital",
+ "https://www.youtube.com/@tikozeaktt1",
+ "media-logos/ti-koze-ak-tt.png"],
+
+["Tripotay Bò Lakay","digital",null,
+ "media-logos/tripotay-bo-lakay.png"],
+
+["EnfoFyab TV","digital",null,"media-logos/enfofyab-tv.png"],
+["Info Media / MRJEAN","digital",null,
+ "media-logos/info-media-mrjean.png"],
+
+["CNN","world","https://www.cnn.com"],
+["BBC News","world","https://www.bbc.com/news"],
+["France 24","world","https://www.france24.com"],
+["RFI","world","https://www.rfi.fr"],
+["Reuters","world","https://www.reuters.com"],
+["Associated Press","world","https://apnews.com"],
+["Axios","world","https://www.axios.com"],
+
+["Miami Herald","diaspora","https://www.miamiherald.com"],
+["The Haitian Times","diaspora","https://haitiantimes.com"],
+["PAP Times","diaspora",null,"media-logos/pap-times.png"],
+
+["AyiboPost","independent","https://ayibopost.com"],
+["Loop Haiti","independent",null,"media-logos/loop-haiti.png"],
+["Tabou Network","independent",null,
+ "media-logos/tabou-network.png"],
+
+["Access Hollywood","entertainment",
+ "https://www.youtube.com/channel/UCiKGMZZmZXK-RpbKJGXgH3Q"],
+
+["Scottish DNA Exposed","entertainment",
+ "https://www.youtube.com/results?search_query=Scottish+DNA+Reveals+a+Surprising+History+of+Ancient",
+ "media-logos/scottish-dna-exposed.png"],
+
+["LÉOGÂNE INFO","community",null,"leogane-info-logo.png"]
 ];
 
 const NEWS_CATS=[
-  "all","haiti","world","diaspora",
-  "digital","independent","community","entertainment"
+  "all","haiti","digital","world","diaspora",
+  "independent","community","entertainment"
 ];
 
-/*
-  Logo ki deja gen sit ofisyèl sèvi ak favicon sit sa yo.
-  Lòt logo yo ap chèche nan dosye media-logos sou GitHub.
-  Si yon imaj manke, kat la montre inisyal medya a.
-*/
-
-const NEWS_LOGOS={
-  "Radio Télé Éclair":"media-logos/radio-tele-eclair.png",
-  "Radio Télévision Caraïbes":"https://www.google.com/s2/favicons?domain=radiotelevisioncaraibes.com&sz=128",
-  "Radio Vision 2000":"media-logos/vision-2000.png",
-  "Le Nouvelliste":"https://www.google.com/s2/favicons?domain=lenouvelliste.com&sz=128",
-  "Radio Télé Métropole":"https://www.google.com/s2/favicons?domain=metropole.ht&sz=128",
-  "RT 6 Univers":"media-logos/rt-6-univers.png",
-  "ZOOM HAITI TV":"media-logos/zoom-haiti-tv.png",
-  "Ti Koze ak TT":"media-logos/ti-koze-ak-tt.png",
-  "Tripotay Bò Lakay":"media-logos/tripotay-bo-lakay.png",
-  "EnfoFyab TV":"media-logos/enfofyab-tv.png",
-  "CNN":"https://www.google.com/s2/favicons?domain=cnn.com&sz=128",
-  "BBC News":"https://www.google.com/s2/favicons?domain=bbc.com&sz=128",
-  "France 24":"https://www.google.com/s2/favicons?domain=france24.com&sz=128",
-  "RFI":"https://www.google.com/s2/favicons?domain=rfi.fr&sz=128",
-  "Reuters":"https://www.google.com/s2/favicons?domain=reuters.com&sz=128",
-  "Associated Press":"https://www.google.com/s2/favicons?domain=apnews.com&sz=128",
-  "Axios":"https://www.google.com/s2/favicons?domain=axios.com&sz=128",
-  "Miami Herald":"https://www.google.com/s2/favicons?domain=miamiherald.com&sz=128",
-  "The Haitian Times":"https://www.google.com/s2/favicons?domain=haitiantimes.com&sz=128",
-  "AyiboPost":"https://www.google.com/s2/favicons?domain=ayibopost.com&sz=128",
-  "Access Hollywood":"https://www.google.com/s2/favicons?domain=accessonline.com&sz=128",
-  "Scottish DNA Exposed":"media-logos/scottish-dna-exposed.png",
-  "PAP Times":"media-logos/pap-times.png",
-  "Loop Haiti":"media-logos/loop-haiti.png",
-  "Tabou Network":"media-logos/tabou-network.png",
-  "Info Media / MRJEAN":"media-logos/info-media-mrjean.png",
-  "LÉOGÂNE INFO":"leogane-info-logo.png"
-};
-
-function renderNews(){
-  filters("newsFilters",NEWS_CATS,newsFilter,k=>{
+function renderSources(){
+  filters("sourceFilters",NEWS_CATS,newsFilter,k=>{
     newsFilter=k;
-    renderNews();
+    renderSources();
   });
 
-  const q=$("newsSearch").value.trim();
-  const rows=NEWS_SOURCES.filter(x=>
-    (newsFilter==="all" || x[1]===newsFilter) &&
-    match(x[0],q)
+  const q=$("sourceSearch").value.trim();
+  const rows=NEWS.filter(x=>
+    (newsFilter==="all"||x[1]===newsFilter)&&match(x[0],q)
   );
 
-  $("newsCount").textContent=
-    rows.length+" / "+NEWS_SOURCES.length;
+  const root=clear("sourceGrid");
+  $("sourceCount").textContent=rows.length+" / "+NEWS.length;
 
-  const root=clear("newsGrid");
-
-  rows.forEach(([name,cat,url])=>{
-    const logo=NEWS_LOGOS[name]||"";
-    root.append(card(name,"",url,cat,logo));
+  rows.forEach(x=>{
+    const img=x[3]||(safe(x[2])?favicon(x[2]):"");
+    root.append(card(x[0],"",x[2],x[1],img));
   });
 
-  if(!rows.length){
-    root.append(empty(t("noResult")));
-  }
+  if(!rows.length)root.append(empty(t("noNews")));
 }
 
-$("newsSearch").addEventListener("input",renderNews);
+$("sourceSearch").addEventListener("input",renderSources);
 
-/* FLASH INFO — RSS */
-
+/* FLASH INFO — 3 RSS FEEDS */
 const FEEDS=[
-  {
-    name:"HAÏTI",
-    lang:"fr",
-    url:"https://news.google.com/rss/search?q=Haiti&hl=fr&gl=FR&ceid=FR:fr"
-  },
-  {
-    name:"FLORIDA",
-    lang:"en",
-    url:"https://news.google.com/rss/search?q=Haiti+Florida&hl=en-US&gl=US&ceid=US:en"
-  },
-  {
-    name:"WORLD",
-    lang:"en",
-    url:"https://feeds.bbci.co.uk/news/world/rss.xml"
-  }
+{
+  name:"HAÏTI",
+  category:"haiti",
+  url:"https://news.google.com/rss/search?q=Haiti&hl=fr&gl=FR&ceid=FR:fr"
+},
+{
+  name:"FLORIDA / DIASPORA",
+  category:"diaspora",
+  url:"https://news.google.com/rss/search?q=Haiti+Florida&hl=en-US&gl=US&ceid=US:en"
+},
+{
+  name:"BBC WORLD",
+  category:"world",
+  url:"https://feeds.bbci.co.uk/news/world/rss.xml"
+}
 ];
 
-function clean(value){
-  const d=new DOMParser().parseFromString(
-    String(value||""),"text/html"
-  );
-  d.querySelectorAll("script,style,iframe")
-    .forEach(n=>n.remove());
+function plain(v){
+  const d=new DOMParser().parseFromString(String(v||""),"text/html");
+  d.querySelectorAll("script,style,iframe").forEach(e=>e.remove());
 
-  return (d.body.textContent||"").trim().slice(0,500);
+  return(d.body.textContent||"")
+    .replace(/\s+/g," ")
+    .trim();
 }
 
-async function getFeed(feed){
-  const u=
-    "https://api.rss2json.com/v1/api.json?rss_url="+
-    encodeURIComponent(feed.url);
-
+async function loadFeed(feed){
   const ctrl=new AbortController();
   const timer=setTimeout(()=>ctrl.abort(),12000);
 
   try{
-    const r=await fetch(u,{
-      signal:ctrl.signal,
-      cache:"no-store"
-    });
+    const response=await fetch(
+      RSS_API+"?rss_url="+encodeURIComponent(feed.url)+"&count=15",
+      {signal:ctrl.signal,cache:"no-store"}
+    );
 
-    if(!r.ok) throw Error("HTTP "+r.status);
+    if(!response.ok)throw Error("RSS unavailable");
 
-    const j=await r.json();
+    const data=await response.json();
 
-    if(j.status!=="ok" || !Array.isArray(j.items)){
+    if(data.status!=="ok"||!Array.isArray(data.items)){
       throw Error("RSS unavailable");
     }
 
-    return j.items.slice(0,8).map(x=>({
-      title:clean(x.title),
-      url:x.link,
-      date:x.pubDate,
-      source:feed.name,
-      language:feed.lang
-    })).filter(x=>x.title && safeHttp(x.url));
+    return data.items
+      .filter(x=>x.title&&safe(x.link))
+      .map(x=>({
+        title:plain(x.title),
+        summary:plain(x.description||x.content).slice(0,230),
+        url:x.link,
+        date:x.pubDate||"",
+        source:(data.feed&&data.feed.title)||feed.name,
+        category:feed.category,
+        external:true
+      }));
 
   }finally{
     clearTimeout(timer);
   }
 }
 
-function renderFlash(){
-  const root=clear("flashGrid");
-
-  if(externalNews.length){
-    externalNews.slice(0,9).forEach(x=>{
-      const c=el("article",null,"card");
-
-      const logo=x.source==="HAÏTI"
-        ? "leogane-info-logo.png"
-        : x.source==="WORLD"
-          ? NEWS_LOGOS["BBC News"]
-          : "pro-max-fm.jpg";
-
-      const heading=el("div",null,"brandmark");
-      imageFallback(heading,logo,x.source);
-      heading.append(el("h3",x.title));
-
-      c.append(
-        heading,
-        el("span",x.source,"tag")
-      );
-
-      if(x.date){
-        c.append(
-          el("p",x.date.slice(0,16),"note")
-        );
-      }
-
-      c.append(link(t("visit"),x.url));
-      root.append(c);
-    });
-
-    $("flashStatus").textContent=
-      t("rssSuccess")+" ("+externalNews.length+")";
-
-  }else{
-    const opts=[
-      {name:"Le Nouvelliste",url:"https://lenouvelliste.com"},
-      {name:"BBC News",url:"https://www.bbc.com/news"},
-      {name:"RFI",url:"https://www.rfi.fr"}
-    ];
-
-    opts.forEach(x=>{
-      root.append(
-        card(x.name,"",x.url,"news",sourceLogo(x.url))
-      );
-    });
-
-    $("flashStatus").textContent=
-      t(lastFeedSuccess?"rssLoading":"rssError");
-  }
-
-  const approved=editorialNews.filter(x=>
-    x &&
-    x.approved===true &&
-    x.status==="published" &&
-    loc(x.title)
-  );
-
-  const pub=clear("approvedGrid");
-  const leo=clear("leoganeGrid");
-
-  approved
-    .filter(x=>x.source!=="LÉOGÂNE INFO")
-    .forEach(x=>{
-      pub.append(
-        card(
-          loc(x.title),
-          loc(x.summary)||"",
-          x.url,
-          "news",
-          x.image||""
-        )
-      );
-    });
-
-  approved
-    .filter(x=>x.source==="LÉOGÂNE INFO")
-    .forEach(x=>{
-      leo.append(
-        card(
-          loc(x.title),
-          loc(x.summary)||"",
-          x.url,
-          "community",
-          x.image||"leogane-info-logo.png"
-        )
-      );
-    });
-
-  if(!pub.children.length){
-    pub.append(empty(t("noApproved")));
-  }
-
-  if(!leo.children.length){
-    leo.append(empty(t("noLeogane")));
-  }
-}
-
-async function refreshFlash(){
-  if(rssBusy) return;
+async function updateNews(){
+  if(rssBusy)return;
 
   rssBusy=true;
-  $("refreshFlash").disabled=true;
-  $("flashStatus").textContent=t("rssLoading");
+  $("refreshBtn").disabled=true;
+  $("flashStatus").textContent=t("loading");
 
   try{
-    const out=await Promise.allSettled(
-      FEEDS.map(getFeed)
+    const result=await Promise.allSettled(
+      FEEDS.map(loadFeed)
     );
-
     const seen=new Set();
 
-    const combined=out
+    const rows=result
       .filter(x=>x.status==="fulfilled")
       .flatMap(x=>x.value)
       .filter(x=>{
-        if(seen.has(x.url)) return false;
+        if(seen.has(x.url))return false;
         seen.add(x.url);
         return true;
       });
 
-    if(combined.length){
-      externalNews=combined.sort(
-        (a,b)=>Date.parse(b.date||0)-Date.parse(a.date||0)
-      ).slice(0,40);
-      lastFeedSuccess=true;
+    if(rows.length){
+      external=rows
+        .sort((a,b)=>
+          Date.parse(b.date||0)-Date.parse(a.date||0)
+        )
+        .slice(0,45);
+      rssSuccess=true;
     }else{
-      externalNews=[];
-      lastFeedSuccess=false;
+      rssSuccess=false;
     }
+
   }catch{
-    lastFeedSuccess=false;
+    rssSuccess=false;
   }finally{
     rssBusy=false;
-    $("refreshFlash").disabled=false;
-    renderFlash();
+    $("refreshBtn").disabled=false;
+    renderNews();
   }
 }
 
-async function loadEditorial(){
+/* ARTICLES APPROVED BY PRO-MAX FM */
+async function loadPublished(){
   try{
     const r=await fetch(
-      NEWS_FILE+"?v="+Date.now(),
+      NEWS_JSON+"?v="+Date.now(),
       {cache:"no-store"}
     );
+    if(!r.ok)return;
 
-    if(!r.ok) return;
+    const data=await r.json();
 
-    const j=await r.json();
+    const list=Array.isArray(data)
+      ?data
+      :(Array.isArray(data.articles)?data.articles:[]);
 
-    const rows=Array.isArray(j)
-      ? j
-      : Array.isArray(j.articles)
-        ? j.articles
-        : [];
-
-    editorialNews=rows.filter(x=>
-      x &&
-      x.approved===true &&
-      x.status==="published"
+    editorial=list.filter(x=>
+      x&&x.approved===true&&
+      x.status==="published"&&localized(x.title)
     );
 
-    renderFlash();
   }catch{
-    /* Fichye editoryal la opsyonèl. */
+    // Le fichier éditorial est optionnel.
+  }
+
+  renderNews();
+}
+
+function articleTitle(x){
+  return localized(x.title);
+}
+
+function articleSummary(x){
+  return localized(x.summary||x.description||"");
+}
+
+function newsCard(x){
+  const title=articleTitle(x);
+
+  const out=card(
+    title,
+    articleSummary(x),
+    x.url,
+    x.category||"news",
+    x.image||(x.external?favicon(x.url):"")
+  );
+
+  out.append(
+    n("span",x.external?t("external"):t("approved"),"tag")
+  );
+
+  if(x.date){
+    out.append(
+      n("p",
+        String(x.date).slice(0,16)+" | "+(x.source||""),
+        "tiny")
+    );
+  }
+
+  return out;
+}
+
+function newsCollection(id,items,emptyMsg){
+  const root=clear(id);
+  items.forEach(x=>root.append(newsCard(x)));
+
+  if(!items.length){
+    root.append(empty(emptyMsg||t("noNews")));
   }
 }
 
-$("refreshFlash").addEventListener("click",()=>{
-  refreshFlash();
-  loadEditorial();
-});
+function renderNews(){
+  const all=[...editorial,...external];
 
-$("leoganeLogo").addEventListener("error",function(){
-  if(this.dataset.fallback) return;
-  this.dataset.fallback="1";
-  this.src="assets/images/leogane-info-logo.png";
-});
+  const flash=[
+    ...editorial.filter(x=>x.flash===true).slice(0,5),
+    ...external.slice(0,6)
+  ];
 
-/* 03 — SHOWS CENTER */
+  const featured=[
+    ...editorial.filter(x=>x.featured===true).slice(0,4),
+    ...external.slice(0,4)
+  ];
 
+  newsCollection(
+    "flashGrid",
+    flash,
+    rssSuccess?t("noNews"):t("rssFail")
+  );
+
+  newsCollection("featuredGrid",featured);
+
+  filters("articleFilters",NEWS_CATS,articleFilter,k=>{
+    articleFilter=k;
+    renderNews();
+  });
+
+  const q=$("articleSearch").value.trim();
+
+  const filtered=all.filter(x=>
+    (articleFilter==="all"||x.category===articleFilter)&&
+    match(
+      articleTitle(x)+" "+articleSummary(x)+" "+x.source,
+      q
+    )
+  );
+
+  $("articleCount").textContent=
+    filtered.length+" / "+all.length;
+
+  newsCollection("articleGrid",filtered);
+
+  newsCollection(
+    "leoganeGrid",
+    editorial.filter(x=>
+      x.leogane===true||
+      x.source==="LÉOGÂNE INFO"||
+      x.category==="community"
+    ),
+    t("noLeogane")
+  );
+
+  $("flashStatus").textContent=rssSuccess
+    ?t("rssReady")+" ("+external.length+")"
+    :t("rssFail");
+}
+
+$("articleSearch").addEventListener("input",renderNews);
+
+$("refreshBtn").onclick=()=>{
+  updateNews();
+  loadPublished();
+};
+
+/* 03 — SHOWS */
 const SHOWS=[
-  {
-    title:"MATIN FORCE",
-    day:"daily",
-    time:"6:00 AM – 10:00 AM",
-    desc:{
-      fr:"Actualités, réveil musical et information.",
-      en:"Morning news, music and information.",
-      ht:"Nouvèl maten, mizik ak enfòmasyon."
-    }
-  },
-  {
-    title:"HIT NON STOP",
-    day:"daily",
-    time:"10:00 AM – 3:00 PM",
-    desc:{
-      fr:"Musique sans interruption.",
-      en:"Nonstop music.",
-      ht:"Mizik san rete."
-    }
-  },
-  {
-    title:"DRIVE TIME",
-    day:"daily",
-    time:"3:00 PM – 7:00 PM",
-    desc:{
-      fr:"Musique et divertissement de l'après-midi.",
-      en:"Afternoon music and entertainment.",
-      ht:"Mizik ak amizman aprèmidi."
-    }
-  },
-  {
-    title:"WEEKEND PARTY MIX",
-    day:"weekend",
-    time:null,
-    desc:{
-      fr:"Ambiance musicale du weekend.",
-      en:"Weekend party music.",
-      ht:"Mizik pou fèt wikenn."
-    }
-  },
-  {
-    title:"PETIT BAL DU SAMEDI SOIR",
-    day:"saturday",
-    time:"8:00 PM – 12:00 AM",
-    desc:{
-      fr:"Bal musical du samedi soir, de 20 h à minuit (heure de Floride).",
-      en:"Saturday night dance music, 8 PM to midnight (Florida time).",
-      ht:"Ti bal samdi swa, 8è nan aswè rive minwi (lè Florid)."
-    }
+{
+  title:"MATIN FORCE",
+  days:"daily",
+  time:"6:00 AM – 10:00 AM",
+  description:{
+    fr:"Actualités et réveil musical.",
+    en:"Morning news and music.",
+    ht:"Nouvèl maten ak mizik."
   }
+},
+{
+  title:"HIT NON STOP",
+  days:"daily",
+  time:"10:00 AM – 3:00 PM",
+  description:{
+    fr:"Musique sans interruption.",
+    en:"Nonstop music.",
+    ht:"Mizik san rete."
+  }
+},
+{
+  title:"DRIVE TIME",
+  days:"daily",
+  time:"3:00 PM – 7:00 PM",
+  description:{
+    fr:"Musique et divertissement.",
+    en:"Music and entertainment.",
+    ht:"Mizik ak amizman."
+  }
+},
+{
+  title:"WEEKEND PARTY MIX",
+  days:"weekend",
+  time:null,
+  description:{
+    fr:"Mix musical du week-end.",
+    en:"Weekend party mix.",
+    ht:"Mix mizik wikenn."
+  }
+},
+{
+  title:"PETIT BAL DU SAMEDI SOIR",
+  days:"saturday",
+  time:"8:00 PM – 12:00 AM",
+  description:{
+    fr:"Bal du samedi soir, heure de Floride.",
+    en:"Saturday night dance, Florida time.",
+    ht:"Ti bal samdi swa, lè Florid."
+  }
+}
 ];
 
 function renderShows(){
   const root=clear("showsGrid");
   const table=clear("showsTable");
 
-  SHOWS.forEach(s=>{
+  SHOWS.forEach(x=>{
     root.append(
       card(
-        s.title,
-        loc(s.desc)+" • "+(s.time||t("toConfirm")),
+        x.title,
+        localized(x.description)+" • "+(x.time||t("confirm")),
         null,
-        s.day,
+        "music",
         "pro-max-fm.jpg"
       )
     );
 
-    const row=el("tr");
-    [
-      t(s.day),
-      s.time||t("toConfirm"),
-      s.title
-    ].forEach(v=>{
-      row.append(el("td",v));
-    });
+    const tr=n("tr");
 
-    table.append(row);
+    [t(x.days),x.time||t("confirm"),x.title]
+      .forEach(value=>tr.append(n("td",value)));
+
+    table.append(tr);
   });
 }
 
 /* 04 — PODCASTS */
-
-const PODCAST_INFO=[
-  ["Bonjour PRO-MAX","Good Morning PRO-MAX","Bonjou PRO-MAX","news","Max Louis"],
-  ["Le Son du Week-end","The Weekend Sound","Son Wikenn nan","music","DJ Max"],
-  ["Voix de la Communauté","Community Voices","Vwa Kominote a","interview","Max Louis"],
-  ["Racines & Culture","Roots & Culture","Rasin & Kilti","culture","Équipe PRO-MAX"],
-  ["On Parle Vrai","Let's Talk Real","Ann Pale Vre","community","Max Louis"],
-  ["Gospel Matin","Gospel Morning","Gospel Maten","music","DJ Max"],
-  ["Flash Info PRO-MAX","PRO-MAX News Flash","Flash Enfo PRO-MAX","news","Équipe PRO-MAX"],
-  ["Artiste à la Une","Artist Spotlight","Atis An Vedèt","interview","Max Louis"],
-  ["Motivation du Jour","Daily Motivation","Motivasyon Jounen an","special","Max Louis"],
-  ["Santé & Bien-être","Health & Wellness","Sante & Byennèt","community","Équipe PRO-MAX"],
-  ["Contes & Histoires","Tales & Stories","Kont & Istwa","culture","Équipe PRO-MAX"],
-  ["Mix Party PRO-MAX","PRO-MAX Party Mix","Mix Pati PRO-MAX","music","DJ Max"],
-  ["Le Débat PRO-MAX","The PRO-MAX Debate","Debat PRO-MAX la","news","Max Louis"],
-  ["Entrepreneur du Mois","Entrepreneur of the Month","Antreprenè Mwa a","interview","Max Louis"],
-  ["Prière & Espoir","Prayer & Hope","Lapriyè & Espwa","special","Max Louis"]
+const PODS=[
+["Bonjour PRO-MAX","Bonjou PRO-MAX","news","Max Louis"],
+["Le Son du Week-end","Son Wikenn nan","music","DJ Max"],
+["Voix de la Communauté","Vwa Kominote a","interview","Max Louis"],
+["Racines & Culture","Rasin & Kilti","culture","Équipe PRO-MAX"],
+["On Parle Vrai","Ann Pale Vre","community","Max Louis"],
+["Gospel Matin","Gospel Maten","music","DJ Max"],
+["Flash Info PRO-MAX","Flash Enfo PRO-MAX","news","Équipe PRO-MAX"],
+["Artiste à la Une","Atis An Vedèt","interview","Max Louis"],
+["Motivation du Jour","Motivasyon Jounen an","special","Max Louis"],
+["Santé & Bien-être","Sante & Byennèt","community","Équipe PRO-MAX"],
+["Contes & Histoires","Kont & Istwa","culture","Équipe PRO-MAX"],
+["Mix Party PRO-MAX","Mix Pati PRO-MAX","music","DJ Max"],
+["Le Débat PRO-MAX","Debat PRO-MAX la","news","Max Louis"],
+["Entrepreneur du Mois","Antreprenè Mwa a","interview","Max Louis"],
+["Prière & Espoir","Lapriyè & Espwa","special","Max Louis"]
 ];
 
-const REPLAY_INFO=[0,1,2,4,3,8];
-
-const podcastItems=PODCAST_INFO.map((a,i)=>({
+const episodes=PODS.map((p,i)=>({
   id:i+1,
-  kind:"episode",
-  titles:{fr:a[0],en:a[1],ht:a[2]},
-  category:a[3],
-  host:a[4],
-  audio:AUDIO_ROOT+
-    "episode-"+String(i+1).padStart(3,"0")+".mp3",
-  found:false
+  title:{fr:p[0],en:p[0],ht:p[1]},
+  category:p[2],
+  host:p[3],
+  file:AUDIO_ROOT+"episode-"+
+    String(i+1).padStart(3,"0")+".mp3",
+  available:false
 }));
 
-const replayItems=REPLAY_INFO.map((n,i)=>({
+const replaySources=[1,0,2,4,3,8];
+
+const replays=replaySources.map((source,i)=>({
   id:i+1,
-  kind:"replay",
-  titles:{
-    fr:"Replay — "+PODCAST_INFO[n][0],
-    en:"Replay — "+PODCAST_INFO[n][1],
-    ht:"Replay — "+PODCAST_INFO[n][2]
+  title:{
+    fr:"Replay — "+PODS[source][0],
+    en:"Replay — "+PODS[source][0],
+    ht:"Replay — "+PODS[source][1]
   },
-  category:PODCAST_INFO[n][3],
-  host:PODCAST_INFO[n][4],
-  audio:AUDIO_ROOT+
-    "replay-"+String(i+1).padStart(3,"0")+".mp3",
-  found:false
+  category:PODS[source][2],
+  host:PODS[source][3],
+  file:AUDIO_ROOT+"replay-"+String(i+1).padStart(3,"0")+".mp3",
+  available:false
 }));
 
-function podcastCard(p){
-  const c=el("article",null,"card");
-  const h=el("div",null,"brandmark");
-
-  imageFallback(h,"pro-max-fm.jpg",loc(p.titles));
-  h.append(el("h3",loc(p.titles)));
-
-  c.append(
-    h,
-    el("span",t(p.category),"tag"),
-    el("p",p.host)
+function podCard(x){
+  const c=card(
+    localized(x.title),
+    x.host,
+    null,
+    x.category,
+    "pro-max-fm.jpg"
   );
 
-  if(p.found){
-    const a=el("audio");
+  if(x.available){
+    const a=n("audio");
     a.controls=true;
     a.preload="none";
-    a.src=p.audio;
-    a.setAttribute("aria-label",loc(p.titles));
+    a.src=x.file;
 
-    a.onplay=()=>{
+    a.addEventListener("play",()=>{
       document.querySelectorAll("#podcasts audio")
-        .forEach(x=>{
-          if(x!==a) x.pause();
+        .forEach(other=>{
+          if(other!==a)other.pause();
         });
-    };
+    });
+
     c.append(a);
   }else{
-    c.append(el("p",t("pending"),"note"));
+    c.append(n("p",t("noAudio"),"tiny"));
   }
+
   return c;
 }
 
 function renderPodcasts(){
   filters(
     "podcastFilters",
-    [
-      "all","news","music","culture",
-      "interview","community","special"
-    ],
+    ["all","news","music","culture","interview",
+     "community","special"],
     podFilter,
     k=>{
       podFilter=k;
@@ -1450,88 +1518,67 @@ function renderPodcasts(){
 
   const q=$("podcastSearch").value.trim();
   const root=clear("podcastGrid");
-  const replay=clear("replayGrid");
+  const rep=clear("replayGrid");
 
-  podcastItems
-    .filter(p=>
-      (podFilter==="all" || p.category===podFilter) &&
-      match(
-        Object.values(p.titles).join(" ")+" "+p.host,
-        q
-      )
+  episodes
+    .filter(x=>
+      (podFilter==="all"||x.category===podFilter)&&
+      match(Object.values(x.title).join(" ")+" "+x.host,q)
     )
-    .forEach(p=>root.append(podcastCard(p)));
+    .forEach(x=>root.append(podCard(x)));
 
   if(!root.children.length){
-    root.append(empty(t("noResult")));
+    root.append(empty(t("noNews")));
   }
 
-  replayItems.forEach(p=>{
-    replay.append(podcastCard(p));
-  });
+  replays.forEach(x=>rep.append(podCard(x)));
 
-  $("audioTotal").textContent=
-    [...podcastItems,...replayItems]
-      .filter(p=>p.found).length;
+  $("audioCount").textContent=
+    [...episodes,...replays].filter(x=>x.available).length;
 }
 
-async function checkPodcastFiles(){
-  const all=[...podcastItems,...replayItems];
+async function checkPodcasts(){
+  await Promise.all(
+    [...episodes,...replays].map(async x=>{
+      const ctrl=new AbortController();
+      const timer=setTimeout(()=>ctrl.abort(),5000);
 
-  await Promise.all(all.map(async p=>{
-    const ctl=new AbortController();
-    const timer=setTimeout(()=>ctl.abort(),4500);
+      try{
+        const r=await fetch(x.file,{
+          method:"HEAD",
+          signal:ctrl.signal
+        });
 
-    try{
-      const r=await fetch(p.audio,{
-        method:"HEAD",
-        signal:ctl.signal
-      });
+        const mime=(
+          r.headers.get("content-type")||""
+        ).toLowerCase();
 
-      const mime=(
-        r.headers.get("content-type")||""
-      ).toLowerCase();
+        x.available=r.ok&&(
+          mime.startsWith("audio/")||
+          mime.includes("octet-stream")
+        );
 
-      p.found=r.ok && (
-        mime.startsWith("audio/") ||
-        mime.includes("octet-stream")
-      );
-    }catch{
-      p.found=false;
-    }finally{
-      clearTimeout(timer);
-    }
-  }));
+      }catch{
+        x.available=false;
+
+      }finally{
+        clearTimeout(timer);
+      }
+    })
+  );
 
   renderPodcasts();
 }
 
-$("podcastSearch").addEventListener(
-  "input",
-  renderPodcasts
-);
+$("podcastSearch").addEventListener("input",renderPodcasts);
 
 /* 05 — MUSIC CENTER */
-
 const GENRES=[
-  "Kompa",
-  "Kompa Love",
-  "Reggae",
-  "Reggae for Lovers",
-  "Rap Kreyòl",
-  "Rabòday",
-  "Rara",
-  "Racine Mizik",
-  "Hip-Hop",
-  "Reggaeton",
-  "Ansyèn Mizik",
-  "Tropicana",
-  "Septen",
-  "Konpa Direct",
-  "Zouk",
-  "Afrobeat",
-  "Jazz",
-  "Gospel"
+  "Kompa","Kompa Love","Reggae","Reggae for Lovers",
+  "Rap Kreyòl","Rabòday","Rara","Racine Mizik",
+  "Hip-Hop","Reggaeton","Ansyèn Mizik",
+  "Tropicana","Septen","Konpa Direct",
+  "Zouk","Afrobeat","Jazz","Gospel"
 ];
 
 function renderMusic(){
@@ -1551,29 +1598,25 @@ function renderMusic(){
   });
 
   if(!root.children.length){
-    root.append(empty(t("noResult")));
+    root.append(empty(t("noNews")));
   }
 }
 
-$("musicSearch").addEventListener(
-  "input",
-  renderMusic
-);
+$("musicSearch").addEventListener("input",renderMusic);
 
 /* 06 — ARTISTS CENTER */
-
 const ARTISTS=[
-  ["Tropicana d'Haïti","group","Kompa"],
-  ["Orchestre Septentrional","group","Kompa"],
-  ["Tabou Combo","group","Kompa"],
-  ["Boukman Eksperyans","group","Racine"],
-  ["RAM","group","Racine"],
-  ["T-Vice","group","Kompa"],
-  ["Zenglen","group","Kompa"],
-  ["Nu-Look","group","Kompa"],
-  ["Djakout #1","group","Kompa"],
-  ["Klass","group","Kompa"],
-  ["Harmonik","group","Kompa"]
+["Tropicana d'Haïti","Kompa"],
+["Orchestre Septentrional","Kompa"],
+["Tabou Combo","Kompa"],
+["Boukman Eksperyans","Racine"],
+["RAM","Racine"],
+["T-Vice","Kompa"],
+["Zenglen","Kompa"],
+["Nu-Look","Kompa"],
+["Djakout #1","Kompa"],
+["Klass","Kompa"],
+["Harmonik","Kompa"]
 ];
 
 function renderArtists(){
@@ -1588,98 +1631,76 @@ function renderArtists(){
   );
 
   const q=$("artistSearch").value.trim();
-
-  const rows=ARTISTS.filter(a=>
-    (
-      artistFilter==="all" ||
-      (
-        artistFilter==="roots"
-          ? a[2]==="Racine"
-          : a[1]==="group"
-      )
-    ) &&
-    match(a.join(" "),q)
-  );
-
   const root=clear("artistGrid");
 
-  rows.forEach(([name,type,genre])=>{
-    const u=
-      "https://www.youtube.com/results?search_query="+
-      encodeURIComponent(name+" musique");
-
+  ARTISTS.filter(x=>
+    (
+      artistFilter==="all"||
+      artistFilter==="group"||
+      (artistFilter==="roots"&&x[1]==="Racine")
+    )&&match(x.join(" "),q)
+  ).forEach(x=>{
     root.append(
-      card(name,genre,u,type,"")
+      card(
+        x[0],
+        x[1],
+        "https://www.youtube.com/results?search_query="+
+          encodeURIComponent(x[0]+" music"),
+        "group",
+        ""
+      )
     );
   });
 
-  $("artistCount").textContent=
-    rows.length+" / "+ARTISTS.length;
-
-  if(!rows.length){
-    root.append(empty(t("noResult")));
+  if(!root.children.length){
+    root.append(empty(t("noNews")));
   }
 }
 
-$("artistSearch").addEventListener(
-  "input",
-  renderArtists
-);
+$("artistSearch").addEventListener("input",renderArtists);
 
 /* 07 — VIDEO CENTER */
-
 const VIDEOS=[
-  {
-    name:"PRO-MAX FM / BSS1815",
-    url:"https://www.youtube.com/@BSS1815PROMAXDMP",
-    category:"community"
-  },
-  {
-    name:"Rara Léogâne",
-    url:"https://www.youtube.com/results?search_query=Rara+Leogane",
-    category:"culture"
-  },
-  {
-    name:"PRO-MAX FM — Kompa",
-    url:"https://www.youtube.com/results?search_query=Kompa+Haitian+Music",
-    category:"music"
-  },
-  {
-    name:"Ti Koze ak TT",
-    url:"https://www.youtube.com/@tikozeaktt1",
-    category:"news"
-  },
-  {
-    name:"Access Hollywood",
-    url:"https://www.youtube.com/channel/UCiKGMZZmZXK-RpbKJGXgH3Q",
-    category:"entertainment"
-  }
+["PRO-MAX FM / BSS1815",
+ "https://www.youtube.com/@BSS1815PROMAXDMP","community"],
+
+["Rara Léogâne",
+ "https://www.youtube.com/results?search_query=Rara+Leogane","culture"],
+
+["PRO-MAX FM — Kompa",
+ "https://www.youtube.com/results?search_query=Kompa+Haitian+Music","music"],
+
+["Ti Koze ak TT",
+ "https://www.youtube.com/@tikozeaktt1","news"],
+
+["Access Hollywood",
+ "https://www.youtube.com/channel/UCiKGMZZmZXK-RpbKJGXgH3Q",
+ "entertainment"]
 ];
 
 function renderVideos(){
   const root=clear("videoGrid");
 
-  VIDEOS.forEach(v=>{
+  VIDEOS.forEach(x=>{
     root.append(
       card(
-        v.name,
+        x[0],
         "YouTube",
-        v.url,
-        v.category,
-        v.name==="PRO-MAX FM / BSS1815"
-          ? "pro-max-fm.jpg"
-          : sourceLogo(v.url)
+        x[1],
+        x[2],
+        x[0].includes("BSS1815")
+          ?"pro-max-fm.jpg"
+          :favicon(x[1])
       )
     );
   });
 }
 
 /* 08 — EVENTS CENTER */
-
 const EVENTS=[];
-let cursor=new Date();
-let selectedDate="";
-cursor.setDate(1);
+let month=new Date();
+let chosen="";
+month.setDate(1);
 
 function dateKey(d){
   return d.getFullYear()+"-"+
@@ -1689,146 +1710,154 @@ function dateKey(d){
 
 function renderEvents(){
   const root=clear("calendar");
-  const y=cursor.getFullYear();
-  const m=cursor.getMonth();
-  const today=dateKey(new Date());
+  const y=month.getFullYear();
+  const m=month.getMonth();
 
-  $("monthLabel").textContent=
+  $("monthName").textContent=
     new Intl.DateTimeFormat(
-      lang==="ht"
-        ? "fr-HT"
-        : lang==="en"
-          ? "en-US"
-          : "fr-FR",
+      lang==="en"?"en-US":"fr-FR",
       {month:"long",year:"numeric"}
-    ).format(cursor);
+    ).format(month);
 
-  const labels=lang==="en"
-    ? ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
-    : ["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"];
+  (
+    lang==="en"
+      ?["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+      :["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"]
+  ).forEach(x=>root.append(n("div",x,"weekday")));
 
-  labels.forEach(v=>{
-    root.append(el("div",v,"day-name"));
-  });
-
-  const first=new Date(y,m,1).getDay();
-  const last=new Date(y,m+1,0).getDate();
-
-  for(let i=0;i<first;i++){
-    root.append(el("div",null,"empty"));
+  for(let i=0;i<new Date(y,m,1).getDay();i++){
+    root.append(n("div",null,"blank"));
   }
 
-  for(let n=1;n<=last;n++){
-    const date=dateKey(new Date(y,m,n));
-    const b=el("button",n);
+  for(let d=1;d<=new Date(y,m+1,0).getDate();d++){
+    const date=dateKey(new Date(y,m,d));
+    const b=n("button",d);
 
-    b.type="button";
-
-    if(date===today){
+    if(date===dateKey(new Date())){
       b.classList.add("today");
     }
-    if(date===selectedDate){
+
+    if(date===chosen){
       b.classList.add("selected");
-    }
-    if(EVENTS.some(e=>e.date===date)){
-      b.classList.add("has-event");
     }
 
     b.onclick=()=>{
-      selectedDate=date;
-      const found=EVENTS.find(e=>e.date===date);
-
+      chosen=date;
       $("selectedDate").textContent=
-        date+" — "+
-        (found ? loc(found.title) : t("noEvent"));
-
+        date+" — "+t("noEvent");
       renderEvents();
     };
 
     root.append(b);
   }
 
-  const upcoming=EVENTS
-    .filter(e=>e.date>=today)
-    .sort((a,b)=>a.date.localeCompare(b.date));
+  const events=clear("eventGrid");
 
-  const eventsRoot=clear("eventGrid");
+  EVENTS.filter(x=>x.date>=dateKey(new Date()))
+    .forEach(x=>{
+      events.append(
+        card(
+          localized(x.title),
+          x.date,
+          x.url,
+          "community",
+          x.image
+        )
+      );
+    });
 
-  upcoming.forEach(e=>{
-    eventsRoot.append(
-      card(
-        loc(e.title),
-        e.date+" — "+loc(e.description),
-        e.url,
-        "community",
-        ""
-      )
-    );
-  });
-
-  if(!upcoming.length){
-    eventsRoot.append(empty(t("noUpcoming")));
+  if(!events.children.length){
+    events.append(empty(t("noEvent")));
   }
 }
 
 $("prevMonth").onclick=()=>{
-  cursor.setMonth(cursor.getMonth()-1);
-  selectedDate="";
+  month.setMonth(month.getMonth()-1);
+  chosen="";
   $("selectedDate").textContent="";
   renderEvents();
 };
 
 $("nextMonth").onclick=()=>{
-  cursor.setMonth(cursor.getMonth()+1);
-  selectedDate="";
+  month.setMonth(month.getMonth()+1);
+  chosen="";
   $("selectedDate").textContent="";
   renderEvents();
 };
 
 /* 09 — SOCIAL NETWORKS */
-
 const SOCIAL=[
-  ["Facebook","f","#1877f2","https://www.facebook.com/share/1By3KvYRrM/"],
-  ["WhatsApp","◉","#25d366","https://wa.me/50943437488"],
-  ["TikTok","♪","#fe2c55","https://www.tiktok.com/@maximax1960"],
-  ["Instagram","◎","#e4405f","https://www.instagram.com/lebaron072/"],
-  ["Telegram","➤","#229ed9","https://t.me/bss1815dmp"],
-  ["YouTube","▶","#ff0033","https://www.youtube.com/@BSS1815PROMAXDMP"],
-  ["Spotify","≋","#1db954","https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"],
-  ["X","𝕏","#f68c42","https://x.com/w05g2m"],
-  ["Truth Social","T","#448aff","https://truthsocial.com/@briyant_soley_1815"],
-  ["LinkedIn","in","#0a66c2","https://www.linkedin.com/in/maximax-multi-services-075ba2314"]
+["Facebook","f","#1877f2",
+ "https://www.facebook.com/share/1By3KvYRrM/"],
+
+["WhatsApp","◉","#25d366",
+ "https://wa.me/50943437488"],
+
+["TikTok","♪","#fe2c55",
+ "https://www.tiktok.com/@maximax1960"],
+
+["Instagram","◎","#e4405f",
+ "https://www.instagram.com/lebaron072/"],
+
+["Telegram","➤","#229ed9",
+ "https://t.me/bss1815dmp"],
+
+["YouTube","▶","#ff0033",
+ "https://www.youtube.com/@BSS1815PROMAXDMP"],
+
+["Spotify","≋","#1db954",
+ "https://open.spotify.com/user/31tjmtdar45qgcpjpiwps5rqrici"],
+
+["X","𝕏","#ff8c00",
+ "https://x.com/w05g2m"],
+
+["Truth Social","T","#448aff",
+ "https://truthsocial.com/@briyant_soley_1815"],
+
+["LinkedIn","in","#0a66c2",
+ "https://www.linkedin.com/in/maximax-multi-services-075ba2314"]
 ];
 
 function renderSocial(){
   const root=clear("socialGrid");
 
-  SOCIAL.forEach(([name,mark,color,url])=>{
-    const a=el("a");
+  for(const [name,sym,color,url] of SOCIAL){
+    const a=n("a");
     a.href=url;
     a.target="_blank";
     a.rel="noopener noreferrer";
 
-    const s=el("span",mark,"social-symbol");
-    s.style.color=color;
+    const icon=n("span",sym);
+    icon.style.cssText="font-size:25px;color:"+color;
 
-    a.append(s,el("strong",name));
+    a.append(icon,n("strong",name));
     root.append(a);
-  });
+  }
 }
 
 /* INITIALIZATION */
+function renderAll(){
+  renderSources();
+  renderNews();
+  renderShows();
+  renderPodcasts();
+  renderMusic();
+  renderArtists();
+  renderVideos();
+  renderEvents();
+  renderSocial();
+}
 
-renderSocial();
 setLanguage("fr");
-refreshFlash();
-loadEditorial();
-checkPodcastFiles();
+$("flashStatus").textContent=t("loading");
+updateNews();
+loadPublished();
+checkPodcasts();
 
 setInterval(()=>{
-  refreshFlash();
-  loadEditorial();
-},REFRESH_MS);
+  updateNews();
+  loadPublished();
+},300000);
 
 })();
 </script>
