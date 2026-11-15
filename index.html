@@ -404,17 +404,19 @@ footer{
   <div class="live-box">
     <img src="pro-max-fm.jpg" class="main-logo" alt="PRO-MAX FM">
     <div><span class="on-air">● ON AIR — PRO-MAX FM</span></div>
+    <!-- Player LIVE entegre: PRO-MAX FM, san redireksyon -->
     <p id="radioStatus" role="status"></p>
-    <audio id="radioPlayer" controls preload="none" src="https://listen.radioking.com/radio/952371/stream/1024056"></audio>
-    <div class="actions">
-      <button id="playBtn" data-i18n="play">▶ ÉCOUTER</button>
-      <button id="stopBtn" data-i18n="stop">■ ARRÊTER</button>
-    </div>
-    <a class="btn"
-       href="https://link.radioking.com/modern-radio192"
-       target="_blank" rel="noopener noreferrer">
-      RADIOKING
-    </a>
+    <iframe
+      id="radioPlayer"
+      title="PRO-MAX FM — LIVE RADIO"
+      src="https://player.radioking.io/modern-radio192/?c=%23ff8c00&amp;c2=%23000000&amp;f=h&amp;i=1&amp;p=1&amp;s=1&amp;li=1&amp;popup=0&amp;plc=0&amp;h=145&amp;l=470&amp;v=2"
+      width="700"
+      height="160"
+      style="display:block;width:100%;max-width:700px;height:160px;margin:16px auto;border:0;border-radius:10px;background:#000"
+      loading="eager"
+      allow="autoplay"
+      referrerpolicy="strict-origin-when-cross-origin"
+    ></iframe>
   </div>
 </section>
 
@@ -676,15 +678,13 @@ footer{
   <p>© 2026 PRO-MAX FM — BSS1815 PRO-MAX DMP</p>
 </footer>
 
+<script src="https://player.radioking.io/scripts/iframe.bundle.js" defer></script>
 <script>
 "use strict";
 
 (() => {
 
 const $ = id => document.getElementById(id);
-
-const STREAM =
-  "https://listen.radioking.com/radio/952371/stream/1024056";
 
 const NEWS_JSON = "news-articles.json";
 const RSS_API = "https://api.rss2json.com/v1/api.json";
@@ -835,6 +835,7 @@ ht:{
   noAudio:"ODYO POKO DISPONIB",
   musicIntro:"Kategori mizik ak Auto DJ.",
   searchMusic:"Chèche kategori...",
+  autoDJ:"Se nan RadioKing yo jere fichye mizik Auto DJ yo.",
   artistsIntro:"Anyè atis ak gwoup mizikal.",
   searchArtist:"Chèche atis...",
   videosIntro:"Chèn piblik, repòtaj ak videyo.",
@@ -993,40 +994,8 @@ function setLanguage(code){
   $("lang-"+k).onclick=()=>setLanguage(k)
 );
 
-/* 01 — LIVE RADIO */
-const player=$("radioPlayer");
-
-$("playBtn").onclick=async()=>{
-  radioStatus="connecting";
-  $("radioStatus").textContent=t(radioStatus);
-
-  if(!player.getAttribute("src"))player.src=STREAM;
-
-  try{
-    await player.play();
-  }catch{
-    radioStatus="error";
-    $("radioStatus").textContent=t(radioStatus);
-  }
-};
-
-$("stopBtn").onclick=()=>{
-  player.pause();
-  player.removeAttribute("src");
-  player.load();
-  radioStatus="stopped";
-  $("radioStatus").textContent=t(radioStatus);
-};
-
-player.addEventListener("playing",()=>{
-  radioStatus="playing";
-  $("radioStatus").textContent=t(radioStatus);
-});
-
-player.addEventListener("error",()=>{
-  radioStatus="error";
-  $("radioStatus").textContent=t(radioStatus);
-});
+/* 01 — LIVE RADIO: player RadioKing entegre nan paj la.
+   Play, pause ak volim se bouton ki sou player entegre a. */
 
 /* 02 — NEWS SOURCES */
 const NEWS=[
